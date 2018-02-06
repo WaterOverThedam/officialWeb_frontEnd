@@ -1,0 +1,17 @@
+{
+	"all":3,
+	"lessons":[
+		{
+		  "name":"funny-bug",
+		  "price":"1000"
+	    },
+	    {
+		  "name":"super-beast",
+		  "price":"2000"
+	    },
+	    {
+		  "name":"kinder-music",
+		  "price":"1500"
+	    }
+    ]
+}

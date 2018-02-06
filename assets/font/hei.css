@@ -1,0 +1,14 @@
+﻿@font-face {
+    font-family: "GD-HEI";
+    src: url("hei.eot"); /* IE9 */
+    src: url("hei.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    
+    url("hei.woff") format("woff"), /* chrome、firefox */
+    url("hei.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    
+    url("hei.svg#hei") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+

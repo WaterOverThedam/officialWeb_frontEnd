@@ -1,130 +1,134 @@
 <template>
- <div>
-
-      <header>
-           <nav class="navbar navbar-tlgc navbar-fixed-top">
-              <div class="container-fluid">
-                         <div class="dropdown">
-                              <span style="font-family:Comic Sans MS;font-size:14px;" data-target="menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
- 
-                                <div class="menu-icon all-blur"></div>
-                              </span>   
-                              <div class="menu-gb" v-show="logShow">
-                                <div id="logo" class="item">
-                                  <img src="/img/index/logo.png" alt="">
-                                </div>
-                                <div class="item link" v-for="(item, index) in navAttr.menu">
-                                  <img src="/img/index/asterisk.png" alt="">
-                                  <a href="#" v-text="item"></a> 
-                                </div>
-                              </div>
-                              <ul id="menu" class="dropdown-menu" >
-                                <li v-for="item of navAttr.menu">
-                                  <a href="" v-text="item"></a>
-                                </li>
-                              </ul>
-                         </div>
-                      
-                        <ul class="gym" >
-                             <li id="find" style=""><a href="#">全国中心</a></li>
-                             <li id="own"  style=""><a href="#">加盟中心</a></li>
-                        </ul>
-     
+ <header>
+  <nav class="navbar navbar-tlgc navbar-fixed-top" :style="{'background-color': bgColor}">
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-1">
               </div>
-            </nav>
-            <Carousel :navAttr="navAttr"></Carousel>
-     </header>
- 
-</div>
+              <div class="col-sm-7">
+                  <div class="logo" style="display:none">
+                    <img src="/img/index/littlegym-logo-desktop.png">
+                  </div>
+              </div>
+              <div class="col-sm-4 text-right">
+                    <ul class="gym" >
+                       <li id="find"><nuxt-link :to="'/service/detail'" class="link" href="#">全国中心</nuxt-link></li>
+                       <li class="dot"></li>
+                       <li id="own"><nuxt-link :to="'/service/detail'" class="link" href="#">加盟中心</nuxt-link></li>
+                    </ul>
+              </div>
+            </div>
+       </div>
+       <div class="dropdown">
+      
+          <div class="menu-icon all-blur" data-target="menu" data-toggle="dropdown" role="button"></div>
+    
+
+          <ul id="menu" class="dropdown-menu" :style="{'background-color': bgColor}">
+            <li class="visible-xs visible-sm top">
+             <img class="home" src="/img/index/tlg-logo-menu.png" alt="">
+             <img class="close-img" src="/img/index/menu-close-icon.png" alt="">
+            </li>
+            <li class="item" v-for="item in menu.content">
+            <nuxt-link class="link" :to="item.value" v-text="item.name">
+            </nuxt-link>
+            </li>
+          </ul>
+       </div>
+    </nav>
+    <component class="menuList" :is="which"></component>  
+ </header>
+
 </template>
 
 <script>
-  
-import Carousel from '~/components/carousel/Carousel.vue'
+import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 
+import MenuList from '~/components/MenuList.vue'
+ 
 export default {
-  props: ["navAttr"], 
+  props:['bgColor'],
   components: {
-    Carousel
+    MenuList
+  },
+  computed:{
+    menu(){
+      return this.$store.state.menu;
+    }
   },
   data(){
     return{
-       logShow: true,
+     viewNow: 'CarouselAll',
+     which: 'MenuList'
+   
     }
   },
   methods: {
-
-      handleScroll () {
-        //console.log(window.scrollY);
-          this.logShow = window.scrollY<80;
-     }
+ 
   },
   mounted () {
  
-   // window.addEventListener('scroll', this.handleScroll);
   }
  }
 </script>
 
-<style scoped>
-   .menu-gb { 
-      margin:0 auto; 
-      top:70px;
-      left: 80px;
-      position: absolute;
-      width: 1020px;
-      //border:3px solid red;
-    }
- 
-    #logo{
-        width: 250px;
-        height: 200px; 
-    }
-    .menu-gb img{      
-       width:auto;
-       height:auto;
-       max-width:100%;
-       max-height:100%;
-       float: left;
-       //border:3px solid blue; 
-    }
-    .menu-gb .item {
-       width: 130px;
-       height: 28px;    
-       color:white;
+<style lang="scss" scoped>
+   $logoH:35px;
+   .menuList{
+     top:15%;
+     left:2%;
+     position:absolute;
+     z-index:300;
+   }
+   .logo{
+       margin-top: 8px;
+       height: $logoH;
        float:left;
-       //border:3px solid blue; 
-       font-size: 16px;
-    }
-    .menu-gb .item  a{
-       display: block;
-       float: left;
-       height: 45px;
-       width: 120px;
-       margin-left: 40px;
-       margin-top: -25px;
-       //border:3px solid red;
-    }
-
-    @media(max-width:768px){
-       .menu-gb {
-        width: 300px;
-        top:8px;
-        left:-480px;
-       }
-       .menu-gb .link{
-         display: none;
-
-       }
-
-    }
-
-  .dropdown{
-     margin-top:5px;
-     width: 100px;
    }
 
-   .all-blur{
+   .dropdown{
+     position:absolute;
+     top:100%;
+     left:0;
+     bottom:0;
+     right:0;
+     margin:0;
+     padding:0;
+     height:100%;
+     //border:3px solid blue;
+   }
+
+  .dropdown div.menu-icon {
+    width: 55px;
+    height: 45px;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: -100%;
+    left:1%;
+    z-index: 113;
+    margin: 4px 0 0 8px;
+    //border:3px solid red;
+    background: url(/img/index/menu_icon.png) 50% center / 95% no-repeat;
+  }
+
+  .dropdown .dropdown-menu{
+     margin:0;
+     padding:0;
+     position:absolute;
+     font-family: 'jian';
+     font-size:2.4em;
+     top:-2%;
+     left:-0.5%;
+  }
+  .dropdown .dropdown-menu li{
+     padding: .5em 1em;
+     padding-left:6%;
+  }
+
+  .all-blur{
+       -webkit-backdrop-filter: blur(1px);
        -webkit-filter: blur(1px); 
        -moz-filter: blur(1px);
        -ms-filter: blur(1px); 
@@ -132,120 +136,116 @@ export default {
        filter: blur(1px);
        filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='1');/* IE6~IE9 */
   }
- .menu-icon{
-    width: 30px;
-    height: 25px;
-    border-top: 5px solid white;
-    border-bottom: 5px solid white;
-    background-color: white;
-    padding: 5px 0;
-    background-clip:content-box;  
-  }
 
-  .dropdown-menu{
-    background-color: #33CCCC;
-  }
-      
-  nav {
-    padding: 0px
-   }
-  body{
-
-     // padding-top:70px;
-  }
-  header { 
-      margin:0px;
-      height: auto;
-  //  border:3px solid red;
-  }
 
  
-  .container-fluid { 
-     background-color: #33CCCC;
-   
-      // border:3px solid blue;
-  }
   .gym li{ 
-   
-    // display: inline-block;
      color:white;
+     padding: 0;
+     margin:0;
+     margin-top: 8px;
+     font-family: 'jian';
      width: 65px;
-    // border:3px solid blue;
+     list-style-type:disc;
+     display: inline-block;
+     text-align: center;
+     vertical-align: middle;
+     //border:3px solid blue;
   }
-  .gym {
-    float: right;
+
+  .gym .dot{
+    height: 4px;
+    width: 4px;
+    margin-left:6px;
+    margin-right:6px;
+    border-radius: 50%;
+    background: white;
+    //border:3px solid blue;
   }
-  nav a,#menu a{
+  .gym{
+    margin:auto 6%;
+  }
+ 
+  nav a {
      color: white;
   }
-  #menu a:hover{ 
-    background-color:#36A6DE;
-  }
+  a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom:-5px;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }         
+  a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1);
+  } 
 
-  @media(min-width:768px){
-    .navbar-header{
-      margin-right:-100px;
-    }
+  #menu a:hover,#menu a:focus{ 
+    color:white;
+    background-color: transparent;
+    //background-color:
+    font-weight: bolder;
   }
-   
-
-  #find{
-   list-style-type:none;margin-top:-18px;margin-left:-80px;
+ 
+  @media screen and (max-width:1024px){
+     .menuList{
+        top:10%;
+     }
   }
-  #own{
-   margin-right:40px;margin-top:-19px;padding:0px;
-  }
-
 
   @media screen and (max-width:768px){
-    .dropdown{
-      top:50px;
-      right: 0px;
-      float: right;
-      z-index: 50003;
+      .dropdown div.menu-icon {
+         right:10%;
+         left:auto;
+         top:0;
+      }
+      .dropdown .dropdown-menu{
+          top:0;
+          right:0;
+          bottom:0;
+          left:0;
+          //height:550px;
+          background:white !important;
+      }
+      .dropdown-menu li {
+          margin:0;
+          padding:0;
+          border-bottom: dashed 2px #a8afd5;
+          text-align:center;
+          display: block;
+          padding: .5em 1em;
+          color: #5160AC;
+          background:white !important;
+      }
+      .dropdown-menu li.top{
+          padding-bottom: 3em;
+      } 
+      .dropdown-menu li a {
+          color: #5160AC;
+      }
+ 
+      .home{
+        float:left;
+        width:129px;
+      }
+      .close-img{
+        width:59px;
+        float:right;
+      }
+
   }
 
-  #find { 
-    list-style-type:none;
-    margin-top:10px;
-    margin-left:-30px;
-  }
-  #own { 
-    margin-top:-19px;
-    margin-left:50px;
-    margin-right:-70px;
-  }
-}
- 
- 
- 
 
-.navbar-tlgc input[type="text"]{
-    background: #313131;
-    border:none;
-    color: #999;
-}
-.navbar-tlgc{
-    margin: 0px;
-}
-.navbar-tlgc button[type="submit"]{
-    position: absolute;
-    top:30%;
-    right: 20px;
-    background: none;
-    border: none;
-} 
-@media(min-width:768px){
-  .navbar-tlgc button[type="submit"]{
-    top:15%;
-  }    
-}
-.navbar-tlgc .glyphicon{
-    color:#999
-}
-.profile{
-    margin-right: 25px;
-}
- 
- 
 </style>

@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "jian";
+    src: url("jian.eot"); /* IE9 */
+    src: url("jian.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    
+    url("jian.woff") format("woff"), /* chrome、firefox */
+    url("jian.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    
+    url("jian.svg#jian") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+
