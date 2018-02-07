@@ -8,7 +8,7 @@
       <div class="row-wrapper waves bg-white"></div>
       <div class="sticky">
           <ul class="hidden-xs secondary-navigation-menu">
-            <li class="item" v-for="c of courses"><a class="link" href="" v-text="c"></a></li>
+            <li class="item" v-for="c of courses"><a class="link" :href="'#'+c.id" v-text="c.name"></a></li>
           </ul>
       </div>
  
@@ -21,7 +21,7 @@
         </div>
         <div class="row body" v-for="(item, index)  in body">
           <div class="parent">
-            <div :title="item.title" class="mod-wall-item"  :class="index%2==0?'left':'right'">
+            <div :id="item.id" :title="item.title" class="mod-wall-item"  :class="index%2==0?'left':'right'">
               <div class="image" :style="{'background':`url(${item.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}" ></div>
               <h2 class="visible-sm visible-xs" v-text="item.name"></h2>
               <video :id="'v'+index" :dataSrc="item.video" controls="controls" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
@@ -94,6 +94,11 @@ export default {
   },
   
   methods: {
+     goToCourse(id){
+       var url = '/course#'+id;
+       alert(url)
+       this.$router.push(url);
+     },
     ...mapMutations([
       "tester"
       ]),

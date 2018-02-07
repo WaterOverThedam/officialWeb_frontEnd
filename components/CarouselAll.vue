@@ -85,7 +85,7 @@ export default {
   position:absolute;
   right:4%;
   bottom:12%;
-  opacity:0.7;  
+  opacity:0.8;  
   //border:3px solid blue;
 }
 video{

@@ -1,19 +1,23 @@
 {    
       "title":"我们的课程",
-      "courses":["亲子运动","亲子舞蹈","亲子球类","学前运动","学龄运动","音乐课","球类运动","舞蹈","空手道"],
+      "courses":[{"id":"pk","name":"亲子运动"},{"id":"dance","name":"亲子舞蹈"},
+        {"id":"ball","name":"亲子球类"},{"id":"prek","name":"学前运动"},
+        {"id":"gras","name":"学龄运动"},
+        {"id":"km","name":"音乐课"},{"id":"pk","name":"球类运动"},
+        {"id":"dance","name":"舞蹈"},{"id":"kara","name":"空手道"}],
       "banner":"/img/course/corpclasswall.png",
       "header":{
         "title":"什么让小小运动馆如此与众不同?",
         "content":["40年来小小运动馆始终专注于儿童早期教育课程的研发，科学、独特的课程体系和教学方法，让孩子在快乐中迅速提高运动能力，孩子更加自信、更加乐于尝试新事物和接受挑战。课程历经数千万家庭和孩子的亲身体验和教学实践的验证。连续６年入选《Entrepreneur》杂志美国国际化特许经营品牌，并被权威杂志《Entrepreneur》评为儿童早期教育优选品牌。","先进的在线教案系统确保每个中心实时享有美国总部不断研发的教案。每2~4 周课程组成一个学习单元，学习某个方面的认知或情感社交―包括字母和单词、颜色、数字和算术、节奏韵律、人体部位、创意表达、分享、纪律、关爱、协作以及情绪控制等。每年两次表演周, 孩子自信地展示在运动、认知和情感社交上的进步，享受成功的快乐。","小小运动馆教授的所有体操技能及其保护方法，以及所有与体操相关的活动，均严格遵循美国体操协会（USAG）的标准，并且同步更新。原创的美式音乐让孩子在丰富而独特的原创音乐中运动、跳舞，自然而然地提高孩子的节奏感和创意表达能力，简单而幽默的英文歌词和指令培养孩子的聆听能力。"]
       },
       "body":[
-        {"title":"A perfect start","name":"亲子班","age":"4个月-3岁","detail":["小虫班（4-10个月）","小鸟班（10-19个月）","怪兽班（19-30个月）","超级怪兽班（30-36个月）"],"pic":"/img/course/wall-parent-child.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":"","videoShow":false},
-        {"title":"Get rolling","name":"学前班","age":"3-6岁","detail":["趣味小虫（3-4岁）","咯咯毛虫（4-5岁）","好朋友（5-6岁）","高级班（3-6岁）"],"pic":"/img/course/wall-gymnastics-pre-k.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":"","videoShow":false},
-        {"title":"A balanced approach","name":"学龄班","age":"6-12岁","detail":["初级班（6-12岁）","中级班（6-12岁）","高级班（6-12岁）","表演班（6-12岁）"],"pic":"/img/course/wall-gymnastics-grade-school.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":"","videoShow":false},
-        {"title":"KINDERMUSIK","name":"音乐课","age":"出生-5岁","detail":["Cuddle & Bounce (0-1岁)","Sing & Play (1-2岁)","Wiggle & Grow (2-3岁)","Laugh & Learn (3-4岁)","Move & Groove (4-5岁)"],"pic":"/img/course/wall-kindermusik.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":"","videoShow":false},
-        {"title":"Do it for kicks","name":"空手道","age":"4-12岁","detail":["小筷子（4-6岁）","小筷子（6-12岁）"],"pic":"/img/course/wall-karate.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":""},
-        {"title":"Go long!","name":"球类运动","age":"3-6岁","detail":["小小杰克（3-4岁）","高手杰克（4-6岁）"],"pic":"/img/course/wall-sports-skills.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":"","videoShow":false,"videoShow":false},
-        {"title":"Tap you toes","name":"舞蹈班","age":"3-12岁","detail":["爵士小虫（3-4岁）","咯咯脚趾（4-5岁）","完美跳跃（5-6岁）","爵士飞跃（6-12岁）","脚尖旋转（6-12岁）"],"pic":"/img/course/wall-dance.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":"","videoShow":false}
+        {"id":"pk","title":"A perfect start","name":"亲子班","age":"4个月-3岁","detail":["小虫班（4-10个月）","小鸟班（10-19个月）","怪兽班（19-30个月）","超级怪兽班（30-36个月）"],"pic":"/img/course/wall-parent-child.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":"","videoShow":false},
+        {"id":"prek","title":"Get rolling","name":"学前班","age":"3-6岁","detail":["趣味小虫（3-4岁）","咯咯毛虫（4-5岁）","好朋友（5-6岁）","高级班（3-6岁）"],"pic":"/img/course/wall-gymnastics-pre-k.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":"","videoShow":false},
+        {"id":"gras","title":"A balanced approach","name":"学龄班","age":"6-12岁","detail":["初级班（6-12岁）","中级班（6-12岁）","高级班（6-12岁）","表演班（6-12岁）"],"pic":"/img/course/wall-gymnastics-grade-school.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":"","videoShow":false},
+        {"id":"km","title":"KINDERMUSIK","name":"音乐课","age":"出生-5岁","detail":["Cuddle & Bounce (0-1岁)","Sing & Play (1-2岁)","Wiggle & Grow (2-3岁)","Laugh & Learn (3-4岁)","Move & Groove (4-5岁)"],"pic":"/img/course/wall-kindermusik.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":"","videoShow":false},
+        {"id":"kara","title":"Do it for kicks","name":"空手道","age":"4-12岁","detail":["小筷子（4-6岁）","小筷子（6-12岁）"],"pic":"/img/course/wall-karate.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":""},
+        {"id":"ball","title":"Go long!","name":"球类运动","age":"3-6岁","detail":["小小杰克（3-4岁）","高手杰克（4-6岁）"],"pic":"/img/course/wall-sports-skills.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":"","videoShow":false,"videoShow":false},
+        {"id":"dance","title":"Tap you toes","name":"舞蹈班","age":"3-12岁","detail":["爵士小虫（3-4岁）","咯咯脚趾（4-5岁）","完美跳跃（5-6岁）","爵士飞跃（6-12岁）","脚尖旋转（6-12岁）"],"pic":"/img/course/wall-dance.jpg","video":"http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4","videoSrc":"","videoShow":false}
       
       ],
       "rdColor":["#32CACB","#5160AC"],
