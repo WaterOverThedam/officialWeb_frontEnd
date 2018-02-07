@@ -18,6 +18,7 @@ module.exports = {
     script: [
         {src: '/ui/jquery-3.2.1.min.js'},
         {src: '/ui/bootstrap/js/bootstrap.min.js'},
+        {src: '/js/jquery.stickytableheaders.min.js'},
         {src: '/js/tlgc.js'}
     ] 
   },
