@@ -4,9 +4,12 @@
 	var origOffsetY = sticky.offset().top;  
 	
 	  
-	function stickyHeader(e) {  
-       // window.scrollY >= origOffsetY ? sticky.classList.add('fixed'):sticky.classList.remove('fixed');  
-		var point = window.scrollY||pageYOffset;
+	function stickyHeader(e) { 
+	//js
+	    //var point = window.scrollY||pageYOffset; 
+        // window.scrollY >= origOffsetY ? sticky.classList.add('fixed'):sticky.classList.remove('fixed');  
+	//使用jq
+		var point = $(window).scrollTop()
 		point >= origOffsetY? sticky.addClass("fixed"):sticky.removeClass("fixed")
 	}  
 	$(window).scroll(function() {
