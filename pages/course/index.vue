@@ -2,10 +2,10 @@
  <div> 
     <MyNav :bgColor="bgColor[counterNow]"></MyNav>
     <main>
-      <div id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
+      <div @click="goToCourse" id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
           <p v-text="title"></p>  
       </div>
-      <div class="row-wrapper waves bg-white"></div>
+      <Waves></Waves>
       <div class="sticky">
           <ul class="hidden-xs secondary-navigation-menu">
             <li class="item" v-for="c of courses"><a class="link" :href="'#'+c.id" v-text="c.name"></a></li>
@@ -40,9 +40,9 @@
           </div>
         </div>
       </div>
-
+      <MyMedia></MyMedia>
     </main>
-    <MyMedia></MyMedia>
+    
     <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
 
  </div>
@@ -52,11 +52,8 @@
 import courses from './courses'
 import Round from '~/components/Round.vue'
 import MyNav from '~/components/MyNav.vue'
-import CarouselAll from '~/components/CarouselAll.vue'
-import BallMediaL from '~/components/BallMediaL.vue'
-import BallMediaR from '~/components/BallMediaR.vue'
+import Waves from '~/components/Waves.vue'
 import MyMedia from '~/components/MyMedia.vue'
-import CourseBrief from '~/components/CourseBrief.vue'
 import MyFooter from '~/components/MyFooter.vue'
 import { mapMutations } from 'vuex'
 import { mapActions } from 'vuex'
@@ -84,20 +81,16 @@ export default {
   },
   components: {
     Round,
-    CarouselAll,
+    Waves,
     MyNav,
-    BallMediaL,
-    BallMediaR,
     MyMedia,
-    CourseBrief,
     MyFooter
   },
   
   methods: {
-     goToCourse(id){
-       var url = '/course#'+id;
-       alert(url)
-       this.$router.push(url);
+     goToCourse(){
+ 
+       this.$router.push("#ball");
      },
     ...mapMutations([
       "tester"
@@ -287,9 +280,6 @@ export default {
 .bg-white {
     background: #fff;
 }
-
-
-
 
 .waves:before {
     position: absolute;

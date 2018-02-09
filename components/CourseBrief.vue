@@ -101,7 +101,7 @@ img{
 }
 .title {
     padding:30px 40px;
-    height:200px;
+    height:250px;
     font-size: 44px;
     color: #515E9A;
 }

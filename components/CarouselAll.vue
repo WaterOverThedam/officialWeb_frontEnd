@@ -97,20 +97,20 @@ video{
   object-fit: cover;
   display:none;
 }
- .row-wrapper::after {
+.row-wrapper::after {
     clear: both;
     content: "";
     display: table;
- }
- .menu .item a{
+}
+.menu .item a{
     background: transparent;
     transition: color 0.1s linear;
- }
- .menu .item a:hover{
+}
+.menu .item a:hover{
     text-decoration: none;
     font-weight: 500;
     color: #5160AC;
- }
+}
 .chevron-btm:after {
     position: absolute;
     bottom: -10px;

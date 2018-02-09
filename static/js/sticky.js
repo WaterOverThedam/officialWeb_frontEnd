@@ -1,4 +1,4 @@
-﻿$(document).ready(function () { //本人习惯这样写了
+﻿$(document).ready(function () { 
 	//var sticky = document.querySelector('.sticky');  
 	var sticky =$(".sticky");
 	var origOffsetY = sticky.offset().top;  

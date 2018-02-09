@@ -13,12 +13,9 @@
 
 <script>
 export default {
+  props:['gym'],
   data () {
     return {
-      gym: {
-        name:"小小运动馆太阳宫爱琴海中心",
-        position:{lng: 116.443454,lat: 39.978071}
-      },
       zoom: 16
     }
   },
