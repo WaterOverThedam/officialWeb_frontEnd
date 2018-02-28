@@ -10,7 +10,7 @@ const createStore = () => {
               {name:"派对和夏冬令营",value:"/camp"},
               {name:"微信微博",value:"/wei"},
               {name:"家长点评",value:"/comment"},
-              {name:"我们的故事",value:"/us"}
+              {name:"我们的故事",value:"/story"}
            ]
         },
         counter: parseInt(Math.random()*10000),

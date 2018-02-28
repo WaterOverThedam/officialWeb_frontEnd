@@ -2,6 +2,11 @@ body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";font-siz
 #l-map{height:300px;width:100%;}
 #r-result{width:100%;}
 
+@media(max-width:970px){
+  body, html{font-size:9px;}
+
+}
+
   /*声明 WebFont*/
 
   @font-face

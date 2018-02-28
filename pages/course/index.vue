@@ -2,43 +2,192 @@
  <div> 
     <MyNav :bgColor="bgColor[counterNow]"></MyNav>
     <main>
-      <div @click="goToCourse" id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
+      <div @click="goToCourse" id="banner" :style="{'background':`url(${imgs.banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
           <p v-text="title"></p>  
       </div>
       <Waves></Waves>
+      <!-- 导航栏 -->
       <div class="sticky">
-          <ul class="hidden-xs secondary-navigation-menu">
-            <li class="item" v-for="c of courses"><a class="link" :href="'#'+c.id" v-text="c.name"></a></li>
-          </ul>
+            <div class="move"><img id="move" :src="imgs.move" alt=""></div>
+            <div class="age"><img :src="imgs.ageduring" alt=""></div>
       </div>
  
-      <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 header">
-                <h1 class="media-heading" v-text="header.title"></h1>
-                <p  v-for="c of header.content" v-text="c"></p>
+      <div class="container">
+        <!-- 亲子运动 -->
+        <div class="row course1">
+          <div class="title">
+            <span class="h" v-text="txt.p1.title"></span>
+            <span class="hz">
+              <img :src="imgs.course1.hz_03" alt="">
+            </span>
+          </div>
+          <div class="text">
+            <span class="first" v-text="txt.p1.first"></span>
+            <span v-text="txt.p1.content"></span>
+          </div>
+          <div class="middle clearfix">
+            <div class="col-sm-5 ">
+              <div class="m_title ">
+                <span>
+                  <img class="rec" :src="imgs.record" alt="">
+                </span>
+                <p class="p1" v-text="txt.p1.h1"></p>
+              </div>
+            
+              <ul>
+                <li>
+                  <img  class="half l_12"  :src="imgs.halfbadge" alt="">
+                  <span class="three" v-text="txt.p1.classname1"></span>
+                </li>
+                <li>
+                  <img class="l_10" :src="imgs.badge" alt="">
+                  <span class="three" v-text="txt.p1.classname2"></span>
+                </li>
+                <li>
+                  <img class="half l_7" :src="imgs.halfbadge" alt="">
+                  <img class="l_10" :src="imgs.badge" alt="">
+                  <span class="three" v-text="txt.p1.classname3"></span>
+                </li>
+                <li>
+                  <img class="l_5" :src="imgs.badge" alt="">
+                  <img class="l_10" :src="imgs.badge" alt="">
+                  <span v-text="txt.p1.classname4"></span>
+                </li>
+              </ul>
             </div>
-        </div>
-        <div class="row body" v-for="(item, index)  in body">
-          <div class="parent">
-            <div :id="item.id" :title="item.title" class="mod-wall-item"  :class="index%2==0?'left':'right'">
-              <div class="image" :style="{'background':`url(${item.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}" ></div>
-              <h2 class="visible-sm visible-xs" v-text="item.name"></h2>
-              <video :id="'v'+index" :dataSrc="item.video" controls="controls" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
-            </div>
-            <div class="hidden-sm hidden-xs content-item" :class="index%2==1?'left':'right'">
-               <Round :age="item.age" :rdColor="rdColor[index%2]"></Round>
-               <div class="content">
-                 <h1 v-text="item.name"></h1>
-                 <div class="detail">
-                   <p v-for="d in item.detail" v-text="d"></p>
-                 </div>
-                 <p class="link"><nuxt-link :to="'/service/detail'" class="view" v-text="btn.name" :style="{'background':`url(${btn.url}) no-repeat`,'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100%'}"></nuxt-link>
-                 </p>
+          
+            <img class="col-sm-7" :src="imgs.course1.course_1_0" alt="">
+          
+          </div>
+          <div class="bottom">
+            <ul>
+             <li v-for="(item,index) in imgs.course1.course_1">
+               <img :src="item.pic" alt="">
+               <div class="CourseName" :class="index%2==1?'left':'right'">
+                  <img :src="imgs.course1.show" :class="index==2?'show':'hidden'" alt="">
+                  <p class="name" v-text="item.names"></p>
+                  <p class="age" v-text="item.age"></p>
                </div>
-            </div>
+               </li>
+            </ul>
           </div>
         </div>
+
+        <!-- 学前运动 -->
+        <div class="row course2">
+           <div class="title">
+              <span class="h" v-text="txt.p2.title"></span>
+              <span class="hz">
+                <img :src="imgs.course2.hz_36" alt="">
+              </span>  
+           </div>
+          <div class="text">
+            <span class="first" v-text="txt.p2.first"></span>
+            <span v-text="txt.p2.content"></span>
+          </div>
+            <div class="middle clearfix">
+               
+                 <img class="col-sm-7" :src="imgs.course2.course_2_0" alt="">
+              
+               <span class="col-sm-5">
+               <p class="p2" v-text="txt.p2.h1"></p>
+              <ul class="ul2">
+                <li>
+                <img class="half l_12" :src="imgs.halfbadge" alt="">
+                <span  v-text="txt.p2.classname1"></span>
+              </li>
+              <li>
+                <img class="l_10" :src="imgs.badge" alt="">
+                <span v-text="txt.p2.classname2"></span>
+              </li>
+              <li>
+                <img class="half l_7" :src="imgs.halfbadge" alt="">
+                <img class="l_10" :src="imgs.badge" alt="">
+                <span v-text="txt.p2.classname3"></span>
+              </li>
+              <li>
+                <img class="l_5" :src="imgs.badge" alt="">
+                <img class="l_10" :src="imgs.badge" alt="">
+                <span v-text="txt.p2.classname4"></span>
+              </li>
+               <li>
+                <img class="half l_2" :src="imgs.halfbadge" alt="">
+                <img class="l_5" :src="imgs.badge" alt="">
+                <img class="l_10" :src="imgs.badge" alt="">
+                <span v-text="txt.p2.classname5"></span>
+              </li>
+              </ul>
+               </span>
+
+            </div>
+            <div class="bottom">
+              <ul>
+                <li v-for="(item,index) in imgs.course2.course_2"  >
+                  <img :src="item.pic" alt="">
+                  <div class="CourseName" :class="index%2==1?'right':'left'">
+                  <p class="name" v-text="item.names"></p>
+                  <p class="age" v-text="item.age"></p>
+                  </div>
+                  </li>
+              </ul>
+            </div>
+        </div>
+
+        <!-- 学龄运动 -->
+        <div class="row course3">
+           <div class="title">
+              <span class="h" v-text="txt.p3.title"></span>
+              <span class="hz">
+                <img :src="imgs.course3.hz_612" alt="">
+              </span> 
+           </div>
+          <div class="text">
+            <span class="first" v-text="txt.p3.first"></span>
+            <span v-text="txt.p3.content"></span>
+          </div>
+            <div class="middle clearfix">
+               <span class="col-sm-5">
+                 <p v-text="txt.p3.h1"></p>
+                 <ul class="ul3">
+                    <li>
+                      <img class="half l_32" :src="imgs.halfbadge" alt="">
+                      <span v-text="txt.p3.classname1"></span>
+                    </li>
+                    <li>
+                      <img class="l_30" :src="imgs.badge" alt="">
+                      <span v-text="txt.p3.classname2"></span>
+                    </li>
+                    <li>
+                      <img class="half l_27" :src="imgs.halfbadge" alt="">
+                      <img class="l_30" :src="imgs.badge" alt="">
+                      <span v-text="txt.p3.classname3"></span>
+                    </li>
+                    <li>
+                      <img class="l_24" :src="imgs.badge" alt="">
+                      <img class="l_30" :src="imgs.badge" alt="">
+                      <span v-text="txt.p3.classname4"></span>
+                    </li>
+                 </ul>
+               </span>
+               
+               <img class="col-sm-7" :src="imgs.course3.course_3_0" alt="">
+               
+            </div>
+            <div class="bottom">
+              <ul>
+                <li v-for="(item,index) in imgs.course3.course_3" >
+                  <img :src="item.pic" alt="">
+                  <div class="CourseName" :class="index%2==1?'left':'right'">
+                  <p class="name" v-text="item.names"></p>
+                  <p class="age" v-text="item.age"></p>
+                  </div>
+                  </li>
+              </ul>
+            </div>
+        </div>
+
+
+
       </div>
       <MyMedia></MyMedia>
     </main>
@@ -107,6 +256,7 @@ export default {
 </script>
 
 <style scoped>
+
  .image{
    position:absolute;
    cursor:pointer;
@@ -120,7 +270,8 @@ export default {
    width:100%;
    margin-top:3%;
    padding-top:29%;
-   //height: 100%;
+  padding-bottom:8em;
+   /* height: 100%; */
 }
  
 #banner p{
@@ -129,8 +280,8 @@ export default {
    font-family: 'GD-HEI';
    font-size: 100px;
    color:white;
-   top:30%;
-   bottom:0;
+   top:3em;
+   /* bottom:70%; */
    left:0;
    right:0;
    margin:auto;
@@ -161,10 +312,211 @@ export default {
     z-index:101;
 }  
 .sticky {  
-    width: 100%;   
+    width: 100%;  
+    padding-top:4em;
+    cursor: pointer;
+}
+.sticky .move img {
+  width: 5%;
+  margin-left: 8%;
 }  
+.sticky .age img{
+  width: 100%;
+
+}
 
 
+.title {
+  /* border: 1px solid; */
+  height: 8%;
+  position: relative;
+}
+.title .h{
+  font-size:3.6em;
+  color: #AACA20;
+  height: 100%;
+}
+.title .hz {
+  margin-left: 2%;
+  width: 15%;
+}
+.title .hz img{
+  width: 4.5em;
+  position: absolute;
+  top:8%;
+
+}
+.text{
+  margin-top:2%;
+  font-size: 1.8em;
+}
+.text .first{
+  color: #63D6D0;
+}
+.text span:nth-child(2){
+  color: #B2B2B2;
+}
+.middle {
+  margin:3% 0;
+}
+.middle .col-sm-7,.col-sm-5 {
+  padding: 0;
+}
+.middle .rec {
+  width: 4em;
+  float: left;
+  margin-right: 3%;
+  padding-bottom: 2%;
+  margin-top: 1%;
+}
+.middle p {
+  font-size: 3.0em;
+  text-align: center;
+  color: #C5D400;
+ 
+  letter-spacing: 0.2em;
+}
+.middle ul{
+  padding:0;
+  margin-top: 3%;
+}
+.middle li{
+  font-size: 2.0em;
+  /* font-weight:800; */
+  color: #6571AD;
+  margin-right: 4%;
+  line-height: 120%;
+  padding-left: 15%;
+  margin-top: 2%;
+}
+
+/* 徽章图片定位 */
+.middle li .l_10{
+  left: 10%;
+}
+.middle li .l_5{
+  left: 5%;
+}
+
+.middle li .l_2{
+  left:2%;
+}
+.middle li .l_12{
+  left:12%;
+}
+.middle li .l_7{
+  left:7%;
+}
+.middle li .l_30{
+  left:30%;
+}
+.middle li .l_24{
+  left:24%;
+}
+.middle li .l_27{
+  left: 27%;
+}
+.middle li .l_32{
+  left: 32%;
+}
+
+/* 手机屏幕 */
+@media screen and (max-width: 767px){
+  .middle li .l_12{
+    left:2.5em;
+  }
+  .middle li .l_32{
+    left: 7em;
+  }
+  .middle li .l_30{
+    left:6.6em;
+  }
+  .middle li .l_27{
+    left: 6em;
+  }
+  .middle li .l_24{
+    left:5.7em;
+  }
+  .middle li .l_10{
+    left: 2.2em;
+  }
+  .middle li .l_7{
+    left:1.6em;
+  }
+  .middle li .l_5{
+    left: 1.3em;
+  }
+  .middle li .l_2{
+    left:0.8em;
+  }
+
+}
+
+
+.middle li img{
+  position: absolute;
+  width: 0.8em ;
+  left:0;
+  max-width: 30px;
+}
+.middle li .half{
+  width:0.4em;
+}
+.middle .ul3 li {
+  margin-right: 40%;
+  text-align: center;
+  padding-left: 35%;
+}
+.middle li span {
+  margin-left: 2%;
+}
+.middle .p1 {
+  display: inline;
+ 
+
+}
+
+.bottom ul,li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.bottom li {
+  margin-bottom: 3%;
+  position: relative;
+}
+
+.bottom li img{
+  width: 100%;
+}
+.bottom li .CourseName {
+  /* border: 1px solid red; */
+  position: absolute;
+  top: 30%;
+  text-align: center;
+  font-size: 2.4em;
+  font-weight: 600;
+  
+
+}
+.bottom li .CourseName .name{
+  color: #B1D031;
+  width: 7em;
+}
+.bottom li .CourseName .age{
+  color: #5C6AA8;
+}
+.bottom li .show{
+  display: block;
+  width:2em;
+  position: absolute;
+  left: -2.2em;
+}
+
+
+
+
+/* ====================分割线=================== */
  
 .parent{
   padding:0;
@@ -173,13 +525,13 @@ export default {
   padding-bottom:36%;
   overflow:hidden;
   background-color:#F5FBFE;
-  //border:3px solid yellow;
+  /* //border:3px solid yellow; */
 }
 .mod-wall-item{
    position:absolute;
    height: 100%;
    width:58.8%;
-   //border:3px solid blue;
+   /* //border:3px solid blue; */
 }
 .mod-wall-item video{
   position:absolute;
@@ -209,13 +561,18 @@ export default {
   width:41.2%;
 }
 .left{
-  left:0;
-  right:auto;
+  left:10%;
+ 
 }
 .right{
-  right:0;
-  left:auto;
+  right:2em;
 }
+
+.hide{
+  display: none;
+}
+
+
 @media (max-width:992px){
   .mod-wall-item{
      width:100%;
@@ -260,7 +617,7 @@ export default {
     padding:14px 14px 18px 12px;
     text-align:center;
 
-    //border:3px solid blue;
+    /* //border:3px solid blue; */
 }
 .row{
   padding:0;
@@ -295,10 +652,6 @@ export default {
     height: 44px;
 }
 
-
-
-
-
 @media (max-width: 1200px){
   .body{
     font-size:9px;
@@ -311,7 +664,20 @@ export default {
 
 }
 
- 
+@media screen and (max-width: 767px){
+.bottom li .CourseName {
+    font-size: 1.4em;
+    
+}
+.bottom li .CourseName .name{
+   width: 5em;
+}
+.right {
+  right:3em;
+  }
+}
+
+
 @media screen and (max-width: 768px){
   .body{
     font-size:15px;
@@ -326,7 +692,9 @@ export default {
   }
   #banner{
     padding-top:48%;
+    padding-bottom: 2em;
   }
+
 }
   
 

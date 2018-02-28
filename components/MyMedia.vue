@@ -2,39 +2,6 @@
  
 <section>
     <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-5 text-center  col-md-push-7 media-object">
-             <p class=""><img :src="comment.picUrl" alt="..."></p>
-          </div>
-         <div class="col-md-7  col-md-pull-5">
-           <h1 class="media-heading text-center title">{{comment.title}}</h1>
-           <div class="row media-body">
-                 <div class="col-sm-3 col-md-3 col-lg-3 col-xs-2 text-right left-icon">
-                     <p><img :src="quotes[0]" height="52" width="72"/></p>
-                 </div>
-                 <div class="col-sm-6 col-md-6 col-lg-6 col-xs-8">
-                     <div class="row">
-                         <div class="col-sm-12 content">
-                             <p> {{comment.content}} </p>
-                         </div>
-                     </div>
-                     <div class="row">
-                         <div class="col-sm-12 text-center">
-                             <p><img :src="btn_comment.url" height="63" width="254"/></p>
-                             <p><span class="btn-name" v-text="btn_comment.name"></span></p>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-sm-3 col-md-3 col-lg-3 col-xs-2 text-left right-icon">
-                     <p><img :src="quotes[1]" height="52" width="69"/></p>
-                 </div>
-             </div>
-         </div>
-
-      </div>
-    </div>
-
-    <div class="container-fluid">
         <div class="row image" :style="{'background':`url(${media_Bottom.url})`,'background-size':'cover','-webkit-background-size':'100%'}">
             <div class="col-sm-12" >  
                 <h1 class="media-heading text-center our-gym" v-text="media_Bottom.title"></h1>
