@@ -1,17 +1,17 @@
 <template>
- <div> 
+ <div>
     <MyNav :bgColor="bgColor[counterNow]"></MyNav>
     <main>
-      <div @click="goToCourse" id="banner" :style="{'background':`url(${imgs.banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
-          <p v-text="title"></p>  
+      <div @click="goToCourse" id="banner" :style="{'background':`url(${imgs.banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+          <p v-text="title"></p>
       </div>
       <Waves></Waves>
       <!-- 导航栏 -->
-      <div class="sticky">
+      <div :class="{'hidden-xs':true,'sticky':true,'fixed':isfixed}">
             <div class="move"><img id="move" :src="imgs.move" alt=""></div>
             <div class="age"><img :src="imgs.ageduring" alt=""></div>
       </div>
- 
+
       <div class="container">
         <!-- 亲子运动 -->
         <div class="row course1">
@@ -33,7 +33,7 @@
                 </span>
                 <p class="p1" v-text="txt.p1.h1"></p>
               </div>
-            
+
               <ul>
                 <li>
                   <img  class="half l_12"  :src="imgs.halfbadge" alt="">
@@ -55,9 +55,9 @@
                 </li>
               </ul>
             </div>
-          
+
             <img class="col-sm-7" :src="imgs.course1.course_1_0" alt="">
-          
+
           </div>
           <div class="bottom">
             <ul>
@@ -79,16 +79,16 @@
               <span class="h" v-text="txt.p2.title"></span>
               <span class="hz">
                 <img :src="imgs.course2.hz_36" alt="">
-              </span>  
+              </span>
            </div>
           <div class="text">
             <span class="first" v-text="txt.p2.first"></span>
             <span v-text="txt.p2.content"></span>
           </div>
             <div class="middle clearfix">
-               
+
                  <img class="col-sm-7" :src="imgs.course2.course_2_0" alt="">
-              
+
                <span class="col-sm-5">
                <p class="p2" v-text="txt.p2.h1"></p>
               <ul class="ul2">
@@ -139,7 +139,7 @@
               <span class="h" v-text="txt.p3.title"></span>
               <span class="hz">
                 <img :src="imgs.course3.hz_612" alt="">
-              </span> 
+              </span>
            </div>
           <div class="text">
             <span class="first" v-text="txt.p3.first"></span>
@@ -169,9 +169,9 @@
                     </li>
                  </ul>
                </span>
-               
+
                <img class="col-sm-7" :src="imgs.course3.course_3_0" alt="">
-               
+
             </div>
             <div class="bottom">
               <ul>
@@ -186,12 +186,10 @@
             </div>
         </div>
 
-
-
       </div>
       <MyMedia></MyMedia>
     </main>
-    
+
     <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
 
  </div>
@@ -211,9 +209,8 @@ export default {
   head:{
     title:"我们的课程",
     script: [
-        {src: '/js/sticky.js'},
-        {src: '/js/course.js'}
-    ] 
+      {src: '/js/course.js'}
+    ]
   },
   computed:{
     bgColor(){
@@ -221,10 +218,15 @@ export default {
     },
     counterNow(){
       return parseInt(this.$store.state.counter/600)%this.bgColor.length;
+    },
+    originY(){
+      return document.querySelector('.sticky').offsetTop
     }
+
   },
   data () {
     return {
+      isfixed:false,
       ...courses
     }
   },
@@ -235,10 +237,19 @@ export default {
     MyMedia,
     MyFooter
   },
-  
+
   methods: {
+     stickyHeader(){
+       var point = window.scrollY||pageYOffset;
+       if(point> this.originY){
+         this.isfixed=true;
+       }else{
+         this.isfixed=false;
+       }
+       //console.log(this.originY+":"+point)
+       //console.log(this.isfixed)
+     },
      goToCourse(){
- 
        this.$router.push("#ball");
      },
     ...mapMutations([
@@ -249,9 +260,12 @@ export default {
       ])
   },
   mounted(){
+    window.addEventListener('scroll',this.stickyHeader);
+  },
+  destroyed(){
+    window.removeEventListener('scroll',this.stickyHeader);
+  }
 
-  } 
- 
 }
 </script>
 
@@ -273,7 +287,7 @@ export default {
   padding-bottom:8em;
    /* height: 100%; */
 }
- 
+
 #banner p{
    position:absolute;
    color:white;
@@ -300,26 +314,26 @@ export default {
 .header p{
   font-size:1.2em;
 }
- 
-.header p   { text-indent:2em   }   
+
+.header p   { text-indent:2em   }
 
 
 
-.fixed {  
-    position: fixed;  
-    top: 0;  
+.fixed {
+    position: fixed;
+    top: 0;
     background: #F5FBFE;
     z-index:101;
-}  
-.sticky {  
-    width: 100%;  
+}
+.sticky {
+    width: 100%;
     padding-top:4em;
     cursor: pointer;
 }
 .sticky .move img {
   width: 5%;
   margin-left: 8%;
-}  
+}
 .sticky .age img{
   width: 100%;
 
@@ -373,7 +387,7 @@ export default {
   font-size: 3.0em;
   text-align: center;
   color: #C5D400;
- 
+
   letter-spacing: 0.2em;
 }
 .middle ul{
@@ -472,7 +486,7 @@ export default {
 }
 .middle .p1 {
   display: inline;
- 
+
 
 }
 
@@ -496,7 +510,7 @@ export default {
   text-align: center;
   font-size: 2.4em;
   font-weight: 600;
-  
+
 
 }
 .bottom li .CourseName .name{
@@ -517,7 +531,7 @@ export default {
 
 
 /* ====================分割线=================== */
- 
+
 .parent{
   padding:0;
   position:relative;
@@ -538,7 +552,7 @@ export default {
   top:0;
   left:0;
   width:100%;
-  height:100%; 
+  height:100%;
   object-fit: fill;
   display:none;
 }
@@ -562,7 +576,7 @@ export default {
 }
 .left{
   left:10%;
- 
+
 }
 .right{
   right:2em;
@@ -588,7 +602,7 @@ export default {
   top:0;
   right:0;
   bottom:0;
-  left:0; 
+  left:0;
   margin:auto;
   //border:3px solid blue;
 }
@@ -609,7 +623,7 @@ export default {
 .body .link{
   margin-top:8%;
 }
- 
+
 .body .view{
     font-size:1.5em;
     color: #59CECF;
@@ -623,13 +637,13 @@ export default {
   padding:0;
   margin:2% 0;
 }
- 
- 
+
+
 .mod-wall-item,.content-item{
   padding-left:0;
   padding-right:0;
 }
- 
+
 .row-wrapper {
     position: relative;
     display: block;
@@ -667,7 +681,7 @@ export default {
 @media screen and (max-width: 767px){
 .bottom li .CourseName {
     font-size: 1.4em;
-    
+
 }
 .bottom li .CourseName .name{
    width: 5em;
@@ -696,7 +710,7 @@ export default {
   }
 
 }
-  
+
 
 .secondary-navigation-menu a:before {
   content: "";
@@ -713,28 +727,28 @@ export default {
   -webkit-transition: all 0.3s ease-in-out 0s;
   -o-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
-}         
+}
 
 .secondary-navigation-menu a:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   -o-transform: scaleX(1);
   transform: scaleX(1);
-}   
- 
+}
+
 a:hover{
   text-decoration: none;
   font-weight: bolder;
   color: #33CCCC;
 }
 
- 
+
  .secondary-navigation-menu {
     clear: both;
     display: block;
     margin: 0;
-    padding-top: 6%; 
-    padding-bottom: 2%; 
+    padding-top: 6%;
+    padding-bottom: 2%;
     overflow: visible;
     width: 100%;
     font-weight: 500;
@@ -746,7 +760,7 @@ a:hover{
    list-style-type: none
  }
 
- 
+
  .secondary-navigation-menu li{
     padding:0;
     margin:0;
@@ -759,8 +773,8 @@ a:hover{
     text-decoration: none;
     //border:1px solid red;
  }
- 
 
 
- 
+
+
 </style>
