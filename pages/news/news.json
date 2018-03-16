@@ -1,0 +1,30 @@
+{
+    "banner":"/img/news/banner.jpg",
+    "cloud":"/img/news/clouds.png",
+    "next":"/img/news/NextArrow.png",
+    "pre":"/img/news/PreArrow.png",
+    "close":"/img/news/close.png",
+    "alertyellow":"/img/news/alert_yellow.png",
+    "line":"/img/news/line.png",
+    "pic":"/img/news/newtop.jpg",
+    "border":"/img/news/border.png",
+    "temptitle":"朋友推荐月活动与好友分享送好礼",
+
+    "nav":[
+        {"title":"新闻","pic":"/img/news/nav_yellow.png"},
+        {"title":"中心动态","pic":"/img/news/nav_blue.png"},
+        {"title":"活动","pic":"/img/news/nav_green.png"}
+    ],
+    "body":[
+        {"title":"朋友推荐月活动与好友分享送好礼","pic":"/img/news/newtop.jpg","line":"/img/news/line.png","p1":"新年伊始,除了很多祝福","p2":"我们还准备课很多礼物给你和你的好友","p3":"全部都在【朋友推荐月】活动!","p4":"美好的事物当然值得好朋友一起分享","p5":"是时候召唤好友了!"},
+        {"title":"朋友推荐月活动与好友分享送好礼","pic":"/img/news/newtop.jpg","line":"/img/news/line.png","p1":"新年伊始,除了很多祝福","p2":"我们还准备课很多礼物给你和你的好友","p3":"全部都在【朋友推荐月】活动!","p4":"美好的事物当然值得好朋友一起分享","p5":"是时候召唤好友了!"},
+        {"title":"朋友推荐月活动与好友分享送好礼","pic":"/img/news/newtop.jpg","line":"/img/news/line.png","p1":"新年伊始,除了很多祝福","p2":"我们还准备课很多礼物给你和你的好友","p3":"全部都在【朋友推荐月】活动!","p4":"美好的事物当然值得好朋友一起分享","p5":"是时候召唤好友了!"},
+        {"title":"朋友推荐月活动与好友分享送好礼","pic":"/img/news/newtop.jpg","line":"/img/news/line.png","p1":"新年伊始,除了很多祝福","p2":"我们还准备课很多礼物给你和你的好友","p3":"全部都在【朋友推荐月】活动!","p4":"美好的事物当然值得好朋友一起分享","p5":"是时候召唤好友了!"},
+        {"title":"朋友推荐月活动与好友分享送好礼","pic":"/img/news/newtop.jpg","line":"/img/news/line.png","p1":"新年伊始,除了很多祝福","p2":"我们还准备课很多礼物给你和你的好友","p3":"全部都在【朋友推荐月】活动!","p4":"美好的事物当然值得好朋友一起分享","p5":"是时候召唤好友了!"},
+        {"title":"朋友推荐月活动与好友分享送好礼","pic":"/img/news/newtop.jpg","line":"/img/news/line.png","p1":"新年伊始,除了很多祝福","p2":"我们还准备课很多礼物给你和你的好友","p3":"全部都在【朋友推荐月】活动!","p4":"美好的事物当然值得好朋友一起分享","p5":"是时候召唤好友了!"}
+
+    ]
+    
+
+
+}

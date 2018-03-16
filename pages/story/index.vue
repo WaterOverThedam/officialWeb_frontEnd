@@ -1,5 +1,5 @@
 <template>
-	<div class="test">
+	<div class="story">
 		<MyNav :bgColor="bgColor[counterNow]"></MyNav>
         <main>
             <div @click="goToCourse" id="banner" :style="{'background':`url(${imgs.bannertop}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
@@ -106,7 +106,7 @@
     import { mapActions } from 'vuex'
     export default {
         head:{
-            title:"我们的故事",
+            title:"品牌故事",
             script:[
                 {src: '/js/sticky.js'},
                 {src: '/js/story.js'}  
@@ -152,7 +152,9 @@
     }
 </script>
 <style scoped>
-
+.story{
+  overflow: hidden;
+}
  .image{
    position:absolute;
    cursor:pointer;
@@ -170,7 +172,7 @@
    padding:0;
    width:100%;
    margin-top:3%;
-   padding-top:29%;
+   padding-top:38%;
   padding-bottom:8em;
    /* height: 100%; */
 }
@@ -178,15 +180,16 @@
 #banner p{
    position:absolute;
    color:white;
-   /* font-family: 'GD-HEI'; */
-   font-size: 6em;
+   font-family: 'GD-HEI';
+   font-size: 7em;
    color:white;
-   top:3.5em;
+   top:4em;
    /* bottom:70%; */
    left:-5em;
    right:0;
    margin:auto;
    text-align:center;
+   
    /* //border:3px solid red; */
 }
 
@@ -224,13 +227,15 @@ div.word {
 }  
 .sticky {  
     width: 100%;
-    border-top: 1px solid #F5F5F5;
 }
 .sticky a{
   color: #2D419B;
 }
 /* 我们的历史 */
 
+.his_banner img {
+  width: 100%;
+}
 .history .row {
   margin-bottom: 4%;
 }
@@ -501,5 +506,10 @@ a:hover{
     text-decoration: none;
     /* //border:1px solid red; */
  }
+
+ @font-face { 
+font-family: 'GD-HEI'; 
+src: url('/font/bak/hei.ttf') format('truetype'); 
+} 
 </style>
 

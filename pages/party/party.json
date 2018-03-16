@@ -1,0 +1,24 @@
+{
+    
+
+        "banner":"/img/party/banner.jpg",
+        "cloud":"/img/party/clouds.png",
+        "party":"/img/party/party.jpg",
+        "camp":"/img/party/camp.jpg",
+        "partyhz":"/img/party/partyhz.png",
+        "camphz":"/img/party/camphz.png",
+        "desc":"意犹未尽？我们也想更多地陪伴您和您的孩子。无论是学校放假，还是您需要放松一个晚上，或者您想给孩子一个特别的生日，小小运动馆的团队就在您的身边。每一个节目背后都有精心设计的教案，都有丰富多彩、新颖的活动，都充满了欢声笑语。",
+        "words":[
+            {"id":"party","title":"开心生日会","pic":"/img/party/line.png","content":"被美国《Parents（父母）》杂志多次推荐的儿童生日派对优选承办机构！"},
+            {"id":"camp","title":"冬令营和夏令营","pic":"/img/party/line.png","content":"小小运动馆的全天候“露营”比您想像的更棒！学校放假期间，在冬天的懒散中，在夏天的酷暑里，我们的夏/冬令营为孩子提供充满咯咯笑声的“不寻常的快乐”。"}
+        ]
+
+
+
+
+
+
+
+
+    
+}

@@ -1,6 +1,6 @@
 <template>
       <div class="row menu">
-        <div class="col-sm-2 text-left item" id="logo">
+        <div class="col-sm-2 text-left item" id="logo" @click="goHome">
             <img :src="logo" alt="">
         </div>
         <div class="col-sm-2 hidden-xs text-left xs-hidden item" v-for="item in menu.content">
@@ -20,6 +20,11 @@ export default {
         logo:"/img/index/logo.png"
     }
   },
+  methods:{
+      goHome(){
+         location.href="/"
+      }
+  },
   computed:{
     menu(){
       return this.$store.state.menu;
@@ -30,10 +35,13 @@ export default {
 
 
 <style scoped>
+    #logo{
+        cursor: pointer;
+    }
    .col-sm-2{
       margin:0;
       padding:0;
-      //border: 1px solid red;
+      /* //border: 1px solid red; */
       width: auto;
    }
    .menu .item{

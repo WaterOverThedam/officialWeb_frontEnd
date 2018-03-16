@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="course"> 
     <MyNav :bgColor="bgColor[counterNow]"></MyNav>
     <main>
       <div @click="goToCourse" id="banner" :style="{'background':`url(${imgs.banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
@@ -13,20 +13,25 @@
       </div>
 
       <div class="container">
+        
         <!-- 亲子运动 -->
         <div class="row course1">
+          <!-- 标题 -->
           <div class="title">
             <span class="h" v-text="txt.p1.title"></span>
             <span class="hz">
               <img :src="imgs.course1.hz_03" alt="">
             </span>
           </div>
+          <!-- 文字介绍 -->
           <div class="text">
             <span class="first" v-text="txt.p1.first"></span>
             <span v-text="txt.p1.content"></span>
           </div>
+          <!-- 中间图文介绍 -->
           <div class="middle clearfix">
-            <div class="col-sm-5 ">
+            <!-- 移动端需要改变的地方 -->
+            <div class="col-sm-5  hidden-xs">
               <div class="m_title ">
                 <span>
                   <img class="rec" :src="imgs.record" alt="">
@@ -59,6 +64,7 @@
             <img class="col-sm-7" :src="imgs.course1.course_1_0" alt="">
 
           </div>
+          <!-- 底部列表 -->
           <div class="bottom">
             <ul>
              <li v-for="(item,index) in imgs.course1.course_1">
@@ -89,34 +95,34 @@
 
                  <img class="col-sm-7" :src="imgs.course2.course_2_0" alt="">
 
-               <span class="col-sm-5">
-               <p class="p2" v-text="txt.p2.h1"></p>
-              <ul class="ul2">
-                <li>
-                <img class="half l_12" :src="imgs.halfbadge" alt="">
-                <span  v-text="txt.p2.classname1"></span>
-              </li>
-              <li>
-                <img class="l_10" :src="imgs.badge" alt="">
-                <span v-text="txt.p2.classname2"></span>
-              </li>
-              <li>
-                <img class="half l_7" :src="imgs.halfbadge" alt="">
-                <img class="l_10" :src="imgs.badge" alt="">
-                <span v-text="txt.p2.classname3"></span>
-              </li>
-              <li>
-                <img class="l_5" :src="imgs.badge" alt="">
-                <img class="l_10" :src="imgs.badge" alt="">
-                <span v-text="txt.p2.classname4"></span>
-              </li>
-               <li>
-                <img class="half l_2" :src="imgs.halfbadge" alt="">
-                <img class="l_5" :src="imgs.badge" alt="">
-                <img class="l_10" :src="imgs.badge" alt="">
-                <span v-text="txt.p2.classname5"></span>
-              </li>
-              </ul>
+               <span class="col-sm-5 hidden-xs">
+                  <p class="p2" v-text="txt.p2.h1"></p>
+                  <ul class="ul2">
+                    <li>
+                      <img class="half l_12" :src="imgs.halfbadge" alt="">
+                      <span  v-text="txt.p2.classname1"></span>
+                    </li>
+                    <li>
+                      <img class="l_10" :src="imgs.badge" alt="">
+                      <span v-text="txt.p2.classname2"></span>
+                    </li>
+                    <li>
+                      <img class="half l_7" :src="imgs.halfbadge" alt="">
+                      <img class="l_10" :src="imgs.badge" alt="">
+                      <span v-text="txt.p2.classname3"></span>
+                    </li>
+                    <li>
+                      <img class="l_5" :src="imgs.badge" alt="">
+                      <img class="l_10" :src="imgs.badge" alt="">
+                      <span v-text="txt.p2.classname4"></span>
+                    </li>
+                    <li>
+                        <img class="half l_2" :src="imgs.halfbadge" alt="">
+                        <img class="l_5" :src="imgs.badge" alt="">
+                        <img class="l_10" :src="imgs.badge" alt="">
+                        <span v-text="txt.p2.classname5"></span>
+                    </li>
+                  </ul>
                </span>
 
             </div>
@@ -146,7 +152,7 @@
             <span v-text="txt.p3.content"></span>
           </div>
             <div class="middle clearfix">
-               <span class="col-sm-5">
+               <span class="col-sm-5 hidden-xs">
                  <p v-text="txt.p3.h1"></p>
                  <ul class="ul3">
                     <li>
@@ -270,7 +276,9 @@ export default {
 </script>
 
 <style scoped>
-
+.course{
+  overflow: hidden;
+}
  .image{
    position:absolute;
    cursor:pointer;
@@ -283,7 +291,7 @@ export default {
    padding:0;
    width:100%;
    margin-top:3%;
-   padding-top:29%;
+   padding-top:38%;
   padding-bottom:8em;
    /* height: 100%; */
 }
@@ -294,7 +302,7 @@ export default {
    font-family: 'GD-HEI';
    font-size: 100px;
    color:white;
-   top:3em;
+   top:4em;
    /* bottom:70%; */
    left:0;
    right:0;
@@ -322,13 +330,14 @@ export default {
 .fixed {
     position: fixed;
     top: 0;
-    background: #F5FBFE;
+    background: #fff;
     z-index:101;
 }
 .sticky {
     width: 100%;
     padding-top:4em;
     cursor: pointer;
+  
 }
 .sticky .move img {
   width: 5%;
@@ -604,7 +613,7 @@ export default {
   bottom:0;
   left:0;
   margin:auto;
-  //border:3px solid blue;
+  /* //border:3px solid blue; */
 }
 .body{
   font-size:15px;
@@ -678,6 +687,28 @@ export default {
 
 }
 
+
+
+
+@media screen and (max-width: 768px){
+  .body{
+    font-size:15px;
+  }
+  .parent{
+    padding-bottom:45%;
+    /* //border:3px solid red; */
+  }
+  #banner p{
+     font-size: 46px;
+     top:30%;
+  }
+  #banner{
+    padding-top:53%;
+    padding-bottom: 2em;
+  }
+
+}
+
 @media screen and (max-width: 767px){
 .bottom li .CourseName {
     font-size: 1.4em;
@@ -689,26 +720,10 @@ export default {
 .right {
   right:3em;
   }
-}
-
-
-@media screen and (max-width: 768px){
-  .body{
-    font-size:15px;
+   #banner p{
+     font-size: 40px;
+     top:20%;
   }
-  .parent{
-    padding-bottom:45%;
-    //border:3px solid red;
-  }
-  #banner p{
-     font-size: 46px;
-     top:16%;
-  }
-  #banner{
-    padding-top:48%;
-    padding-bottom: 2em;
-  }
-
 }
 
 

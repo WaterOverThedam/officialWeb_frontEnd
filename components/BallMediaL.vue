@@ -11,7 +11,7 @@
                   <h1>{{ballMediaAttr.ball.title}}</h1>
                   <p class="hidden-xs hidden-sm word">{{ballMediaAttr.ball.word}}</p>
                   <p class="text-center">
-                    <span class="view" :style="{'background':`url(${ballMediaAttr.ball.btnUrl}) no-repeat`,'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100%','color':`${ballMediaAttr.ball.btnColor}`}">{{ballMediaAttr.ball.btnName}}</span>
+                    <a class="view" :href="ballMediaAttr.ball.address" :style="{'background':`url(${ballMediaAttr.ball.btnUrl}) no-repeat`,'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100%','color':`${ballMediaAttr.ball.btnColor}`}">{{ballMediaAttr.ball.btnName}}</a>
                   </p>
             </div>
             
@@ -42,9 +42,11 @@
 </script>
 
 <style scoped>
-  
+ a{
+   text-decoration: none;
+ } 
 .parent{
-   //border:3px solid yellow;
+   /* //border:3px solid yellow; */
    padding-top:6%;
    padding-bottom:43%;
    margin-bottom:2%;
@@ -64,7 +66,7 @@ img  {
 .ball{
     width: 100%;
     padding-top: 95%;
-    //border:3px solid red;
+    /* //border:3px solid red; */
 }
 .balltext {
   height: 0;
@@ -92,7 +94,7 @@ img  {
     font-size:38px;
     inline-height:30px;
     padding:5px 22px;
-    //border:3px solid blue;
+    /* //border:3px solid blue; */
 }
 
 
@@ -148,7 +150,7 @@ img  {
         margin-left:5px;
         margin-top: 14%;
         margin-bottom: 30px;
-        //border:3px solid red;
+        /* //border:3px solid red; */
     }
    .balltext .view{
       font-size:14px;
@@ -160,7 +162,7 @@ img  {
         color:white;
         margin-top: 14%;
         margin-bottom: 30px;
-        //border:3px solid red;
+        /* //border:3px solid red; */
     }
     .balltext .view{
       font-size:9px;

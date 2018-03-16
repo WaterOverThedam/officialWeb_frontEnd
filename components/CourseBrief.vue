@@ -1,5 +1,5 @@
 <template>
- <div class="container-fluid">
+ <div class="container-fluid hidden-xs">
     <div class="row bg-top">
         <div :style="{'background':`url(${top_url[1]}) no-repeat`}"  class="col-sm-12 text-center image" >
             <p><img :src="top_url[0]" height="191" width="351"/></p>

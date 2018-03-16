@@ -55,7 +55,7 @@ export default {
   width:100%;
   height:0;
   padding-top:55%;
-  //border:1px solid yellow;
+  /* //border:1px solid yellow; */
   /*父元素padding百分hight0实现自适应高度，
    子元素absolute或兄弟元素重叠实现定位;
   */
@@ -68,7 +68,7 @@ export default {
     color:white;
     top:35%;
     left:10%;
-    //border:1px solid red;
+    /* //border:1px solid red; */
     font-size: 90px;
 }
 .find{
@@ -76,7 +76,7 @@ export default {
     cursor: pointer;
     display: inline-block;
     font-size:38px;
-    inline-height:30px;
+    /* inline-height:30px; */
     padding:5px 22px;
     color:white;
     bottom:30%;
@@ -99,30 +99,48 @@ export default {
 
 @media(max-width: 768px){
     .title{
-        font-size: 40px;
+        /* font-size: 40px; */
+          /* 移动端细节修改 */
+        font-size: 48px;
+        top:54%;
     }
     .find{
-        font-size: 14px;
+        font-size: 17px;
+        left:16%;
+        bottom:25%
 
     }
 
     .arrow-down{
-        width: 3em;
+        /* width: 3em; */
         margin-top:-10%;
+        /* 移动端细节修改 */
+        width:7em;
+        left:40%;
     }   
     .loop{
       height: 50px;
       margin-top:-3%;
     }
+    /* 移动端修改 */
+    .outer{
+        height:100%;
+    }
 }
+
 @media(max-width: 500px){
 
     .find{
-        padding:4px;
+        padding:10px;
         color:white;
-        font-size: 13px;
-        //border:3px solid blue;
+        /* 移动端细节修改 */
+        font-size: 19px;
+        left:20%;
+        /* //border:3px solid blue; */
     }
+
+   
+
  
  
 
