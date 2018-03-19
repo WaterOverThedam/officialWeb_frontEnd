@@ -70,7 +70,7 @@
     height:auto;
     max-width:100%;
     max-height:100%;
-    //border:3px solid red;
+    /* //border:3px solid red; */
 }
  
    
@@ -138,7 +138,7 @@
 
 
 .image{
-    //border:3px solid blue;
+    /* //border:3px solid blue; */
     padding-top: 10%;
     padding-bottom: 6%;
     margin-bottom: 20px;
@@ -151,8 +151,11 @@
 @media(max-width:992px) {
     .our-gym{
         margin-top: 40px;
-        //border:3px solid blue;
+        /* //border:3px solid blue; */
     }
+
+}
+@media(max-width:767px){
 
 }
 @media(max-width:568px) {
@@ -164,13 +167,20 @@
         padding-right: 5px;
     }
     .cover{
-        margin-top: 30px;
-        //border:3px solid blue;
+        margin-top: 10px;
+        /* //border:3px solid blue; */
     }
     .our-gym{
-        margin-top:55px;
-        font-size: 33px;
+        margin-top:40px;
+        font-size: 19px;
     }
+    .image{
+        padding-top: 3%;
+        padding-bottom: 4%;
+        margin-top: 12%;
+        margin-bottom: 0;
+    }
+
     .media-object img{
       height: 250px;
     } 

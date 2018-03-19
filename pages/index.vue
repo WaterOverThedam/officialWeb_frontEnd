@@ -1,5 +1,5 @@
 <template>
- <div> 
+ <div class="index"> 
     <MyNav :bgColor="bgColor[counterNow]"></MyNav>
     <main>
       <CarouselAll></CarouselAll>
@@ -51,6 +51,7 @@ export default {
               bgUrl:"/img/index/blue_loop.png",
               btnUrl:"/img/index/btn-white-bg.png",
               btnName:"点击查看",
+              address:"/course",
               btnColor:"#4FC2C7"
             }
         },
@@ -63,6 +64,7 @@ export default {
               bgUrl:"/img/index/yellow_loop.png",
               btnUrl:"/img/index/btn-white-bg.png",
               btnName:"点击查看",
+              address:"/party",
               btnColor:"#B6C007"
             }
         }
@@ -99,10 +101,12 @@ export default {
 </script>
 
 <style scoped>
- 
+ .index{
+   overflow: hidden;
+ }
   @media screen and (max-width:767px){
     main {
-      margin-top: 8%;
+      margin-top: -3%;
     }
   }
  

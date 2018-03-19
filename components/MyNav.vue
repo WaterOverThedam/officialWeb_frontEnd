@@ -14,7 +14,8 @@
                     <ul class="gym" >
                        <li id="find"><nuxt-link :to="'/service/detail'" class="link" href="#">全国中心</nuxt-link></li>
                        <li class="dot"></li>
-                       <li id="own"><nuxt-link :to="'/service/detail'" class="link" href="#">加盟中心</nuxt-link></li>
+                       <!-- <li id="own"><nuxt-link :to="'/service/detail'" class="link" href="#">加盟中心</nuxt-link></li> -->
+                       <li id="own"><nuxt-link to="/join" class="link" href="#">加盟中心</nuxt-link></li>
                     </ul>
               </div>
             </div>
@@ -206,8 +207,11 @@ export default {
   }
 
   @media screen and (max-width:768px){
+      .dropdown{
+        height: 0;
+      }
       .dropdown div.menu-icon {
-         right:10%;
+         right:6%;
          left:auto;
          top:0;
       }
@@ -216,7 +220,7 @@ export default {
           right:0;
           bottom:0;
           left:0;
-          //height:550px;
+         
           background:white !important;
       }
       .dropdown-menu li {
@@ -246,6 +250,25 @@ export default {
       }
 
   }
+  // 移动端细节修改
+@media screen and (max-width:767px){
+  .menuList{
+        // top:6em;
+     
+     }
+  nav a{
+    font-size: 14px;
+  }
+  .gym{
+    margin-right:2%;
+  }
+  .gym li{
+    margin-top: 11px;
+  }
+  .navbar-fixed-top{
+    top:-12px;
+  }
 
+}
 
 </style>

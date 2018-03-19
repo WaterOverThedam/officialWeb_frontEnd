@@ -1,0 +1,76 @@
+{
+    "banner":"/img/bespeak/banner.jpg",
+    "cloud":"/img/bespeak/clouds.png",
+    "cloud2":"/img/bespeak/cloud2.png",
+    "formbg":"/img/bespeak/formbg.jpg",
+    "button":"/img/bespeak/button.png",
+    "inputbg":"/img/bespeak/inputbg.png",
+    "selectbg":"/img/bespeak/selectbg.png",
+    "selectbg2":"/img/bespeak/selectbg2.png",
+    
+    "btnword":"预约试听",
+
+    "title":"预约免费体验课",
+    "input":[
+        {"id":"uname","title":"宝宝姓名: "},
+        {"id":"birthday","title":"宝宝生日: "},
+        {"id":"phone","title":"家长手机: "}     
+    ],
+    "select":{
+        "city":"预约城市: ",
+        "center":"预约中心: "
+    },
+    "pic1":[
+        {"pic":"/img/bespeak/pic1.png"},
+        {"pic":"/img/bespeak/pic2.png"},
+        {"pic":"/img/bespeak/pic3.png"}
+    ],
+    "blue": {
+        "cut":"/img/bespeak/cut.png",
+        "bluebg":"/img/bespeak/bluebg.jpg",
+        "three":"/img/bespeak/three.png",
+        "person":"/img/bespeak/person.png",
+        "words":[
+            {"p":"“ Fusing the Dimensions Into "},
+            {"p":" a  Whole Child Approach ” "},
+            {"p":"“ 融会贯通三维学习法，"},
+            {"p":"形成完整的育儿方法！ ”"}
+        ],
+        "desc":[
+            {"p":"谢丽尔K.奥尔森博士"},
+            {"p":"前哈佛医学院研究学者"},
+            {"p":"擅长儿童发展与健康行为"}
+         
+        ]
+
+    },
+    "pic2":[
+        {"pic":"/img/bespeak/pic4.png"},
+        {"pic":"/img/bespeak/pic5.png"}
+    ],
+    "bto":{
+        "pic":"/img/bespeak/activity.jpg",
+        "p1":"朋友推荐月",
+        "p2":"美好的事物要和好朋友一起分享",
+        "ruletitle":"活动规则",
+        "rule":[
+            {"p":"活动时间：2018年1月11日-2018年2月22日"},
+            {"p":"小小运动馆已签约会员每成功推荐1个家庭报名50及以上课程，"},
+            {"p":"推荐人可以赢取："},
+            {"p":"1.当地现有同城优惠+新年机会卡1张【同城推荐】"},
+            {"p":"2.新年机会卡1张【异地推荐】"},
+            {"p":"新年机会卡包含："}  
+        ],
+        "prize":[
+            "· TADA拉杆箱 ",
+            "· 京东购物卡 ",
+            "· Hape联名工具箱 ",
+            "· 新年红包 "
+
+        ]
+        
+       
+
+    }      
+
+}

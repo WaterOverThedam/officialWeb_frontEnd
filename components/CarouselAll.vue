@@ -1,6 +1,6 @@
 <template>
     <div class="outer">
-       <div v-for="(bgImg,index) in bgImgs" :id="'a'+index" :data-id="index" class="parent row-wrapper chevron-btm" :class="{'myFadein':index===counterNow}" :style="{'background':`url(${bgImg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+       <div v-for="(bgImg,index) in bgImgs" :id="'a'+index" :data-id="index" class="parent row-wrapper chevron-btm" :class="{'myFadein':index===counterNow}" :style="{'background-image':`url(${bgImg})`}">
          <component :is="which"></component> 
          <div class="btn" :style="{'background':`url(${btPlay}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"></div>
        </div>
@@ -86,7 +86,7 @@ export default {
   right:4%;
   bottom:12%;
   opacity:0.8;  
-  //border:3px solid blue;
+  /* //border:3px solid blue; */
 }
 video{
   position:absolute;
@@ -126,7 +126,7 @@ video{
     background-position: 0 0;
     background-repeat: repeat-x;
     background-size: auto 220%;
-    //background-color:white;
+    /* //background-color:white; */
     width: 100%;
     height: 38px;
 }
@@ -138,9 +138,9 @@ video{
     padding: 0;
     margin-top:50px;
     padding-top: 55%;
-    //max-height: 55.5em;
+    /* //max-height: 55.5em; */
     width:100%;
-    //border:3px solid blue;
+    /* //border:3px solid blue; */
 }
 img  {
     width:auto;
@@ -161,8 +161,9 @@ img  {
     margin:0px;
     padding: 0px;
     width:100%;
-    //border:3px solid blue;
+    /* //border:3px solid blue; */
     position: absolute;
+    background-repeat: no-repeat;
     left: 0;
     top: 0;
     height: 100%;
@@ -182,7 +183,7 @@ img  {
 
 .parent .container{
     margin-top: -1%;
-    //border:3px solid blue;
+    /* //border:3px solid blue; */
 }
 
 
@@ -222,7 +223,7 @@ img  {
     }
     .arrow-down{
         margin-top: -20%;
-        //border:3px solid red;
+        /* //border:3px solid red; */
     }
 
 }
@@ -241,7 +242,26 @@ img  {
     .ff-container{
         height: 280px;
     }
- 
+
+    /* 移动端细节修改 */
+    .outer{
+        padding-top: 600px;
+    }
+    #a0{
+        background-position: 76% bottom;
+    }
+    #a1{
+        background-position: 64% bottom;
+    }
+    #a2{
+        background-position: 85% bottom;
+    }
+    #a3{
+        background-position: 62% bottom;
+    }
+    #a4{
+        background-position: 76% bottom;
+    }
  
 
 }
@@ -253,10 +273,15 @@ img  {
         padding:9px;
         color:white;
         font-size: 13px;
-        //border:3px solid blue;
+        /* //border:3px solid blue; */
     }
     .myfind{
         padding-top: 18px;
+    }
+     /* 移动端细节修改 */
+    .btn{
+        padding: 6%;
+        bottom:6%;
     }
  
  

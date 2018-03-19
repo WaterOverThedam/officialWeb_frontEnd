@@ -1,0 +1,71 @@
+{
+
+    "rt":{
+        "title":"招聘职位",
+        "banner":"/img/recruit/banner.jpg",
+        "cloud":"/img/recruit/cloud.png",
+        "searchword":"搜索",
+        "search":"/img/recruit/search.png",
+        "bgblue":"/img/recruit/bgblue.png",
+        "nav":"/img/recruit/nav.png",
+        "hot":"/img/recruit/hot.png",
+        "more":"/img/recruit/more.png",
+        "moreword1":"更多",
+        "moreword2":"》》",
+        "button1":"/img/recruit/sprite-buttons-corp1.png",
+        "button2":"/img/recruit/sprite-buttons-corp2.png",
+        "job":[
+            {"id":"address","title":"工作地点 : ","content":[
+                {"id":"javascript:void(0)","name":"全部"},
+                {"id":"javascript:void(0)","name":"北京"},
+                {"id":"javascript:void(0)","name":"天津"},
+                {"id":"javascript:void(0)","name":"上海"},
+                {"id":"javascript:void(0)","name":"重庆"},
+                {"id":"javascript:void(0)","name":"石家庄"},
+                {"id":"javascript:void(0)","name":"唐山"}
+            ]},
+            {"id":"jobname","title":"职位名称 : ","content":[
+                {"id":"recruit/:_0?","name":"课程顾问"},
+                {"id":"recruit/:_1?","name":"早教指导师"},
+                {"id":"recruit/:_2?","name":"市场专员"},
+                {"id":"recruit/:_3?","name":"销售主管"},
+                {"id":"recruit/:_4?","name":"中心主任"},
+                {"id":"recruit/:_5?","name":"教学主管"}
+            ]}
+        ],
+
+        "hot_job":{"id":"hotjob","title":"热门职位 : "} ,
+        "_1":{"id":"recruit/:_1?","name":"早教指导师"},
+        "_2":{"id":"recruit/:_0?","name":"课程顾问"},
+        "_3":{"id":"recruit/:_2?","name":"市场专员"},
+
+        "job_title":[
+            {"title":"职位名称"},
+            {"title":"招聘人数"},
+            {"title":"工作地点"},
+            {"title":"分部中心"},
+            {"title":"发布时间"}
+        ],
+        "body":[
+            {"id":"recruit/:_0","jobname":"课程顾问","count":"若干","address":"上海","center":"上海徐家汇中心","time":"2018-02-25"},
+            {"id":"recruit/:_1","jobname":"早教指导师","count":"若干","address":"上海","center":"上海徐家汇中心","time":"2018-02-25"}
+        ]
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+}

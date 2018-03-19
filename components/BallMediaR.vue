@@ -12,8 +12,8 @@
                   <h1>{{ballMediaAttr.ball.title}}</h1>
                   <p class="hidden-xs hidden-sm word">{{ballMediaAttr.ball.word}}</p>
                   <p class="text-center">
-                    <span class="view" :style="{'background':`url(${ballMediaAttr.ball.btnUrl}) no-repeat`,'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100%','color':`${ballMediaAttr.ball.btnColor}`}" href="">
-                    {{ballMediaAttr.ball.btnName}}</span>
+                    <a class="view" :href="ballMediaAttr.ball.address" :style="{'background':`url(${ballMediaAttr.ball.btnUrl}) no-repeat`,'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100%','color':`${ballMediaAttr.ball.btnColor}`}">
+                    {{ballMediaAttr.ball.btnName}}</a>
                   </p>
             </div>
             
@@ -44,7 +44,9 @@
 </script>
 
 <style scoped>
-  
+a {
+  text-decoration: none;
+  }
 .parent{
    //border:3px solid yellow;
    padding-top:6%;

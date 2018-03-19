@@ -7,10 +7,10 @@ const createStore = () => {
         menu: {
            content:[
               {name:"我们的课程",value:"/course"},
-              {name:"派对和夏冬令营",value:"/camp"},
-              {name:"微信微博",value:"/wei"},
-              {name:"家长点评",value:"/comment"},
-              {name:"我们的故事",value:"/story"}
+              {name:"派对和夏冬令营",value:"/party"},
+              {name:"新闻中心",value:"/news"},
+              {name:"预约中心",value:"/bespeak"},
+              {name:"品牌故事",value:"/story"}
            ]
         },
         counter: parseInt(Math.random()*10000),

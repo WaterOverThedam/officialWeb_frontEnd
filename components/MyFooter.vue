@@ -1,6 +1,15 @@
 <template>
   <footer>
-    <div class="container-fluid main" :style="{'background-color': bgColor}">
+    <div class="container-fluid main" :style="{'background':`url(${footer.bottom_pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+        <div class="logo">
+          <a href=""></a>
+          <a href=""></a>
+          <a href=""></a>
+          <a href=""></a>
+          <a href=""></a>
+          <a href=""></a>
+          <a href=""></a>
+        </div>
        <div class="row">
          <div class="col-sm-12 divider-dash-line">
             <div class="container-fluid">
@@ -12,7 +21,7 @@
                              <h4 class="menu">
                                    <ul>
                                       <li v-for="(item, index) of footer.footerMenu" :class="'item'+index">
-                                        <a href="#" v-text="item"></a> 
+                                        <a  :href="item.id" v-text="item.title"></a> 
                                       </li>
                                    </ul>
                              </h4>
@@ -37,15 +46,17 @@
     return {
       footer:{
         footerMenu:[
-          "今日更新",
-          "联系我们",
-          "网站地图",
-          "首页",
-          "我们的课程",
-          "儿童教育"
+          {"id":"/course","title":"课程"},
+          {"id":"/party","title":"派对 & 活动"},
+          {"id":"/news","title":"新闻中心"},
+          {"id":"/story","title":"我们的故事"},
+          {"id":"/contact","title":"联系我们"},
+          {"id":"/recruit","title":"招聘"},
+          {"id":"/","title":"中心页面"},
+          {"id":"/join","title":"加盟页面"},
         ],
         copyright:"版权所有：上海小小乐杰健身休闲有限公司 沪ICP备17040660号-2",
-        bottom_pic:"/img/index/bottom.png"
+        bottom_pic:"/img/index/bottom2.jpg"
       }
     }
   }
@@ -57,6 +68,44 @@
   .main{
     margin:0;
     margin-top:20px;
+    padding: 10% 0 5%;
+  }
+  .logo{
+    text-align: center;
+  }
+  .logo a{
+    display: inline-block;
+    padding: 2.5%;
+    margin:0 0.5%;
+    /* border: 1px solid red; */
+    background-image: url(/img/index/logospirit.png);
+    background-position: 3% 100%;
+    background-size: cover;
+    /* background-clip: content-box; */
+  }
+  .logo a:nth-child(2){
+    background-position: 21% 100%;
+  }
+   .logo a:nth-child(3){
+    background-position: 43% 100%;
+    padding:2.5% 4%;
+  }
+   .logo a:nth-child(4){
+    background-position: 64% 100%;
+    padding:2.5% 2%;
+
+  }
+   .logo a:nth-child(5){
+    background-position: 75% 100%;
+    padding:2.5% 2%;
+  }
+   .logo a:nth-child(6){
+    background-position: 88% 100%;
+    padding:2.5% 2%;
+  }
+   .logo a:nth-child(7){
+    background-position: 99% 100%;
+    padding:2.5% 2%;
   }
 
   .col-sm-12{
@@ -70,7 +119,6 @@
     z-index: 100;
     content: "";
     opacity: 0.35;
-    background-image: url(/img/index/dash-line-sprite.png);
     background-repeat: repeat-x;
     background-position: 0 -6px;
     width: 100%;
@@ -82,11 +130,13 @@
   }
 
   .menu ul li a {
-    border-left:1px solid white;
-    padding:0 6px;
+    border-left:2px solid white;
+    padding:0 15px;
+    font-size: 1em;
+    display: inline-block;
   }
 
-  .menu ul .item0{
+  .menu ul .item0 a{
     border-left:none;
   }
           
@@ -147,11 +197,12 @@
     text-align: center;
   }
   .copyright{
-    letter-spacing: 3px;
+    /* letter-spacing: 3px; */
     padding-top: 10px;
     padding-bottom: 20px;
-    font-size:18px;
-    //rder:2px solid blue;
+    font-size:1.2em;
+    /* //rder:2px solid blue; */
+    margin-top:5%;
   }
 
 
@@ -162,7 +213,13 @@
     }
     .copyright{
       padding-top: 10px;
-      font-size:16px;
+      font-size:0.5em;
+
+    }
+    .menu ul li a {
+      border-left:1px solid white;
+      padding:0 8px;
+      font-size: 0.5em;
 
     }
   }  
