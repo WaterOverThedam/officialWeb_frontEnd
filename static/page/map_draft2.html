@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:500px;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=pZgs2afSOWQZtrh5Teq5gNwZFGSP4738"></script>
+	<title>从多个点删除指定点</title>
+</head>
+<body>
+	<div id="allmap"></div>
+	<input type="button" onclick="deletePoint()" value="删除id=1"/>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.404, 39.915);
+	map.centerAndZoom(point, 15);
+	map.disableDoubleClickZoom(true);
+
+	// 编写自定义函数,创建标注
+	function addMarker(point,label){
+		var marker = new BMap.Marker(point);
+		map.addOverlay(marker);
+		marker.setLabel(label);
+	}
+	// 随机向地图添加25个标注
+	var bounds = map.getBounds();
+	var sw = bounds.getSouthWest();
+	var ne = bounds.getNorthEast();
+	var lngSpan = Math.abs(sw.lng - ne.lng);
+	var latSpan = Math.abs(ne.lat - sw.lat);
+	for (var i = 0; i < 10; i++) {
+		var point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
+		var label = new BMap.Label("我是id="+i,{offset:new BMap.Size(20,-10)});
+		addMarker(point,label);
+	}
+	function deletePoint(){
+		var allOverlay = map.getOverlays();
+		for (var i = 0; i < allOverlay.length -1; i++){
+			if(allOverlay[i].getLabel().content == "我是id=1"){
+				map.removeOverlay(allOverlay[i]);
+				return false;
+			}
+		}
+	}
+</script>
+var map = new BMap.Map("allmap");
+
+map.centerAndZoom("东平", 12);
+
+var point = new BMap.Point(116.404, 35.915);//创建一个点
+
+map.enableScrollWheelZoom(); //启用滚轮放大缩小，默认禁用
+
+var marker = new BMap.Marker(point);  // 创建标注
+
+map.addOverlay(marker);
+
+其次，为标注添加hover事件，代码如下：
+
+marker.addEventListener("mouseover",function(e){
+
+var label = new BMap.Label("这是一个标签!!!",{offset:new BMap.Size(15,-35)});//为标注设置一个标签
+
+label.setStyle({
+
+width: "120px",
+
+color: '#fff',
+
+background: '#ff8355',
+
+border: '1px solid "#ff8355"',
+
+borderRadius: "5px",
+
+textAlign: "center",
+
+height: "26px",
+
+lineHeight: "26px"
+
+});
+
+marker.setLabel(label);
+
+});
+
+marker.addEventListener("mouseout",function(e){
+
+var label = this.getLabel();
+
+label.setContent("");//设置标签内容为空
+
+label.setStyle({border:"none",width:"0px",padding:"0px"});//设置标签边框宽度为0
+
+});

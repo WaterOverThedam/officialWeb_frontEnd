@@ -1,112 +1,19 @@
 <template>
-<div onclick="alert($('body',window.frames[0].document).html());" class="wrap" style="margin-top: 50px;" oncontextmenu="self.event.returnvalue=false">
-    <div style="text-align:center;clear:both;">
-    </div>
-    
-    <div class="itemCon">
-        <h2 class="caption">选择您的城市找到离您最近的小小运动馆</h2>
-        <div id="ChinaMap" ></div>
-        <div id="stateTip" style="position: absolute;left: 100%;text-align: left;display: inline;"></div>
-    </div>
-    
-    <div id="mapTipContent" style="width: 900px;margin: 0 auto;display: none">
-        <div class="mapTipText mapTipText0">
-            <div class="mapTipImg"><img src="img/search/top.png" alt=""/></div>
-            <div class="mapTipList">
-                <h2><a href="">黑龙江<span>Heilongjiang</span></a></h2>
-                <ul>
-                    <li><a href="">哈尔滨</a></li>
-                    <li><a href="">漠河</a></li>
-                    <li><a href="">五大连池</a></li>
-                    <li><a href="">兴凯湖</a></li>
-                    <li><a href="">雪乡</a></li>
-                    <li><a href="">大兴安岭</a></li>
-                    <li><a href="">齐齐哈尔</a></li>
-                    <li><a href="">牡丹江</a></li>
-                    <li><a href="">伊春</a></li>
-                    <li><a href="">大庆</a></li>
-                    <li><a href="">镜泊湖</a></li>
-                    <li><a href="">帽儿山</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="mapTipText mapTipText1">
-            <div class="mapTipImg"><img src="img/search/top.png" alt=""/></div>
-            <div class="mapTipList">
-                <h2><a href="">吉林<span>Jilin</span></a></h2>
-                <ul>
-                    <li><a href="">长白山</a></li>
-                    <li><a href="">长春</a></li>
-                    <li><a href="">延吉</a></li>
-                    <li><a href="">雾凇岛</a></li>
-                    <li><a href="">集安</a></li>
-                    <li><a href="">吉林市</a></li>
-                    <li><a href="">查干湖</a></li>
-                    <li><a href="">三角龙湾</a></li>
-                    <li><a href="">通化</a></li>
-                    <li><a href="">四平</a></li>
-                    <li><a href="">松原</a></li>
-                    <li><a href="">白城</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="mapTipText mapTipText2">
-            <div class="mapTipImg"><img src="img/search/top.png" alt=""/></div>
-            <div class="mapTipList">
-                <h2><a href="">辽宁<span>Liaoning</span></a></h2>
-                <ul>
-                    <li><a href="">大连</a></li>
-                    <li><a href="">丹东</a></li>
-                    <li><a href="">沈阳</a></li>
-                    <li><a href="">兴城</a></li>
-                    <li><a href="">葫芦岛</a></li>
-                    <li><a href="">绥中</a></li>
-                    <li><a href="">旅顺</a></li>
-                    <li><a href="">锦州</a></li>
-                    <li><a href="">抚顺</a></li>
-                    <li><a href="">鞍山</a></li>
-                    <li><a href="">本溪</a></li>
-                    <li><a href="">营口</a></li>
-                    <li><a href="">盘锦</a></li>
-                    <li><a href="">长兴岛</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="mapTipText mapTipText3">
-            <div class="mapTipImg"><img src="img/search/top.png" alt=""/></div>
-            <div class="mapTipList">
-                <h2><a href="">辽宁<span>shit</span></a></h2>
-                <ul>
-                    <li><a href="">大连</a></li>
-                    <li><a href="">丹东</a></li>
-                    <li><a href="">沈阳</a></li>
-                    <li><a href="">兴城</a></li>
-                    <li><a href="">葫芦岛</a></li>
-                    <li><a href="">绥中</a></li>
-                    <li><a href="">旅顺</a></li>
-                    <li><a href="">锦州</a></li>
-                    <li><a href="">抚顺</a></li>
-                    <li><a href="">鞍山</a></li>
-                    <li><a href="">本溪</a></li>
-                    <li><a href="">营口</a></li>
-                    <li><a href="">盘锦</a></li>
-                    <li><a href="">长兴岛</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<div class="wrap" style="margin-top: 50px;" oncontextmenu="self.event.returnvalue=false">
 
-      
- 
     <div class="container-fluid">
         <div class="row text-left text-primary subcaption">
              <div class="col-md-5 col-sm-5" >
-                <h3>寻找离您最近的小小运动馆</h3>
+                <h3 @click="test()">寻找离您最近的小小运动馆</h3>
              </div>
              <div class="col-md-3 col-sm-3">
-             <span class="city" :style="{'background':`url(${city.url}) no-repeat`,
-             'background-size':'cover','-moz-background-size':'cover',
-             '-webkit-background-size':'100%','color':'white'}" v-text="'当前城市：'+city.name">}</span>
+               <select class="selectpicker show-tick" id="sel" data-live-search="true"
+                  liveSearchStyle='contains' :title="city||请选择城市"   data-live-search-placeholder='搜索'>
+                 <optgroup v-for="c in cities" :label="c.prov" >
+                   <option   v-for='city in c.city' :value='city'  v-text='city'></option>
+                 </optgroup>
+
+               </select>
              </div>
         </div>
         <div class="row addr">
@@ -141,67 +48,91 @@
                     Some City, State XXXXX<br>
                     <abbr title="Phone">P:</abbr> (123) 456-7890
                 </address>
-            </div>   
-            
-        </div> 
+            </div>
+
+        </div>
     </div>
 </div>
 
 </template>
 <script>
- 
+
  export default {
-  head:{
-    script: [
-        {src: '/js/map/raphael-min.js'},
-        {src: '/js/map/chinaMapConfig.js'},
-        {src: '/js/map/map.js'}
-    ] 
-  },
-  components: {
-   
-  },
-  data () {
-    return {
-      gym: {
-        name:"小小运动馆太阳宫爱琴海中心",
-        position:{lng: 116.443454,lat: 39.978071}
-      },
-      city:{
-          url:'/img/index/btn_long_blue.png',
-          name:'上海'
-      }
-    }
-  },
-  computed:{
-      addr(){
-          return   "http://api.map.baidu.com/marker?"+
-          "location="+this.gym.position.lat+","+this.gym.position.lng+"&zoom=10&"+
-          "title="+this.gym.name+"&content="+this.gym.name+"&output=html&src=小小运动馆官网"
-      }
-  },
-  methods:{
-   test(){
- 
-         
- 
-   }
-  },
-  mounted(){
-	$(function(){
-		$('#ChinaMap').SVGMap({
-			mapWidth: 860,
-			mapHeight: 600
-		});
-    });
-  
-  } 
+   head: {
+     script: [
+       {src: '/js/map/raphael-min.js'},
+       {src: '/js/map/chinaMapConfig.js'},
+       {src: '/js/map/map.js'}
+     ]
+   },
+   props: ["gyms"],
+   components: {},
+   data() {
+     return {
+       city:  '上海市'
+     }
+   },
+   computed: {
+     cities(){
+       let c = this.gyms.map(gym => {
+          return {prov:gym.prov,city:gym.city};
+       })
+       c = this.unique(c);
+       let p = c.map(c =>{
+         return c.prov;
+       })
+       p = this.unique(p);
+       return  p.map(p=>{
+            var city=[];
+            c.map(c=>{
+                if(c.prov==p) {
+                  city.push(c.city);
+                }
+            })
+           return {prov:p,city:this.unique(city)};
+         })
+     },
+     addr() {
+       var gyms=[];
+       this.gyms.map(gym => {
+         if(gym.city==this.city){
+           gyms.push({name:gym.name,coordinate:gym.coordinate});
+         }
+       })
+       return encodeURI("page/map.html?gyms="+JSON.stringify(gyms))+'&city='+this.city;
+     }
+   },
+   methods: {
+     unique(arr){
+       let s = new Set(arr);
+       return Array.from(s);
+     },
+     test() {
+       // alert(this.city)
+       var gyms=[];
+       this.gyms.map(gym => {
+          if(gym.city==this.city){
+            gyms.push({name:gym.name,coordinate:gym.coordinate});
+          }
+       })
+       alert(JSON.stringify(gyms))
+     }
+   },
+   mounted() {
+     var vm=this;
+     $("#sel").on('changed.bs.select', function () {
+       vm.city = $(this).val();
+     });
+
+   },
  }
 </script>
 
 
+
+
 <style scoped>
-	
+
 	*{margin:0;padding:0;border: none;}
     .marker {
         background: url(https://api.map.baidu.com/images/markers.png) -23px -275px no-repeat;
@@ -214,7 +145,7 @@
         color: white;
         overflow: hidden;
         margin: 2px 0 0 5px;
-        padding-top:1px; 
+        padding-top:1px;
         *margin-right: 0px;
         display: inline;
     }
@@ -244,7 +175,7 @@
             padding-bottom:10px!important;
     }
     .addr{
-        margin:20px auto; 
+        margin:20px auto;
     }
     .addrItem {
         height: 430px;
@@ -254,7 +185,7 @@
     }
     .addrItem h1{
         padding-top: 5%!important;
-        margin:5% auto; 
+        margin:5% auto;
     }
     .hr0{ height:1px;border:none;border-top:1px dashed rgb(10, 98, 185);}
     .hr1{ height:1px;border:none;border-top:1px solid rgb(14, 172, 204);}
@@ -262,16 +193,16 @@
         margin-left: 25px;
         text-align: left;
     }
- 
+
     .search{
        margin-bottom: 8%;
     }
-    .wrap { 
+    .wrap {
         color: #333;
         text-align: center;
         margin: auto;
         font: 12px "微软雅黑";
-        background-color: white; 
+        background-color: white;
      }
     #ChinaMap{
        margin: 5% auto;
@@ -293,5 +224,5 @@
       height: 450px;
     }
  .anchorBL{display:none;}
- 
+
 </style>
