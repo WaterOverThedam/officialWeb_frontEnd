@@ -1,56 +1,73 @@
 <template>
 <div class="wrap" style="margin-top: 50px;" oncontextmenu="self.event.returnvalue=false">
-
     <div class="container-fluid">
+        <div class="row text-center">
+            <div class="map_con">
+                    <div>
+                        <p class="add01">上海</p>
+                        <dl class="add01_con" style="display: none;">
+                            <dd><a @click.prevent="switchCity('上海市')" target="_blank">·上海市</a></dd>
+                            <dd class="last"></dd>
+                        </dl>
+                    </div>
+                    <div v-for="(city,index) in cities">
+                        <p :class="['add01','add'+xh(parseInt(index)+2)]" v-text="city.prov"></p>
+                        <dl style="display: none;" :class="['add01_con','add'+xh(parseInt(index)+2)+'_con']">
+                            <dd><a @click.prevent="switchCity(city.city)" v-text="'·'+city.city"></a></dd>
+                            <dd class="last"></dd>
+                        </dl>
+                    </div>
+            </div> 
+        </div>
         <div class="row text-left text-primary subcaption">
-             <div class="col-md-5 col-sm-5" >
-                <h3 @click="test()">寻找离您最近的小小运动馆</h3>
+             <div class="col-md-5 col-sm-5 item" >
+                <h3 >寻找离您最近的小小运动馆</h3>
              </div>
-             <div class="col-md-3 col-sm-3">
+             <div class="col-md-4 col-sm-4 item">
                <select class="selectpicker show-tick" id="sel" data-live-search="true"
                   liveSearchStyle='contains' :title="city||请选择城市"   data-live-search-placeholder='搜索'>
                  <optgroup v-for="c in cities" :label="c.prov" >
                    <option   v-for='city in c.city' :value='city'  v-text='city'></option>
                  </optgroup>
-
                </select>
              </div>
         </div>
         <div class="row addr">
           <div class="col-md-10 col-sm-10" >
               <div class="row">
-                    <div v-for="n in 10" class="col-md-4 col-sm-4 result text-left">
-                        <span class="marker" v-text="String.fromCharCode(65 + parseInt(n))"></span>
-                        <div class="detail">
+                    <div v-for="(gym,index) in filterGyms" v-show="index<24"class="col-lg-3 col-md-3 col-sm-4 col-xs-12 result text-left gymitem">
+                        <span class="marker" @click="showGym(gym)"  v-text="String.fromCharCode(65 + parseInt(index))"></span>
+                        <div class="summery">
                             <dl>
-                                <dt>
-        小小运馆古北中心
+                                <dt @click="showGym(gym)" class="gymName" v-text="gym.name"  :title="'地址：'+gym.addr"> 
                                 </dt>
-                                <dd>
-        <p>地址：京加路与工业小区路交叉口西100米地址：京加路与工业小区路交叉口西100米{{n}}</p>
-                                </dd>
                             </dl>
                         </div>
                     </div>
               </div>
           </div>
         </div>
-        <div class="row search">
+        <div class="row searches">
             <div class="col-md-7 col-sm-8  mapItem">
-                <iframe class="map" :src="addr" frameborder="0"></iframe>
+                <iframe id="map" class="map" :src="position" frameborder="0" ></iframe>
                 <div class="block"></div>
             </div>
-            <div class="col-md-5 col-sm-4  text-left addrItem">
+            <div id="addrItem" class="col-md-5 col-sm-4  text-left addrItem">
                 <address>
-                    <h1 class="text-center">小小运馆古北中心</h1>
-                    <hr class="hr1" />
-                    007 street<br>
-                    Some City, State XXXXX<br>
-                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                    <h1 class="text-center" v-text="gym.name"></h1>
+                    <div class="gym_detail">
+                      <dl>
+                          <dt v-text="'地址：'+gym.addr"></dt>
+                          <dd v-if="gym.tip!=''" v-text="'交通提示：'+gym.tip"></dd>
+                          <dd v-text="'电话：'+gym.phone"></dd>
+                          <dd v-text="'邮箱：'+gym.email"></dd>
+                      </dl>
+                    </div>
                 </address>
-            </div>
+            </div>   
+        </div> 
 
-        </div>
+     
     </div>
 </div>
 
@@ -59,20 +76,31 @@
 
  export default {
    head: {
-     script: [
-       {src: '/js/map/raphael-min.js'},
-       {src: '/js/map/chinaMapConfig.js'},
-       {src: '/js/map/map.js'}
-     ]
+    link: [
+        { rel:'stylesheet',type:'text/css',href:'/css/map.css'},
+    ] 
    },
    props: ["gyms"],
    components: {},
    data() {
      return {
-       city:  '上海市'
+       city:  '上海市',
+       gymChoose:""
      }
    },
    computed: {
+     filterGyms(){
+          var c = this.city;
+          var gymfilter = this.gyms.filter(g =>{
+              return g.city==c;
+          })
+          return gymfilter;
+     },
+     gym(){
+          return this.gymChoose || 
+                 this.filterGyms[0] ||
+                 {name:"",addr:"",phone:"",email:"",tip:""};
+     },
      cities(){
        let c = this.gyms.map(gym => {
           return {prov:gym.prov,city:gym.city};
@@ -92,38 +120,56 @@
            return {prov:p,city:this.unique(city)};
          })
      },
-     addr() {
+     position() {
        var gyms=[];
-       this.gyms.map(gym => {
-         if(gym.city==this.city){
-           gyms.push({name:gym.name,coordinate:gym.coordinate});
+       this.gyms.map(g => {
+         if(g.city==this.city){
+           gyms.push({name:g.name,coordinate:g.coordinate});
          }
        })
-       return encodeURI("page/map.html?gyms="+JSON.stringify(gyms))+'&city='+this.city;
+       return encodeURI("page/map.html?gyms="+JSON.stringify(gyms))+'&city='+this.city+'&gym='+this.gym.name;
      }
    },
    methods: {
+     xh(i){
+       return i<10?'0'+i:i;
+     },  
      unique(arr){
        let s = new Set(arr);
        return Array.from(s);
      },
+     filterCityList(prov){
+          var citys = []
+          this.gyms.map(g =>{
+              //console.log(prov+":"+g.prov+":"+g.prov.indexOf(prov))
+              if (g.prov.indexOf(prov)==0){
+                  citys.push(g.city);
+              }
+          })
+          return [...new Set(citys)];
+     },
+     showGym(g){
+        this.gymChoose = g;
+        //alert(this.gymChoose)
+        //this.$router.push("#map");
+     },
+     switchCity(city){
+         this.city=city;
+     },
      test() {
-       // alert(this.city)
-       var gyms=[];
-       this.gyms.map(gym => {
-          if(gym.city==this.city){
-            gyms.push({name:gym.name,coordinate:gym.coordinate});
-          }
-       })
-       alert(JSON.stringify(gyms))
+       console.log(JSON.stringify(this.gyms))
      }
    },
    mounted() {
      var vm=this;
      $("#sel").on('changed.bs.select', function () {
-       vm.city = $(this).val();
+        vm.city = $(this).val();
+        vm.gymChoose = "";
      });
-
+     $('.add01').hover(function () {
+        $(this).next('.add01_con').show();
+        $(this).siblings('.add01').next('.add01_con').hide();
+     })
    },
  }
 </script>
@@ -134,7 +180,7 @@
 <style scoped>
 
 	*{margin:0;padding:0;border: none;}
-    .marker {
+    .gymitem .marker {
         background: url(https://api.map.baidu.com/images/markers.png) -23px -275px no-repeat;
         width: 19px;
         height: 25px;
@@ -145,20 +191,22 @@
         color: white;
         overflow: hidden;
         margin: 2px 0 0 5px;
-        padding-top:1px;
+        padding-top:1px; 
         *margin-right: 0px;
         display: inline;
     }
+    .gymitem .gymName{
+        font-size: 1.2em;
+        padding-top: 2%;
 
+    }
     .block{
         position: absolute;
         background-color:white;
-        //border: 1px solid red;
         width: 100%;
-        height: 20px;
+        height: 22px;
         bottom :0px;
         z-index: 3;
-
     }
 
     .caption{
@@ -174,6 +222,9 @@
             padding-left:24px;
             padding-bottom:10px!important;
     }
+    .subcaption .item {
+        margin: 8px auto ;
+    }
     .addr{
         margin:20px auto;
     }
@@ -187,13 +238,14 @@
         padding-top: 5%!important;
         margin:5% auto;
     }
+
     .hr0{ height:1px;border:none;border-top:1px dashed rgb(10, 98, 185);}
     .hr1{ height:1px;border:none;border-top:1px solid rgb(14, 172, 204);}
     .detail dd{
         margin-left: 25px;
         text-align: left;
     }
-
+ 
     .search{
        margin-bottom: 8%;
     }
@@ -204,25 +256,47 @@
         font: 12px "微软雅黑";
         background-color: white;
      }
-    #ChinaMap{
-       margin: 5% auto;
+    .addrItem {
+        height: 430px;
+        color: white;
+        background-color:#0FB1D8;
+
     }
-	.mapTipText{width: 280px;height: 110px;background-color: #ffffff;}
-	.mapTipText .mapTipImg{height: 66px; width: 66px; float: left;border: 2px solid #ffffff; border-radius: 50%;overflow: hidden;margin: -12px 5px 0 -12px;}
-	.mapTipText .mapTipImg img{width: 100%;height: 100%;}
-	.mapTipText .mapTipList{float: left;margin-left: 4px;}
-	.mapTipText .mapTipList h2{text-align: left;}
-	.mapTipText .mapTipList h2 a{font-size: 24px; color: #262626;text-decoration:none;}
-	.mapTipText .mapTipList h2 a:hover{ color: #0085d2;}
-	.mapTipText .mapTipList h2 a span{font-size: 16px;margin-left: 3px;}
-	.mapTipText .mapTipList ul{ width: 203px;padding-right: 10px;}
-	.mapTipText .mapTipList ul li{list-style: none;float: left;padding: 7px 3px 0 3px;}
-	.mapTipText .mapTipList ul li a{color: #262626;text-decoration:none;}
-	.mapTipText .mapTipList ul li a:hover{background-color:#2ebcfe;color:#ffffff;}
+    .addrItem h1{
+        padding-top: 5%!important;
+        margin:5% auto; 
+    }
+    .gym_detail {
+        font-size: 19px;
+        margin: auto 10%;
+        padding-top:3%;
+        border-top:1px solid rgb(14, 172, 204);
+    }
+ 
+    .summery dd{
+        margin-left: 25px;
+        text-align: left;
+    }
+    .summery{
+        cursor: pointer;
+    }
     .map {
       width: 100%;
       height: 450px;
     }
- .anchorBL{display:none;}
+ 
+    .map_con{ 
+        background:url(/img/search/map.jpg) 0 0 no-repeat; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        width: 70%;
+        padding-bottom: 50%;
+        margin: auto ;
+        position: relative;
+    }
+
+
 
 </style>
