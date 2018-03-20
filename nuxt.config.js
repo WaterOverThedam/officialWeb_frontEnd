@@ -24,11 +24,13 @@ module.exports = {
 
     ]
   },
-  //共用css
+  //共用css及自定义字体
   css:[
        '~assets/css/normalize.css',
        '~assets/font/jian.css',
-       '~assets/font/hei.css'
+       '~assets/font/hei.css',
+       '~assets/font/hei-embed.css',
+       '~assets/font/hei-embed.css'
   ],
   /*
   ** Customize the progress bar color

@@ -22,4 +22,5 @@ pages/course/index_table实现sticky.vue
 
 #idea
 .idea/
+package-lock.json
 
