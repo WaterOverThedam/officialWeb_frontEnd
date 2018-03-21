@@ -17,7 +17,43 @@
       },
       "global":{
         "pic":{"Africa":"img/search/Africa.jpg","America":"img/search/America.png","Asia":"img/search/Asia.gif","Australia":"img/search/Australia.gif","Euro":"img/search/Euro.gif","up":"img/search/up.jpg"}
-      }
+      },
+      "provs": [
+        {"id":"heilongjiang","name":"黑龙江"},
+        {"id":"jilin","name":"吉林"},
+        {"id":"liaoning","name":"辽宁"},
+        {"id":"hebei","name":"河北"},
+        {"id":"shandong","name":"山东"},
+        {"id":"jiangsu","name":"江苏"},
+        {"id":"zhejiang","name":"浙江"},
+        {"id":"anhui","name":"安徽"},
+        {"id":"henan","name":"河南"},
+        {"id":"shanxi","name":"山西"},
+        {"id":"shaanxi","name":"陕西"},
+        {"id":"gansu","name":"甘肃"},
+        {"id":"hubei","name":"湖北"},
+        {"id":"jiangxi","name":"江西"},
+        {"id":"fujian","name":"福建"},
+        {"id":"hunan","name":"湖南"},
+        {"id":"guizhou","name":"贵州"},
+        {"id":"sichuan","name":"四川"},
+        {"id":"yunnan","name":"云南"},
+        {"id":"qinghai","name":"青海"},
+        {"id":"hainan","name":"海南"},
+        {"id":"shanghai","name":"上海"},
+        {"id":"chongqing","name":"重庆"},
+        {"id":"tianjin","name":"天津"},
+        {"id":"beijing","name":"北京"},
+        {"id":"neimongol","name":"内蒙古"},
+        {"id":"guangxi","name":"广西"},
+        {"id":"xinjiang","name":"新疆"},
+        {"id":"xizang","name":"西藏"},
+        {"id":"guangdong","name":"广东"},
+        {"id":"ningxia","name":"宁夏"},
+        {"id":"hongkong","name":"香港"},
+        {"id":"taiwan","name":"台湾"},
+        {"id":"macau","name":"澳门"}
+      ]
       
    
       

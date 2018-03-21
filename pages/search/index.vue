@@ -14,7 +14,7 @@
       
       <div class="banner" :style="{'background':`url(${banner[1]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"> </div> 
        
-      <component :is="map" :gyms="gyms" :global="global"></component>
+      <component :is="map" :gyms="gyms" :global="global" :provs="provs"></component>
  
  
       <CourseBrief></CourseBrief>

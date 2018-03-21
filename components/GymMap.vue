@@ -1,18 +1,11 @@
 <template>
-<div class="wrap" style="margin-top: 50px;" oncontextmenu="self.event.returnvalue=false">
+<div  class="wrap" style="margin-top: 50px;" oncontextmenu="self.event.returnvalue=false">
     <div class="container-fluid">
         <div class="row text-center">
             <div class="map_con">
-                    <div>
-                        <p class="add01">上海</p>
-                        <dl class="add01_con" style="display: none;">
-                            <dd><a @click.prevent="switchCity('上海市')" target="_blank">·上海市</a></dd>
-                            <dd class="last"></dd>
-                        </dl>
-                    </div>
                     <div v-for="(city,index) in cities">
-                        <p :class="['add01','add'+xh(parseInt(index)+2)]" v-text="city.prov"></p>
-                        <dl style="display: none;" :class="['add01_con','add'+xh(parseInt(index)+2)+'_con']">
+                        <p :class="['add01','add_'+city.provId]" v-text="city.prov"></p>
+                        <dl style="display: none;" :class="['add01_con','add_'+city.provId+'_con']">
                             <dd><a @click.prevent="switchCity(city.city)" v-text="'·'+city.city"></a></dd>
                             <dd class="last"></dd>
                         </dl>
@@ -47,7 +40,7 @@
               </div>
           </div>
         </div>
-        <div class="row searches">
+        <div @click="test()" class="row searches">
             <div class="col-md-7 col-sm-8  mapItem">
                 <iframe id="map" class="map" :src="position" frameborder="0" ></iframe>
                 <div class="block"></div>
@@ -66,8 +59,6 @@
                 </address>
             </div>   
         </div> 
-
-     
     </div>
 </div>
 
@@ -77,10 +68,13 @@
  export default {
    head: {
     link: [
-        { rel:'stylesheet',type:'text/css',href:'/css/map.css'},
-    ] 
+        { rel:'stylesheet',type:'text/css',href:'css/map.css'},
+    ], 
+    script: [
+        {src: 'js/search.js'},
+    ]    
    },
-   props: ["gyms"],
+   props: ["gyms","provs"],
    components: {},
    data() {
      return {
@@ -106,18 +100,14 @@
           return {prov:gym.prov,city:gym.city};
        })
        c = this.unique(c);
-       let p = c.map(c =>{
-         return c.prov;
-       })
-       p = this.unique(p);
-       return  p.map(p=>{
+       return  this.provs.map(p=>{
             var city=[];
             c.map(c=>{
-                if(c.prov==p) {
+                if(c.prov.indexOf(p.name)!=-1) {
                   city.push(c.city);
                 }
             })
-           return {prov:p,city:this.unique(city)};
+           return {provId:p.id,prov:p.name,city:this.unique(city)};
          })
      },
      position() {
@@ -157,7 +147,7 @@
          this.city=city;
      },
      test() {
-       console.log(JSON.stringify(this.gyms))
+      alert(JSON.stringify(this.cities))
      }
    },
    mounted() {
@@ -166,10 +156,13 @@
         vm.city = $(this).val();
         vm.gymChoose = "";
      });
-     $('.add01').hover(function () {
-        $(this).next('.add01_con').show();
-        $(this).siblings('.add01').next('.add01_con').hide();
-     })
+
+  $('.add01').hover(function () {
+      alert(2)
+      $(this).next('.add01_con').show();
+      $(this).siblings('.add01').next('.add01_con').hide();
+  })
+
    },
  }
 </script>
