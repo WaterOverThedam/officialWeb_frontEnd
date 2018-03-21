@@ -5,8 +5,9 @@
       <CarouselAll></CarouselAll>
       <BallMediaL :ballMediaAttr="ballMediaAttr[0]"></BallMediaL>
       <BallMediaR :ballMediaAttr="ballMediaAttr[1]"></BallMediaR>
-      <MyMedia></MyMedia>
       <CourseBrief></CourseBrief>
+      <MyMedia></MyMedia>
+      
     </main>
     <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
  

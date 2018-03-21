@@ -13,34 +13,35 @@ module.exports = {
     link: [
         { rel:'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel:'stylesheet',type:'text/css',href:'/ui/bootstrap/css/bootstrap.min.css'},
+        { rel:'stylesheet',type:'text/css',href:"http://tlgc.oss-cn-shanghai.aliyuncs.com/assert/ui/bootstrap-select-1.12.4/css/bootstrap-select.min.css"},
         { rel:'stylesheet',type:'text/css',href:'/css/animate.css'}
     ],
     script: [
         {src: '/ui/jquery-3.2.1.min.js'},
         {src: '/ui/bootstrap/js/bootstrap.min.js'},
-        {src: '/js/jquery.stickytableheaders.min.js'},
+        {src: 'http://tlgc.oss-cn-shanghai.aliyuncs.com/assert/ui/bootstrap-select-1.12.4/js/bootstrap-select.min.js'},
         {src: '/js/tlgc.js'}
-    ] 
+
+    ]
   },
-  //共用css
+  //共用css及自定义字体
   css:[
        '~assets/css/normalize.css',
        '~assets/font/jian.css',
-       '~assets/font/hei.css'
+       '~assets/font/hei.css',
+       '~assets/font/hei-embed.css',
+       '~assets/font/hei-embed.css'
   ],
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
-  
+  plugins: ['~plugins/vue-jsonp'],
   /*
   ** Build configuration
   */
   build: {
-    /*
-    ** Run ESLint on save
-    */
-    vendor:['axios','vue-baidu-map'],
+    vendor:['axios','vue-jsonp'],
     loaders:[
       {
          test:/\.(png|jp?g|gif|svg)$/,
@@ -54,7 +55,7 @@ module.exports = {
         test: /\.scss|sass$/,
         loaders: ["style", "css", "sass"]
 
-      }, 
+      },
       {
          test:/\.less$/,
          loader:'less-loader'

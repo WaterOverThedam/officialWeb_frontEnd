@@ -1,6 +1,5 @@
 <template>
-<div class="container-fluid parent" :style="{'background':`url(${ballMediaAttr.bgImg}) no-repeat`,
-    'background-size':'cover','-webkit-background-size':'100%'}">
+<div class="container-fluid parent" :style="{'background-image':`url(${ballMediaAttr.bgImg})`}">
     <div class="row" >
         <div class="col-sm-6 col-md-6 col-xs-7 text-left">
             <div class="ballouter">
@@ -51,6 +50,8 @@
    padding-bottom:43%;
    margin-bottom:2%;
    margin-top: 2%;
+   background-size: cover;
+   background-repeat: no-repeat;
 }
 img  {
     width:auto;
@@ -144,28 +145,46 @@ img  {
  
 }
 @media (max-width:767px) {
+    .parent{
+      height: 400px;
+      background-position: 100% bottom;
+    }
+    .ball{
+      position: absolute;
+      left: 20%;
+      top:35px;
+      padding: 150px;
+    }
+  
+
     .balltext h1{
-        font-size:2.3em;
+        position: absolute;
+        left:30%;
+        width: 100%;
+        font-size:3.6em;
         color:white;
-        margin-left:5px;
-        margin-top: 14%;
+        margin-left:10px;
+        margin-top: 49%;
         margin-bottom: 30px;
         /* //border:3px solid red; */
     }
    .balltext .view{
-      font-size:14px;
+      font-size:16px;
+      position: absolute;
+      top:200px;
+      right:0;
     }
   }
   @media (max-width:400px) {
     .balltext h1{
-        font-size:1.7em;
+        /* font-size:1.7em; */
         color:white;
-        margin-top: 14%;
+        /* margin-top: 14%; */
         margin-bottom: 30px;
         /* //border:3px solid red; */
     }
     .balltext .view{
-      font-size:9px;
+      /* font-size:9px; */
       padding:3px 8px 1px 6px;
    }
 

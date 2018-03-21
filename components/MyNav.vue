@@ -7,6 +7,7 @@
               </div>
               <div class="col-sm-7">
                   <div class="logo" style="display:none">
+                    <!-- <a href="/"><img src="/img/index/littlegym-logo-desktop.png"></a> -->
                     <img src="/img/index/littlegym-logo-desktop.png">
                   </div>
               </div>
@@ -22,12 +23,13 @@
        </div>
        <div class="dropdown">
       
-          <div class="menu-icon all-blur" data-target="menu" data-toggle="dropdown" role="button"></div>
+          <div class="menu-icon all-blur " data-target="menu" data-toggle="dropdown" role="button"></div>
     
 
           <ul id="menu" class="dropdown-menu" :style="{'background-color': bgColor}">
-            <li class="visible-xs visible-sm top">
-             <img class="home" src="/img/index/tlg-logo-menu.png" alt="">
+            <li class="visible-xs top">
+             <!-- <img class="home" src="/img/index/tlg-logo-menu.png" alt=""> -->
+             <nuxt-link to="/" ><img class="home" src="/img/index/tlg-logo-menu.png" alt=""></nuxt-link>
              <img class="close-img" src="/img/index/menu-close-icon.png" alt="">
             </li>
             <li class="item" v-for="item in menu.content">
@@ -207,13 +209,23 @@ export default {
   }
 
   @media screen and (max-width:768px){
-      .dropdown{
+
+ 
+     
+      nav a{
+        font-size: 14px;
+      }
+
+  }
+  // 移动端细节修改
+@media screen and (max-width:767px){
+        .dropdown{
         height: 0;
       }
       .dropdown div.menu-icon {
          right:6%;
          left:auto;
-         top:0;
+         top:10px;
       }
       .dropdown .dropdown-menu{
           top:0;
@@ -239,26 +251,14 @@ export default {
       .dropdown-menu li a {
           color: #5160AC;
       }
- 
-      .home{
+   .home{
         float:left;
-        width:129px;
+        width:100px;
       }
       .close-img{
-        width:59px;
+        width:35px;
         float:right;
-      }
-
-  }
-  // 移动端细节修改
-@media screen and (max-width:767px){
-  .menuList{
-        // top:6em;
-     
-     }
-  nav a{
-    font-size: 14px;
-  }
+      }    
   .gym{
     margin-right:2%;
   }

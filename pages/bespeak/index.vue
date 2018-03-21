@@ -1,6 +1,7 @@
 <template>
   <div class="bespeak">
-        <div id="logo"></div>
+        <!-- <div id="logo"></div> -->
+        <MyNav :bgColor="bgColor[counterNow]"></MyNav>
         <main>
             <!-- 版心图 -->
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
@@ -87,6 +88,7 @@
 </template>
 <script>
     import bespeak from './bespeak'
+    import MyNav from '~/components/MyNav.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
     export default {
@@ -110,6 +112,7 @@
             }
         },
         components:{
+            MyNav,
             MyMedia,
             MyFooter
         }

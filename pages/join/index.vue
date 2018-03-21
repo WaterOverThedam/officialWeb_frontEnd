@@ -1,6 +1,7 @@
 <template>
     <div class="join">
-        <div id="logo"></div>
+        <!-- <div id="logo"></div> -->
+        <MyNav :bgColor="bgColor[counterNow]"></MyNav>
         <main>
             <!-- 版心图 -->
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
@@ -65,6 +66,7 @@
 <script>
     import join from './join'
     import Waves from '~/components/Waves.vue'
+    import MyNav from '~/components/MyNav.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
 
@@ -90,6 +92,7 @@
         },
         components:{
             Waves,
+            MyNav,
             MyMedia,
             MyFooter
         }

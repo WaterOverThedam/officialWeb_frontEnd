@@ -1,12 +1,13 @@
 <template>
- <div class="container-fluid hidden-xs">
+ <!-- <div class="container-fluid read ">
     <div class="row bg-top">
         <div :style="{'background':`url(${top_url[1]}) no-repeat`}"  class="col-sm-12 text-center image" >
             <p><img :src="top_url[0]" height="191" width="351"/></p>
             <h1 class="media-heading text-center">{{top_title}}</h1>
         </div>
     </div>
-    <div class="row course">
+
+    <div class="row course  ">
         <div class="col-sm-2 offset"></div>
         <div v-for="item,index in triD_info" :class="item.class">  
            <div class="row">
@@ -19,9 +20,34 @@
         </div>
 
     </div>
-</div> 
+</div>  -->
+<div class="container-fluid read">
+    <div class="row bg-top">
+        <div :style="{'background':`url(${top_url[1]}) no-repeat`}"  class="col-sm-12 text-center image" >
+            <p><img :src="top_url[0]" height="191" width="351"/></p>
+             <h1 class="media-heading text-center">{{top_title}}</h1>
+        </div>
+        
+    </div>
+    
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(item,index) in triD_info" :class="item.class">
+                <div class="row border">
+                    <p class="text-center"><img :src="item.top_img_url"/></p>
+                    <p class="text-center title" v-text="item.title"></p>
+                    <p class="text-center footer">
+                        <div class="more" :style="{'background':`url(${item.btn_url}) no-repeat`,'background-size': 'cover'}"><p class="text-center">{{item.btn_name}}</p></div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+    
 
- 
 
 </template>
 <script>
@@ -62,8 +88,160 @@
  }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
+.read{
+    // border:1px solid red;
+    margin-bottom: 10%;
+    img{
+        width:auto;
+        height:auto;
+        max-width:100%;
+        max-height:100%;
+    }
+    .image{
+        height: 300px;
+        padding: 0px;
+    }
+    .bg-top h1 {
+        font-size: 36px;
+        color: #B5D615;
+        padding-top: 0px;
+        margin-top: -1%;
+    }
+    .bg-top p{
+        padding-top: 0px;
+        margin-top: -10px;
+    }
+    .bg-top{
+        img{
+            width:20%;
+        }
+    }
+    .bg-top .image{
+        height: 200px;
+        margin: 0px;
+    }
+    .border{
+        border:1px solid #EBEBEB;
+        height:600px;
+     
+        img{
+            width:100%;
+          
+        }
+    }
+    .title {
+        padding:30px 20%;;
+        height:250px;
+        font-size: 44px;
+        color: #515E9A;
+    }
+    .more{
+        padding-top:3%;
+        margin: 20% auto 0;
+        color:white;
+        font-size: 22px;
+        padding-bottom: 2%;
+        width:42%;
+
+    }
+    .swiper-slide{
+         
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    .swiper-pagination-bullet{
+        width: 15px;
+        height: 15px;
+    }
+
+}
+@media screen  and (min-width:"1200px"){
+    .read{
+       .border{
+            width:400px;
+         img{
+            
+             height:150px;
+          
+        }
+    }
+       
+    }
+}
+@media screen  and (max-width:"768px"){
+    .read{
+        .border{
+            height:500px;
+        }
+        .more{
+            font-size: 18px;
+        }
+    }
+}
+@media screen and(max-width:"767px"){
+    .read{
+        .bg-top h1 {
+            font-size: 24px;
+            margin-top: 20%;
+        }
+        .border{
+            width: 95%;
+        }
+        .bg-top img{
+            width: 40%;
+        }
+        .title {
+            font-size: 30px;
+       
+        }
+        .more{
+            margin: 0 auto;
+            padding-bottom: 1%;
+        }
+      /* Center slide text vertically */
+      display: block;
+    }
+
+
+
+
+
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.read{
+    margin-bottom: 10%;
+}
 .offset{
   width:12.499999995%;
 }
@@ -93,7 +271,6 @@ img{
 .bg-top .image{
     height: 200px;
     margin: 0px;
-   // border:3px solid red;
 }
 
 .course .col-sm-3 .row {
@@ -112,11 +289,11 @@ img{
     color:white;
     font-size: 30px;
     padding-bottom: 2%;
-   // border:3px solid blue;
+
 }
  .more p{
     vertical-align: middle;
-    //border:3px solid blue;
+
 } 
   
  
@@ -139,7 +316,7 @@ img{
         height:125px;
         margin-top:-12px;
         margin-bottom:60px;
-        //border:3px solid red;
+
     }
     .course .col-sm-3 .row {
       margin:auto 15%;
@@ -148,14 +325,14 @@ img{
    .more {
         width: 220px;
         font-size:40px;
-        //border:3px solid red;
+
     }
     .bg-top h1 {
         font-size: 52px;
         margin-top: -12%;
-       // border:3px solid red;
+
     }
 
-}
+} */
 
 </style>

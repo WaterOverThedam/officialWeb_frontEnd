@@ -100,7 +100,7 @@ export default {
         height: 50px;
         background-image: url("/img/index/waves.png");
         background-size: cover;
-        //border:3px solid blue;
+        /* //border:3px solid blue; */
    }
 
    .arrow-down{ 
@@ -122,7 +122,7 @@ export default {
       -webkit-background-size:100%;
       background-size:cover;
       padding-top:60%;
-      //border:3px solid blue;
+      /* //border:3px solid blue; */
   }
 
   .ff-rd-swipe-item{
