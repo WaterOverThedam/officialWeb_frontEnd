@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:450px;}
+	</style>
+  <script type="text/javascript"  src="../ui/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript"  src="../js/tlgc.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=pZgs2afSOWQZtrh5Teq5gNwZFGSP4738"></script>
+	<title>小小运动馆城市分布</title>
+</head>
+<body>
+	<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+  var str_gym = GetRequest()
+	var map = new BMap.Map("allmap");
+	//var point = new BMap.Point(116.404, 39.915);
+	map.centerAndZoom(str_gym.city, 11);
+	map.disableDoubleClickZoom(true);
+  map.enableScrollWheelZoom(); //启用滚轮放大缩小，默认禁用
+  // 编写自定义函数,创建标注
+  
+	function addMarker(point,label,isShow){
+		var marker = new BMap.Marker(point);
+    map.addOverlay(marker);
+    if(isShow){
+      var myIcon = new BMap.Icon("../img/search/markers.png", new BMap.Size(23, 25), {    
+        // 指定定位位置。   
+        // 当标注显示在地图上时，其所指向的地理位置距离图标左上    
+        // 角各偏移10像素和25像素。您可以看到在本例中该位置即是   
+        // 图标中央下端的尖角位置。    
+        anchor: new BMap.Size(10, 25),    
+        // 设置图片偏移。   
+        // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您   
+        // 需要指定大图的偏移位置，此做法与css sprites技术类似。    
+        imageOffset: new BMap.Size(0, 0 - 10 * 25)   // 设置图片偏移    
+    });   
+    marker.setIcon(myIcon);
+    }
+    //其次，为标注添加hover事件，代码如下：
+    marker.addEventListener("mouseover",function(e){
+      labelShow(label);
+      marker.setLabel(label);
+    });
+    marker.addEventListener("mouseout",function(e){
+      var label = this.getLabel();
+      //label.setContent("");//设置标签内容为空
+      labelHide(label);
+    });
+  }
+  
+  function labelHide(label){
+     label.setStyle({display:"none",color:"transparent",border:"none",width:"0px",padding:"0px"});//设置标签边框宽度为0
+  }
+  function labelShow(label){
+    label.setStyle({
+        width: "120px",
+        color: '#fff',
+        background: '#ff8355',
+        border: '1px solid "#ff8355"',
+        borderRadius: "5px",
+        textAlign: "center",
+        height: "26px",
+        lineHeight: "26px"
+      });
+  }
+	// 向地图添加gym标注
+  var gyms = $.parseJSON(str_gym.gyms);
+   
+  gyms.map(function (gym) {
+      var location = gym.coordinate.split(",");
+      var point = new BMap.Point(parseFloat(location[0]),parseFloat(location[1]));
+      var label = new BMap.Label(gym.name ,{offset:new BMap.Size(15,-35)});
+      //console.log(gym.name+"VS"+str_gym.gym);
+      //console.log(gym.name==str_gym.gym);
+      addMarker(point,label,gym.name==str_gym.gym);
+
+  })
+  /*
+  var bounds = map.getBounds();
+  var sw = bounds.getSouthWest();
+  var ne = bounds.getNorthEast();
+	function deletePoint(){
+		var allOverlay = map.getOverlays();
+		for (var i = 0; i < allOverlay.length -1; i++){
+			if(allOverlay[i].getLabel().content == "我是id=1"){
+				map.removeOverlay(allOverlay[i]);
+				return false;
+			}
+		}
+	}
+	*/
+</script>

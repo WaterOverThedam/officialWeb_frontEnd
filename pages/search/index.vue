@@ -1,5 +1,5 @@
 <template>
- <div> 
+ <div @click="test()"> 
     <MyNav :bgColor="bgColor[counterNow]"></MyNav>
     <main>
       <div class="parent">
@@ -9,12 +9,13 @@
       </div>
       <Waves></Waves>
       <div class="menu">
-         <div  v-for="(m,index) in btn_menu"><img @click="open(index)" :src="m.default" alt=""></div>
+         <div  v-for="(m,index) in btn_menu"><img @click="open(index)" :src="m.defaultPic" alt=""></div>
       </div>
       
       <div class="banner" :style="{'background':`url(${banner[1]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"> </div> 
        
-      <gym-map></gym-map>
+      <component :is="map" :gyms="gyms" :global="global" :provs="provs"></component>
+ 
  
       <CourseBrief></CourseBrief>
     </main>
@@ -29,6 +30,7 @@ import search from './search'
 import MyNav from '~/components/MyNav.vue'
 import Waves from '~/components/Waves.vue'
 import GymMap from '~/components/GymMap.vue'
+import GlobalMap from '~/components/GlobalMap.vue'
 import CourseBrief from '~/components/CourseBrief.vue'
 import MyFooter from '~/components/MyFooter.vue'
 import { mapMutations } from 'vuex'
@@ -51,6 +53,8 @@ export default {
   },
   data () {
     return {
+      map:'gym-map',
+      gyms:[],
       ...search
     }
   },
@@ -59,17 +63,49 @@ export default {
     MyNav,
     CourseBrief,
     GymMap,
+    GlobalMap,
     MyFooter
   },
   methods: {
+    test(){
+  
+    },
     open(i){
         this.btn_menu.map((item,index) => {
         if(index==i){
-           item.default=item.linked;
+           item.defaultPic=item.linked;
+           this.map = item.id;
         }else{
-           item.default=item.link;
+           item.defaultPic=item.link;
         }
       })
+    },
+    getGyms_jsonp(){
+          var GB2312UnicodeConverter = {
+              ToUnicode: function (str) {
+                  return escape(str).toLocaleLowerCase().replace(/%u/gi, '\\u');
+              }
+              , ToGB2312: function (str) {
+                  return unescape(str.replace(/\\u/gi, '%u'));
+              }
+          };
+          //var city = '上海市', unicode;
+          
+          var url_jsonp = "http://bbk.800app.com/uploadfile/staticresource/238592/279833/dataInterface_jsonp_uni.aspx";
+          var sql_getGym = "select crmzdy_81744958 prov,crmzdy_81744959 city,crm_name name,crmzdy_82040405 coordinate,crmzdy_80620116 code,crmzdy_80616967 phone,crmzdy_80620118 email,replace(REPLACE(crmzdy_81765917,CHAR(13)add;CHAR(10),'<br/>'),'	',',') tip,crmzdy_80616968 addr from crm_zdytable_238592_23594_238592_view gyms where crmzdy_82037329=1 /*and crmzdy_81744959='var_city'*/ and crmzdy_80620116 between '500005' and '600005'";
+          
+          //sql_getGym = sql_getGym.replace('var_city',city);
+          sql_getGym = GB2312UnicodeConverter.ToUnicode(sql_getGym); 
+ 
+          this.$jsonp(url_jsonp,{sql1:sql_getGym
+          }).then(json => {
+              json =JSON.parse(json);
+              this.gyms = json.info[0].rec
+          　　// 返回数据 json， 返回的数据就是json格式
+          }).catch(err => {
+          　　console.log(err)
+          })
+         
     },
     ...mapMutations([
       "tester"
@@ -79,6 +115,7 @@ export default {
       ])
   },
   mounted(){
+    this.getGyms_jsonp();
 
   } 
  

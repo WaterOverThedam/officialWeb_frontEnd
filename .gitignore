@@ -16,5 +16,11 @@ pages_20171225
 
 #Untracked files:
 pages/course/index_table\345\256\236\347\216\260sticky.vue
-pages/index_20171221.vue 
+pages/index_20171221.vue
 pages/course/index_table实现sticky.vue
+
+
+#idea
+.idea/
+package-lock.json
+

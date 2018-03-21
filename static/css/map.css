@@ -1,0 +1,24 @@
+@charset "utf-8";
+.add01{
+    border:2px solid red!important;
+}
+
+/***publicʽ****/
+body, div, span, h1, h2, h3, h4, h5, h6, p, em, img, strong, b, small, u, i, center, dl, dt, dd, ol, ul, li,  sub, sup, tt, var, del, dfn,  ins, kbd, q, s, samp,  strike, applet, object, iframe, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, blockquote, pre, a, abbr, acronym, address, big, cite, code, mark, audio, video, input, textarea, select { margin:0; padding:0;}	
+ol, ul{list-style:none;}
+html { overflow-x:hidden; -webkit-text-size-adjust:none; }
+/*center*/
+
+
+.map_con dl{ z-index:9;}
+.add01{ color:red;position:absolute; text-indent:-9999px;width:3%; height:3%; cursor:pointer;}
+.add01_con{ display:none; width:100%; background:url(../img/search/top.png) 0 0 no-repeat; padding-top:6px; position:absolute;}
+.add01_con dd{ line-height:24px; overflow:hidden; font-family:microsoft yahei; padding-left:20px; background:url(../img/search/center.png) 0 0 repeat-y;}
+.add01_con dd a{ color:#4a65a2; font-size:13px;}
+.add01_con dd.last{ background:url(../img/search/bot.png) 0 0 no-repeat; height:10px; padding-right:0;}
+ 
+.add_shanghai { left:73%; top:58%; }
+.add_shanghai_con{  left:622px; top:330px;}
+ 
+
+ 

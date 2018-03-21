@@ -5,16 +5,56 @@
         {"id":"gras","name":"学龄运动"},
         {"id":"km","name":"音乐课"},{"id":"pk","name":"球类运动"},
         {"id":"dance","name":"舞蹈"},{"id":"kara","name":"空手道"}],
-      "banner":["/img/search/search_banner1.jpg","/img/search/search_banner2.jpg"],
+      "banner":["img/search/search_banner1.jpg","img/search/search_banner2.jpg"],
       "btn_menu":[
-        {"link":"/img/search/china1.png","default":"/img/search/china2.png","linked":"/img/search/china2.png"},
-        {"link":"/img/search/northAmerican1.png","default":"/img/search/northAmerican1.png","linked":"/img/search/northAmerican2.png"},
-        {"link":"/img/search/global1.png","default":"/img/search/global1.png","linked":"/img/search/global2.png"}
+        {"link":"img/search/china1.png","defaultPic":"img/search/china2.png","linked":"img/search/china2.png","id":"gym-map"},
+        {"link":"img/search/northAmerican1.png","defaultPic":"img/search/northAmerican1.png","linked":"img/search/northAmerican2.png","id":"gym-map"},
+        {"link":"img/search/global1.png","defaultPic":"img/search/global1.png","linked":"img/search/global2.png","id":"global-map"}
       ],
       "header":{
         "title":"什么让小小运动馆如此与众不同?",
         "content":["40年来小小运动馆始终专注于儿童早期教育课程的研发，科学、独特的课程体系和教学方法，让孩子在快乐中迅速提高运动能力，孩子更加自信、更加乐于尝试新事物和接受挑战。课程历经数千万家庭和孩子的亲身体验和教学实践的验证。连续６年入选《Entrepreneur》杂志美国国际化特许经营品牌，并被权威杂志《Entrepreneur》评为儿童早期教育优选品牌。","先进的在线教案系统确保每个中心实时享有美国总部不断研发的教案。每2~4 周课程组成一个学习单元，学习某个方面的认知或情感社交―包括字母和单词、颜色、数字和算术、节奏韵律、人体部位、创意表达、分享、纪律、关爱、协作以及情绪控制等。每年两次表演周, 孩子自信地展示在运动、认知和情感社交上的进步，享受成功的快乐。","小小运动馆教授的所有体操技能及其保护方法，以及所有与体操相关的活动，均严格遵循美国体操协会（USAG）的标准，并且同步更新。原创的美式音乐让孩子在丰富而独特的原创音乐中运动、跳舞，自然而然地提高孩子的节奏感和创意表达能力，简单而幽默的英文歌词和指令培养孩子的聆听能力。"]
-      }
+      },
+      "global":{
+        "pic":{"Africa":"img/search/Africa.jpg","America":"img/search/America.png","Asia":"img/search/Asia.gif","Australia":"img/search/Australia.gif","Euro":"img/search/Euro.gif","up":"img/search/up.jpg"}
+      },
+      "provs": [
+        {"id":"heilongjiang","name":"黑龙江"},
+        {"id":"jilin","name":"吉林"},
+        {"id":"liaoning","name":"辽宁"},
+        {"id":"hebei","name":"河北"},
+        {"id":"shandong","name":"山东"},
+        {"id":"jiangsu","name":"江苏"},
+        {"id":"zhejiang","name":"浙江"},
+        {"id":"anhui","name":"安徽"},
+        {"id":"henan","name":"河南"},
+        {"id":"shanxi","name":"山西"},
+        {"id":"shaanxi","name":"陕西"},
+        {"id":"gansu","name":"甘肃"},
+        {"id":"hubei","name":"湖北"},
+        {"id":"jiangxi","name":"江西"},
+        {"id":"fujian","name":"福建"},
+        {"id":"hunan","name":"湖南"},
+        {"id":"guizhou","name":"贵州"},
+        {"id":"sichuan","name":"四川"},
+        {"id":"yunnan","name":"云南"},
+        {"id":"qinghai","name":"青海"},
+        {"id":"hainan","name":"海南"},
+        {"id":"shanghai","name":"上海"},
+        {"id":"chongqing","name":"重庆"},
+        {"id":"tianjin","name":"天津"},
+        {"id":"beijing","name":"北京"},
+        {"id":"neimongol","name":"内蒙古"},
+        {"id":"guangxi","name":"广西"},
+        {"id":"xinjiang","name":"新疆"},
+        {"id":"xizang","name":"西藏"},
+        {"id":"guangdong","name":"广东"},
+        {"id":"ningxia","name":"宁夏"},
+        {"id":"hongkong","name":"香港"},
+        {"id":"taiwan","name":"台湾"},
+        {"id":"macau","name":"澳门"}
+      ]
+      
    
       
 }

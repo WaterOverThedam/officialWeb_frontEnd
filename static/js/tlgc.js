@@ -1,6 +1,4 @@
-$(document).ready(function () { //本人习惯这样写了
-   
-  
+$(document).ready(function () {
    $(window).scroll(function() {
        show_scroll();
        //console.log(this.logShow);
@@ -50,3 +48,27 @@ function exitFullscreen()
     }
 }
 
+function getUrlParam(name) {
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+  var r = window.location.search.substr(1).match(reg); //匹配目标参数
+  if (r != null) return unescape(r[2]); return null; //返回参数值
+}
+
+
+
+function escape2Html(str) {
+  var arrEntities={'lt':'<','gt':'>','nbsp':' ','amp':'&','quot':'"'};
+  return str.replace(/&(lt|gt|nbsp|amp|quot);/ig,function(all,t){return arrEntities[t];});
+}
+function GetRequest() {
+  var url = decodeURI(location.search); //获取url中"?"符后的字串
+  var theRequest = new Object();
+  if (url.indexOf("?") != -1) {
+    var str = url.substr(1);
+    strs = str.split("&");
+    for(var i = 0; i < strs.length; i ++) {
+      theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+    }
+  }
+  return theRequest;
+}
