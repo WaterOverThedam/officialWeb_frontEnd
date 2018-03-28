@@ -53,6 +53,11 @@
 <script>
  import ImgButton from '~/components/ImgButton.vue'
  export default {
+    head:{
+         script: [
+             {src: '/js/swiper.js'},
+        ]  
+    },
   components: {
     ImgButton
   },

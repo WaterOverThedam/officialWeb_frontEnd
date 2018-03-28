@@ -113,10 +113,7 @@
         }
     }
 }
-@font-face { 
-font-family: 'GD-HEI'; 
-src: url('/font/bak/hei.ttf') format('truetype'); 
-}
+
 @media screen  and (max-width:"767px"){
     .contact{
         font-size: 6px;

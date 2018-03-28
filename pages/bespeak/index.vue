@@ -83,6 +83,7 @@
             </div>
             <MyMedia></MyMedia>
         </main>
+        <GoTop></GoTop>
         <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
     </div>
 </template>
@@ -91,6 +92,8 @@
     import MyNav from '~/components/MyNav.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
+
+    import GoTop from '~/components/GoTop.vue'
     export default {
         head:{
             "title":"预约中心",
@@ -114,7 +117,8 @@
         components:{
             MyNav,
             MyMedia,
-            MyFooter
+            MyFooter,
+            GoTop
         }
     }
 
@@ -297,6 +301,14 @@
                 }
             }
         }
+        .blue{
+            .imgR{
+                margin-top: 3%;
+                .m{
+                    margin-top: 20%;
+                }
+            }
+        }
             // 底部
         .bto{
     
@@ -409,8 +421,5 @@
         
     }
 }    
-@font-face { 
-font-family: 'GD-HEI'; 
-src: url('/font/bak/hei.ttf') format('truetype'); 
-} 
+
 </style>

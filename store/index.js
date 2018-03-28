@@ -6,11 +6,12 @@ const createStore = () => {
         bgColor:['#33CCCC','#5160AC'],
         menu: {
            content:[
+              {name:"品牌故事",value:"/story"},
               {name:"我们的课程",value:"/course"},
               {name:"派对和夏冬令营",value:"/party"},
               {name:"新闻中心",value:"/news"},
-              {name:"预约中心",value:"/bespeak"},
-              {name:"品牌故事",value:"/story"}
+              {name:"预约体验",value:"/bespeak"},
+             
            ]
         },
         counter: parseInt(Math.random()*10000),

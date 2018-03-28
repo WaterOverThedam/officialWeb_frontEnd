@@ -284,7 +284,7 @@ export default {
    cursor:pointer;
    width:100%;
    height:100%;
-   //border:3px solid red;
+   /* //border:3px solid red; */
  }
 #banner{
    margin:0;
@@ -308,7 +308,7 @@ export default {
    right:0;
    margin:auto;
    text-align:center;
-   //border:3px solid red;
+   /* //border:3px solid red; */
 }
 
 .header{
@@ -769,7 +769,7 @@ a:hover{
     font-weight: 500;
     z-index: 99999;
     text-align: center;
-    //border:1px solid blue;
+    /* //border:1px solid blue; */
  }
  .secondary-navigation-menu{
    list-style-type: none
@@ -786,7 +786,7 @@ a:hover{
     display: inline-block;
     outline: none;
     text-decoration: none;
-    //border:1px solid red;
+    /* //border:1px solid red; */
  }
 
 

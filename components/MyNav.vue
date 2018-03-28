@@ -13,7 +13,11 @@
               </div>
               <div class="col-sm-4 text-right">
                     <ul class="gym" >
-                       <li id="find"><nuxt-link :to="'/service/detail'" class="link" href="#">全国中心</nuxt-link></li>
+                       <!-- <li id="find"><nuxt-link :to="'/service/detail'" class="link" href="#">全国中心</nuxt-link></li> -->
+                       <li id="find">
+                         <!-- <nuxt-link to="/search" class="link" >全国中心</nuxt-link> -->
+                         <a href="/search" class="link">全国中心</a>
+                         </li>
                        <li class="dot"></li>
                        <!-- <li id="own"><nuxt-link :to="'/service/detail'" class="link" href="#">加盟中心</nuxt-link></li> -->
                        <li id="own"><nuxt-link to="/join" class="link" href="#">加盟中心</nuxt-link></li>
@@ -51,6 +55,7 @@ import { mapActions } from 'vuex'
 import MenuList from '~/components/MenuList.vue'
  
 export default {
+
   props:['bgColor'],
   components: {
     MenuList

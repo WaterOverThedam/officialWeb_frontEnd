@@ -1,8 +1,18 @@
 <template>
     <div class="outer">
+
+        <div class="bespeak hidden-xs" v-show="isShow">
+            <nuxt-link to="/bespeak" href="#">
+             <img :src="bespeak" alt="">
+            </nuxt-link>
+            <span class="closes" @click.prevent="close">X</span>
+           
+        </div>
+
        <div v-for="(bgImg,index) in bgImgs" :id="'a'+index" :data-id="index" class="parent row-wrapper chevron-btm" :class="{'myFadein':index===counterNow}" :style="{'background-image':`url(${bgImg})`}">
          <component :is="which"></component> 
-         <div class="btn" :style="{'background':`url(${btPlay}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"></div>
+         <!-- 播放按钮 -->
+         <!-- <div class="btn" :style="{'background':`url(${btPlay}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"></div> -->
        </div>
        <video dataSrc="http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4" controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
     </div> 
@@ -14,6 +24,7 @@ import MenuDecor from '~/components/MenuDecor.vue'
 export default {
   data () {
     return {
+        isShow:true,
         which:'MenuDecor',
         ff:false,
         bannerTop:"/img/index/bg_top.png",
@@ -27,6 +38,7 @@ export default {
         icon:"/img/index/asterisk.png",
         logo:"/img/index/logo.png",
         btPlay:"/img/index/play01.png",
+        bespeak:"/img/index/bespeak.png",
         bottom:{
           title:[
              "全国同步教案",
@@ -64,7 +76,10 @@ export default {
   methods: {
      ...mapActions([
       "incrementAsync"
-      ])
+      ]),
+      close(){
+          return this.isShow = false;
+      }
  
   },
   components: {
@@ -79,12 +94,28 @@ export default {
 </script>
 
 <style scoped>
+.bespeak{
+    position: fixed;
+    right: 0;
+    bottom:0;
+    z-index: 9999;
+}
+.closes{
+    position: absolute;
+    right: 0;
+    color:white;
+    font-weight: 800;
+    top:29%;
+    font-size: 20px;
+    padding: 1% 3%;
+    cursor: pointer;
+}
 .btn{
   width:5%;
-  padding:5%;
+  padding:8%;
   position:absolute;
-  right:4%;
-  bottom:12%;
+  right:16%;
+  bottom:6%;
   opacity:0.8;  
   /* //border:3px solid blue; */
 }
@@ -280,8 +311,9 @@ img  {
     }
      /* 移动端细节修改 */
     .btn{
-        padding: 6%;
-        bottom:6%;
+        padding: 20%;
+        bottom:45%;
+        right:32%;
     }
  
  

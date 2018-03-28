@@ -2,7 +2,9 @@
     <div class="outer" >
         <p class="title" v-text="bottom.title[0]"></p>
         <p>
-          <span class="find" :style="{'background':`url(${bottom.pic[0]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">{{bottom.title[1]}}</span>
+          <a href="/search">
+            <span class="find" :style="{'background':`url(${bottom.pic[0]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">{{bottom.title[1]}}</span>
+          </a>
         </p>
         <p class="loop">
           <img :src="bottom.pic[1]">
@@ -135,8 +137,12 @@ export default {
         color:white;
         /* 移动端细节修改 */
         font-size: 19px;
-        left:20%;
+        left:25%;
         /* //border:3px solid blue; */
+    }
+    .title{
+        left:14%;
+
     }
 
    

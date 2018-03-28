@@ -11,7 +11,7 @@
                 <h3 v-text="title"></h3>
             </div>
             <div class="form" :style="{'background':`url(${form_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                <form action="" >
+                <form action="javascript:0" >
                     <ul>
                         <li v-for="item in form">
                             <p v-text="item.title"></p>
@@ -183,24 +183,27 @@
             // 按钮样式
                 span {
                     position: absolute;
-                    bottom:4%;
+                    bottom:10%;
                     cursor: pointer;
                     z-index:103;
                     .more{
                         color:#B6D713;
                         position: absolute;
-                        bottom: 5%;
-                        left:20%;
-                        font-size: 0.8em;
+                        bottom: -32%;
+                        left:-9%;
+                        font-size: 1.5em;
                         font-weight: 600;
+                    }
+                    img{
+                        transform: scale(2)
                     }
                 }
                 //  左右两边
                 .l{
-                    left:2%;
+                    left:2.5%;
                 }
                 .r{
-                    right:2%
+                    right:2.5%
                 }
 
             // 文字样式
@@ -208,7 +211,7 @@
                 width: 46%;
                 overflow: auto;
                 height:100%;
-                padding:10% 8% 0;
+                padding:10% 10% 0;
                 z-index: 102;
                 
                 
@@ -224,7 +227,7 @@
                 .desc{
                    
                     p{  
-                        text-align: center;
+                        // text-align: center;
                         font-size: 1.4em;
                         color:#5160AC;
                     }
@@ -241,11 +244,33 @@
 
 
 }
-@font-face { 
-font-family: 'GD-HEI'; 
-src: url('/font/bak/hei.ttf') format('truetype'); 
-} 
+// @font-face { 
+// font-family: 'GD-HEI'; 
+// src: url('/font/bak/hei.ttf') format('truetype'); 
+// } 
+@media screen and (max-width:"768px") {
+    .join{
+        .container{
+            li{
+                span{
+                    .more{
+                            bottom: -18%;
+                            left:-2%;
+                            font-size: 2em;
+                    }
+                    img{
+                            transform: scale(1.5)
+                    }
+                }
+            }
+        }
+    }
 
+
+
+
+
+}
 @media screen and (max-width:"767px") {
     .join{
         .title{
@@ -279,15 +304,16 @@ src: url('/font/bak/hei.ttf') format('truetype');
                 }
                 // 按钮样式
                     span {
-                        bottom:62%;
+                        bottom:63%;
                         transform: scale(0.6);
                         .more{
                             position: absolute;
-                            bottom: -1%;
-                            left:10%;
-                            font-size: 1.8em;
+                            bottom: -34%;
+                            left:-35%;
+                            font-size: 3.5em;
                             font-weight: 600;
-                    }
+                        }
+                       
                     }
                     //  左右两边
                     .l{

@@ -88,6 +88,8 @@ img  {
     font-size:1.4em;
     color:white;
 
+    line-height: 2.4em;
+
 }
 .balltext .view{
     cursor: pointer;
@@ -120,7 +122,6 @@ img  {
   }
  
 }
- 
 
 
 @media screen and (max-width:1200px) {
@@ -129,6 +130,7 @@ img  {
     font-family: 'GD-HEI';
     font-size:4.6em;
     color:white;
+    /* line-height: 1em; */
 
   }
   .balltext .word{
@@ -137,6 +139,7 @@ img  {
     padding-bottom: 40px;
     font-size:1.2em;
     color:white;
+    line-height: 1.3em;
 
   }
   .balltext .view{

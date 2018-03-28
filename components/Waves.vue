@@ -36,7 +36,7 @@ export default {
     background-size: auto 100%;
     width: 100%;
     height: 44px;
-    //border:1px solid red;
+    /* //border:1px solid red; */
 }
  
 

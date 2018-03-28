@@ -1,5 +1,5 @@
 <template>
- <div @click="test()"> 
+ <div @click="test()" class="overhidden"> 
     <MyNav :bgColor="bgColor[counterNow]"></MyNav>
     <main>
       <div class="parent">
@@ -12,9 +12,9 @@
          <div  v-for="(m,index) in btn_menu"><img @click="open(index)" :src="m.defaultPic" alt=""></div>
       </div>
       
-      <div class="banner" :style="{'background':`url(${banner[1]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"> </div> 
+      <!-- <div class="banner" :style="{'background':`url(${banner[1]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"> </div>  -->
        
-      <component :is="map" :gyms="gyms" :global="global" :provs="provs"></component>
+      <component :is="map" :gyms="gyms" :global="global" :provs="provs" :american="american"></component>
  
  
       <CourseBrief></CourseBrief>
@@ -30,6 +30,7 @@ import search from './search'
 import MyNav from '~/components/MyNav.vue'
 import Waves from '~/components/Waves.vue'
 import GymMap from '~/components/GymMap.vue'
+import AmericanMap from '~/components/AmericanMap.vue'
 import GlobalMap from '~/components/GlobalMap.vue'
 import CourseBrief from '~/components/CourseBrief.vue'
 import MyFooter from '~/components/MyFooter.vue'
@@ -40,7 +41,9 @@ export default {
   head:{
     title:"查找中心",
     script: [
-        {src: '/js/search.js'}
+        {src: '/js/search.js'},
+      {src: '/ui/highmaps.js'},
+      
     ] 
   },
   computed:{
@@ -63,8 +66,10 @@ export default {
     MyNav,
     CourseBrief,
     GymMap,
+    AmericanMap,
     GlobalMap,
     MyFooter
+   
   },
   methods: {
     test(){
@@ -96,10 +101,11 @@ export default {
           
           //sql_getGym = sql_getGym.replace('var_city',city);
           sql_getGym = GB2312UnicodeConverter.ToUnicode(sql_getGym); 
- 
+          // 跨域请求数据
           this.$jsonp(url_jsonp,{sql1:sql_getGym
           }).then(json => {
               json =JSON.parse(json);
+              console.log(json);
               this.gyms = json.info[0].rec
           　　// 返回数据 json， 返回的数据就是json格式
           }).catch(err => {
@@ -123,13 +129,16 @@ export default {
 </script>
 
 <style scoped>
+.overhidden{
+  overflow: hidden;
+}
 main {
   font-size: 40px
 } 
 .banner{
    margin:0;
    padding:0;
-   padding-top:42%;
+   padding-top:45%;
 }
 .parent{
    position:relative;  
@@ -144,7 +153,7 @@ main {
    letter-spacing: 0.2em;
    bottom:20%;
    padding-left:10%;
-   color:white;
+   color:white ;
 }
 
  

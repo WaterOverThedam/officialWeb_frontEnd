@@ -8,7 +8,7 @@
       "banner":["img/search/search_banner1.jpg","img/search/search_banner2.jpg"],
       "btn_menu":[
         {"link":"img/search/china1.png","defaultPic":"img/search/china2.png","linked":"img/search/china2.png","id":"gym-map"},
-        {"link":"img/search/northAmerican1.png","defaultPic":"img/search/northAmerican1.png","linked":"img/search/northAmerican2.png","id":"gym-map"},
+        {"link":"img/search/northAmerican1.png","defaultPic":"img/search/northAmerican1.png","linked":"img/search/northAmerican2.png","id":"american-map"},
         {"link":"img/search/global1.png","defaultPic":"img/search/global1.png","linked":"img/search/global2.png","id":"global-map"}
       ],
       "header":{
@@ -17,6 +17,9 @@
       },
       "global":{
         "pic":{"Africa":"img/search/Africa.jpg","America":"img/search/America.png","Asia":"img/search/Asia.gif","Australia":"img/search/Australia.gif","Euro":"img/search/Euro.gif","up":"img/search/up.jpg"}
+      },
+      "american":{
+        "pic":"img/search/mapbg.png"
       },
       "provs": [
         {"id":"heilongjiang","name":"黑龙江"},

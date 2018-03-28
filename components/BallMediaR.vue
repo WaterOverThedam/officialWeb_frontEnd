@@ -89,6 +89,7 @@ a {
     padding-left: 130px;
     font-size:1.4em;
     color:white;
+    line-height: 2.1em;
 }
 
 .balltext .view{
@@ -97,7 +98,7 @@ a {
     font-size:38px;
     inline-height:30px;
     padding:5px 22px;
-    //border:3px solid blue;
+    /* //border:3px solid blue; */
 }
 
 
@@ -119,7 +120,7 @@ a {
   }
   .balltext .view{
     font-size:35px;
-    //border:3px solid blue;
+    /* //border:3px solid blue; */
   }
  
 }
@@ -138,6 +139,7 @@ a {
     padding-left: 50px;
     font-size:1.2em;
     color:white;
+    line-height: 1.3em;
 
   }
   .balltext .view{
