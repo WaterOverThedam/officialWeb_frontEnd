@@ -1,80 +1,97 @@
 <template>
-  <div class="container-fluid">
-      <div class="row up" :style="{'background':`url(${global.pic.up}) no-repeat`,
-             'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100%'}">
-
+  <div class="container-fluid world">
+      <!-- <div class="row up" :style="{'background-image':`url(${global.pic})`}">
+         
+      </div> -->
+      <div class="row" :class="{'left':leftShow,'center':centerShow,'right':rightShow}">
+        <img :src="global.bg" alt="">
+        
       </div>
-      <div class="row down">
-          <div class="col-sm-7"> 
-            <div class="row euro" :style="{'background':`url(${global.pic.Euro}) no-repeat`,
-             'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100%'}">
-                
-            </div>
-            <div class="row">
-                  <div class="col-sm-6 australia" :style="{'background':`url(${global.pic.Australia}) no-repeat`,
-             'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100%'}"> </div>
-                  <div class="col-sm-6 africa" :style="{'background':`url(${global.pic.Africa}) no-repeat`,
-             'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100%'}"> </div>
-
-            </div>
-
-          </div>
-          <div class="col-sm-5"> 
-            <div class="row american" :style="{'background':`url(${global.pic.America}) no-repeat`,
-             'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100%'}"></div>
-            <div class="row asia" :style="{'background':`url(${global.pic.Asia}) no-repeat`,
-             'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100%'}"></div>
-          </div>
+    
+        <span class="prev" v-show="!leftShow" @click="prve">
+          <img :src="global.prve" alt="">
+        </span>
+        <span class="next" @click="next" v-show="!rightShow">
+          <img :src="global.next" alt="">
+        </span>
       </div>
-  </div>
+
 </template>
 <script>
  export default {
   props: ["global"],	
   data () {
     return {
-   
+      leftShow:false,
+      centerShow:true,
+      rightShow:false,
+      
     }
+  },
+  methods:{
+      next(){
+         if(this.centerShow){
+          this.rightShow=true;
+          this.centerShow=false;
+
+          return;
+        }
+        // 到达两边最右边
+        if(this.leftShow){
+          this.centerShow=true;
+          this.leftShow=false;
+          return;
+        }
+          
+      },
+      prve(){
+        if(this.centerShow){
+          this.centerShow=false;
+          this.leftShow = true;
+          return;
+        }
+        if(this.rightShow){
+          this.centerShow=true;
+          this.rightShow=false;
+        }
+
+      }
   }
  }
 </script>
 
 
 <style scoped>
-  .up{
-    padding: 20%;
+  .row{
+    position: relative;
   }
- 
-  .euro{
-    padding-top: 60%;
-    border: 5px transparent solid;
+  .left{
+    left:30%;
   }
-  .australia,.africa{
-    padding-top: 40%;
-    border: 5px transparent solid;
+  .center{
+    left:5%;
   }
-  .american{
-     padding-top: 75%;
-     border: 5px transparent solid;
+  .right{
+    left:auto;
+    right:20%;
   }
-  .asia{
-    padding-top: 71%;
-    border: 5px transparent solid;
-    margin-bottom: -100px;
+  .world {
+    position: relative;
   }
-  .down{
-    margin: 5% auto;
-    //border: 1px solid red;
- 
+  .world span{
+    position: absolute;
+    left:5%;
+    top:50%;
+    transform: translateY(-50%);
+    cursor: pointer;
   }
- 
-  @media (max-width:1024px) {
-     .asia{
-        margin-top:1%;
-     }   
+  .world .next{
+    left:auto;
+    right:5%;
+
 
   }
- 
+
  
  
 </style>

@@ -56,9 +56,10 @@
             </div>
 
 
-
+            <common></common>
             <MyMedia></MyMedia>
         </main>
+        <GoTop></GoTop>
         <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
     </div>
  
@@ -67,8 +68,10 @@
     import join from './join'
     import Waves from '~/components/Waves.vue'
     import MyNav from '~/components/MyNav.vue'
+    import Common from '~/components/Common.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
+    import GoTop from '~/components/GoTop.vue'
 
     export default {
         head:{
@@ -93,8 +96,10 @@
         components:{
             Waves,
             MyNav,
+            Common,
             MyMedia,
-            MyFooter
+            MyFooter,
+            GoTop
         }
         
     }

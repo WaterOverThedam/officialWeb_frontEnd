@@ -3,7 +3,7 @@
 		<MyNav :bgColor="bgColor[counterNow]"></MyNav>
         <main>
             <div @click="goToCourse" id="banner" :style="{'background':`url(${imgs.bannertop}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
-                <p v-text="title"></p>  
+                <!-- <p v-text="title"></p>   -->
             </div>
             <Waves></Waves>
             <!-- 导航栏 -->
@@ -87,8 +87,11 @@
                   </ul>
                 </div>
             </div>
+            <Common></Common>
             <MyMedia></MyMedia>
+            
         </main>
+        <GoTop></GoTop>
         <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
 
 	</div>
@@ -100,10 +103,13 @@
     import Round from '~/components/Round.vue'
     import MyNav from '~/components/MyNav.vue'
     import Waves from '~/components/Waves.vue'
+    import Common from '~/components/Common.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
+ 
     import { mapMutations } from 'vuex'
     import { mapActions } from 'vuex'
+    import GoTop from '~/components/GoTop.vue'
     export default {
         head:{
             title:"品牌故事",
@@ -131,8 +137,10 @@
             Round,
             Waves,
             MyNav,
+            Common,
             MyMedia,
-            MyFooter
+            MyFooter,
+            GoTop
         },
         methods: {
              goToCourse(){
@@ -177,21 +185,21 @@
    /* height: 100%; */
 }
  
-#banner p{
+/* #banner p{
    position:absolute;
    color:white;
    font-family: 'GD-HEI';
    font-size: 7em;
    color:white;
    top:4em;
-   /* bottom:70%; */
+ 
    left:-5em;
    right:0;
    margin:auto;
    text-align:center;
    
-   /* //border:3px solid red; */
-}
+
+} */
 
 .header{
   margin:30px auto;
@@ -326,7 +334,7 @@ div.word {
 .ys ul li{
   height: 45em;
   text-align: center;
-  margin-bottom: 7em;
+  /* margin-bottom: 7em; */
 
 }
 
@@ -361,6 +369,12 @@ div.word {
 @media (max-width:992px){
   .mod-wall-item{
      width:100%;
+  }
+  
+  .ys ul li{
+
+    margin-bottom: 7em;
+
   }
 }
 
@@ -431,7 +445,7 @@ div.word {
   }
   .parent{
     padding-bottom:45%;
-    //border:3px solid red;
+    /* //border:3px solid red; */
   }
   #banner p{
      font-size: 25px;

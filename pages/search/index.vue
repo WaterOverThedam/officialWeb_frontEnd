@@ -1,11 +1,11 @@
 <template>
  <div @click="test()" class="overhidden"> 
+   <div class="" id="logo"></div>
     <MyNav :bgColor="bgColor[counterNow]"></MyNav>
     <main>
       <div class="parent">
-        <div class="banner" :style="{'background':`url(${banner[0]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
+        <div class="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
         </div>
-        <p class="title1" v-text="title"></p> 
       </div>
       <Waves></Waves>
       <div class="menu">
@@ -17,9 +17,9 @@
       <component :is="map" :gyms="gyms" :global="global" :provs="provs" :american="american"></component>
  
  
-      <CourseBrief></CourseBrief>
+      <!-- <CourseBrief></CourseBrief> -->
     </main>
-    
+    <GoTop></GoTop>
     <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
 
  </div>
@@ -34,8 +34,10 @@ import AmericanMap from '~/components/AmericanMap.vue'
 import GlobalMap from '~/components/GlobalMap.vue'
 import CourseBrief from '~/components/CourseBrief.vue'
 import MyFooter from '~/components/MyFooter.vue'
+import GoTop from '~/components/GoTop.vue'
 import { mapMutations } from 'vuex'
 import { mapActions } from 'vuex'
+
 
 export default {
   head:{
@@ -68,7 +70,8 @@ export default {
     GymMap,
     AmericanMap,
     GlobalMap,
-    MyFooter
+    MyFooter,
+    GoTop
    
   },
   methods: {

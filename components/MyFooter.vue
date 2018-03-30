@@ -17,7 +17,7 @@
                       <div class="col-sm-2">
                       </div>
                       <div class="col-sm-8">
-                           <p class="text-center">
+                           <div class="text-center">
                              <h4 class="menu">
                                    <ul>
                                       <li v-for="(item, index) of footer.footerMenu" :class="'item'+index">
@@ -25,7 +25,7 @@
                                       </li>
                                    </ul>
                              </h4>
-                           </p>
+                           </div>
                            <p class="copyright text-center" v-text="footer.copyright">
                            </p>
                       </div>
@@ -53,7 +53,7 @@
           {"id":"/contact","title":"联系我们"},
           {"id":"/recruit","title":"招聘"},
           {"id":"/","title":"中心页面"},
-          {"id":"/join","title":"加盟页面"},
+          {"id":"/bespeak","title":"预约体验"},
         ],
         copyright:"版权所有：上海小小乐杰健身休闲有限公司 沪ICP备17040660号-2",
         bottom_pic:"/img/index/bottom2.jpg"

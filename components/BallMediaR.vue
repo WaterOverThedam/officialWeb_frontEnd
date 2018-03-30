@@ -67,7 +67,7 @@ a {
 .ball{
     width: 100%;
     padding-top: 95%;
-    //border:3px solid red;
+    /* //border:3px solid red; */
 }
 .balltext {
   height: 0;
@@ -89,7 +89,7 @@ a {
     padding-left: 130px;
     font-size:1.4em;
     color:white;
-    line-height: 2.1em;
+    /* line-height: 2.1em; */
 }
 
 .balltext .view{

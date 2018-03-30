@@ -43,7 +43,7 @@
           "/img/index/right-quote.png"
         ],
         media_Bottom:{
-            title:"找到离你最近的小小运动馆",
+            title:"找到离您最近的小小运动馆",
             url:"/img/index/clouds-teal.png",
             btn_city: {
                url:"/img/index/btn-white-border.png",
@@ -72,7 +72,9 @@
     max-height:100%;
     /* //border:3px solid red; */
 }
- 
+.common {
+    padding: 0;
+}
    
 .btn-city{
   color: white;
@@ -97,10 +99,11 @@
 
 .our-gym{
     color: white;
-    font-family:"Times New Roman",Georgia,Serif;
-    font-size: 43px;
+    /* font-family:"Times New Roman",Georgia,Serif; */
+    font-family: "GD-HEI";
+    font-size: 50px;
     font-weight: bold;
-    //letter-spacing: 3px;
+    /* //letter-spacing: 3px; */
     margin-bottom: 10px;
 }
  
@@ -142,6 +145,9 @@
     padding-top: 10%;
     padding-bottom: 6%;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
 
 }
 
@@ -172,12 +178,12 @@
     }
     .our-gym{
         margin-top:40px;
-        font-size: 19px;
+        font-size: 24px;
     }
     .image{
         padding-top: 3%;
         padding-bottom: 4%;
-        margin-top: 12%;
+        /* margin-top: 12%; */
         margin-bottom: 0;
     }
 

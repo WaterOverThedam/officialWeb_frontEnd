@@ -1,9 +1,9 @@
 <template>
     <div class="outer" >
-        <p class="title" v-text="bottom.title[0]"></p>
+        <p class="title" v-for="(item,index) in bottom.title" v-text="item" :class="{'myFadein':index===counterNow}"></p>
         <p>
           <a href="/search">
-            <span class="find" :style="{'background':`url(${bottom.pic[0]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">{{bottom.title[1]}}</span>
+            <span class="find" :style="{'background':`url(${bottom.pic[0]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">{{bottom.title2}}</span>
           </a>
         </p>
         <p class="loop">
@@ -22,9 +22,13 @@ export default {
     return {
         bottom:{
           title:[
-             "全国同步教案",
-             "寻找离你最近的中心"
+             "全国同步教案1",
+             "全国同步教案2",
+             "全国同步教案3",
+             "全国同步教案4",
+             "全国同步教案5",   
           ],
+          title2:"寻找离你最近的中心",
           pic:[
              "/img/index/btn_long_blue.png",
              "/img/index/loop.png",
@@ -34,6 +38,14 @@ export default {
         }
   
     }
+  },
+  computed:{
+       counterNow(){
+            return parseInt(this.$store.state.counter/4)%this.bottom.title.length;
+        }
+  },
+  mounted(){
+      console.log(11111)
   },
   filters: {
     capitalize: function (value) {
@@ -72,7 +84,21 @@ export default {
     left:10%;
     /* //border:1px solid red; */
     font-size: 90px;
+
+    /* 幻灯片效果 */
+    opacity: 0;
+     -webkit-transition: opacity 2s linear;
+    -moz-transition: opacity 2s linear;
+    -o-transition: opacity 2s linear;
+    transition: opacity 2s linear;
 }
+
+/* 显示 */
+.myFadein{
+  opacity: 100;
+  filter: alpha(opacity=100);
+}
+ 
 .find{
     position:absolute;
     cursor: pointer;
@@ -105,6 +131,7 @@ export default {
           /* 移动端细节修改 */
         font-size: 48px;
         top:54%;
+
     }
     .find{
         font-size: 17px;

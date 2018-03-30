@@ -3,13 +3,21 @@
     <MyNav :bgColor="bgColor[counterNow]"></MyNav>
     <main>
       <div @click="goToCourse" id="banner" :style="{'background':`url(${imgs.banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-          <p v-text="title"></p>
+          <!-- <p v-text="title"></p> -->
       </div>
       <Waves></Waves>
       <!-- 导航栏 -->
-      <div :class="{'hidden-xs':true,'sticky':true,'fixed':isfixed}">
-            <div class="move"><img id="move" :src="imgs.move" alt=""></div>
-            <div class="age"><img :src="imgs.ageduring" alt=""></div>
+      <div :class="{'hidden-xs':true,'sticky':true,'fixed':isfixed}" class="container">
+        
+            <div class="container  move">
+              <img id="move" :src="imgs.move" alt="" v-show="isMoveShow">
+            </div>
+            <div class="height" v-show="isSmallShow"></div>
+            <div class="container age" title="选择您的孩子所在年龄段">
+              <img class="smallmove" v-show="isSmallShow" :src="imgs.move" alt="">
+              <img class="during" :src="imgs.ageduring" alt="">
+            </div>
+        
       </div>
 
       <div class="container">
@@ -68,7 +76,7 @@
           <div class="bottom">
             <ul>
              <li v-for="(item,index) in imgs.course1.course_1">
-               <img :src="item.pic" alt="">
+               <div  class="bg" :class="index%2==0?'l0':'r0'" :style="{'background-image':`url(${item.pic})`}"></div>
                <div class="CourseName" :class="index%2==1?'left':'right'">
                   <img :src="imgs.course1.show" :class="index==2?'show':'hidden'" alt="">
                   <p class="name" v-text="item.names"></p>
@@ -129,7 +137,7 @@
             <div class="bottom">
               <ul>
                 <li v-for="(item,index) in imgs.course2.course_2"  >
-                  <img :src="item.pic" alt="">
+                 <div  class="bg" :class="index%2==0?'r0':'l0'" :style="{'background-image':`url(${item.pic})`}"></div>
                   <div class="CourseName" :class="index%2==1?'right':'left'">
                   <p class="name" v-text="item.names"></p>
                   <p class="age" v-text="item.age"></p>
@@ -182,7 +190,7 @@
             <div class="bottom">
               <ul>
                 <li v-for="(item,index) in imgs.course3.course_3" >
-                  <img :src="item.pic" alt="">
+                  <div  class="bg" :class="index%2==0?'l0':'r0'" :style="{'background-image':`url(${item.pic})`,}"></div>
                   <div class="CourseName" :class="index%2==1?'left':'right'">
                   <p class="name" v-text="item.names"></p>
                   <p class="age" v-text="item.age"></p>
@@ -193,9 +201,11 @@
         </div>
 
       </div>
+      <Common></Common>
       <MyMedia></MyMedia>
+      <!-- <GoTop></GoTop> -->
     </main>
-
+    <GoTop></GoTop>
     <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
 
  </div>
@@ -206,10 +216,12 @@ import courses from './courses'
 import Round from '~/components/Round.vue'
 import MyNav from '~/components/MyNav.vue'
 import Waves from '~/components/Waves.vue'
+import Common from '~/components/Common.vue'
 import MyMedia from '~/components/MyMedia.vue'
 import MyFooter from '~/components/MyFooter.vue'
 import { mapMutations } from 'vuex'
 import { mapActions } from 'vuex'
+import GoTop from '~/components/GoTop.vue'
 
 export default {
   head:{
@@ -233,6 +245,8 @@ export default {
   data () {
     return {
       isfixed:false,
+      isMoveShow:true,
+      isSmallShow:false,
       ...courses
     }
   },
@@ -240,8 +254,10 @@ export default {
     Round,
     Waves,
     MyNav,
+    Common,
     MyMedia,
-    MyFooter
+    MyFooter,
+    GoTop
   },
 
   methods: {
@@ -249,8 +265,12 @@ export default {
        var point = window.scrollY||pageYOffset;
        if(point> this.originY){
          this.isfixed=true;
+         this.isMoveShow=false;
+         this.isSmallShow=true;
        }else{
          this.isfixed=false;
+         this.isMoveShow=true;
+         this.isSmallShow=false;
        }
        //console.log(this.originY+":"+point)
        //console.log(this.isfixed)
@@ -296,20 +316,20 @@ export default {
    /* height: 100%; */
 }
 
-#banner p{
+/* #banner p{
    position:absolute;
    color:white;
    font-family: 'GD-HEI';
    font-size: 100px;
    color:white;
    top:4em;
-   /* bottom:70%; */
+  
    left:0;
    right:0;
    margin:auto;
    text-align:center;
-   /* //border:3px solid red; */
-}
+  
+} */
 
 .header{
   margin:30px auto;
@@ -335,16 +355,31 @@ export default {
 }
 .sticky {
     width: 100%;
-    padding-top:4em;
-    cursor: pointer;
+    /* padding-top:4.5em; */
+  
   
 }
 .sticky .move img {
   width: 5%;
-  margin-left: 8%;
+  margin-left: 5%;
 }
-.sticky .age img{
+.sticky .height{
+  height:75px;
+}
+.sticky .age {
+    cursor: pointer;
+  position: relative;
+  z-index:9999;
+}
+.sticky .age .smallmove{
+  position: absolute;
+  top: -45%;
+  left:5%;
+  transform: scale(0.4)
+}
+.sticky .age .during{
   width: 100%;
+  height:5%;
 
 }
 
@@ -498,7 +533,12 @@ export default {
 
 
 }
-
+.r0{
+  right: 0;
+}
+.l0{
+  left:0;
+}
 .bottom ul,li {
   list-style: none;
   margin: 0;
@@ -507,10 +547,17 @@ export default {
 .bottom li {
   margin-bottom: 3%;
   position: relative;
+  background-color: #EEF9FF;
+  height:400px;
 }
 
-.bottom li img{
-  width: 100%;
+.bottom li .bg{
+  width:58%;
+  height:100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 .bottom li .CourseName {
   /* border: 1px solid red; */
@@ -684,7 +731,9 @@ export default {
     height: 94%;
     width: 80%;
   }
-
+  .sticky .age .smallmove{
+    top: -48%;
+  }
 }
 
 
@@ -706,20 +755,33 @@ export default {
     padding-top:53%;
     padding-bottom: 2em;
   }
+  .bottom li {
+    height:255px;
+  }
 
 }
 
 @media screen and (max-width: 767px){
+.bottom li .bg{
+  width: 100%;
+}
 .bottom li .CourseName {
-    font-size: 1.4em;
+    font-size: 2.4em;
+    top:35%;
 
 }
 .bottom li .CourseName .name{
    width: 5em;
 }
 .right {
-  right:3em;
+  right:20%;
+  
+  transform: translate(-50%)
   }
+.left{
+  left:50%;
+  transform: translate(-50%)
+}
    #banner p{
      font-size: 40px;
      top:20%;

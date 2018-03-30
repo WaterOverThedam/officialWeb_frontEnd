@@ -88,7 +88,7 @@ img  {
     font-size:1.4em;
     color:white;
 
-    line-height: 2.4em;
+    /* line-height: 1.3em; */
 
 }
 .balltext .view{

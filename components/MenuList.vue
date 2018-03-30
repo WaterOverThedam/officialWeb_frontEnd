@@ -3,7 +3,8 @@
         <div class="col-sm-2 text-left item" id="logo" @click="goHome">
             <img :src="logo" alt="">
         </div>
-        <div class="col-sm-2 hidden-xs text-left xs-hidden item" v-for="item in menu.content">
+       
+        <div class="col-sm-2 hidden-xs text-left xs-hidden item text-shade" v-for="item in menu.content">
             <img class="asterisk" :src="icon" alt="">
             <nuxt-link class="link" :to="item.value" v-text="item.name">
             </nuxt-link>
@@ -44,6 +45,9 @@ export default {
       /* //border: 1px solid red; */
       width: auto;
    }
+   .menu  .text-shade a{
+       text-shadow: 3px 3px 2px rgba(0,0,0,0.8)
+   }
    .menu .item{
       margin-left:20px;
    }
@@ -64,12 +68,16 @@ export default {
 
    .menu .item a {
       color:white;
-      font-size: 20px;
+      font-size: 22px;
    }
    
 
  
- 
+ @media(min-width:1200px) {
+     .menu .item a {
+          font-size: 28px;
+      }
+ }
   @media(max-width:992px){
       .menu .item a {
           font-size: 15px;

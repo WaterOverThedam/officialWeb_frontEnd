@@ -44,8 +44,10 @@
                 </div>
 
             </div>
+            <common></common>
             <MyMedia></MyMedia>
         </main>
+        <GoTop></GoTop>
         <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
 
 	</div>
@@ -55,8 +57,10 @@
     import party from './party'
     import MyNav from '~/components/MyNav.vue'
     import Waves from '~/components/Waves.vue'
+    import Common from '~/components/Common.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
+    import GoTop from '~/components/GoTop.vue'
     import { mapMutations } from 'vuex'
     import { mapActions } from 'vuex'
 
@@ -91,8 +95,10 @@
         components: {
             Waves,
             MyNav,
+            Common,
             MyMedia,
-            MyFooter
+            MyFooter,
+            GoTop
         },
          methods: {
              stickyHeader(){
@@ -140,7 +146,7 @@
         padding:0;
         width:100%;
         margin-top:3%;
-        padding-top:29%;
+        padding-top:40%;
         padding-bottom:15em;  
         position: relative;
         

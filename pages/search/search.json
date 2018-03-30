@@ -5,7 +5,7 @@
         {"id":"gras","name":"学龄运动"},
         {"id":"km","name":"音乐课"},{"id":"pk","name":"球类运动"},
         {"id":"dance","name":"舞蹈"},{"id":"kara","name":"空手道"}],
-      "banner":["img/search/search_banner1.jpg","img/search/search_banner2.jpg"],
+      "banner":"img/search/banner.jpg",
       "btn_menu":[
         {"link":"img/search/china1.png","defaultPic":"img/search/china2.png","linked":"img/search/china2.png","id":"gym-map"},
         {"link":"img/search/northAmerican1.png","defaultPic":"img/search/northAmerican1.png","linked":"img/search/northAmerican2.png","id":"american-map"},
@@ -16,7 +16,9 @@
         "content":["40年来小小运动馆始终专注于儿童早期教育课程的研发，科学、独特的课程体系和教学方法，让孩子在快乐中迅速提高运动能力，孩子更加自信、更加乐于尝试新事物和接受挑战。课程历经数千万家庭和孩子的亲身体验和教学实践的验证。连续６年入选《Entrepreneur》杂志美国国际化特许经营品牌，并被权威杂志《Entrepreneur》评为儿童早期教育优选品牌。","先进的在线教案系统确保每个中心实时享有美国总部不断研发的教案。每2~4 周课程组成一个学习单元，学习某个方面的认知或情感社交―包括字母和单词、颜色、数字和算术、节奏韵律、人体部位、创意表达、分享、纪律、关爱、协作以及情绪控制等。每年两次表演周, 孩子自信地展示在运动、认知和情感社交上的进步，享受成功的快乐。","小小运动馆教授的所有体操技能及其保护方法，以及所有与体操相关的活动，均严格遵循美国体操协会（USAG）的标准，并且同步更新。原创的美式音乐让孩子在丰富而独特的原创音乐中运动、跳舞，自然而然地提高孩子的节奏感和创意表达能力，简单而幽默的英文歌词和指令培养孩子的聆听能力。"]
       },
       "global":{
-        "pic":{"Africa":"img/search/Africa.jpg","America":"img/search/America.png","Asia":"img/search/Asia.gif","Australia":"img/search/Australia.gif","Euro":"img/search/Euro.gif","up":"img/search/up.jpg"}
+        "bg":"img/search/world.png",
+        "next":"img/search/next.png",
+        "prve":"img/search/prve.png"
       },
       "american":{
         "pic":"img/search/mapbg.png"
@@ -56,7 +58,209 @@
         {"id":"hongkong","name":"香港"},
         {"id":"taiwan","name":"台湾"},
         {"id":"macau","name":"澳门"}
-      ]
+      ],
+      "city":[
+        {
+            "value": 438,
+            "code": "nj"
+        },
+        {
+            "value": 387.35,
+            "code": "ri"
+        },
+        {
+            "value": 312.68,
+            "code": "ma"
+        },
+        {
+            "value": 271.4,
+            "code": "ct"
+        },
+        {
+            "value": 209.23,
+            "code": "md"
+        },
+        {
+            "value": 195.18,
+            "code": "ny"
+        },
+        {
+            "value": 154.87,
+            "code": "de"
+        },
+        {
+            "value": 114.43,
+            "code": "fl"
+        },
+        {
+            "value": 107.05,
+            "code": "oh"
+        },
+        {
+            "value": 105.8,
+            "code": "pa"
+        },
+        {
+            "value": 86.27,
+            "code": "il"
+        },
+        {
+            "value": 83.85,
+            "code": "ca"
+        },
+        {
+            "value": 72.83,
+            "code": "hi"
+        },
+        {
+            "value": 69.03,
+            "code": "va"
+        },
+        {
+            "value": 67.55,
+            "code": "mi"
+        },
+        {
+            "value": 65.46,
+            "code": "in"
+        },
+        {
+            "value": 63.8,
+            "code": "nc"
+        },
+        {
+            "value": 54.59,
+            "code": "ga"
+        },
+        {
+            "value": 53.29,
+            "code": "tn"
+        },
+        {
+            "value": 53.2,
+            "code": "nh"
+        },
+        {
+            "value": 51.45,
+            "code": "sc"
+        },
+        {
+            "value": 39.61,
+            "code": "la"
+        },
+        {
+            "value": 39.28,
+            "code": "ky"
+        },
+        {
+            "value": 38.13,
+            "code": "wi"
+        },
+        {
+            "value": 34.2,
+            "code": "wa"
+        },
+        {
+            "value": 33.84,
+            "code": "al"
+        },
+        {
+            "value": 31.36,
+            "code": "mo"
+        },
+        {
+            "value": 30.75,
+            "code": "tx"
+        },
+        {
+            "value": 29,
+            "code": "wv"
+        },
+        {
+            "value": 25.41,
+            "code": "vt"
+        },
+        {
+            "value": 23.86,
+            "code": "mn"
+        },
+        {
+            "value": 23.42,
+            "code": "ms"
+        },
+        {
+            "value": 20.22,
+            "code": "ia"
+        },
+        {
+            "value": 19.82,
+            "code": "ar"
+        },
+        {
+            "value": 19.4,
+            "code": "ok"
+        },
+        {
+            "value": 17.43,
+            "code": "az"
+        },
+        {
+            "value": 16.01,
+            "code": "co"
+        },
+        {
+            "value": 15.95,
+            "code": "me"
+        },
+        {
+            "value": 13.76,
+            "code": "or"
+        },
+        {
+            "value": 12.69,
+            "code": "ks"
+        },
+        {
+            "value": 10.5,
+            "code": "ut"
+        },
+        {
+            "value": 8.6,
+            "code": "ne"
+        },
+        {
+            "value": 7.03,
+            "code": "nv"
+        },
+        {
+            "value": 6.04,
+            "code": "id"
+        },
+        {
+            "value": 5.79,
+            "code": "nm"
+        },
+        {
+            "value": 3.84,
+            "code": "sd"
+        },
+        {
+            "value": 3.59,
+            "code": "nd"
+        },
+        {
+            "value": 2.39,
+            "code": "mt"
+        },
+        {
+            "value": 1.96,
+            "code": "wy"
+        },
+        {
+            "value": 0.42,
+            "code": "ak"
+        }
+    ]
       
    
       

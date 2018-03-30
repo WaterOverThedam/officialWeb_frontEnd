@@ -18,7 +18,7 @@
                             <dd v-else v-for="c in city.city">
                                 <!-- <a v-if="city.city.length>1" @click.prevent="switchCity(c)" v-text="'· '+c"></a>
                                 <a v-else @click.prevent="switchCity(city.city[0])" v-text="'· '+c"></a> -->
-                                <a  @click.prevent="switchCity(c)" v-text="'· '+c"></a>
+                                <a  @click="switchCity(c)" v-text="'· '+c" href="#maps"></a>
                             </dd>
                             <dd class="last"></dd>
                         </dl>
@@ -29,7 +29,7 @@
         <!-- 截止 -->
 
 
-        <div class="row text-left text-primary subcaption">
+        <div class="row text-left text-primary subcaption" id="maps">
              <div class="col-md-5 col-sm-5 item" >
                 <h3 >寻找离您最近的小小运动馆</h3>
                 <!-- <h3 v-text="city"></h3> -->
@@ -43,8 +43,8 @@
                </select>
              </div>
         </div>
-        <div class="row addr">
-          <div class="col-md-10 col-sm-10" >
+        <div class="row addr ">
+          <div class="col-md-12 col-sm-12 center" >
               <div class="row">
                     <div v-for="(gym,index) in filterGyms" v-show="index<24"class="col-lg-3 col-md-3 col-sm-4 col-xs-12 result text-left gymitem">
                         <span class="marker" @click="showGym(gym)"  v-text="String.fromCharCode(65 + parseInt(index))"></span>
@@ -208,7 +208,7 @@
     .gymitem .marker {
         background: url(https://api.map.baidu.com/images/markers.png) -23px -275px no-repeat;
         width: 19px;
-        height: 25px;
+        height: 28px;
         cursor: pointer;
         float: left;
         *zoom: 1;
@@ -221,8 +221,8 @@
         display: inline;
     }
     .gymitem .gymName{
-        font-size: 1.2em;
-        padding-top: 2%;
+        font-size: 1.6em;
+        padding-top: 0%;
 
     }
     .block{
@@ -252,6 +252,9 @@
     }
     .addr{
         margin:20px auto;
+    }
+    .addr .center{
+        /* position: absolute */
     }
     .addrItem {
         height: 430px;
@@ -323,7 +326,9 @@
        
     }
 
-
+    .add01_con a:hover{
+        color:orange;
+    }
 
 
 
@@ -451,7 +456,13 @@
     .shade_heilongjiang { left:84%; top:12%;padding:4% 6%}
 
 
-   
+@media screen and (max-width:1200px){
+        .gymitem .gymName{
+            font-size: 1.2em;
+            padding-top: 2%;
+
+        }
+}
 @media screen and (max-width:"767px"){
     .add01{
         font-size: 9px;

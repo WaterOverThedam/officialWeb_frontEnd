@@ -1,6 +1,8 @@
 $(function () {
     $.getJSON('https://data.jianshukeji.com/jsonp?filename=json/us-population-density.json&callback=?', function (data) {
+    // $.getJSON("./american.json", function (data) {
         // Make codes uppercase to match the map data
+        console.log(data);
         $.each(data, function () {
             this.code = this.code.toUpperCase();
         });
@@ -12,6 +14,9 @@ $(function () {
                 spacing:[0,0,0,0],
                 // height:"500px",
                 backgroundColor:"transparent"
+            },
+            credits: { 
+                enabled: false //不显示LOGO 
             },
             // 标题
             title : {
@@ -52,8 +57,8 @@ $(function () {
                 point:{
                     events:{
                         click:function(){
-                            location.href =
-                            "https://www.thelittlegym.com/find-a-gym?geoaction=3&param="+(this.name.substr(0,1).concat(this.name.substr(3,1))).toUpperCase();
+                                // console.log(111)
+                                location.href = "https://www.thelittlegym.com/find-a-gym?geoaction=3&param="+this.code
                         }
                     }
                 },
@@ -70,8 +75,13 @@ $(function () {
                 tooltip: {
                     // name为空
                     headerFormat: '',
+                    enabled:true,
                     // 区域名字
-                    pointFormat: "{point.name}"
+                    // pointFormat: "{point.name}"
+                    pointFormatter:function(){
+                      
+                        return this.name
+                    }
                 }
 
             }],

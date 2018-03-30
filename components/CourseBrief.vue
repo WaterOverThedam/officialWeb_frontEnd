@@ -1,26 +1,4 @@
 <template>
- <!-- <div class="container-fluid read ">
-    <div class="row bg-top">
-        <div :style="{'background':`url(${top_url[1]}) no-repeat`}"  class="col-sm-12 text-center image" >
-            <p><img :src="top_url[0]" height="191" width="351"/></p>
-            <h1 class="media-heading text-center">{{top_title}}</h1>
-        </div>
-    </div>
-
-    <div class="row course  ">
-        <div class="col-sm-2 offset"></div>
-        <div v-for="item,index in triD_info" :class="item.class">  
-           <div class="row">
-              <p class="text-center"><img :src="item.top_img_url"/></p>
-              <p class="text-center title" v-text="item.title"></p>
-              <p class="text-center footer">
-                 <div class="more" :style="{'background':`url(${item.btn_url}) no-repeat`,'background-size': 'cover'}"><p class="text-center">{{item.btn_name}}</p></div>
-              </p>
-          </div>
-        </div>
-
-    </div>
-</div>  -->
 <div class="container-fluid read">
     <div class="row bg-top">
         <div :style="{'background':`url(${top_url[1]}) no-repeat`}"  class="col-sm-12 text-center image" >
@@ -32,19 +10,22 @@
     
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="(item,index) in triD_info" :class="item.class">
+            <div class="swiper-slide" v-for="(item,index) in triD_info" :class="item.class" :key="index">
                 <div class="row border">
-                    <p class="text-center"><img :src="item.top_img_url"/></p>
+                    <div class="text-center"><img :src="item.top_img_url"/></div>
                     <p class="text-center title" v-text="item.title"></p>
-                    <p class="text-center footer">
+                    <div class="text-center footer">
                         <div class="more" :style="{'background':`url(${item.btn_url}) no-repeat`,'background-size': 'cover'}"><p class="text-center">{{item.btn_name}}</p></div>
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-  </div>
+        
+        <div class="swiper-pagination"></div>
+        
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
 </div>
     
 
@@ -63,26 +44,26 @@
   },
   data () {
     return {
-          top_title: "《成长季》Tips",
+          top_title: "新闻中心",
           top_url:[
             "/img/index/cloud-big.png",
             "/img/index/blog-clouds-bg.png"
           ],
          'triD_info': [{
            class:"col-sm-3",
-           title:"春季长高系列",
+           title:"荣获《Brentwood》杂志读者推荐大奖",
            btn_name:"阅读更多",
            top_img_url:"/img/index/3D-1.png",
            btn_url:"/img/index/btn_blue.png" 
         },{
            class:"col-sm-3",
-           title:"提升亲子关系系列",
+           title:"入围FranchiseTimes全美特许经营500强",
            btn_name:"阅读更多",
            top_img_url:"/img/index/3D-2.png",
            btn_url:"/img/index/btn_blue.png" 
         },{
            class:"col-sm-3",
-           title:"前庭觉系列",
+           title:"春季购课赢好礼 带您亲临俄罗斯世界杯现场",
            btn_name:"阅读更多",
            top_img_url:"/img/index/3D-3.png",
            btn_url:"/img/index/btn_blue.png" 
@@ -97,7 +78,7 @@
 
 .read{
     // border:1px solid red;
-    margin-bottom: 10%;
+    // margin-bottom: 10%;
     img{
         width:auto;
         height:auto;
@@ -137,7 +118,7 @@
         }
     }
     .title {
-        padding:30px 20%;;
+        padding:30px 10%;;
         height:250px;
         font-size: 44px;
         color: #515E9A;
@@ -187,6 +168,15 @@
        
     }
 }
+@media screen and (max-width:1200px){
+    .read{
+        .title {
+            padding:30px 5%;;
+            font-size: 36px;
+        }
+    }
+      
+}
 @media screen  and (max-width:"768px"){
     .read{
         .border{
@@ -194,6 +184,9 @@
         }
         .more{
             font-size: 18px;
+        }
+        .title {
+            font-size: 25px;
         }
     }
 }
@@ -204,13 +197,13 @@
             margin-top: 20%;
         }
         .border{
-            width: 95%;
+            width: 85%;
         }
         .bg-top img{
             width: 40%;
         }
         .title {
-            font-size: 30px;
+            font-size: 33px;
        
         }
         .more{

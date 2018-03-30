@@ -5,7 +5,7 @@
         
       </div>
       <!-- 遮盖标签 -->
-       <div class="shade"></div>
+       <!-- <div class="shade"></div> -->
      
   </div>
 </template>
@@ -44,14 +44,14 @@
     padding: 5% 0;
     position: relative;
   }
-  .shade{
+  /* .shade{
     background-color: white;
     height:5%;
     position: absolute;
     width:20%;
     bottom:5%;
     right:10%;
-  }
+  } */
 @media screen and (min-width:1200px){
    .shade{
        bottom:10%;

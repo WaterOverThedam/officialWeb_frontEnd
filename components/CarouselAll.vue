@@ -1,14 +1,5 @@
 <template>
     <div class="outer">
-
-        <div class="bespeak hidden-xs" v-show="isShow">
-            <nuxt-link to="/bespeak" href="#">
-             <img :src="bespeak" alt="">
-            </nuxt-link>
-            <span class="closes" @click.prevent="close">X</span>
-           
-        </div>
-
        <div v-for="(bgImg,index) in bgImgs" :id="'a'+index" :data-id="index" class="parent row-wrapper chevron-btm" :class="{'myFadein':index===counterNow}" :style="{'background-image':`url(${bgImg})`}">
          <component :is="which"></component> 
          <!-- 播放按钮 -->
@@ -24,7 +15,7 @@ import MenuDecor from '~/components/MenuDecor.vue'
 export default {
   data () {
     return {
-        isShow:true,
+       
         which:'MenuDecor',
         ff:false,
         bannerTop:"/img/index/bg_top.png",
@@ -38,7 +29,6 @@ export default {
         icon:"/img/index/asterisk.png",
         logo:"/img/index/logo.png",
         btPlay:"/img/index/play01.png",
-        bespeak:"/img/index/bespeak.png",
         bottom:{
           title:[
              "全国同步教案",
@@ -59,7 +49,8 @@ export default {
       return this.$store.state.menu;
     },
     counterNow(){
-      //console.log( parseInt(this.$store.state.counter/4))
+    //   console.log( parseInt(this.$store.state.counter/4))
+    //   console.log(this.bgImgs.length)
       return parseInt(this.$store.state.counter/4)%this.bgImgs.length;
     }
   },
@@ -94,22 +85,7 @@ export default {
 </script>
 
 <style scoped>
-.bespeak{
-    position: fixed;
-    right: 0;
-    bottom:0;
-    z-index: 9999;
-}
-.closes{
-    position: absolute;
-    right: 0;
-    color:white;
-    font-weight: 800;
-    top:29%;
-    font-size: 20px;
-    padding: 1% 3%;
-    cursor: pointer;
-}
+
 .btn{
   width:5%;
   padding:8%;

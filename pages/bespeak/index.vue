@@ -81,6 +81,7 @@
                     <span v-for="item in bto.prize" v-text="item"></span>
                 </div>
             </div>
+            <Common></Common>
             <MyMedia></MyMedia>
         </main>
         <GoTop></GoTop>
@@ -90,6 +91,7 @@
 <script>
     import bespeak from './bespeak'
     import MyNav from '~/components/MyNav.vue'
+    import Common from '~/components/Common.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
 
@@ -116,6 +118,7 @@
         },
         components:{
             MyNav,
+            Common,
             MyMedia,
             MyFooter,
             GoTop
@@ -248,7 +251,7 @@
     }
     // 底部
     .bto{
-        margin-bottom: 10%;
+        // margin-bottom: 10%;
         padding: 0 5%;
         h3{
             font-size: 2.2em;

@@ -9,7 +9,7 @@
     export default {
         data(){
             return {
-                top:"/img/index/arrow-down.png",
+                top:"/img/index/gotop.png",
                 isShow : false,
             }
         },
@@ -78,15 +78,16 @@
 <style scoped>
     .goTop{
         position: fixed;
-        bottom: 10%;
-        right:10%;
-        background-color: red;
+        bottom: 5%;
+        right:0%;
+        /* background-color: red; */
         z-index:9999;
-       
+       /* display: none; */
     }
     .goTop img{
-        transform: rotate(180deg);
+        /* transform: rotate(180deg); */
          cursor: pointer;
+         width:60%;
     }
 
 </style>

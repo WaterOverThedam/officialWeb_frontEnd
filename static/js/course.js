@@ -29,26 +29,34 @@ $(function(){
   });
 
 
-  $('.sticky').click(function(e){
+  $('.during').click(function(e){
     e = e || window.event;
  //   年龄段导航
  var course1 = parseInt($('.course1').offset().top - ((3*$('.sticky').height())));
  var course2 = parseInt($('.course2').offset().top - ((3*$('.sticky').height())));
  var course3 = parseInt($('.course3').offset().top - ((3*$('.sticky').height())));
 
-
-// 获取移动图标距离左侧位置
-    var imgX = e.pageX-$('#move').width()/2
 // 获取年龄段长度
-    var agewidth = $('.age').width();
-// 获取鼠标点击位置所占百分比
-    var baifen = parseInt(e.pageX/agewidth*100);
-    // 移动图片
-    $('#move').animate({marginLeft:imgX});
-    // 判断导航
-    if(baifen<=26){
+var agewidth = $('.age').width();
+//
+    // var x = parseInt(e.pageX/agewidth*100);
+    var x = parseInt(e.offsetX/agewidth*100)-2;
+    // console.log(x);
+
+    // 规定图片移动区域并移动
+    if(x<=95&x>=0){
+
+        $('#move').animate({marginLeft:x+'%'});
+        var x2 = x
+        if(x2>40){x2-=1};
+        if(x2>80){x2-=2.6};
+        $('.smallmove').animate({left:x2+'%'});
+    }
+   
+//     // 判断导航
+    if(x<=24){
         $('html').animate({'scrollTop':course1}); 
-    }else if(baifen<=50){
+    }else if(x<=48){
         $('html').animate({'scrollTop':course2});
     }else{
         $('html').animate({'scrollTop':course3});

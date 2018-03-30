@@ -100,7 +100,7 @@
         font-size: 2em;
     }
     .list {
-        margin-bottom: 5%;
+        // margin-bottom: 5%;
     }
     .row {
         padding: 0 8%;

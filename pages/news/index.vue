@@ -82,9 +82,10 @@
                     </li>
                 </ul>
             </div>
-         
+            <Common></Common>
             <MyMedia></MyMedia>
         </main>
+        <GoTop></GoTop>
         <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
 
 	</div>
@@ -93,11 +94,13 @@
 <script>
     import news from './news'
     import MyNav from '~/components/MyNav.vue'
+    import Common from '~/components/Common.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
     import { mapMutations } from 'vuex'
     import { mapActions } from 'vuex'
 
+    import GoTop from '~/components/GoTop.vue'
     export default {
          head:{
             title:"新闻中心",
@@ -128,8 +131,10 @@
         },
         components: {
             MyNav,
+            Common,
             MyMedia,
-            MyFooter
+            MyFooter,
+            GoTop
         },
         methods: {
              stickyHeader(){
@@ -175,7 +180,7 @@
         padding:0;
         width:100%;
         margin-top:3%;
-        padding-top:40%;
+        padding-top:35%;
         padding-bottom:15em;  
         position: relative;
          img{
