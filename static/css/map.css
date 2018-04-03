@@ -20,7 +20,7 @@ html { overflow-x:hidden; -webkit-text-size-adjust:none; }
 
 .add01_con{ width:176px; background:url(../img/search/say.png) 0 0 no-repeat; padding-top:6px; position:absolute;}
 .add01_con dd{ line-height:24px;text-align: left; overflow:hidden; font-family:microsoft yahei; padding-left:20px; background:url(../img/search/center.png) 0 0 repeat-y;}
-.add01_con dd a{ color:#4a65a2; font-size:13px; display: block;text-decoration: none;cursor: pointer;}
+.add01_con dd a{ color:#4a65a2; font-size:13px; display: block;text-decoration: none;cursor: pointer; font-family: "J-YUAN";}
 .add01_con dd.last{ background:url(../img/search/bot.png) 0 0 no-repeat; height:10px; padding-right:0;}
  
 /* .add_shanghai { left:73%; top:58%; } */

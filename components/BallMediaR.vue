@@ -1,17 +1,19 @@
 <template>
 <div class="container-fluid parent" :style="{'background-image':`url(${ballMediaAttr.bgImg})`}">
     <div class="row cont" >
-        <div class="col-sm-6 col-md-6 col-xs-5 text-left"></div>
-        <div class="col-sm-6 col-md-6 col-xs-7 text-right">
+        <div class="col-sm-6 col-md-6 col-xs-0 text-left"></div>
+        <div class="col-sm-6 col-md-6 col-xs-12 text-right">
             <div class="ballouter">
               <div class="ball" :class="{'ff-item':ff}" :style="{'background':`url(${ballMediaAttr.ball.bgUrl}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
               </div>
             </div>
             <div class="balltext">
+                  <h2 class="text-center">{{ballMediaAttr.title[0]}}</h2>
+                  <h2 class="text-center">{{ballMediaAttr.title[1]}}</h2>
                   <h1>{{ballMediaAttr.ball.title}}</h1>
                   <p class="hidden-xs hidden-sm word">{{ballMediaAttr.ball.word}}</p>
                   <p class="text-center">
-                    <a class="view" :href="ballMediaAttr.ball.address" :style="{'background':`url(${ballMediaAttr.ball.btnUrl}) no-repeat`,'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100%','color':`${ballMediaAttr.ball.btnColor}`}">
+                    <a class="view" :href="ballMediaAttr.ball.address" :style="{'background':`url(${ballMediaAttr.ball.btnUrl}) no-repeat`,'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100% 100%','color':`${ballMediaAttr.ball.btnColor}`}">
                     {{ballMediaAttr.ball.btnName}}</a>
                   </p>
             </div>
@@ -74,6 +76,13 @@ a {
   padding-top:12%;
 
 }
+.balltext h2{
+  color:#fff;
+  font-size: 45px;
+  font-family: "MA-JOR";
+  padding: 0 24%;
+   margin: 0
+}
 .balltext h1{
     padding-right: 20px;
     text-align: center;
@@ -81,6 +90,7 @@ a {
     font-size:6em;
     margin-left:12px;
     color:white;
+    margin-top: 0;
   
 }
 .balltext .word{
@@ -89,18 +99,20 @@ a {
     padding-left: 130px;
     font-size:1.4em;
     color:white;
+    font-family: "J-YUAN";
     /* line-height: 2.1em; */
 }
 
 .balltext .view{
     cursor: pointer;
     display: inline-block;
-    font-size:38px;
-    inline-height:30px;
-    padding:5px 22px;
+    font-size:21px;
+    /* inline-height:30px; */
+    /* line-height:  */
+    padding:3% 3% 2%;
+    font-family: "J-YUAN";
     /* //border:3px solid blue; */
 }
-
 
 
 
@@ -119,7 +131,7 @@ a {
     color:white;
   }
   .balltext .view{
-    font-size:35px;
+    font-size:21px;
     /* //border:3px solid blue; */
   }
  
@@ -131,8 +143,11 @@ a {
   .balltext h1{
     text-align: center;
     font-family: 'GD-HEI';
-    font-size:4.6em;
+    font-size:3.6em;
     color:white;
+  }
+  .balltext h2 {
+    font-size: 30px;
   }
   .balltext .word{
     padding:1px 30px;
@@ -143,7 +158,7 @@ a {
 
   }
   .balltext .view{
-    font-size:30px;
+    font-size:21px;
   }
  
 }
@@ -153,25 +168,28 @@ a {
       background-position: 55% bottom;
     }
     .ball{
-      position: absolute;
+      /* position: absolute;
       right: 25%;
       top:40px;
-      padding: 150px;
-      width: auto;
+    
+      width: auto; */
+        padding: 175px 150px;
     }
     .balltext{
-      position: absolute;
+      /* position: absolute;
       width: 100%;
       right:40%;
-      top:26px;
+      top:26px; */
 
     }
-
+    .balltext h2 {
+      padding: 0;
+    }
     .balltext h1{
         font-size:3.6em;
-        color:white;
+        /* color:white;
         margin-top: 40%;
-        margin-bottom: 30px;
+        margin-bottom: 30px; */
         /* //border:3px solid red; */
     }
    .balltext .view{
@@ -188,7 +206,7 @@ a {
     }
     .balltext .view{
       /* font-size:10px; */
-      padding:3px 8px 1px 6px;
+      padding:10px 8px 5px 6px;
 
     }
 

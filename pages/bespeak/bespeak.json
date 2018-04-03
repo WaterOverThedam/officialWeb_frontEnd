@@ -8,9 +8,10 @@
     "selectbg":"/img/bespeak/selectbg.png",
     "selectbg2":"/img/bespeak/selectbg2.png",
     
+    
     "btnword":"预约试听",
 
-    "title":"预约免费体验课",
+    "title":["预约","体验课"],
     "input":[
         {"id":"uname","title":"宝宝姓名: "},
         {"id":"birthday","title":"宝宝生日: "},
@@ -30,6 +31,7 @@
         "bluebg":"/img/bespeak/bluebg.jpg",
         "three":"/img/bespeak/three.png",
         "person":"/img/bespeak/person.png",
+        "wordsbg":"/img/bespeak/bgchange.png",
         "words":[
             {"p":"“ Fusing the Dimensions Into "},
             {"p":" a  Whole Child Approach ” "},

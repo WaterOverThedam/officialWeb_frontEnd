@@ -7,8 +7,10 @@
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
             </div>
             <Waves></Waves>
-            <div class="title">
-                <h3 v-text="title"></h3>
+            <div class="title text-center">
+                <h3 v-text="title[0]"></h3>
+                <h3 v-text="title[1]"></h3>
+                <h3 v-text="title[2]"></h3>
             </div>
             <div class="form" :style="{'background':`url(${form_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
                 <form action="javascript:0" >
@@ -109,6 +111,7 @@
 <style lang="scss" scoped>
 .join {
     overflow: hidden;
+    font-family: "J-YUAN";
     ul,li{
         padding: 0;
         margin: 0;
@@ -127,8 +130,9 @@
         h3 {
             font-family: 'GD-HEI';
             font-size: 5em;
-            padding: 2% 8%;
-            color:#4E5DA0
+            padding: 1% 8%;
+            color:#4E5DA0;
+            margin: 0;
         }
     }
     .form {
@@ -280,7 +284,7 @@
     .join{
         .title{
             h3 {
-                font-size: 2em;
+                font-size: 3em;
                 color:#5460A2;
                 padding: 0 9%;
                 margin: 0;
@@ -309,7 +313,7 @@
                 }
                 // 按钮样式
                     span {
-                        bottom:63%;
+                        bottom:68%;
                         transform: scale(0.6);
                         .more{
                             position: absolute;

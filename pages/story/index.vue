@@ -162,6 +162,7 @@
 <style scoped>
 .story{
   overflow: hidden;
+  font-family: "J-YUAN";
 }
  .image{
    position:absolute;
@@ -238,6 +239,7 @@ div.word {
 }
 .sticky a{
   color: #2D419B;
+  font-family: "J-YUAN";
 }
 /* 我们的历史 */
 
@@ -322,7 +324,7 @@ div.word {
 }
 .methods .body .gray {
   color: #767676;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* 显著优势 */

@@ -201,14 +201,21 @@
 
 <style scoped>
 
-    *{margin:0;border: none;}
+    *{margin:0;border: none;
+    font-family: "J-YUAN";}
     .wrap{
        overflow: hidden;
+       
     }
     .gymitem .marker {
-        background: url(https://api.map.baidu.com/images/markers.png) -23px -275px no-repeat;
-        width: 19px;
+        /* background: url(https://api.map.baidu.com/images/markers.png) -23px -275px no-repeat; */
+        background-image: url(/img/search/marker.png) ;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        /* background-position: center -10%; */
+        width: 21px;
         height: 28px;
+        line-height: 25px;
         cursor: pointer;
         float: left;
         *zoom: 1;
@@ -222,7 +229,8 @@
     }
     .gymitem .gymName{
         font-size: 1.6em;
-        padding-top: 0%;
+        padding-top: 1%;
+        font-family: "J-YUAN";
 
     }
     .block{

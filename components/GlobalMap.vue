@@ -91,7 +91,11 @@
 
 
   }
-
+@media (max-width:767px) {
+  .world .next,.world .prev{
+    width:8%;
+  }
+}
  
  
 </style>

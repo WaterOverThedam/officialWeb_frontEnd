@@ -134,9 +134,12 @@ export default {
 <style scoped>
 .overhidden{
   overflow: hidden;
+  
 }
 main {
-  font-size: 40px
+  font-size: 40px;
+  
+  
 } 
 .banner{
    margin:0;
@@ -190,6 +193,14 @@ main {
   } 
  
 }
-
+@media (max-width:767px){
+  /* .menu{
+    margin-left: 3%;
+  }
+  .menu img {
+    width: 30%;
+    margin:auto 0 auto 2.5%;
+  } */
+}
  
 </style>

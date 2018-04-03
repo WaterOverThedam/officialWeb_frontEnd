@@ -94,6 +94,7 @@
         color: #B5D615;
         padding-top: 0px;
         margin-top: -1%;
+       font-family: "J-YUAN";
     }
     .bg-top p{
         padding-top: 0px;
@@ -122,6 +123,7 @@
         height:250px;
         font-size: 44px;
         color: #515E9A;
+        font-family: "J-YUAN";
     }
     .more{
         padding-top:3%;
@@ -130,6 +132,10 @@
         font-size: 22px;
         padding-bottom: 2%;
         width:42%;
+        font-family: "J-YUAN";
+        P{
+            padding: 5% 0 0;
+        }
 
     }
     .swiper-slide{

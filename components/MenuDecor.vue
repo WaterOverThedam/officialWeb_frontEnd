@@ -1,6 +1,9 @@
 <template>
     <div class="outer" >
-        <p class="title" v-for="(item,index) in bottom.title" v-text="item" :class="{'myFadein':index===counterNow}"></p>
+        <div class="title hidden-xs" v-for="(item,index) in bottom.title"  :class="{'myFadein':index===counterNow}" >
+            <p v-text="item.p1"></p>
+            <p v-text="item.p2"></p>
+        </div>
         <p>
           <a href="/search">
             <span class="find" :style="{'background':`url(${bottom.pic[0]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">{{bottom.title2}}</span>
@@ -22,13 +25,13 @@ export default {
     return {
         bottom:{
           title:[
-             "全国同步教案1",
-             "全国同步教案2",
-             "全国同步教案3",
-             "全国同步教案4",
-             "全国同步教案5",   
+             {p1:"享誉美国42年的",p2:"运动型教育品牌"},
+             {p1:"遍布全球30多个国家",p2:"近400家中心"},
+             {p1:"连续六年被权威杂志《Entrepreneur》",p2:"推荐的儿童早期教育品牌"},
+             {p1:"全国同步教案",p2:""},
+             {p1:"上千首美式原创音乐",p2:""},
           ],
-          title2:"寻找离你最近的中心",
+          title2:"寻找离您最近的中心",
           pic:[
              "/img/index/btn_long_blue.png",
              "/img/index/loop.png",
@@ -83,7 +86,7 @@ export default {
     top:35%;
     left:10%;
     /* //border:1px solid red; */
-    font-size: 90px;
+    font-size: 50px;
 
     /* 幻灯片效果 */
     opacity: 0;
@@ -91,6 +94,10 @@ export default {
     -moz-transition: opacity 2s linear;
     -o-transition: opacity 2s linear;
     transition: opacity 2s linear;
+}
+.title p {
+    margin: 0;
+     text-shadow: 3px 3px 2px rgba(0,0,0,0.8)
 }
 
 /* 显示 */
@@ -103,12 +110,13 @@ export default {
     position:absolute;
     cursor: pointer;
     display: inline-block;
-    font-size:38px;
+    font-size:26px;
     /* inline-height:30px; */
-    padding:5px 22px;
+    padding:8px 22px 5px;
     color:white;
-    bottom:30%;
+    bottom:16%;
     left:15%;
+    font-family: "J-YUAN"
 }
  
 .loop{
@@ -124,19 +132,23 @@ export default {
 } 
 
 
-
+@media(min-width:1200px){
+    .title{
+        font-size: 70px;
+    }
+}
 @media(max-width: 768px){
     .title{
         /* font-size: 40px; */
           /* 移动端细节修改 */
-        font-size: 48px;
-        top:54%;
+        /* font-size: 50px; */
+        top:40%;
 
     }
     .find{
         font-size: 17px;
         left:16%;
-        bottom:25%
+       
 
     }
 
@@ -165,6 +177,7 @@ export default {
         /* 移动端细节修改 */
         font-size: 19px;
         left:25%;
+         bottom:25%
         /* //border:3px solid blue; */
     }
     .title{

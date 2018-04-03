@@ -129,7 +129,7 @@
 .party{
     color:#8C94C1;
     overflow: hidden;
-    
+    font-family: "J-YUAN";
     .left{
        left: 0;
     }
@@ -149,8 +149,6 @@
         padding-top:40%;
         padding-bottom:15em;  
         position: relative;
-        
-        
          img{
              position: absolute;
             width: 50%;

@@ -164,6 +164,7 @@
 <style lang="scss" scoped>
 .news{
      overflow: hidden;
+     font-family: "J-YUAN";
     .left{
        left: 0;
     }

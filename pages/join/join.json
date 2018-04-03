@@ -5,7 +5,7 @@
     "submit_bg":"/img/join/submitbg.png",
     "button":"/img/join/button.png",
 
-    "title":"一个大胆的想法，一个蓬勃发展的事业从这里开始",
+    "title":["一个大胆的想法","一个蓬勃发展的事业","从这里开始"],
     "submit":"确认",
     "form":[
         {"id":"username","title":"姓名"},

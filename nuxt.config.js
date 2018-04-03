@@ -31,8 +31,10 @@ module.exports = {
        '~assets/css/normalize.css',
        '~assets/font/jian.css',
        '~assets/font/hei.css',
+       '~assets/font/major.css',
        '~assets/font/hei-embed.css',
-       '~assets/font/hei-embed.css'
+       '~assets/font/hei-embed.css',
+      
   ],
   /*
   ** Customize the progress bar color

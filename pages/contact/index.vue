@@ -63,6 +63,7 @@
 <style lang="scss" scoped>
 .contact{
      overflow: hidden;
+     font-family: "J-YUAN";
     .left{
        left: 0;
     }

@@ -57,7 +57,7 @@
                 color:#B6D712;
             }
             p{
-                font-family: "幼圆";
+                font-family: "J-YUAN";
                 font-weight:bolder;
                 font-size: 2.8em;
                 color:#6472B4;

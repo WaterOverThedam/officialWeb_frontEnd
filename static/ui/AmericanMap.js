@@ -6,6 +6,7 @@ $(function () {
         $.each(data, function () {
             this.code = this.code.toUpperCase();
         });
+        var arr = ['NV','MT','WY','ND','SD','NE','IA','WV','ME','NH','VT']
         // Instanciate the map
         $('#container').highcharts('Map', {
             chart : {
@@ -57,8 +58,10 @@ $(function () {
                 point:{
                     events:{
                         click:function(){
-                                // console.log(111)
-                                location.href = "https://www.thelittlegym.com/find-a-gym?geoaction=3&param="+this.code
+                            if(arr.indexOf(this.code)!=-1){
+                                return ;
+                            }
+                            location.href = "https://www.thelittlegym.com/find-a-gym?geoaction=3&param="+this.code
                         }
                     }
                 },
@@ -79,7 +82,9 @@ $(function () {
                     // 区域名字
                     // pointFormat: "{point.name}"
                     pointFormatter:function(){
-                      
+                      if(arr.indexOf(this.code)!=-1){
+                          return 'Expect'
+                      }
                         return this.name
                     }
                 }

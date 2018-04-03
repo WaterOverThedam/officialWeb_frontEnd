@@ -39,7 +39,7 @@
           <!-- 中间图文介绍 -->
           <div class="middle clearfix">
             <!-- 移动端需要改变的地方 -->
-            <div class="col-sm-5  hidden-xs">
+            <div class="col-sm-5  hidden-xs c-name">
               <div class="m_title ">
                 <span>
                   <img class="rec" :src="imgs.record" alt="">
@@ -49,27 +49,33 @@
 
               <ul>
                 <li>
-                  <img  class="half l_12"  :src="imgs.halfbadge" alt="">
+                  <img  class="level"  :src="imgs.level1" alt="">
                   <span class="three" v-text="txt.p1.classname1"></span>
                 </li>
                 <li>
-                  <img class="l_10" :src="imgs.badge" alt="">
+                  <img  class="level"  :src="imgs.level2" alt="">
                   <span class="three" v-text="txt.p1.classname2"></span>
                 </li>
                 <li>
-                  <img class="half l_7" :src="imgs.halfbadge" alt="">
-                  <img class="l_10" :src="imgs.badge" alt="">
+                  <img  class="level"  :src="imgs.level3" alt="">
                   <span class="three" v-text="txt.p1.classname3"></span>
                 </li>
                 <li>
-                  <img class="l_5" :src="imgs.badge" alt="">
-                  <img class="l_10" :src="imgs.badge" alt="">
+                  <img  class="level"  :src="imgs.level4" alt="">
                   <span v-text="txt.p1.classname4"></span>
                 </li>
               </ul>
             </div>
-
-            <img class="col-sm-7" :src="imgs.course1.course_1_0" alt="">
+            <div class="col-sm-7 videobg" >
+              <div class="img" :style="{'background-image':`url(${imgs.course1.course_1_0})`}"></div>
+              <!-- <img :src="imgs.course1.course_1_0" alt=""> -->
+              <span class="play">
+              <img :src="imgs.play" alt="">
+              </span>
+              <video dataSrc="http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
+            </div>
+            
+            
 
           </div>
           <!-- 底部列表 -->
@@ -77,11 +83,26 @@
             <ul>
              <li v-for="(item,index) in imgs.course1.course_1">
                <div  class="bg" :class="index%2==0?'l0':'r0'" :style="{'background-image':`url(${item.pic})`}"></div>
-               <div class="CourseName" :class="index%2==1?'left':'right'">
-                  <img :src="imgs.course1.show" :class="index==2?'show':'hidden'" alt="">
-                  <p class="name" v-text="item.names"></p>
-                  <p class="age" v-text="item.age"></p>
+               <div class="words" :class="index%2==1?'left':'right'">
+                  <div class="CourseName" >
+                      <img :src="imgs.course1.show" :class="index==2?'show':'hidden'" alt="">
+                      <p class="name" v-text="item.names[0]"></p>
+                      <p class="name" v-text="item.names[1]"></p>
+                      <p class="age" v-text="item.age"></p>
+                      <p class="w-first hidden-xs" v-text="item.first"></p>
+                      <!-- 隐藏的文字内容 -->
+                      <div class="desc hidden hidden-xs">
+                        <p v-for="c in item.content" v-text="c"></p>
+                      </div>
+                      
+                  </div>
+                  <!-- 按钮 -->
+                  <span  class="btn-more" :title="index" :class="index%2==0?'l':'r'">
+                      <img :src="imgs.button" alt="">    
+                  </span>
+                  
                </div>
+               
                </li>
             </ul>
           </div>
@@ -101,47 +122,65 @@
           </div>
             <div class="middle clearfix">
 
-                 <img class="col-sm-7" :src="imgs.course2.course_2_0" alt="">
+              <div class="col-sm-7 videobg" >
+                <div class="img" :style="{'background-image':`url(${imgs.course2.course_2_0})`}"></div>
+                <!-- <img :src="imgs.course1.course_1_0" alt=""> -->
+                <span class="play">
+                  <img :src="imgs.play" alt="">
+                </span>
+                <video dataSrc="http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
+              </div>
 
-               <span class="col-sm-5 hidden-xs">
+              <span class="col-sm-5 hidden-xs">
                   <p class="p2" v-text="txt.p2.h1"></p>
                   <ul class="ul2">
                     <li>
-                      <img class="half l_12" :src="imgs.halfbadge" alt="">
+                      <img  class="level"  :src="imgs.level1" alt="">
                       <span  v-text="txt.p2.classname1"></span>
                     </li>
                     <li>
-                      <img class="l_10" :src="imgs.badge" alt="">
+                      <img  class="level"  :src="imgs.level2" alt="">
                       <span v-text="txt.p2.classname2"></span>
                     </li>
                     <li>
-                      <img class="half l_7" :src="imgs.halfbadge" alt="">
-                      <img class="l_10" :src="imgs.badge" alt="">
+                      <img  class="level"  :src="imgs.level3" alt="">
                       <span v-text="txt.p2.classname3"></span>
                     </li>
                     <li>
-                      <img class="l_5" :src="imgs.badge" alt="">
-                      <img class="l_10" :src="imgs.badge" alt="">
+                      <img  class="level"  :src="imgs.level4" alt="">
                       <span v-text="txt.p2.classname4"></span>
                     </li>
                     <li>
-                        <img class="half l_2" :src="imgs.halfbadge" alt="">
-                        <img class="l_5" :src="imgs.badge" alt="">
-                        <img class="l_10" :src="imgs.badge" alt="">
+                        <img  class="level"  :src="imgs.level5" alt="">
                         <span v-text="txt.p2.classname5"></span>
                     </li>
                   </ul>
-               </span>
+              </span>
 
             </div>
             <div class="bottom">
               <ul>
                 <li v-for="(item,index) in imgs.course2.course_2"  >
                  <div  class="bg" :class="index%2==0?'r0':'l0'" :style="{'background-image':`url(${item.pic})`}"></div>
-                  <div class="CourseName" :class="index%2==1?'right':'left'">
-                  <p class="name" v-text="item.names"></p>
-                  <p class="age" v-text="item.age"></p>
-                  </div>
+                 <div class="words" :class="index%2==1?'right':'left'">
+                    <div class="CourseName" >
+                        <p class="name" v-text="item.names[0]"></p>
+                        <p class="name" v-text="item.names[1]"></p>
+                        <p class="age" v-text="item.age"></p>
+                        <p class="w-first hidden-xs" v-text="item.first"></p>
+                        <!-- 隐藏的文字内容 -->
+                        <div class="desc hidden hidden-xs">
+                          <p v-for="c in item.content" v-text="c"></p>
+                        </div>
+                    </div>
+                    <!-- 按钮 -->
+                    <span  class="btn-more hidden-xs" :title="index+3" :class="index%2==0?'l':'r'">
+                      <img :src="imgs.button" alt="">    
+                    </span>
+                    
+                      
+                 </div>
+                  
                   </li>
               </ul>
             </div>
@@ -160,41 +199,61 @@
             <span v-text="txt.p3.content"></span>
           </div>
             <div class="middle clearfix">
-               <span class="col-sm-5 hidden-xs">
+              <span class="col-sm-5 hidden-xs">
                  <p v-text="txt.p3.h1"></p>
                  <ul class="ul3">
                     <li>
-                      <img class="half l_32" :src="imgs.halfbadge" alt="">
+                      <img  class="level"  :src="imgs.level1" alt="">
                       <span v-text="txt.p3.classname1"></span>
                     </li>
                     <li>
-                      <img class="l_30" :src="imgs.badge" alt="">
+                      <img  class="level"  :src="imgs.level2" alt="">
                       <span v-text="txt.p3.classname2"></span>
                     </li>
                     <li>
-                      <img class="half l_27" :src="imgs.halfbadge" alt="">
-                      <img class="l_30" :src="imgs.badge" alt="">
+                      <img  class="level"  :src="imgs.level3" alt="">
                       <span v-text="txt.p3.classname3"></span>
                     </li>
                     <li>
-                      <img class="l_24" :src="imgs.badge" alt="">
-                      <img class="l_30" :src="imgs.badge" alt="">
+                      <img  class="level"  :src="imgs.level4" alt="">
                       <span v-text="txt.p3.classname4"></span>
                     </li>
                  </ul>
-               </span>
-
-               <img class="col-sm-7" :src="imgs.course3.course_3_0" alt="">
+              </span>
+              <!-- 视频图片 -->
+              <div class="col-sm-7 videobg" >
+                <div class="img" :style="{'background-image':`url(${imgs.course3.course_3_0})`}"></div>
+                <!-- <img :src="imgs.course1.course_1_0" alt=""> -->
+                <span class="play">
+                  <img :src="imgs.play" alt="">
+                </span>
+                <video dataSrc="http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
+              </div>
 
             </div>
             <div class="bottom">
               <ul>
                 <li v-for="(item,index) in imgs.course3.course_3" >
                   <div  class="bg" :class="index%2==0?'l0':'r0'" :style="{'background-image':`url(${item.pic})`,}"></div>
-                  <div class="CourseName" :class="index%2==1?'left':'right'">
-                  <p class="name" v-text="item.names"></p>
-                  <p class="age" v-text="item.age"></p>
+                  <div class="words" :class="index%2==1?'left':'right'">
+                      <div class="CourseName" >
+                        <p class="name" v-text="item.names"></p>
+                        <p class="age" v-text="item.age"></p>
+                        <p class="w-first hidden-xs" v-text="item.first"></p>
+                        <!-- 隐藏的文字内容 -->
+                        <div class="desc hidden hidden-xs">
+                          <p v-for="c in item.content" v-text="c"></p>
+                        </div>
+                      
+                      </div>
+                      <!-- 按钮 -->
+                    <span  class="btn-more hidden-xs" :title="index+7" :class="index%2==0?'l':'r'">
+                      <img :src="imgs.button" alt="">    
+                    </span>
+                      
+                      
                   </div>
+                  
                   </li>
               </ul>
             </div>
@@ -298,6 +357,7 @@ export default {
 <style scoped>
 .course{
   overflow: hidden;
+  font-family: "J-YUAN";
 }
  .image{
    position:absolute;
@@ -316,21 +376,7 @@ export default {
    /* height: 100%; */
 }
 
-/* #banner p{
-   position:absolute;
-   color:white;
-   font-family: 'GD-HEI';
-   font-size: 100px;
-   color:white;
-   top:4em;
-  
-   left:0;
-   right:0;
-   margin:auto;
-   text-align:center;
-  
-} */
-
+/* 标题部分 */
 .header{
   margin:30px auto;
   color: #4E5EA9;
@@ -344,9 +390,7 @@ export default {
 }
 
 .header p   { text-indent:2em   }
-
-
-
+/* 导航 */
 .fixed {
     position: fixed;
     top: 0;
@@ -383,25 +427,27 @@ export default {
 
 }
 
-
+/* 标题 */
 .title {
   /* border: 1px solid; */
   height: 8%;
   position: relative;
+  font-family: "GD-HEI";
 }
 .title .h{
-  font-size:3.6em;
+  font-size:7em;
   color: #AACA20;
   height: 100%;
+  
 }
 .title .hz {
   margin-left: 2%;
   width: 15%;
 }
 .title .hz img{
-  width: 4.5em;
+  width: 6em;
   position: absolute;
-  top:8%;
+  top:20%;
 
 }
 .text{
@@ -414,11 +460,26 @@ export default {
 .text span:nth-child(2){
   color: #B2B2B2;
 }
+
+/* 中间内容 */
 .middle {
   margin:3% 0;
+  height:400px;
+  
 }
 .middle .col-sm-7,.col-sm-5 {
   padding: 0;
+  height:100%;
+}
+
+.middle .videobg{
+ 
+}
+.middle .videobg .img{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height:100%;
 }
 .middle .rec {
   width: 4em;
@@ -428,15 +489,17 @@ export default {
   margin-top: 1%;
 }
 .middle p {
-  font-size: 3.0em;
+  font-size: 4.5em;
   text-align: center;
   color: #C5D400;
+  font-family: "GD-HEI";
+  line-height: 0.8em;
 
-  letter-spacing: 0.2em;
+  /* letter-spacing: 0.2em; */
 }
 .middle ul{
   padding:0;
-  margin-top: 3%;
+  margin-top: 9%;
 }
 .middle li{
   font-size: 2.0em;
@@ -445,39 +508,55 @@ export default {
   margin-right: 4%;
   line-height: 120%;
   padding-left: 15%;
-  margin-top: 2%;
+  margin-top: 5%;
+  position: relative;
 }
-
-/* 徽章图片定位 */
-.middle li .l_10{
-  left: 10%;
-}
-.middle li .l_5{
-  left: 5%;
-}
-
-.middle li .l_2{
-  left:2%;
-}
-.middle li .l_12{
-  left:12%;
-}
-.middle li .l_7{
+.middle li img{
+  position: absolute;
+  /* width: 0.8em ; */
   left:7%;
-}
-.middle li .l_30{
-  left:30%;
-}
-.middle li .l_24{
-  left:24%;
-}
-.middle li .l_27{
-  left: 27%;
-}
-.middle li .l_32{
-  left: 32%;
+  top:-10%;
+  max-width: 40px;
 }
 
+.middle .ul3 li {
+  margin-right: 40%;
+  text-align: center;
+  padding-left: 35%;
+}
+.middle .ul3 li img{
+  left:50%;
+}
+.middle li span {
+  margin-left: 2%;
+}
+.middle .p1 {
+  display: inline;
+
+
+}
+/* 播放按钮 */
+.middle .play{
+  position:absolute;
+  left:50%;
+  top:40%;
+  transform: translate(-50%);
+  object-fit: cover;
+  cursor: pointer;
+ 
+}
+.middle .play img{
+  transform: scale(1.5)
+}
+/* 视频样式 */
+.middle video {
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  height:100%;
+  display: none;
+  /* z-index: -1; */
+}
 /* 手机屏幕 */
 @media screen and (max-width: 767px){
   .middle li .l_12{
@@ -511,33 +590,14 @@ export default {
 }
 
 
-.middle li img{
-  position: absolute;
-  width: 0.8em ;
-  left:0;
-  max-width: 30px;
-}
-.middle li .half{
-  width:0.4em;
-}
-.middle .ul3 li {
-  margin-right: 40%;
-  text-align: center;
-  padding-left: 35%;
-}
-.middle li span {
-  margin-left: 2%;
-}
-.middle .p1 {
-  display: inline;
-
-
-}
+/* 底部 */
 .r0{
   right: 0;
+  background-position: left bottom;
 }
 .l0{
   left:0;
+  background-position: right bottom;
 }
 .bottom ul,li {
   list-style: none;
@@ -550,41 +610,76 @@ export default {
   background-color: #EEF9FF;
   height:400px;
 }
+/* 文字样式 */
+.bottom li .words{
+  width: 42%;
+  height:100%;
+  position: absolute;
+  background-color: #EEF9FF;
+  overflow: auto;
 
+}
 .bottom li .bg{
   width:58%;
   height:100%;
   position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center bottom;
+
+  /* background-position: center bottom; */
 }
 .bottom li .CourseName {
-  /* border: 1px solid red; */
-  position: absolute;
-  top: 30%;
-  text-align: center;
+  width: 100%;
   font-size: 2.4em;
   font-weight: 600;
+  text-align: center;
+  position: absolute;
+  padding: 0 10% ;
+  top:30%;
+  /* margin-top: 25%; */
+  
+  
+  /* top:50%;
+  transform: translateY(-50%) */
 
 
+}
+.bottom li .CourseName p{
+  margin: 0;
 }
 .bottom li .CourseName .name{
   color: #B1D031;
-  width: 7em;
+  /* width: 7em; */
 }
 .bottom li .CourseName .age{
   color: #5C6AA8;
+  margin-bottom: 30px;
+}
+.bottom li .CourseName .desc{
+  font-size: 0.6em;
+  text-align: left;
+  /* height:10%; */
+  
+}
+.bottom li .CourseName .w-first {
+  font-size: 0.6em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  
+}
+.bottom li .btn-more{
+      position: absolute;
+      bottom:5%;
+      right:5%;
+      cursor: pointer;
 }
 .bottom li .show{
   display: block;
   width:2em;
   position: absolute;
-  left: -2.2em;
+  left: 10%;
 }
-
-
-
 
 /* ====================分割线=================== */
 
@@ -631,11 +726,11 @@ export default {
   width:41.2%;
 }
 .left{
-  left:10%;
+  left:0;
 
 }
 .right{
-  right:2em;
+  right:0;
 }
 
 .hide{
@@ -643,10 +738,14 @@ export default {
 }
 
 
-@media (max-width:992px){
+@media (max-width:1024px){
   .mod-wall-item{
      width:100%;
   }
+  .bottom li .show{
+   
+    left: 5%;
+    }
 }
 
 
@@ -734,6 +833,9 @@ export default {
   .sticky .age .smallmove{
     top: -48%;
   }
+  .middle p{
+    font-size: 3.5em;
+  }
 }
 
 
@@ -758,10 +860,17 @@ export default {
   .bottom li {
     height:255px;
   }
+  .middle {
+    height:255px;
+  }
 
 }
 
 @media screen and (max-width: 767px){
+.r0,.l0{
+   background-position: center bottom;
+}
+
 .bottom li .bg{
   width: 100%;
 }

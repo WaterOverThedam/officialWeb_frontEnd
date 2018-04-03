@@ -27,7 +27,9 @@
        </div>
        <div class="dropdown">
       
-          <div class="menu-icon all-blur " data-target="menu" data-toggle="dropdown" role="button"></div>
+          <div class="menu-icon all-blur " data-target="menu" data-toggle="dropdown" role="button">
+            <!-- <img src="/img/index/menu_icon.png" alt=""> -->
+          </div>
     
 
           <ul id="menu" class="dropdown-menu" :style="{'background-color': bgColor}">
@@ -136,13 +138,13 @@ export default {
   }
 
   .all-blur{
-       -webkit-backdrop-filter: blur(1px);
-       -webkit-filter: blur(1px); 
-       -moz-filter: blur(1px);
-       -ms-filter: blur(1px); 
-       -o-filter: blur(1px);
-       filter: blur(1px);
-       filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='1');/* IE6~IE9 */
+      //  -webkit-backdrop-filter: blur(1px);
+      //  -webkit-filter: blur(1px); 
+      //  -moz-filter: blur(1px);
+      //  -ms-filter: blur(1px); 
+      //  -o-filter: blur(1px);
+      //  filter: blur(1px);
+      //  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='1');/* IE6~IE9 */
   }
 
 
@@ -172,10 +174,13 @@ export default {
   }
   .gym{
     margin:auto 6%;
+    
   }
  
   nav a {
      color: white;
+     font-family: "J-YUAN";
+     font-size: 18px;
   }
   a:before {
     content: "";

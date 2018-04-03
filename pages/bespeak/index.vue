@@ -10,7 +10,8 @@
             <!-- 表单样式 -->
             <div class="formbg" :style="{'background-image':`url(${formbg})`}">
                     <div class="form">
-                        <h1 v-text="title"></h1>
+                        <h1 v-text="title[0]"></h1>
+                        <h1 v-text="title[1]"></h1>
                         <form action="">
                             <ul>
                                 <li v-for="item in input">
@@ -50,7 +51,7 @@
             <!-- 蓝色背景区域 -->
             <div class="row blue hidden-xs" :style="{'background':`url(${blue.bluebg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
                 <img :src="blue.cut" alt="" class="cut">
-                <div class="imgL col-sm-6">
+                <!-- <div class="imgL col-sm-6">
                     <img :src="blue.three" alt="">
                 </div>
                 <div class="imgR col-sm-6">
@@ -59,7 +60,8 @@
                         <img :src="blue.person" alt="">
                         <p v-for="item in blue.desc" v-text="item.p"></p>   
                     </div>
-                </div>
+                </div> -->
+                <img :src="blue.wordsbg" alt="">
             </div>
             <!-- 下半部图片 -->
             <div class="row pic2">
@@ -129,6 +131,7 @@
 <style lang="scss" scoped>
 .bespeak{
     overflow: hidden;
+    font-family: "J-YUAN";
     ul,li{
         padding: 0;
         margin: 0;
@@ -203,8 +206,9 @@
                 padding: 0 9%;
                 font-size: 3em;
                 letter-spacing: 0.2em;
-                margin-bottom: 8%;
-                font-family: "GD-HEI"
+                
+                font-family: "GD-HEI";
+                margin-top: 10px;
             }
             
         }
@@ -216,7 +220,7 @@
     }
     // 蓝色背景区域
     .blue{
-        padding:10% 0 ;
+        padding:5% 0 ;
         position: relative;
         .cut{
             width: 100%;
@@ -224,25 +228,25 @@
             top:-1%;
             
         }
-        .imgL{
-            text-align: center;
-            img{
-                margin-left: 10%;
-                width: 80%;
-            }
-        }
-        .imgR{
-            font-size: 1.8em;
-            color:#fff;
-            padding-right:5%;
-            .m{
-                margin-top: 15%;
-                img {
-                    float: left;
-                    margin-right: 5%;
-                }
-            }
-        }
+        // .imgL{
+        //     text-align: center;
+        //     img{
+        //         margin-left: 10%;
+        //         width: 80%;
+        //     }
+        // }
+        // .imgR{
+        //     font-size: 1.8em;
+        //     color:#fff;
+        //     padding-right:5%;
+        //     .m{
+        //         margin-top: 15%;
+        //         img {
+        //             float: left;
+        //             margin-right: 5%;
+        //         }
+        //     }
+        // }
     }
     // 下半部图片
     .pic2{
@@ -290,6 +294,18 @@
         }
     }
 }
+@media screen and (min-width:1440px) {
+    .bespeak{
+        .formbg{
+            .form{
+
+                h1{
+                   margin-top: 20px;
+                }
+            }
+        }
+    }
+}
 @media screen and (min-width:1200px){
     .bespeak{
         .formbg{
@@ -305,12 +321,12 @@
             }
         }
         .blue{
-            .imgR{
-                margin-top: 3%;
-                .m{
-                    margin-top: 20%;
-                }
-            }
+            // .imgR{
+            //     margin-top: 3%;
+            //     .m{
+            //         margin-top: 20%;
+            //     }
+            // }
         }
             // 底部
         .bto{
@@ -376,22 +392,22 @@
         }
         // 蓝色背景区域
         .blue{
-            .imgL{
-                text-align: center;
-                img{
-                     margin: 0;
-                }     
-            }
-            .imgR{
-                font-size: 2.4em;
-                padding:0 10%;
-                .m{
-                    padding: 0 10%;
-                    img {
-                        width: 30%;
-                    }
-                }
-            }
+            // .imgL{
+            //     text-align: center;
+            //     img{
+            //          margin: 0;
+            //     }     
+            // }
+            // .imgR{
+            //     font-size: 2.4em;
+            //     padding:0 10%;
+            //     .m{
+            //         padding: 0 10%;
+            //         img {
+            //             width: 30%;
+            //         }
+            //     }
+            // }
         }
         // 底部
         .bto{

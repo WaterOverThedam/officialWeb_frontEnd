@@ -3,17 +3,17 @@ $(function(){
   $('video').bind('contextmenu',function() { return false; });
 
   //videoPlay
-  $('.parent .image').on('click',function(){
-      $('.parent').each(function(){
-       $(this).find('video')[0].pause();
-       $(this).find('video')[0].currentTime=0;
-       exitFullscreen();
-     })
+  $('.play').on('click',function(){
+    //   $('.parent').each(function(){
+    //    $(this).find('video')[0].pause();
+    //    $(this).find('video')[0].currentTime=0;
+    //    exitFullscreen();
+    //  })
       //console.log($(this).parent());
-      $('.parent .image').show();
-      $('.parent video').hide();
+    //   $('.parent .image').show();
+    //   $('.parent video').hide();
  
-      $(this).parent().find('.image').hide();
+      $(this).parent().find('.img').hide();
       $(this).parent().find('video').show().attr('src',$(this).parent().find('video').attr('dataSrc'));
       $(this).parent().find('video')[0].currentTime=0;
       $(this).parent().find('video')[0].play();
@@ -24,21 +24,21 @@ $(function(){
       $(this).parent().find('video')[0].currentTime=0;
       $(this).parent().find('video')[0].pause();
       $(this).hide();
-      $(this).parent().find('.image').show();
+      $(this).parent().find('.img').show();
       exitFullscreen() 
   });
 
 
-  $('.during').click(function(e){
+$('.during').click(function(e){
     e = e || window.event;
- //   年龄段导航
- var course1 = parseInt($('.course1').offset().top - ((3*$('.sticky').height())));
- var course2 = parseInt($('.course2').offset().top - ((3*$('.sticky').height())));
- var course3 = parseInt($('.course3').offset().top - ((3*$('.sticky').height())));
+    //   年龄段导航
+    var course1 = parseInt($('.course1').offset().top - ((3*$('.sticky').height())));
+    var course2 = parseInt($('.course2').offset().top - ((3*$('.sticky').height())));
+    var course3 = parseInt($('.course3').offset().top - ((3*$('.sticky').height())));
 
-// 获取年龄段长度
-var agewidth = $('.age').width();
-//
+    // 获取年龄段长度
+    var agewidth = $('.age').width();
+    //
     // var x = parseInt(e.pageX/agewidth*100);
     var x = parseInt(e.offsetX/agewidth*100)-2;
     // console.log(x);
@@ -62,7 +62,27 @@ var agewidth = $('.age').width();
         $('html').animate({'scrollTop':course3});
     }
       
-  })
+})
 
+// 文字显示
+$('.btn-more').click(function(e){
+    e.preventDefault();
+    var i = Number($(this).attr('title'));
+    if($('.desc').eq(i).hasClass('hidden')){
+        console.log($('.desc'))
+        console.log($('.w-first'))
+        console.log($('.btn-more'))
+        $('.w-first').removeClass('hidden').eq(i).addClass('hidden');
+        // console.log($('.first').eq(i));
+        $('.desc').addClass('hidden').eq(i).removeClass('hidden');
+        $('.words').stop().animate({'width':'42%'},1000).eq(i).stop().animate({'width':'100%'},1000)
+    }else{
+        
+        $('.desc').eq(i).addClass('hidden')
+        $('.words').eq(i).stop().animate({'width':'42%'},1000) 
+        $('.w-first').removeClass('hidden');
+    }
+
+})
 
 })

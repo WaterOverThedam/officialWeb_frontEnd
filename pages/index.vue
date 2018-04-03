@@ -1,11 +1,33 @@
 <template>
  <div class="index"> 
    <div id="logo"></div>
+  <!--[if lte IE 8]>
+   <div class="warn">
+     <div class="bg">
+       <h1 class="text-center">
+         更新您的浏览器版本
+       </h1>
+       <p>
+         您当前IE浏览器版本过低.为了您更好的用户体验,建议您使用其他浏览器或升级IE浏览器版本<a href="">更新IE版本</a>  
+       </p>
+       <div class="line"></div>
+       <a class="cl">关闭</a>
+     </div>
+
+   </div>
+<![endif]-->
+  
+   
     <MyNav :bgColor="bgColor[counterNow]"></MyNav>
     <main>
       <CarouselAll></CarouselAll>
       <BallMediaL :ballMediaAttr="ballMediaAttr[0]"></BallMediaL>
       <BallMediaR :ballMediaAttr="ballMediaAttr[1]"></BallMediaR>
+      <!--[if IE gte 11]>
+
+
+
+      <![endif]-->
       <CourseBrief></CourseBrief>
       <Common></Common>
       <MyMedia></MyMedia>
@@ -50,6 +72,7 @@ export default {
       ballMediaAttr:[
         {
             bgImg:"/img/index/banner.jpg",
+             title:["Major fun ","Now in session"],
             ball:{
               position:"left",
               title:"我们的课程",
@@ -63,6 +86,7 @@ export default {
         },
         {
             bgImg:"/img/index/promo-parties-camps-lg.jpg",
+            title:["Major fun ","Now in session"],
             ball:{
               position:"right",
               title:"派对和活动",
@@ -113,6 +137,55 @@ export default {
  .index{
    overflow: hidden;
  }
+
+/* 提示浏览器升级 */
+ .warn{
+   position: fixed;
+   background: rgba(0, 0,0, 0.6);
+   width:100%;
+   height:100%;
+   z-index: 9999;
+  
+ }
+ .warn .bg{
+   width: 50%;
+   height:500px;
+   background-color: #C1D72E;
+   margin:30px auto;
+   padding: 3% 5%;
+ }
+ .warn h1 {
+   margin-bottom: 20%;
+   color:#fff;
+   font-family: "GD-HEI";
+   font-size: 50px;
+ }
+ .warn p {
+   background-color: #fff;
+   padding: 5% 5% 10%;
+   font-size: 16px;
+   font-family: "J-YUAN"
+   
+ }
+ .warn .line{
+   height: 2px;
+   background-color: #fff;
+   margin: 5% 0;
+ }
+ .warn .cl {
+   display: block;
+   float:right;
+   padding: 2% 8%;
+   background: #42CCCC;
+   cursor: pointer;
+   color:#fff;
+   text-decoration: none;
+   font-weight: 700;
+ }
+ .warn .cl:hover{
+   background-color: #515FB0;
+ }
+ 
   @media screen and (max-width:767px){
     main {
       margin-top: -3%;
