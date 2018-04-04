@@ -142,7 +142,6 @@ import CitySelect from '~/components/CitySelect.vue'
     //  更改当前中心
      showGym(g){
         this.gymChoose = g;
-        //alert(this.gymChoose)
         //this.$router.push("#map");
      },
      test() {

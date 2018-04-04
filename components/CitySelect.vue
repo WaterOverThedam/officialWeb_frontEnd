@@ -79,6 +79,7 @@ export default {
   },
   mounted() {
       this.getGyms();
+      this.getGyms_jsonp();
   },
 }
 </script>
