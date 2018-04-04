@@ -72,7 +72,7 @@
               <span class="play">
               <img :src="imgs.play" alt="">
               </span>
-              <video dataSrc="http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
+              <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/parenting.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
             </div>
             
             
@@ -97,7 +97,7 @@
                       
                   </div>
                   <!-- 按钮 -->
-                  <span  class="btn-more" :title="index" :class="index%2==0?'l':'r'">
+                  <span  class="btn-more hidden-xs" :title="index" :class="index%2==0?'l':'r'">
                       <img :src="imgs.button" alt="">    
                   </span>
                   
@@ -128,7 +128,7 @@
                 <span class="play">
                   <img :src="imgs.play" alt="">
                 </span>
-                <video dataSrc="http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
+                <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/preschool.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
               </div>
 
               <span class="col-sm-5 hidden-xs">
@@ -227,7 +227,7 @@
                 <span class="play">
                   <img :src="imgs.play" alt="">
                 </span>
-                <video dataSrc="http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
+                <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/schoolage.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
               </div>
 
             </div>
@@ -370,7 +370,7 @@ export default {
    margin:0;
    padding:0;
    width:100%;
-   margin-top:3%;
+   margin-top:2%;
    padding-top:38%;
   padding-bottom:8em;
    /* height: 100%; */
@@ -555,41 +555,9 @@ export default {
   width: 100%;
   height:100%;
   display: none;
+  object-fit: fill;
   /* z-index: -1; */
 }
-/* 手机屏幕 */
-@media screen and (max-width: 767px){
-  .middle li .l_12{
-    left:2.5em;
-  }
-  .middle li .l_32{
-    left: 7em;
-  }
-  .middle li .l_30{
-    left:6.6em;
-  }
-  .middle li .l_27{
-    left: 6em;
-  }
-  .middle li .l_24{
-    left:5.7em;
-  }
-  .middle li .l_10{
-    left: 2.2em;
-  }
-  .middle li .l_7{
-    left:1.6em;
-  }
-  .middle li .l_5{
-    left: 1.3em;
-  }
-  .middle li .l_2{
-    left:0.8em;
-  }
-
-}
-
-
 /* 底部 */
 .r0{
   right: 0;
@@ -867,34 +835,40 @@ export default {
 }
 
 @media screen and (max-width: 767px){
-.r0,.l0{
-   background-position: center bottom;
-}
+  .r0,.l0{
+    background-position: center bottom;
+  }
 
-.bottom li .bg{
-  width: 100%;
-}
-.bottom li .CourseName {
+  .bottom li .bg{
+    width: 100%;
+  }
+  .bottom li .CourseName {
     font-size: 2.4em;
     top:35%;
-
-}
-.bottom li .CourseName .name{
-   width: 5em;
-}
-.right {
-  right:20%;
+  }
+ 
+  .right {
+    left:50%;
   
-  transform: translate(-50%)
+    transform: translate(-50%)
   }
-.left{
-  left:50%;
-  transform: translate(-50%)
-}
-   #banner p{
-     font-size: 40px;
-     top:20%;
+  .left{
+    left:50%;
+    transform: translate(-50%)
   }
+  /* 播放按钮 */
+  .middle .play{
+    top:35%;
+  }
+  /* 文字背景 */
+  .bottom li .words{
+    background-color: transparent;
+    overflow: visible;
+  }
+  .bottom li .show {
+    left:-25%;
+  }
+
 }
 
 

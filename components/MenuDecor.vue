@@ -48,7 +48,7 @@ export default {
         }
   },
   mounted(){
-      console.log(11111)
+    //   console.log(11111)
   },
   filters: {
     capitalize: function (value) {
@@ -115,7 +115,7 @@ export default {
     padding:8px 22px 5px;
     color:white;
     bottom:16%;
-    left:15%;
+    left:18%;
     font-family: "J-YUAN"
 }
  

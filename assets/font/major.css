@@ -1,6 +1,7 @@
 @font-face {
     font-family: "MA-JOR";
-    src:url("a.otf");
+    src:url("major.ttf") format("truetype");
+    
     font-style: normal;
     font-weight: normal;
 }

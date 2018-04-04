@@ -23,8 +23,14 @@
                 </div>
                 <!-- 内容 -->
                 <div class="row contents" >
-                    <div class="col-sm-7">
-                        <img :src="party" alt="">
+                    <div class="col-sm-7 videobg">
+                        <div class="img" :style="{'background-image':`url(${party})`}"></div>
+                        <!-- <img :src="imgs.course1.course_1_0" alt=""> -->
+                         <span class="play">
+                            <img :src="play" alt="">
+                        </span>
+                        <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/birthday.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
+                        
                     </div>
                     <div class="col-sm-5 words first" >
                         <h3 v-text="words[0].title"></h3>
@@ -38,8 +44,14 @@
                         <img :src="camphz" alt="">
                         <p v-text="words[1].content"></p>
                     </div>
-                    <div class="col-sm-7">
-                        <img :src="camp" alt="">
+                    <div class="col-sm-7 videobg">
+                        <div class="img" :style="{'background-image':`url(${camp})`}"></div>
+                        <!-- <img :src="imgs.course1.course_1_0" alt=""> -->
+                         <span class="play">
+                            <img :src="play" alt="">
+                        </span>
+                        <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/camp.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
+                        
                     </div>
                 </div>
 
@@ -69,7 +81,7 @@
             title:"派对和夏令营",
 
             script:[
-                //  {src: '/js/sticky.js'},
+                 {src: '/js/party.js'},
             ]
         
         },
@@ -145,7 +157,7 @@
         margin:0;
         padding:0;
         width:100%;
-        margin-top:3%;
+        margin-top:2%;
         padding-top:40%;
         padding-bottom:15em;  
         position: relative;
@@ -227,20 +239,53 @@
             margin:5% 0;
             .col-sm-7,.col-sm-5{
                 padding: 0;
+                
             }
-            
+            .videobg{
+                height:400px;
+                
+                .img{
+                    height: 100%;
+                    background-position: center center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+                video{
+                    width: 100%;
+                    height:100%;
+                    position: absolute;
+                    bottom: 0;
+                    left:0;
+                    display: none;
+                    object-fit: fill;
+                }
+                // 按钮
+                .play{
+                    position:absolute;
+                    left:50%;
+                    top:40%;
+                    transform: translate(-50%);
+                    object-fit: cover;
+                    cursor: pointer;
+                    img{
+                        transform: scale(1.5);
+                    }
+                }
+            }
             // 文字内容
             .words {
-                padding: 0 3%;
+                padding: 2% 3% 0;
                 font-size: 1.8em;
                 position: relative;
+                height: 400px;
                 h3{
                     font-size: 1.8em;
                     margin-bottom: 5%;
                     color:#AECE26;
+                    // font-family: "GD-HEI"
                 }
                 .h3_camp{
-                    width: 60%;
+                    width: 55%;
                 }
                 img{
                     width: 20%;
@@ -248,19 +293,22 @@
                     top:10%;
                     right:12%;
                 }
+                p{
+                    margin-top: 8%;
+                }
 
             }
             // 第一个文字内容单独样式
             .first {
-                margin-top: 5%;
+                // margin-top: 5%;
                 img{
-                    top:-5%;
+                    top:5%;
                 }
             }
             //第二个文字内容单独样式
             .second{
                 img{
-                    right:20%;
+                    right:25%;
                 }
             }
         }   
@@ -274,7 +322,7 @@
                  //第一个文字内容单独样式
                 .first{
                     img{
-                        right:20%;
+                        right:18%;
                     }
                 }
                   
@@ -286,28 +334,52 @@
 
 }
 
- 
+@media screen and (max-width: 768px) {
+    .party{
+        .container{
+            .contents{
+                .videobg{
+                    height: 255px;
+                    .play {
+                        // transform: scale(1)
+                        top:30%;
+                    }
+                }
+                .words{
+                    height: 255px;
+                       
+                }
+            }
+            
+        }
+    }
+}
 @media screen and (max-width: 767px){
     .party{
         .container{
             .contents {
                 // 文字内容
                 .words {
+                    height: auto;
                     margin-bottom: 4%;
                     img{
                         width: 12%;
                         position: absolute;
-                        top:-2%;
-                        right:40%;
+                        top:12%;
+                        right:42%;
                     }
                     .h3_camp{
-                        width: 50%;
+                        width: 100%;
+                    }
+                    p{
+                        margin: 0;
                     }
                 } 
                  //第二个文字内容单独样式
                 .second{
                     img{
-                        right:40%;
+                        right:25%;
+                        top:10%;
                     }
                 }
                   

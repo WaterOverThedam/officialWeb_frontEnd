@@ -78,7 +78,7 @@ img  {
 }
 .balltext h2 {
   color:#fff;
-  font-size: 45px;
+  font-size: 60px;
   font-family: "MA-JOR";
   padding: 0 24%;
   margin: 0;
