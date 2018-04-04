@@ -51,8 +51,8 @@ import Common from '~/components/Common.vue'
 import CourseBrief from '~/components/CourseBrief.vue'
 import MyFooter from '~/components/MyFooter.vue'
 import BespeakForm from '~/components/BespeakForm.vue'
-import { mapMutations } from 'vuex'
 import { mapActions } from 'vuex'
+
 
 export default {
   head:{
@@ -117,14 +117,11 @@ export default {
     MyFooter,
     BespeakForm
   },
-  
   methods: {
-    ...mapMutations([
-      "tester"
+      ...mapActions([
+        "incrementAsync"
       ]),
-    ...mapActions([
-      "incrementAsync"
-      ])
+    
   },
   mounted(){
     this.incrementAsync();

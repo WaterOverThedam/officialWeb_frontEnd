@@ -29,18 +29,13 @@
         <!-- 截止 -->
 
 
-        <div class="row text-left text-primary subcaption" id="maps">
+        <div @onclick="test()" class="row text-left text-primary subcaption" id="maps">
              <div class="col-md-5 col-sm-5 item" >
                 <h3 >寻找离您最近的小小运动馆</h3>
                 <!-- <h3 v-text="city"></h3> -->
              </div>
              <div class="col-md-4 col-sm-4 item">
-               <select class="selectpicker show-tick" id="sel" data-live-search="true"
-                  liveSearchStyle='contains' :title="city||请选择城市"   data-live-search-placeholder='搜索'>
-                 <optgroup v-for="c in cities" :label="c.prov" >
-                   <option   v-for='c_city in c.city' :value='c_city'  v-text='c_city' ></option>
-                 </optgroup>
-               </select>
+                  <CitySelect></CitySelect>
              </div>
         </div>
         <div class="row addr ">
@@ -84,6 +79,11 @@
 </template>
 <script>
 
+import { mapState } from 'vuex'
+import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
+import CitySelect from '~/components/CitySelect.vue'
+
  export default {
    head: {
     link: [
@@ -93,15 +93,20 @@
         {src: 'js/search.js'},
     ]    
    },
-   props: ["gyms","provs"],
-   components: {},
+   components: {
+       CitySelect
+   },
    data() {
      return {
-       city:  '上海市',
+       citySelected:"",
        gymChoose:""
      }
    },
    computed: {
+      ...mapState([
+         "city",
+         "gyms"
+      ]),
     //    获取点击的市的中心信息
      filterGyms(){
           var c = this.city;
@@ -116,22 +121,6 @@
                  this.filterGyms[0] ||
                  {name:"",addr:"",phone:"",email:"",tip:""};
      },
-    //  返回省份和有中心得城市
-     cities(){
-       let c = this.gyms.map(gym => {
-          return {prov:gym.prov,city:gym.city};
-       })
-       c = this.unique(c);
-       return  this.provs.map(p=>{
-            var city=[];
-            c.map(c=>{
-                if(c.prov.indexOf(p.name)!=-1) {
-                  city.push(c.city);
-                }
-            })
-           return {provId:p.id,prov:p.name,city:this.unique(city)};
-         })
-     },
     //  地图定位
      position() {
        var gyms=[];
@@ -144,54 +133,30 @@
      }
    },
    methods: {
+     ...mapMutations([
+        "switchCity"
+     ]),
      xh(i){
        return i<10?'0'+i:i;
      },
-    //  将返回的对象处理成数组  
-     unique(arr){
-       let s = new Set(arr);
-       return Array.from(s);
-     },
-     filterCityList(prov){
-          var citys = []
-          this.gyms.map(g =>{
-              //console.log(prov+":"+g.prov+":"+g.prov.indexOf(prov))
-              if (g.prov.indexOf(prov)==0){
-                  citys.push(g.city);
-              }
-          })
-          return [...new Set(citys)];
-     },
-    //  更改选中值
+    //  更改当前中心
      showGym(g){
         this.gymChoose = g;
         //alert(this.gymChoose)
         //this.$router.push("#map");
      },
-    //  将数据的城市改为地图点击的城市
-     switchCity(city){
-         this.city=city;
-     },
      test() {
-      alert(JSON.stringify(this.cities))
+        alert(JSON.stringify(this.city))
      }
    },
    mounted() {
-     var vm=this;
-     $("#sel").on('changed.bs.select', function () {
-        vm.city = $(this).val();
-        vm.gymChoose = "";
-     });
-
-//   $('.add01').hover(function () {
-  $('.shade').hover(function () {
-
-     for(var i = 0,len=$('.add01').length;i<len;i++){
-        $('.shade').eq(i).next('.add01').hide().next('.add01_con').hide()
-     }
-      $(this).next('.add01').show().next('.add01_con').show();
-  })
-
+        //   $('.add01').hover(function () {
+        $('.shade').hover(function () {
+            for(var i = 0,len=$('.add01').length;i<len;i++){
+                $('.shade').eq(i).next('.add01').hide().next('.add01_con').hide()
+            }
+            $(this).next('.add01').show().next('.add01_con').show();
+        })
    },
  }
 </script>

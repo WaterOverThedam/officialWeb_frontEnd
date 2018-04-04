@@ -15,8 +15,8 @@
                     <ul class="gym" >
                        <!-- <li id="find"><nuxt-link :to="'/service/detail'" class="link" href="#">全国中心</nuxt-link></li> -->
                        <li id="find">
-                         <!-- <nuxt-link to="/search" class="link" >全国中心</nuxt-link> -->
-                         <a href="/search" class="link">全国中心列表</a>
+                         <nuxt-link to="/search" class="link" >全国中心列表</nuxt-link>
+                         <!-- <a href="/search" class="link">全国中心列表</a> -->
                          </li>
                        <li class="dot"></li>
                        <!-- <li id="own"><nuxt-link :to="'/service/detail'" class="link" href="#">加盟中心</nuxt-link></li> -->
