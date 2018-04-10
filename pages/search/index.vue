@@ -1,7 +1,7 @@
 <template>
  <div  class="overhidden"> 
    <div @click="test()" class="" id="logo"></div>
-    <MyNav :bgColor="bgColor_cur"></MyNav>
+    <MyNav></MyNav>
     <main>
       <div class="parent">
         <div class="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  

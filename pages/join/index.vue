@@ -1,7 +1,7 @@
 <template>
     <div class="join">
         <!-- <div id="logo"></div> -->
-        <MyNav :bgColor="bgColor_cur"></MyNav>
+        <MyNav></MyNav>
         <main>
             <!-- 版心图 -->
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
@@ -65,8 +65,6 @@
                     </li>
                 </ul>
             </div>
-
-
             <common></common>
             <MyMedia></MyMedia>
         </main>

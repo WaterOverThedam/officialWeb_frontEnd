@@ -1,7 +1,7 @@
 <template>
   <div class="bespeak">
         <!-- <div id="logo"></div> -->
-        <MyNav :bgColor="bgColor_cur"></MyNav>
+        <MyNav></MyNav>
         <main>
             <!-- 版心图 -->
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
@@ -170,7 +170,17 @@
                 this.$getDataAsync(this.baseUrl+"/api/getGym/"+cityId,{},this.setGyms);
            },
            saveResult(res){
-             alert(JSON.stringify(res));
+             //alert(JSON.stringify(res));
+             var msg=""
+             if(!res.code){
+                 msg = {text:"预约成功",type:"success"}
+             }else{
+                 msg= {text:"预约失败",type:"error"}
+             }
+             this.$message({
+                message: msg.text,
+                type: msg.type
+             });
            },
            saveIntro(){
                 this.intro.BabyBrithday=toDate_s(this.birthday);

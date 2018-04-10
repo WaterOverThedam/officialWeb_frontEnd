@@ -1,6 +1,6 @@
 <template>
 	<div class="news">
-		<MyNav :bgColor="bgColor_cur"></MyNav>
+		<MyNav></MyNav>
         <main>
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
                   <img class="left"   :src="cloud" alt="">
@@ -104,7 +104,6 @@
     import axios from 'axios'
     import { mapState } from 'vuex'
     import { mapActions } from 'vuex'
-    import { mapGetters } from 'vuex'
     import GoTop from '~/components/GoTop.vue'
     export default {
          head:{
@@ -118,9 +117,6 @@
             ...mapState([
               'LanguageType',
               'News'
-            ]),
-            ...mapGetters([
-                'bgColor_cur'
             ]),
             originY(){
                 return document.querySelector('.sticky').offsetTop
@@ -206,7 +202,7 @@
         margin:0;
         padding:0;
         width:100%;
-        margin-top:2%;
+        margin-top:3%;
         padding-top:35%;
         padding-bottom:15em;  
         position: relative;
