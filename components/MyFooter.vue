@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="container-fluid main" :style="{'background':`url(${footer.bottom_pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+    <div class="container-fluid main" :style="{'background':`url(${bgColor_cur.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
         <div class="logo">
           <a href=""></a>
           <a href=""></a>
@@ -40,8 +40,13 @@
   </footer>
 </template>
 <script>
+ import { mapGetters } from 'vuex'
  export default {
-  props:['bgColor'],
+  computed: {
+      ...mapGetters([
+          'bgColor_cur'
+      ])
+  },
   data () {
     return {
       footer:{
@@ -53,10 +58,9 @@
           {"id":"/contact","title":"联系我们"},
           {"id":"/recruit","title":"招聘"},
           {"id":"/","title":"中心页面"},
-          {"id":"/bespeak","title":"预约体验"},
+          {"id":"/intro","title":"预约体验"},
         ],
-        copyright:"版权所有：上海小小乐杰健身休闲有限公司 沪ICP备17040660号-2",
-        bottom_pic:"/img/index/bottom2.jpg"
+        copyright:"版权所有：上海小小乐杰健身休闲有限公司 沪ICP备17040660号-2"
       }
     }
   }

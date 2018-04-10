@@ -15,7 +15,7 @@
                 <p v-text="item.p"></p>
             </div>
             <MyMedia></MyMedia>
-        <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
+        <MyFooter></MyFooter>
 
 	</div>
 	
@@ -24,21 +24,13 @@
     import contact from './contact'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
-    // import { mapMutations } from 'vuex'
-    // import { mapActions } from 'vuex'
-
+ 
 
     export default {
         head:{
             title:"联系我们", 
         },
         computed:{
-            bgColor(){
-                return this.$store.state.bgColor;
-            },
-            counterNow(){
-                return parseInt(this.$store.state.counter/600)%this.bgColor.length;
-            }
         },
         data(){
             return{

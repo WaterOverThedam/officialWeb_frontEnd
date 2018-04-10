@@ -14,7 +14,6 @@
     "title":["预约","体验课"],
     "input":[
         {"id":"uname","title":"宝宝姓名: "},
-        {"id":"birthday","title":"宝宝生日: "},
         {"id":"phone","title":"家长手机: "}     
     ],
     "select":{

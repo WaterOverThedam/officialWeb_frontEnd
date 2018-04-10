@@ -2,8 +2,6 @@
 <div  class="wrap" style="margin-top: 50px;" oncontextmenu="self.event.returnvalue=false">
     <div class="container-fluid">
 
-
-
         <!-- 修改 -->
 
         <div class="row text-center hidden-xs">
@@ -80,6 +78,7 @@
 <script>
 
 import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 import { mapMutations } from 'vuex'
 import { mapActions } from 'vuex'
 import CitySelect from '~/components/CitySelect.vue'
@@ -105,12 +104,15 @@ import CitySelect from '~/components/CitySelect.vue'
    computed: {
       ...mapState([
          "city",
-         "gyms"
+         "Gyms"
+      ]),
+      ...mapGetters([
+        'cities'
       ]),
     //    获取点击的市的中心信息
      filterGyms(){
           var c = this.city;
-          var gymfilter = this.gyms.filter(g =>{
+          var gymfilter = this.Gyms.filter(g =>{
               return g.city==c;
           })
           return gymfilter;
@@ -124,12 +126,15 @@ import CitySelect from '~/components/CitySelect.vue'
     //  地图定位
      position() {
        var gyms=[];
-       this.gyms.map(g => {
+       this.Gyms.map(g => {
          if(g.city==this.city){
            gyms.push({name:g.name,coordinate:g.coordinate});
          }
        })
        return encodeURI("page/map.html?gyms="+JSON.stringify(gyms))+'&city='+this.city+'&gym='+this.gym.name;
+     },
+     baseUrl(){
+        return this.$conf.evnData[this.$conf.env_cur].baseUrl;
      }
    },
    methods: {
@@ -149,7 +154,10 @@ import CitySelect from '~/components/CitySelect.vue'
      }
    },
    mounted() {
-        //   $('.add01').hover(function () {
+        if(!this.Gyms||this.Gyms.length==0){
+            this.$getData(this.baseUrl+"/api/getGymByCity/-1");
+        }
+
         $('.shade').hover(function () {
             for(var i = 0,len=$('.add01').length;i<len;i++){
                 $('.shade').eq(i).next('.add01').hide().next('.add01_con').hide()

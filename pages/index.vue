@@ -17,8 +17,7 @@
    </div>
 <![endif]-->
   
-   
-    <MyNav :bgColor="bgColor[counterNow]"></MyNav>
+    <MyNav :bgColor="bgColor_cur"></MyNav>
     <main>
       <CarouselAll></CarouselAll>
       <BallMediaL :ballMediaAttr="ballMediaAttr[0]"></BallMediaL>
@@ -33,7 +32,7 @@
       <MyMedia></MyMedia>
       
     </main>
-    <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
+    <MyFooter></MyFooter>
     <!-- <BespeakForm></BespeakForm> -->
  
  </div>
@@ -62,9 +61,6 @@ export default {
     ] 
   },
   computed:{
-    counterNow(){
-      return parseInt(this.$store.state.counter/600)%this.bgColor.length;
-    }
   },
   data () {
     return {

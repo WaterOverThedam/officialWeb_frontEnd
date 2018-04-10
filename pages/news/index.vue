@@ -1,6 +1,6 @@
 <template>
 	<div class="news">
-		<MyNav :bgColor="bgColor[counterNow]"></MyNav>
+		<MyNav :bgColor="bgColor_cur"></MyNav>
         <main>
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
                   <img class="left"   :src="cloud" alt="">
@@ -11,7 +11,7 @@
             <div :class="{'hidden-xs':true,'sticky':true,'fixed':isfixed}">
                <ul>
                    <li class="text-center">
-                       <a v-for="item in nav" v-text="item.title" :style="{'background':`url(${item.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"></a>
+                       <a v-for="(item,index) in nav" @click="switchType(index+1)" v-text="item.title" :style="{'background':`url(${item.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"></a>
                    </li>
                </ul>
             </div>
@@ -55,30 +55,34 @@
             <!-- 中心内容 -->
             <div class="container">
                 <ul>
-                    <li v-for="(item,index)  in body" class="col-sm-4">
+                    <li v-for="(item,index)  in News.list"  class="col-sm-4">
                         <div class="list"  :num="index">
-                            <img :src="item.pic" alt="">
+                            <img :src="item.headPic" alt="">
                             <div class="words">
                                  <h3 v-text="item.title"></h3>
-                                <img :src="item.line" alt="">
-                                <p v-text="item.p1"></p>
-                                <p v-text="item.p2"></p>
-                                <p v-text="item.p3"></p>
-                                <p v-text="item.p4"></p>
-                                <p v-text="item.p5"></p>
+                                <img :src="line" alt="">
+                                <p v-html="item.summary"></p>
                             </div>
                         </div>
                     </li>
                     <li class="page">
-                        <span>                          
-                            <img :src="pre" alt="">
-                        </span>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>
-                            <img :src="next" alt="">
-                        </span>
+                        <div class="block">
+                        <el-pagination
+                            @current-change="handleCurrentChange"
+                            :current-page.sync="pageNum"
+                            layout="prev, pager, next"
+                            :total="News.total">
+                        </el-pagination>
+                        </div>
+                            <!-- <span>                          
+                                <img :src="pre" alt="">
+                            </span>
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>
+                                <img :src="next" alt="">
+                            </span> -->
                     </li>
                 </ul>
             </div>
@@ -86,7 +90,7 @@
             <MyMedia></MyMedia>
         </main>
         <GoTop></GoTop>
-        <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
+        <MyFooter :bgColor="bgColor_cur"></MyFooter>
 
 	</div>
 	
@@ -97,36 +101,41 @@
     import Common from '~/components/Common.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
-    import { mapMutations } from 'vuex'
+    import axios from 'axios'
+    import { mapState } from 'vuex'
     import { mapActions } from 'vuex'
-
+    import { mapGetters } from 'vuex'
     import GoTop from '~/components/GoTop.vue'
     export default {
          head:{
             title:"新闻中心",
-
             script:[
                 {src:"/js/news.js"}
             ]
         
         },
         computed:{
-            bgColor(){
-                return this.$store.state.bgColor;
-            },
-            counterNow(){
-                return parseInt(this.$store.state.counter/600)%this.bgColor.length;
-            },
+            ...mapState([
+              'LanguageType',
+              'News'
+            ]),
+            ...mapGetters([
+                'bgColor_cur'
+            ]),
             originY(){
                 return document.querySelector('.sticky').offsetTop
+            },
+            baseUrl(){
+                return this.$conf.evnData[this.$conf.env_cur].baseUrl;
             }
         },
          // 数据来源
         data(){
             return {
+                 pageNum:1,
+                 type:1,
                  isfixed:false,
                 ...news,
-               
             }
         },
         components: {
@@ -137,22 +146,39 @@
             GoTop
         },
         methods: {
-             stickyHeader(){
+            handleCurrentChange(val) {
+                this.pageNum=val;
+                this.getNews();
+                console.log(`当前页: ${val}`);
+            },
+            switchType(val){
+                this.type=val;
+                this.getNews();
+            },
+            getNews(){
+                var param ={
+                    pageNum:this.pageNum,
+                    type:this.type,
+                    LanguageType:this.LanguageType
+                }
+                this.$getData(this.baseUrl+"/api/getNews",'News',param);
+            },
+            stickyHeader(){
                     var point = window.scrollY||pageYOffset;
                     if(point> this.originY){
                         this.isfixed=true;
                     }else{
                         this.isfixed=false;
                     }
-             },        
-        ...mapMutations([
-            "tester"
-             ]),
+            },        
         ...mapActions([
              "incrementAsync"
             ])
         },
         mounted(){
+            if(!this.News||this.News.length==0){
+               this.getNews();
+            }
             window.addEventListener('scroll',this.stickyHeader);
         },
         destroyed(){

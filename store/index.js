@@ -1,20 +1,23 @@
 import Vuex from 'vuex'
 import axios from 'axios'
 import provs from '~/assets/json/provs.json'
+ 
 
 const createStore = () => {
   return new Vuex.Store({
     state: {
         ...provs,
-        bgColor:['#33CCCC','#5160AC'],
+        LanguageType:1,
+        bg:[{color:'#33CCCC',pic:'/img/index/bottom2.jpg'},{color:'#5160AC',pic:'/img/index/bottom.png'}],
         city:"上海市",
-        gyms:[],
+        Gyms:[],
+        News:[],
         menu: {
            content:[
               {name:"品牌故事",value:"/story"},
               {name:"我们的课程",value:"/course"},
               {name:"派对和夏冬令营",value:"/party"},
-              {name:"预约体验",value:"/bespeak"},
+              {name:"预约体验",value:"/intro"},
               {name:"加盟中心",value:"/join"},
            ]
         },
@@ -22,8 +25,12 @@ const createStore = () => {
     },
     getters:{
       // 返回省份和有小小运动馆中心得城市
+      bgColor_cur(state){
+        let index = parseInt(state.counter/600)%state.bg.length;
+        return state.bg[index];
+      },
       cities(state){
-        let c = state.gyms.map(gym => {
+        let c = state.Gyms.map(gym => {
             return {prov:gym.prov,city:gym.city};
         })
         c = [...new Set(c)];
@@ -39,23 +46,6 @@ const createStore = () => {
       }
     },
     mutations: {
-      getGyms(state){
-        if(!state.gyms||state.gyms.length==0){
-          return axios.get('http://localhost:8888/api/getGymByCity/-1')
-            .then((response)=>{
-              var res = response.data;
-              if(res.code){
-                  console.log(res.msg)
-              }else{
-                state.gyms = res.data;
-              }           
-            })         
-            .catch(function (error) {
-              console.log(error);
-            })
-          }
-      },
-
       increment (state) {
         if(state.counter++>10000){
             state.counter=0;
@@ -67,8 +57,10 @@ const createStore = () => {
         //console.log(m);
       },
       setGyms(state,g){
-        state.gyms = g;
-        //console.log(m);
+        state.Gyms = g;
+      },
+      setNews(state,g){
+        state.News = g;
       }
     },
     actions: {

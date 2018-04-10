@@ -1,7 +1,7 @@
 <template>
   <div class="bespeak">
         <!-- <div id="logo"></div> -->
-        <MyNav :bgColor="bgColor[counterNow]"></MyNav>
+        <MyNav :bgColor="bgColor_cur"></MyNav>
         <main>
             <!-- 版心图 -->
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
@@ -12,29 +12,50 @@
                     <div class="form">
                         <h1 v-text="title[0]"></h1>
                         <h1 v-text="title[1]"></h1>
-                        <form action="">
+                        <form>
                             <ul>
-                                <li v-for="item in input">
-                                    <span v-text="item.title"></span>
-                                    <input type="text" :name="item.id" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
+                                <li>
+                                    <span>宝宝姓名:</span>
+                                    <input v-model="intro.BabyName" type="text" name="uname" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
+                                </li>
+                                <li>
+                                    <div class="block">
+                                        <span name="birthday">宝宝生日:</span>
+                                        <el-date-picker name="birthday"
+                                        v-model="birthday"
+                                        type="date"
+                                        placeholder="选择日期">
+                                        </el-date-picker>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span >家长手机:</span>
+                                    <input v-model="intro.ParentPhone" type="text" name="phone" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
                                 </li>
                                 <li>
                                     <span v-text="select.city"></span>
-                                    <select name="province" id="province" class="m_right" :style="{'background':`url(${selectbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                                       
+                                    <select v-model='intro.Province' @change="getIntroCities(intro.Province)" 
+                                       name="province" id="province" class="m_right" :style="{'background':`url(${selectbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                                        <option disabled value="">选择省份</option>
+                                        <option v-for="p in provs" :value="p.id">{{p.cH_Name}}</option>
                                     </select>
-                                    <select name="city" id="city" :style="{'background':`url(${selectbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                                        
+                                    <select v-model='intro.City' @change="getIntroGyms(intro.City)" 
+                                        name="city" id="city" :style="{'background':`url(${selectbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                                        <option disabled value="">选择城市</option>
+                                        <option v-for="c in cities" :value="c.id">{{c.cH_Name}}</option>
+                                        <option disabled v-show="cities.length==0" value="">无</option>
                                     </select>
                                 </li>
                                 <li>
                                     <span v-text="select.center"></span>
-                                    <select class="select2" name="" id="" :style="{'background':`url(${selectbg2}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                                        
+                                    <select v-model='intro.gymCode' class="select2" name="" id="" :style="{'background':`url(${selectbg2}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                                        <option disabled value="">选择中心</option>
+                                        <option v-for="g in gyms" :value="g.id">{{g.cH_Name}}</option>
+                                        <option disabled v-show="gyms.length==0" value="">无</option>
                                     </select>
                                 </li>
                                 <li>
-                                    <button v-text="btnword" class="text-center" :style="{'background':`url(${button}) no-repeat`,'background-size':'contain','-webkit-background-size':'100%'}"></button>
+                                    <button v-text="btnword" @click.prevent="saveIntro()" class="text-center" :style="{'background':`url(${button}) no-repeat`,'background-size':'contain','-webkit-background-size':'100%'}"></button>
                                 </li>
                             </ul>
                             
@@ -87,36 +108,79 @@
             <MyMedia></MyMedia>
         </main>
         <GoTop></GoTop>
-        <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
+        <MyFooter :bgColor="bgColor_cur"></MyFooter>
     </div>
 </template>
 <script>
-    import bespeak from './bespeak'
+    import intro from './intro'
     import MyNav from '~/components/MyNav.vue'
     import Common from '~/components/Common.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
-
     import GoTop from '~/components/GoTop.vue'
+    import { mapGetters } from 'vuex'
+
     export default {
         head:{
             "title":"预约中心",
             script:[
-                {"src":"/js/bespeak.js"}
+                {"src":"/js/intro.js"}
             ]
         },
         data(){
             return{
-                ...bespeak
+                ...intro,
+                provs:[],
+                cities:[],
+                gyms:[],
+                birthday:"",
+                intro:{
+                    gymCode :"",
+                    City  :"",
+                    Province :"",
+                    BabyName :"",
+                    BabyBrithday :"",
+                    ParentPhone  :""
+                }
             }
         },
-        computed:{
-            bgColor(){
-                return this.$store.state.bgColor;
-            },
-            counterNow(){
-                return parseInt(this.$store.state.counter/600)%this.bgColor.length;
+        computed: {
+            ...mapGetters([
+                'bgColor_cur'
+            ]),
+            baseUrl(){
+                return this.$conf.evnData[this.$conf.env_cur].baseUrl;
             }
+        },
+       methods: {
+            setProvs(res){
+               this.provs=res.data;
+            },
+            getIntroProv(){
+                this.$getDataAsync(this.baseUrl+"/api/getPro",{},this.setProvs);
+           },
+            setCities(res){
+               this.cities=res.data;
+               //alert(JSON.stringify(this.cities))
+            },
+            getIntroCities(provId){
+                this.$getDataAsync(this.baseUrl+"/api/getCity/"+provId,{},this.setCities);
+           },
+            setGyms(res){
+               this.gyms=res.data;
+              // alert(JSON.stringify(this.cities))
+            },
+            getIntroGyms(cityId){
+                this.$getDataAsync(this.baseUrl+"/api/getGym/"+cityId,{},this.setGyms);
+           },
+           saveResult(res){
+             alert(JSON.stringify(res));
+           },
+           saveIntro(){
+                this.intro.BabyBrithday=toDate_s(this.birthday);
+                this.$getDataAsync(this.baseUrl+"/api/saveIntro/",this.intro,this.saveResult);
+           }
+  
         },
         components:{
             MyNav,
@@ -124,11 +188,19 @@
             MyMedia,
             MyFooter,
             GoTop
-        }
+        },       
+        mounted(){
+            this.getIntroProv();
+        },
     }
 
 </script>
 <style lang="scss" scoped>
+
+.el-date-editor.el-input, .el-date-editor.el-input__inner {
+    font-size: 0.9em;
+    width:54%!important;
+}
 .bespeak{
     overflow: hidden;
     font-family: "J-YUAN";

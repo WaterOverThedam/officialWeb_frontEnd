@@ -1,6 +1,6 @@
 <template>
 	<div class="party">
-		<MyNav :bgColor="bgColor[counterNow]"></MyNav>
+		<MyNav :bgColor="bgColor_cur"></MyNav>
         <main>
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
                   <img class="left"   :src="cloud" alt="">
@@ -48,7 +48,7 @@
             <MyMedia></MyMedia>
         </main>
         <GoTop></GoTop>
-        <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
+        <MyFooter :bgColor="bgColor_cur"></MyFooter>
 
 	</div>
 	

@@ -1,7 +1,7 @@
 <template>
     <div class="join">
         <!-- <div id="logo"></div> -->
-        <MyNav :bgColor="bgColor[counterNow]"></MyNav>
+        <MyNav :bgColor="bgColor_cur"></MyNav>
         <main>
             <!-- 版心图 -->
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
@@ -62,7 +62,7 @@
             <MyMedia></MyMedia>
         </main>
         <GoTop></GoTop>
-        <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
+        <MyFooter :bgColor="bgColor_cur"></MyFooter>
     </div>
  
 </template>
@@ -74,6 +74,7 @@
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
     import GoTop from '~/components/GoTop.vue'
+    import { mapGetters } from 'vuex'
 
     export default {
         head:{
@@ -88,12 +89,9 @@
             }
         },
         computed:{
-            bgColor(){
-                return this.$store.state.bgColor;
-            },
-            counterNow(){
-                return parseInt(this.$store.state.counter/600)%this.bgColor.length;
-            }
+            ...mapGetters([
+                'bgColor_cur'
+            ]),
         },
         components:{
             Waves,

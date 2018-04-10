@@ -39,12 +39,12 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
-  plugins: ['~plugins/vue-jsonp','~/plugins/element-ui' ],
+  plugins: ['~plugins/vue-jsonp','~/plugins/element-ui','~/plugins/function' ],
   /*
   ** Build configuration
   */
   build: {
-    vendor:['axios','vue-jsonp','element-ui'],
+    vendor:['axios'],
     loaders:[
       {
          test:/\.(png|jp?g|gif|svg)$/,

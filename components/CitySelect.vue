@@ -26,26 +26,32 @@ export default {
       citySelected:""
     }
   },
+  asyncData (context) {
+    return { project: 'nuxt' }
+  },
   computed: {
       ...mapState([
         'city',
-        'gyms'
+        'Gyms',
       ]),
       ...mapGetters([
         'cities'
-      ])
+      ]),
+      baseUrl(){
+        return this.$conf.evnData[this.$conf.env_cur].baseUrl;
+      }
   },
   methods: {
     ...mapMutations([
-      "switchCity",
-      "getGyms",
-      "setGyms"
+        "switchCity",
+        "setGyms"
       ]),
     //  将返回的对象处理成数组  
      unique(arr){
        let s = new Set(arr);
        return Array.from(s);
      },
+     
      getGyms_jsonp(state){
           var self = this;
           var GB2312UnicodeConverter = {
@@ -59,7 +65,6 @@ export default {
           //var city = '上海市', unicode;
           var url_jsonp = "http://bbk.800app.com/uploadfile/staticresource/238592/279833/dataInterface_jsonp_uni.aspx";
           var sql_getGym = "select crmzdy_81744958 prov,crmzdy_81744959 city,crm_name name,crmzdy_82040405 coordinate,crmzdy_80620116 id,crmzdy_80616967 phone,crmzdy_80620118 email,replace(REPLACE(crmzdy_81765917,CHAR(13)add;CHAR(10),'<br/>'),'	',',') tip,crmzdy_80616968 addr from crm_zdytable_238592_23594_238592_view gyms where crmzdy_82037329=1 /*and crmzdy_81744959='var_city'*/ and crmzdy_80620116 between '500005' and '600005'";
-          
           //sql_getGym = sql_getGym.replace('var_city',city);
           sql_getGym = GB2312UnicodeConverter.ToUnicode(sql_getGym); 
           // 跨域请求数据
@@ -74,12 +79,13 @@ export default {
           })
       },
       test() {
-        alert(JSON.stringify(this.city))
+        //alert(JSON.stringify(this.city))
       }
   },
   mounted() {
-      this.getGyms();
-      this.getGyms_jsonp();
+    if(!this.Gyms||this.Gyms.length==0){
+      this.$getData(this.baseUrl+"/api/getGymByCity/-1",'Gyms');
+    }
   },
 }
 </script>

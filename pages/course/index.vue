@@ -1,6 +1,6 @@
 <template>
  <div class="course"> 
-    <MyNav :bgColor="bgColor[counterNow]"></MyNav>
+    <MyNav></MyNav>
     <main>
       <div @click="goToCourse" id="banner" :style="{'background':`url(${imgs.banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
           <!-- <p v-text="title"></p> -->
@@ -265,7 +265,7 @@
       <!-- <GoTop></GoTop> -->
     </main>
     <GoTop></GoTop>
-    <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
+    <MyFooter></MyFooter>
 
  </div>
 </template>
@@ -290,12 +290,6 @@ export default {
     ]
   },
   computed:{
-    bgColor(){
-      return this.$store.state.bgColor;
-    },
-    counterNow(){
-      return parseInt(this.$store.state.counter/600)%this.bgColor.length;
-    },
     originY(){
       return document.querySelector('.sticky').offsetTop
     }

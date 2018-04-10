@@ -1,6 +1,6 @@
 <template>
 	<div class="story">
-		<MyNav :bgColor="bgColor[counterNow]"></MyNav>
+		<MyNav :bgColor="bgColor_cur"></MyNav>
         <main>
             <div @click="goToCourse" id="banner" :style="{'background':`url(${imgs.bannertop}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
                 <!-- <p v-text="title"></p>   -->
@@ -92,7 +92,7 @@
             
         </main>
         <GoTop></GoTop>
-        <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
+        <MyFooter></MyFooter>
 
 	</div>
 	
@@ -119,14 +119,6 @@
             ]
         
         },
-        computed:{
-            bgColor(){
-                return this.$store.state.bgColor;
-            },
-            counterNow(){
-                return parseInt(this.$store.state.counter/600)%this.bgColor.length;
-            }
-        },
         // 数据来源
         data(){
             return {
@@ -144,7 +136,6 @@
         },
         methods: {
              goToCourse(){
- 
               this.$router.push("#ball");
             },
         ...mapMutations([
@@ -153,10 +144,7 @@
         ...mapActions([
              "incrementAsync"
             ])
-  },
-    mounted(){
-
-     } 
+       } 
     }
 </script>
 <style scoped>
