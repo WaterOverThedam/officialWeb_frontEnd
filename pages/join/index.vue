@@ -1,6 +1,6 @@
 <template>
     <div class="join">
-        <!-- <div id="logo"></div> -->
+        <div id="logo"></div>
         <MyNav :bgColor="bgColor[counterNow]"></MyNav>
         <main>
             <!-- 版心图 -->
@@ -88,11 +88,14 @@
         head:{
             "title":"加盟中心",
             link:[
-               { rel:'stylesheet',type:'text/css',href:'/css/bootstrapValidator.min.css'}
+              
+               
+                { rel:'stylesheet',type:'text/css',href:'/css/reset.css'}
             ],
             script:[
+               
                 {"src":"/js/join.js"},
-                {"src":"/ui/bootstrapValidator.min.js"}
+                
               
             ]
         },
@@ -171,15 +174,19 @@
                  text-indent: 1%;
             }
             .form-control{
-                padding: 5% 5px;
+                padding: 3% 5px;
                 display: inline;
                 font-size: 0.8em;
-                height:auto;
-                max-height: 34px;
+                // height:auto;
+                height:40px;
+                max-height: 40px;
             }
             // 提示符号
             .form-control-feedback {
-                top:50px !important;
+                top:50px ;
+            }
+            i{
+                top:50px;
             }
             .btn{
                 margin-top:2%;
@@ -295,6 +302,13 @@
 // } 
 @media screen and (max-width:"768px") {
     .join{
+         .form {
+            .form-group{
+                .form-control{
+                    height: auto;
+                }
+            }
+        }
         .container{
             li{
                 span{
@@ -336,6 +350,8 @@
                 }
                 .form-control{
                     padding: 3% 5px 0;
+                    // max-height;
+                    height: auto;
                 }
             }
         }

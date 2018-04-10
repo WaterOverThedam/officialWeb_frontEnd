@@ -13,6 +13,7 @@ module.exports = {
     link: [
         { rel:'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel:'stylesheet',type:'text/css',href:'/ui/bootstrap/css/bootstrap.min.css'},
+        { rel:'stylesheet',type:'text/css',href:'/css/bootstrapValidator.min.css'},
         { rel:'stylesheet',type:'text/css',href:'https://unpkg.com/element-ui/lib/theme-chalk/index.css'},
         { rel:'stylesheet',type:'text/css',href:'/css/animate.css'},
         { rel:'stylesheet',type:'text/css',href:'/css/swiper-4.1.6.min.css'}
@@ -20,6 +21,7 @@ module.exports = {
     script: [
         {src: '/ui/jquery-3.2.1.min.js'},
         {src: '/ui/bootstrap/js/bootstrap.min.js'},
+        {src:"/ui/bootstrapValidator.min.js"},
         {src: '/ui/swiper-4.1.6.min.js'},
         {src: '/js/tlgc.js'}
 

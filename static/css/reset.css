@@ -1,0 +1,13 @@
+.has-feedback label~.form-control-feedback{
+    top:50px;
+}
+@media (max-width:768px) {
+    .has-feedback label~.form-control-feedback{
+        top:30px;
+    }
+}
+@media(max-width:767px){
+    .has-feedback label~.form-control-feedback{
+        top:14px;
+    }
+}

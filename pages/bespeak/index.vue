@@ -1,6 +1,6 @@
 <template>
   <div class="bespeak">
-        <!-- <div id="logo"></div> -->
+        <div id="logo"></div>
         <MyNav :bgColor="bgColor[counterNow]"></MyNav>
         <main>
             <!-- 版心图 -->
@@ -14,10 +14,19 @@
                         <h1 v-text="title[1]"></h1>
                         <form action="">
                             <ul>
-                                <li v-for="item in input">
-                                    <span v-text="item.title"></span>
-                                    <input type="text" :name="item.id" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
+                                <li>
+                                    <span v-text="input[0].title"></span>
+                                    <input type="text" :name="input[0].id" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
                                 </li>
+                                <li>
+                                    <span v-text="input[1].title"></span>
+                                    <input readonly onfocus="WdatePicker({isShowClear:false,readOnly:true})"  type="text" :name="input[1].id" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
+                                </li>
+                                <li>
+                                    <span v-text="input[2].title"></span>
+                                    <input type="text" :name="input[2].id" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
+                                </li>
+
                                 <li>
                                     <span v-text="select.city"></span>
                                     <select v-model="selected" @change="changeCity(selected)"  name="province" id="province" class="m_right" :style="{'background':`url(${selectbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"  placeholder="请选择城市">
@@ -111,7 +120,9 @@
         head:{
             "title":"预约中心",
             script:[
+                {"src":"/ui/MY97DatePicker/WdatePicker.js"},
                 {"src":"/js/bespeak.js"}
+
             ]
         },
         data(){
@@ -277,7 +288,11 @@
                     -moz-appearance:none;   
                     -webkit-appearance:none;  
                 }
-                select::-ms-expand { display: none; }
+                select::-ms-expand { 
+                    display: none; 
+                    appearance:none;  
+                    outline: none; 
+                }
                 .m_right{
                         margin-right: 4%;
                         
