@@ -27,7 +27,8 @@
   // 编写自定义函数,创建标注
   
 	function addMarker(point,label,isShow){
-		var marker = new BMap.Marker(point);
+    var marker = new BMap.Marker(point);
+    marker.setLabel(label);
     map.addOverlay(marker);
     if(isShow){
       var myIcon = new BMap.Icon("../img/search/markers.png", new BMap.Size(23, 25), {    
@@ -45,8 +46,8 @@
     }
     //其次，为标注添加hover事件，代码如下：
     marker.addEventListener("mouseover",function(e){
+      var label = this.getLabel();
       labelShow(label);
-      marker.setLabel(label);
     });
     marker.addEventListener("mouseout",function(e){
       var label = this.getLabel();
