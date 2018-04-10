@@ -83,6 +83,14 @@
             <ul>
              <li v-for="(item,index) in imgs.course1.course_1">
                <div  class="bg" :class="index%2==0?'l0':'r0'" :style="{'background-image':`url(${item.pic})`}"></div>
+               <!-- 蒙层 -->
+               <div  class="bgc" :class="index%2==0?'l0':'r0'">
+                  <div class="CourseName" >
+                      <p class="name" v-text="item.names[0]"></p>
+                      <p class="name" v-text="item.names[1]"></p>
+                      <p class="age" v-text="item.age"></p>
+                  </div>
+               </div>
                <div class="words" :class="index%2==1?'left':'right'">
                   <div class="CourseName" >
                       <img :src="imgs.course1.show" :class="index==2?'show':'hidden'" alt="">
@@ -162,6 +170,13 @@
               <ul>
                 <li v-for="(item,index) in imgs.course2.course_2"  >
                  <div  class="bg" :class="index%2==0?'r0':'l0'" :style="{'background-image':`url(${item.pic})`}"></div>
+                 <div class="bgc" :class="index%2==0?'r0':'l0'" >
+                   <div class="CourseName" >
+                        <p class="name" v-text="item.names[0]"></p>
+                        <p class="name" v-text="item.names[1]"></p>
+                        <p class="age" v-text="item.age"></p>
+                    </div>
+                 </div>
                  <div class="words" :class="index%2==1?'right':'left'">
                     <div class="CourseName" >
                         <p class="name" v-text="item.names[0]"></p>
@@ -235,7 +250,13 @@
               <ul>
                 <li v-for="(item,index) in imgs.course3.course_3" >
                   <div  class="bg" :class="index%2==0?'l0':'r0'" :style="{'background-image':`url(${item.pic})`,}"></div>
-                  <div class="words" :class="index%2==1?'left':'right'">
+                  <div class="bgc" :class="index%2==0?'l0':'r0'">
+                    <div class="CourseName" >
+                        <p class="name" v-text="item.names"></p>
+                        <p class="age" v-text="item.age"></p>
+                    </div>
+                 </div>
+                <div class="words" :class="index%2==1?'left':'right'">
                       <div class="CourseName" >
                         <p class="name" v-text="item.names"></p>
                         <p class="age" v-text="item.age"></p>
@@ -596,6 +617,37 @@ export default {
 
   /* background-position: center bottom; */
 }
+
+/* --------------------------------------------------蒙层------------------------------------------------------ */
+.bottom li .bgc{
+  width:58%;
+  height:100%;
+  position: absolute;
+  /* background-color: #000000; */
+  /* opacity: 0; */
+  transition: background-color 0.3s linear 0s,color 0.3s linear 0s;
+  -moz-transition: background-color 0.3s linear 0s,color 0.3s linear 0s;	/* Firefox 4 */
+  -webkit-transition: background-color 0.3s linear 0s,color 0.3s linear 0s;	/* Safari 和 Chrome */
+  -o-transition: background-color 0.3s linear 0s,color 0.3s linear 0s;	/* Opera */
+
+
+}
+.bottom li .bgc .CourseName {
+  /* top:40%; */
+}
+.bottom li .bgc .CourseName p{
+  color: transparent;
+}
+.bottom li .bgc:hover{
+  /* opacity: 0.6; */
+  background-color: rgba(0, 0, 0, 0.7);
+  
+}
+.bottom li .bgc:hover .CourseName p{
+  color:#fff;
+}
+/* ---------------------------------------------------蒙层结束--------------------------------------------- */
+
 .bottom li .CourseName {
   width: 100%;
   font-size: 2.4em;

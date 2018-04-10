@@ -1,41 +1,32 @@
 <template>
- <div class="index"> 
+ <div class="index" id="index"> 
    <div id="logo"></div>
-  <!--[if lte IE 8]>
-   <div class="warn">
+   <div class="warn" id="warn">
      <div class="bg">
        <h1 class="text-center">
          更新您的浏览器版本
        </h1>
-       <p>
-         您当前IE浏览器版本过低.为了您更好的用户体验,建议您使用其他浏览器或升级IE浏览器版本<a href="">更新IE版本</a>  
-       </p>
+       <div class="p">
+         您当前IE浏览器版本过低.为了您更好的用户体验,建议您使用其他浏览器或升级IE浏览器版本<a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads">更新IE版本</a>  
+       </div>
        <div class="line"></div>
-       <a class="cl">关闭</a>
+       <!-- <a class="cl" id="cl">关闭</a> -->
      </div>
 
    </div>
-<![endif]-->
-  
-   
     <MyNav :bgColor="bgColor[counterNow]"></MyNav>
     <main>
       <CarouselAll></CarouselAll>
       <BallMediaL :ballMediaAttr="ballMediaAttr[0]"></BallMediaL>
       <BallMediaR :ballMediaAttr="ballMediaAttr[1]"></BallMediaR>
-      <!--[if IE gte 11]>
-
-
-
-      <![endif]-->
+   
       <CourseBrief></CourseBrief>
       <Common></Common>
       <MyMedia></MyMedia>
-      
     </main>
     <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
-    <!-- <BespeakForm></BespeakForm> -->
- 
+    <BespeakForm></BespeakForm>
+  
  </div>
 </template>
 
@@ -51,8 +42,9 @@ import Common from '~/components/Common.vue'
 import CourseBrief from '~/components/CourseBrief.vue'
 import MyFooter from '~/components/MyFooter.vue'
 import BespeakForm from '~/components/BespeakForm.vue'
-import { mapMutations } from 'vuex'
+
 import { mapActions } from 'vuex'
+
 
 export default {
   head:{
@@ -68,6 +60,7 @@ export default {
   },
   data () {
     return {
+      isShow:false,
       bgColor:['#33CCCC','#5160AC'],
       ballMediaAttr:[
         {
@@ -116,32 +109,16 @@ export default {
     CourseBrief,
     MyFooter,
     BespeakForm
+    
   },
-  
   methods: {
-    ...mapMutations([
-      "tester"
+      ...mapActions([
+        "incrementAsync"
       ]),
-    ...mapActions([
-      "incrementAsync"
-      ]),
-      IEVersion(){
-        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
-        var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器 
-        if(isIE) {
-          var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
-          reIE.test(userAgent);
-          var fIEVersion = Number(parseFloat(RegExp["$1"]));
-          // if(fIEVersion<=9)
-          console.log(fIEVersion)
-        }
-      }
-  },
-  created(){
-   
+
+    
   },
   mounted(){
-    //  this.IEVersion();
     this.incrementAsync();
   } 
  
@@ -156,13 +133,20 @@ export default {
 /* 提示浏览器升级 */
  .warn{
    position: fixed;
-   background: rgba(0, 0,0, 0.6);
+  background-color: #000;
+  filter:Alpha(opacity=98);
+   /* background: rgba(0, 0,0, 0.6); */
+   display: none;
+  
+   
    width:100%;
    height:100%;
    z-index: 9999;
+   /* display: none; */
   
  }
  .warn .bg{
+  filter:Alpha(opacity=100);
    width: 50%;
    height:500px;
    background-color: #C1D72E;
@@ -175,12 +159,15 @@ export default {
    font-family: "GD-HEI";
    font-size: 50px;
  }
- .warn p {
+ .warn .p {
    background-color: #fff;
    padding: 5% 5% 10%;
    font-size: 16px;
    font-family: "J-YUAN"
    
+ }
+ .warn .p a{
+   cursor: pointer;
  }
  .warn .line{
    height: 2px;

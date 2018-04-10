@@ -12,9 +12,9 @@ $(function () {
             chart : {
                 // 外边框
                 // borderWidth : 1
-                spacing:[0,0,0,0],
+                // spacing:[0,0,0,0],
                 // height:"500px",
-                backgroundColor:"transparent"
+                backgroundColor:"transparent",
             },
             credits: { 
                 enabled: false //不显示LOGO 

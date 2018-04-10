@@ -13,14 +13,13 @@ module.exports = {
     link: [
         { rel:'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel:'stylesheet',type:'text/css',href:'/ui/bootstrap/css/bootstrap.min.css'},
-        { rel:'stylesheet',type:'text/css',href:"http://tlgc.oss-cn-shanghai.aliyuncs.com/assert/ui/bootstrap-select-1.12.4/css/bootstrap-select.min.css"},
+        { rel:'stylesheet',type:'text/css',href:'https://unpkg.com/element-ui/lib/theme-chalk/index.css'},
         { rel:'stylesheet',type:'text/css',href:'/css/animate.css'},
         { rel:'stylesheet',type:'text/css',href:'/css/swiper-4.1.6.min.css'}
     ],
     script: [
         {src: '/ui/jquery-3.2.1.min.js'},
         {src: '/ui/bootstrap/js/bootstrap.min.js'},
-        {src: 'http://tlgc.oss-cn-shanghai.aliyuncs.com/assert/ui/bootstrap-select-1.12.4/js/bootstrap-select.min.js'},
         {src: '/ui/swiper-4.1.6.min.js'},
         {src: '/js/tlgc.js'}
 
@@ -34,18 +33,19 @@ module.exports = {
        '~assets/font/major.css',
        '~assets/font/hei-embed.css',
        '~assets/font/hei-embed.css',
+       '~assets/font/major-embed.css',
       
   ],
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
-  plugins: ['~plugins/vue-jsonp'],
+  plugins: ['~plugins/vue-jsonp','~/plugins/element-ui' ],
   /*
   ** Build configuration
   */
   build: {
-    vendor:['axios','vue-jsonp'],
+    vendor:['axios','vue-jsonp','element-ui'],
     loaders:[
       {
          test:/\.(png|jp?g|gif|svg)$/,

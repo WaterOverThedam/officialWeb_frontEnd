@@ -6,10 +6,13 @@
             <div class="col-sm-12" >  
                 <h1 class="media-heading text-center our-gym" v-text="media_Bottom.title"></h1>
                 <div class="row cover">
-                    <div class="col-sm-6 col-xs-6 text-right">
+                    <!-- <div @click="test()" class="col-sm-4 col-xs-4 text-right">
                           <ImgButton class="btn-city" v-bind:btnAttr="media_Bottom.btn_city"/>
+                    </div> -->
+                    <div class="col-sm-6 col-xs-6 text-right select">
+                          <CitySelect></CitySelect>
                     </div>
-                    <div class="col-sm-6 col-xs-6 text-left">
+                    <div  @click="goToSearch()" class="col-sm-6 col-xs-6 text-left search">
                            <ImgButton class="btn-search" v-bind:btnAttr="media_Bottom.btn_search"/>
                     </div>
                 </div>
@@ -20,45 +23,72 @@
 </template>
 
 <script>
+ import { mapState } from 'vuex'
+ import { mapMutations } from 'vuex'
+ import { mapActions } from 'vuex'
+
  import ImgButton from '~/components/ImgButton.vue'
+ import CitySelect from '~/components/CitySelect.vue'
  export default {
-  components: {
-    ImgButton
-  },
   data () {
-    return {
-        btn_comment: {
-           url:"/img/index/btn_empty.png",
-           name:"查看所有的评论",
-           height:60,
-           width:250
-        },
-        comment:{
-          title:"家长的话",
-          content:`整个运动过程，非常欢乐，宝宝第一次体验就很放得开。全程配合老师，听指令。老师的保护措施很到位。专业的单杠，平衡木，侧手翻，翻跟头，很欢乐。`,
-          picUrl:"/img/index/marquee-franchise.png" 
-        },
-        quotes:[
-          "/img/index/left-quote.png",
-          "/img/index/right-quote.png"
-        ],
-        media_Bottom:{
-            title:"找到离您最近的小小运动馆",
-            url:"/img/index/clouds-teal.png",
-            btn_city: {
-               url:"/img/index/btn-white-border.png",
-               name:"城市",
-               height:40,
-               width:70
+        return {
+            citySelected:"",
+            btn_comment: {
+            url:"/img/index/btn_empty.png",
+            name:"查看所有的评论",
+            height:60,
+            width:250
             },
-            btn_search: {
-               url:"/img/index/btn-white-bg.png",
-               name:"搜索",
-               height:40,
-               width:70
+            comment:{
+            title:"家长的话",
+            content:`整个运动过程，非常欢乐，宝宝第一次体验就很放得开。全程配合老师，听指令。老师的保护措施很到位。专业的单杠，平衡木，侧手翻，翻跟头，很欢乐。`,
+            picUrl:"/img/index/marquee-franchise.png" 
+            },
+            quotes:[
+            "/img/index/left-quote.png",
+            "/img/index/right-quote.png"
+            ],
+            media_Bottom:{
+                title:"找到离您最近的小小运动馆",
+                url:"/img/index/clouds-teal.png",
+                btn_city: {
+                url:"/img/index/btn-white-border.png",
+                name:"城市",
+                height:40,
+                width:70
+                },
+                btn_search: {
+                url:"/img/index/btn-white-bg.png",
+                name:"搜索",
+                height:40,
+                width:70
+                }
             }
         }
-    }
+  },
+  components: {
+    ImgButton,
+    CitySelect
+  },
+  computed:{
+      ...mapState([
+        'city',
+        'gyms'
+      ]),
+  },
+  methods:{
+      ...mapMutations([
+         "getGyms"
+      ]),
+      goToSearch(){
+            this.$router.push("/search#map");
+      },
+      test(){
+          console.log(JSON.stringify(this.gyms))
+      }
+ },    
+  mounted(){
+    // this.getGyms();
   }
  }
 </script>
@@ -107,6 +137,20 @@
     margin-bottom: 10px;
 }
  
+.cover{
+
+}
+.cover .select{
+/* height:100%; */
+margin-top:8px;
+
+   
+}
+
+.cover .search{
+    height:100%;
+}
+
  
 .content{
     text-indent:2em;
@@ -162,6 +206,19 @@
 
 }
 @media(max-width:767px){
+    .cover .select{
+        /* width: 100%; */
+        padding: 0 0 0 18%;
+        text-align: center;
+    }
+  
+
+    .cover .search{
+        /* width: 100%; */
+        text-align: left;
+       
+    }
+    
 
 }
 @media(max-width:568px) {

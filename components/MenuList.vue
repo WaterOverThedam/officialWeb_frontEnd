@@ -69,13 +69,14 @@ export default {
    .menu .item a {
       color:white;
       font-size: 22px;
+      font-family: "J-YUAN";
    }
    
 
  
  @media(min-width:1200px) {
      .menu .item a {
-          font-size: 28px;
+          font-size: 24px;
       }
  }
   @media(max-width:992px){

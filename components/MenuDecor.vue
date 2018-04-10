@@ -4,11 +4,12 @@
             <p v-text="item.p1"></p>
             <p v-text="item.p2"></p>
         </div>
-        <p>
-          <a href="/search">
-            <span class="find" :style="{'background':`url(${bottom.pic[0]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">{{bottom.title2}}</span>
-          </a>
-        </p>
+
+          <!-- <a href="/search"> -->
+            <!-- <span class="find" :style="{'background':`url(${bottom.pic[0]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">{{bottom.title2}}</span> -->
+            <nuxt-link to=""><span class="find" id="center">{{bottom.title2}}</span></nuxt-link>
+
+          <!-- </a> -->
         <p class="loop">
           <img :src="bottom.pic[1]">
         </p>
@@ -49,6 +50,8 @@ export default {
   },
   mounted(){
     //   console.log(11111)
+    
+     
   },
   filters: {
     capitalize: function (value) {
@@ -116,7 +119,15 @@ export default {
     color:white;
     bottom:16%;
     left:18%;
-    font-family: "J-YUAN"
+    font-family: "J-YUAN";
+    background-image: url(/img/components/searchbg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size:100%;
+}
+.find:hover{
+    background-image:url(/img/components/search-hoverbg.png);
+    /* color:red; */
 }
  
 .loop{

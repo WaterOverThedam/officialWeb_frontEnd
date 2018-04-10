@@ -20,23 +20,29 @@
                                 </li>
                                 <li>
                                     <span v-text="select.city"></span>
-                                    <select name="province" id="province" class="m_right" :style="{'background':`url(${selectbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                                       
+                                    <select v-model="selected" @change="changeCity(selected)"  name="province" id="province" class="m_right" :style="{'background':`url(${selectbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"  placeholder="请选择城市">
+                                        <option disabled hidden>请选择</option>
+                                       <option :value="p.city" v-for="p in gymcities" v-text="p.prov" ></option>
                                     </select>
-                                    <select name="city" id="city" :style="{'background':`url(${selectbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                                        
+
+                                    <select  v-model="selected2" @change="changeCenter(selected2)"  name="city" id="city" :style="{'background':`url(${selectbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                                        <option disabled v-show="isCity" >请先选择省份</option>
+                                        <option :value="c" v-for="c in selectCities" v-text="c" ></option>
                                     </select>
                                 </li>
                                 <li>
                                     <span v-text="select.center"></span>
                                     <select class="select2" name="" id="" :style="{'background':`url(${selectbg2}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                                        
+                                        <option disabled v-show="isCenter">请先选择城市</option>
+                                        <option value="c.id" v-for= "c in selectCenters"  v-text="c.name"></option>
                                     </select>
                                 </li>
                                 <li>
-                                    <button v-text="btnword" class="text-center" :style="{'background':`url(${button}) no-repeat`,'background-size':'contain','-webkit-background-size':'100%'}"></button>
+                                    <!-- <button v-text="btnword" class="text-center" :style="{'background':`url(${button}) no-repeat`,'background-size':'contain','-webkit-background-size':'100%'}"></button> -->
+                                    <button v-text="btnword" class="text-center"></button>
                                 </li>
                             </ul>
+                            
                             
                         </form>
                     </div>
@@ -98,6 +104,9 @@
     import MyFooter from '~/components/MyFooter.vue'
 
     import GoTop from '~/components/GoTop.vue'
+    import { mapState } from 'vuex'
+    import { mapMutations } from 'vuex'
+    import { mapGetters } from 'vuex'
     export default {
         head:{
             "title":"预约中心",
@@ -107,10 +116,25 @@
         },
         data(){
             return{
-                ...bespeak
+                ...bespeak,
+                selectCities:[],
+                selectCenters:[],
+                selected:"请选择",
+                selected2:"请选择",
+                isCenter:true,
+                isCity:true
+              
+              
             }
         },
         computed:{
+            ...mapState([
+                'city',
+                'gyms'
+            ]),
+            ...mapGetters([
+                'gymcities',
+            ]),
             bgColor(){
                 return this.$store.state.bgColor;
             },
@@ -124,6 +148,68 @@
             MyMedia,
             MyFooter,
             GoTop
+        },
+        methods:{
+            ...mapMutations([
+                "switchCity",
+                "getGyms",
+                "setGyms"
+            ]),
+             getGyms_jsonp(state){
+                var self = this;
+                var GB2312UnicodeConverter = {
+                    ToUnicode: function (str) {
+                         return escape(str).toLocaleLowerCase().replace(/%u/gi, '\\u');
+                    }
+                     , ToGB2312: function (str) {
+                        return unescape(str.replace(/\\u/gi, '%u'));
+                    }
+                };
+                //var city = '上海市', unicode;
+                var url_jsonp = "http://bbk.800app.com/uploadfile/staticresource/238592/279833/dataInterface_jsonp_uni.aspx";
+                var sql_getGym = "select crmzdy_81744958 prov,crmzdy_81744959 city,crm_name name,crmzdy_82040405 coordinate,crmzdy_80620116 id,crmzdy_80616967 phone,crmzdy_80620118 email,replace(REPLACE(crmzdy_81765917,CHAR(13)add;CHAR(10),'<br/>'),'	',',') tip,crmzdy_80616968 addr from crm_zdytable_238592_23594_238592_view gyms where crmzdy_82037329=1 /*and crmzdy_81744959='var_city'*/ and crmzdy_80620116 between '500005' and '600005'";
+          
+                //sql_getGym = sql_getGym.replace('var_city',city);
+                sql_getGym = GB2312UnicodeConverter.ToUnicode(sql_getGym); 
+                // 跨域请求数据
+                this.$jsonp(url_jsonp,{sql1:sql_getGym
+                }).then(json => {
+                     json =JSON.parse(json);
+                    //   console.log(json);
+                    this.setGyms(json.info[0].rec)
+          　　      // 返回数据 json， 返回的数据就是json格式
+                }).catch(err => {
+          　　      console.log(err)
+                })
+            },
+            // 改变城市
+            changeCity(s){
+                // console.log(s);
+                this.isCity=false;
+                this.selectCenters=[];
+                this.isCenter=true;
+                this.selectCities=s;
+                // this.selected2 = s[0];
+            },
+            //改变中心
+            changeCenter(c){
+                // console.log(c);
+                this.isCenter=false;
+                var center =[];
+                this.gyms.map(g=>{
+                    if(g.city.indexOf(c)!=-1){
+                        center.push({id:g.id,name:g.name})
+                    }
+                })
+                this.selectCenters = center;
+                // console.log(this.selectCenters);
+            }
+        },
+        mounted(){
+            this.getGyms();
+            this.getGyms_jsonp()
+            // console.log(this.gyms)
+            // console.log(this.gymcities)
         }
     }
 
@@ -167,10 +253,13 @@
                 font-size: 1.6em;
                 margin: 3% 0;
                 input{
-                    color:black;
+                    color:#4c4c4c;
                     outline: none;
                     border: none;
                     width: 54%;
+                    font-size: 14px;
+                    padding:1%;
+                    
                 }
                 span{
                     margin-right: 2%;
@@ -180,6 +269,9 @@
                     border: none;
                     outline: none;
                     width: 25%;
+                    padding: 1%;
+                    color:#4c4c4c;
+                    font-size: 14px;
                     appearance:none;   
                     -ms-appearance: none;
                     -moz-appearance:none;   
@@ -197,6 +289,13 @@
                     padding: 2% 8%;
                     border: none;
                     outline: none;
+                    background-color:transparent;
+                    background-image: url(/img/bespeak/bespeakbg.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    &:hover{
+                        background-image: url(/img/bespeak/bespeak-hoverbg.png)
+                    }
                 }
 
 
@@ -360,6 +459,13 @@
                 h1{
                     font-size: 4em;
                 }
+                li{
+                    select,input {
+                    // padding-left: 0;
+                    font-size: 12px;
+                    }
+                }
+                
             }
         }
     }
@@ -369,14 +475,25 @@
         font-size: 6px;
         .formbg{
             background-position: 10% bottom;
-            padding: 40% 0;
+            padding: 50% 0;
             .form{
-                width:58%;
+                width:69%;
+                left:13%;
                 li{
                     font-size: 2.5em;
-                    margin: 5% 0;
+                    margin: 6% 0;
                     select{
-                        font-size: 1.1em;
+                        font-size: 0.8em;
+                        width: 33%;
+                        padding: 2% 1% 1%;
+                    }
+                    .select2{
+                        width: 70%;
+                    }
+                    input{
+                        font-size: 12px;
+                        width:70%;
+                        padding: 2% 1%;
                     }
                 }   
                 h1{
