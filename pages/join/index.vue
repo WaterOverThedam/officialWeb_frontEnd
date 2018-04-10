@@ -71,7 +71,7 @@
             <MyMedia></MyMedia>
         </main>
         <GoTop></GoTop>
-        <MyFooter :bgColor="bgColor_cur"></MyFooter>
+        <MyFooter></MyFooter>
     </div>
  
 </template>
@@ -83,7 +83,7 @@
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
     import GoTop from '~/components/GoTop.vue'
-    import { mapGetters } from 'vuex'
+ 
 
     export default {
         head:{
@@ -103,9 +103,6 @@
             }
         },
         computed:{
-            ...mapGetters([
-                'bgColor_cur'
-            ]),
         },
         components:{
             Waves,

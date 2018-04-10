@@ -14,13 +14,7 @@
      </div>
 
    </div>
-<<<<<<< HEAD
-<![endif]-->
-  
-    <MyNav :bgColor="bgColor_cur"></MyNav>
-=======
-    <MyNav :bgColor="bgColor[counterNow]"></MyNav>
->>>>>>> abb732185b917697fe0156c200259a460e649508
+    <MyNav></MyNav>
     <main>
       <CarouselAll></CarouselAll>
       <BallMediaL :ballMediaAttr="ballMediaAttr[0]"></BallMediaL>
@@ -30,15 +24,9 @@
       <Common></Common>
       <MyMedia></MyMedia>
     </main>
-<<<<<<< HEAD
     <MyFooter></MyFooter>
-    <!-- <BespeakForm></BespeakForm> -->
- 
-=======
-    <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
     <BespeakForm></BespeakForm>
   
->>>>>>> abb732185b917697fe0156c200259a460e649508
  </div>
 </template>
 
@@ -70,11 +58,10 @@ export default {
   data () {
     return {
       isShow:false,
-      bgColor:['#33CCCC','#5160AC'],
       ballMediaAttr:[
         {
             bgImg:"/img/index/banner.jpg",
-             title:["Major fun ","Now in session"],
+            title:["Major fun ","Now in session"],
             ball:{
               position:"left",
               title:"我们的课程",

@@ -1,6 +1,6 @@
 <template>
 	<div class="story">
-		<MyNav :bgColor="bgColor_cur"></MyNav>
+		<MyNav></MyNav>
         <main>
             <div @click="goToCourse" id="banner" :style="{'background':`url(${imgs.bannertop}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
                 <!-- <p v-text="title"></p>   -->
