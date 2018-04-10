@@ -6,13 +6,13 @@
             <div class="col-sm-12" >  
                 <h1 class="media-heading text-center our-gym" v-text="media_Bottom.title"></h1>
                 <div class="row cover">
-                    <div @click="test()" class="col-sm-4 col-xs-4 text-right">
+                    <!-- <div @click="test()" class="col-sm-4 col-xs-4 text-right">
                           <ImgButton class="btn-city" v-bind:btnAttr="media_Bottom.btn_city"/>
-                    </div>
-                    <div class="col-sm-4 col-xs-4 text-left">
+                    </div> -->
+                    <div class="col-sm-6 col-xs-6 text-right select">
                           <CitySelect></CitySelect>
                     </div>
-                    <div  @click="goToSearch()" class="col-sm-4 col-xs-4 text-left">
+                    <div  @click="goToSearch()" class="col-sm-6 col-xs-6 text-left search">
                            <ImgButton class="btn-search" v-bind:btnAttr="media_Bottom.btn_search"/>
                     </div>
                 </div>
@@ -137,6 +137,20 @@
     margin-bottom: 10px;
 }
  
+.cover{
+
+}
+.cover .select{
+/* height:100%; */
+margin-top:8px;
+
+   
+}
+
+.cover .search{
+    height:100%;
+}
+
  
 .content{
     text-indent:2em;
@@ -192,6 +206,19 @@
 
 }
 @media(max-width:767px){
+    .cover .select{
+        /* width: 100%; */
+        padding: 0 0 0 18%;
+        text-align: center;
+    }
+  
+
+    .cover .search{
+        /* width: 100%; */
+        text-align: left;
+       
+    }
+    
 
 }
 @media(max-width:568px) {

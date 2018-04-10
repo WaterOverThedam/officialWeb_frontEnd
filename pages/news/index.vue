@@ -206,7 +206,7 @@
         margin:0;
         padding:0;
         width:100%;
-        margin-top:3%;
+        margin-top:2%;
         padding-top:35%;
         padding-bottom:15em;  
         position: relative;

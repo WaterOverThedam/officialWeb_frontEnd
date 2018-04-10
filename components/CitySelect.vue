@@ -1,9 +1,21 @@
 <template>
     <el-select v-model="citySelected" @change="switchCity(citySelected)" filterable placeholder="请选择城市">
-        <el-option-group
+        <!-- <el-option-group
         v-for="c in cities"
         :key="c.prov"
         :label="c.prov">
+        <el-option
+            v-for="c_city in c.city"
+            :key="c_city"
+            :label="c_city"
+            :value="c_city">
+        </el-option>
+        </el-option-group> -->
+
+        <el-option-group
+        v-for="c in newcities"
+        :key="c.provId"
+        :label="c.provId">
         <el-option
             v-for="c_city in c.city"
             :key="c_city"
@@ -35,11 +47,17 @@ export default {
         'Gyms',
       ]),
       ...mapGetters([
+<<<<<<< HEAD
         'cities'
       ]),
       baseUrl(){
         return this.$conf.evnData[this.$conf.env_cur].baseUrl;
       }
+=======
+        'cities',
+        'newcities'
+      ])
+>>>>>>> abb732185b917697fe0156c200259a460e649508
   },
   methods: {
     ...mapMutations([
@@ -71,7 +89,7 @@ export default {
           this.$jsonp(url_jsonp,{sql1:sql_getGym
           }).then(json => {
               json =JSON.parse(json);
-              console.log(json);
+            //   console.log(json);
               this.setGyms(json.info[0].rec)
           　　// 返回数据 json， 返回的数据就是json格式
           }).catch(err => {
@@ -83,9 +101,16 @@ export default {
       }
   },
   mounted() {
+<<<<<<< HEAD
     if(!this.Gyms||this.Gyms.length==0){
       this.$getData(this.baseUrl+"/api/getGymByCity/-1",'Gyms');
     }
+=======
+      this.getGyms();
+      this.getGyms_jsonp();
+    //   console.log(this.newcities)
+      // console.log(this.cities)
+>>>>>>> abb732185b917697fe0156c200259a460e649508
   },
 }
 </script>

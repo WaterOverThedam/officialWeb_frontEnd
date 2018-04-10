@@ -80,6 +80,7 @@
 import { mapState } from 'vuex'
 import { mapGetters } from 'vuex'
 import { mapMutations } from 'vuex'
+import { mapGetters } from 'vuex'
 import { mapActions } from 'vuex'
 import CitySelect from '~/components/CitySelect.vue'
 
@@ -236,12 +237,12 @@ import CitySelect from '~/components/CitySelect.vue'
     .addr .center{
         /* position: absolute */
     }
-    .addrItem {
+    /* .addrItem {
         height: 430px;
         color: white;
         background-color:#0FB1D8;
 
-    }
+    } */
     .addrItem h1{
         padding-top: 5%!important;
         margin:5% auto;
@@ -305,7 +306,13 @@ import CitySelect from '~/components/CitySelect.vue'
         position: relative;
        
     }
-
+    .add01{
+        color:#fff;
+        font-size: 20px;
+    }
+    .add01_con a,.add01_con span{
+        font-size: 18px;
+    }
     .add01_con a:hover{
         color:orange;
     }
@@ -443,9 +450,13 @@ import CitySelect from '~/components/CitySelect.vue'
 
         }
 }
-@media screen and (max-width:"767px"){
+@media screen and (max-width:767px){
     .add01{
         font-size: 9px;
+    }
+    .addrItem {
+        height: 350px;
+
     }
 }
 

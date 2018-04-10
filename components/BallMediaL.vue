@@ -12,7 +12,8 @@
                   <h1>{{ballMediaAttr.ball.title}}</h1>
                   <p class="hidden-xs hidden-sm word">{{ballMediaAttr.ball.word}}</p>
                   <p class="text-center">
-                    <a class="view" :href="ballMediaAttr.ball.address" :style="{'background':`url(${ballMediaAttr.ball.btnUrl}) no-repeat`,'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100% 100%','color':`${ballMediaAttr.ball.btnColor}`}">{{ballMediaAttr.ball.btnName}}</a>
+                    <!-- <a class="view" :href="ballMediaAttr.ball.address" :style="{'background':`url(${ballMediaAttr.ball.btnUrl}) no-repeat`,'background-size':'cover','-moz-background-size':'cover','-webkit-background-size':'100% 100%','color':`${ballMediaAttr.ball.btnColor}`}">{{ballMediaAttr.ball.btnName}}</a> -->
+                    <a class="view" :href="ballMediaAttr.ball.address">{{ballMediaAttr.ball.btnName}}</a>
                   </p>
             </div>
             
@@ -78,7 +79,7 @@ img  {
 }
 .balltext h2 {
   color:#fff;
-  font-size: 45px;
+  font-size: 56px;
   font-family: "MA-JOR";
   padding: 0 24%;
   margin: 0;
@@ -106,12 +107,20 @@ img  {
     cursor: pointer;
     display: inline-block;
     font-size:21px;
-    /* inline-height:30px; */
-    padding:3% 3% 2%;
+    padding:2% 4%;
     font-family: "J-YUAN";
-    /* //border:3px solid blue; */
-}
+    color:#4FC2C7;
 
+    background-image: url(/img/components/click.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    -moz-background-size:100% 100%;
+ 
+}
+.balltext .view:hover{
+    background-image: url(/img/components/click-hoverbg.png);
+    color:#fff;
+}
 @media screen and (max-width:1300px) {
   .balltext h1{
     text-align: center;
@@ -189,7 +198,9 @@ img  {
     }
    .balltext .view{
       font-size:16px;
+      padding: 2% 5%;
       /* position: absolute;
+      
       top:200px;
       right:0; */
     }

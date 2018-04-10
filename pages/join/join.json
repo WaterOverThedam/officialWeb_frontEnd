@@ -8,10 +8,10 @@
     "title":["一个大胆的想法","一个蓬勃发展的事业","从这里开始"],
     "submit":"确认",
     "form":[
-        {"id":"username","title":"姓名"},
-        {"id":"tel","title":"手机号"},
-        {"id":"email","title":"电子邮箱"},
-        {"id":"city","title":"加盟目标城市"}
+        {"id":"username","type":"text","title":"姓名"},
+        {"id":"tel","type":"text","title":"手机号"},
+        {"id":"email","type":"email","title":"电子邮箱"},
+        {"id":"city","type":"text","title":"加盟目标城市"}
     ],
     "body":[
         {"id":"0","title":"培训","pic":"/img/join/pic1.jpg","content":[

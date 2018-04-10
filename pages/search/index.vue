@@ -20,7 +20,7 @@
       <!-- <CourseBrief></CourseBrief> -->
     </main>
     <GoTop></GoTop>
-    <MyFooter :bgColor="bgColor_cur"></MyFooter>
+    <MyFooter></MyFooter>
 
  </div>
 </template>
@@ -157,11 +157,11 @@ main {
 @media (max-width:767px){
   /* .menu{
     margin-left: 3%;
-  }
+  }*/
   .menu img {
-    width: 30%;
-    margin:auto 0 auto 2.5%;
-  } */
+    width: 25%;
+    margin:auto 2%;
+  } 
 }
  
 </style>

@@ -32,7 +32,7 @@
         methods:{
             change(){
                 this.content= this.content[Math.floor(Math.random()*3)]
-                console.log(this.content)
+                // console.log(this.content)
             }
         },
         mounted(){

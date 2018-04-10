@@ -72,7 +72,7 @@
               <span class="play">
               <img :src="imgs.play" alt="">
               </span>
-              <video dataSrc="http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
+              <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/parenting.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
             </div>
             
             
@@ -83,6 +83,14 @@
             <ul>
              <li v-for="(item,index) in imgs.course1.course_1">
                <div  class="bg" :class="index%2==0?'l0':'r0'" :style="{'background-image':`url(${item.pic})`}"></div>
+               <!-- 蒙层 -->
+               <div  class="bgc" :class="index%2==0?'l0':'r0'">
+                  <div class="CourseName" >
+                      <p class="name" v-text="item.names[0]"></p>
+                      <p class="name" v-text="item.names[1]"></p>
+                      <p class="age" v-text="item.age"></p>
+                  </div>
+               </div>
                <div class="words" :class="index%2==1?'left':'right'">
                   <div class="CourseName" >
                       <img :src="imgs.course1.show" :class="index==2?'show':'hidden'" alt="">
@@ -97,7 +105,7 @@
                       
                   </div>
                   <!-- 按钮 -->
-                  <span  class="btn-more" :title="index" :class="index%2==0?'l':'r'">
+                  <span  class="btn-more hidden-xs" :title="index" :class="index%2==0?'l':'r'">
                       <img :src="imgs.button" alt="">    
                   </span>
                   
@@ -128,7 +136,7 @@
                 <span class="play">
                   <img :src="imgs.play" alt="">
                 </span>
-                <video dataSrc="http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
+                <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/preschool.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
               </div>
 
               <span class="col-sm-5 hidden-xs">
@@ -162,6 +170,13 @@
               <ul>
                 <li v-for="(item,index) in imgs.course2.course_2"  >
                  <div  class="bg" :class="index%2==0?'r0':'l0'" :style="{'background-image':`url(${item.pic})`}"></div>
+                 <div class="bgc" :class="index%2==0?'r0':'l0'" >
+                   <div class="CourseName" >
+                        <p class="name" v-text="item.names[0]"></p>
+                        <p class="name" v-text="item.names[1]"></p>
+                        <p class="age" v-text="item.age"></p>
+                    </div>
+                 </div>
                  <div class="words" :class="index%2==1?'right':'left'">
                     <div class="CourseName" >
                         <p class="name" v-text="item.names[0]"></p>
@@ -227,7 +242,7 @@
                 <span class="play">
                   <img :src="imgs.play" alt="">
                 </span>
-                <video dataSrc="http://tlgc.oss-cn-shanghai.aliyuncs.com/phpIntro/1.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
+                <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/schoolage.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
               </div>
 
             </div>
@@ -235,7 +250,13 @@
               <ul>
                 <li v-for="(item,index) in imgs.course3.course_3" >
                   <div  class="bg" :class="index%2==0?'l0':'r0'" :style="{'background-image':`url(${item.pic})`,}"></div>
-                  <div class="words" :class="index%2==1?'left':'right'">
+                  <div class="bgc" :class="index%2==0?'l0':'r0'">
+                    <div class="CourseName" >
+                        <p class="name" v-text="item.names"></p>
+                        <p class="age" v-text="item.age"></p>
+                    </div>
+                 </div>
+                <div class="words" :class="index%2==1?'left':'right'">
                       <div class="CourseName" >
                         <p class="name" v-text="item.names"></p>
                         <p class="age" v-text="item.age"></p>
@@ -364,7 +385,7 @@ export default {
    margin:0;
    padding:0;
    width:100%;
-   margin-top:3%;
+   margin-top:2%;
    padding-top:38%;
   padding-bottom:8em;
    /* height: 100%; */
@@ -549,41 +570,9 @@ export default {
   width: 100%;
   height:100%;
   display: none;
+  object-fit: fill;
   /* z-index: -1; */
 }
-/* 手机屏幕 */
-@media screen and (max-width: 767px){
-  .middle li .l_12{
-    left:2.5em;
-  }
-  .middle li .l_32{
-    left: 7em;
-  }
-  .middle li .l_30{
-    left:6.6em;
-  }
-  .middle li .l_27{
-    left: 6em;
-  }
-  .middle li .l_24{
-    left:5.7em;
-  }
-  .middle li .l_10{
-    left: 2.2em;
-  }
-  .middle li .l_7{
-    left:1.6em;
-  }
-  .middle li .l_5{
-    left: 1.3em;
-  }
-  .middle li .l_2{
-    left:0.8em;
-  }
-
-}
-
-
 /* 底部 */
 .r0{
   right: 0;
@@ -622,6 +611,37 @@ export default {
 
   /* background-position: center bottom; */
 }
+
+/* --------------------------------------------------蒙层------------------------------------------------------ */
+.bottom li .bgc{
+  width:58%;
+  height:100%;
+  position: absolute;
+  /* background-color: #000000; */
+  /* opacity: 0; */
+  transition: background-color 0.3s linear 0s,color 0.3s linear 0s;
+  -moz-transition: background-color 0.3s linear 0s,color 0.3s linear 0s;	/* Firefox 4 */
+  -webkit-transition: background-color 0.3s linear 0s,color 0.3s linear 0s;	/* Safari 和 Chrome */
+  -o-transition: background-color 0.3s linear 0s,color 0.3s linear 0s;	/* Opera */
+
+
+}
+.bottom li .bgc .CourseName {
+  /* top:40%; */
+}
+.bottom li .bgc .CourseName p{
+  color: transparent;
+}
+.bottom li .bgc:hover{
+  /* opacity: 0.6; */
+  background-color: rgba(0, 0, 0, 0.7);
+  
+}
+.bottom li .bgc:hover .CourseName p{
+  color:#fff;
+}
+/* ---------------------------------------------------蒙层结束--------------------------------------------- */
+
 .bottom li .CourseName {
   width: 100%;
   font-size: 2.4em;
@@ -861,34 +881,40 @@ export default {
 }
 
 @media screen and (max-width: 767px){
-.r0,.l0{
-   background-position: center bottom;
-}
+  .r0,.l0{
+    background-position: center bottom;
+  }
 
-.bottom li .bg{
-  width: 100%;
-}
-.bottom li .CourseName {
+  .bottom li .bg{
+    width: 100%;
+  }
+  .bottom li .CourseName {
     font-size: 2.4em;
     top:35%;
-
-}
-.bottom li .CourseName .name{
-   width: 5em;
-}
-.right {
-  right:20%;
+  }
+ 
+  .right {
+    left:50%;
   
-  transform: translate(-50%)
+    transform: translate(-50%)
   }
-.left{
-  left:50%;
-  transform: translate(-50%)
-}
-   #banner p{
-     font-size: 40px;
-     top:20%;
+  .left{
+    left:50%;
+    transform: translate(-50%)
   }
+  /* 播放按钮 */
+  .middle .play{
+    top:35%;
+  }
+  /* 文字背景 */
+  .bottom li .words{
+    background-color: transparent;
+    overflow: visible;
+  }
+  .bottom li .show {
+    left:-25%;
+  }
+
 }
 
 

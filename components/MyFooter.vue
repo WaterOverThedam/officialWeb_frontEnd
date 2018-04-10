@@ -56,7 +56,7 @@
           {"id":"/news","title":"新闻中心"},
           {"id":"/story","title":"我们的故事"},
           {"id":"/contact","title":"联系我们"},
-          {"id":"/recruit","title":"招聘"},
+          // {"id":"/recruit","title":"招聘"},
           {"id":"/","title":"中心页面"},
           {"id":"/intro","title":"预约体验"},
         ],

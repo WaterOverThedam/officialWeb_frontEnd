@@ -10,6 +10,9 @@
                     <!-- <a href="/"><img src="/img/index/littlegym-logo-desktop.png"></a> -->
                     <img src="/img/index/littlegym-logo-desktop.png">
                   </div>
+                  <span class="tel hidden-xs"></span>
+                  <span class="telNumber hidden-xs">4001801976</span>
+                  
               </div>
               <div class="col-sm-4 text-right">
                     <ul class="gym" >
@@ -96,7 +99,30 @@ export default {
        height: $logoH;
        float:left;
    }
-
+  .telNumber{
+      margin-top:8px;
+      height: 36px;
+      line-height:36px;
+      font-size: 18px;
+      color:#fff;
+      display: inline-block;
+      float: left;
+    }
+    .tel{
+      background-image: url(/img/index/tel.png);
+      background-size: cover;
+      background-position: center center;
+      margin: 8px 1% 0;
+      float: left;
+      height: 35px;
+      width: 50px;
+      img{
+        
+        // position: absolute;
+       transform: scale(0.8)
+        // width: 100%;
+      }
+    }
    .dropdown{
      position:absolute;
      top:100%;

@@ -13,16 +13,25 @@
                 <h3 v-text="title[2]"></h3>
             </div>
             <div class="form" :style="{'background':`url(${form_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                <form action="javascript:0" >
-                    <ul>
-                        <li v-for="item in form">
-                            <p v-text="item.title"></p>
-                            <input type="text" :name="item.id" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                        </li>
-                        <li>
-                            <button type="submit" v-text="submit" :style="{'background':`url(${submit_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"></button>
-                        </li>
-                    </ul>
+                <form action="javascript:0"  id="ValidatorForm">
+                    <div class="form-group" v-for="item in form">
+                       <label v-text="item.title"></label>
+                        <input class="form-control" :type="item.type" :id="item.id" :name="item.id" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn" v-text="submit"></button>
+                    </div>
+                        <!-- <ul>
+                            <li v-for="item in form">
+                                <label v-text="item.title"></label>
+                                <input :type="item.type" :id="item.id" :name="item.id" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                            </li>
+                            <li>
+                                <button type="submit" v-text="submit"></button>
+                            </li>
+                        </ul> -->
+                        
+                   
                 </form>
             </div>
             <!-- 主题内容 -->
@@ -79,8 +88,13 @@
     export default {
         head:{
             "title":"加盟中心",
+            link:[
+               { rel:'stylesheet',type:'text/css',href:'/css/bootstrapValidator.min.css'}
+            ],
             script:[
-                {"src":"/js/join.js"}
+                {"src":"/js/join.js"},
+                {"src":"/ui/bootstrapValidator.min.js"}
+              
             ]
         },
         data(){
@@ -138,28 +152,50 @@
         padding-top:5%;
         padding-bottom:5em;
         text-align: center;
-        li{
-           font-size: 2.2em;
-            margin: 2% 0;
-            p{
+        .form-group{
+            font-size: 2.2em;
+            margin: 2% auto;
+            width: 36%;
+            label{
                 color: #4F62A2;
                 margin: 0;
                 padding: 0;
+                display: block;
             }
             input{
-                 width: 32%;
+                 width: 100%;
                  outline: none;
                  border: none;
                  text-indent: 1%;
             }
-            button{
+            .form-control{
+                padding: 5% 5px;
+                display: inline;
+                font-size: 0.8em;
+                height:auto;
+                max-height: 34px;
+            }
+            // 提示符号
+            .form-control-feedback {
+                top:50px !important;
+            }
+            .btn{
                 margin-top:2%;
                 color: #fff;
                 border: none;
                 outline: none;
                 display: inline-block;
-                width: 20%;
-                padding: 0.5% 5%;
+                width: 70%;
+                padding: 1% 5%;
+                font-size: 1em;
+                background-color: transparent;
+                background-image: url(/img/join/surebg.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                -webkit-background-size:100%;
+                // &:hover{
+                //     background-image: url(/img/join/sure-hoverbg.png)
+                // }
                 }
 
         }
@@ -291,10 +327,13 @@
         }
         .form {
             padding-bottom:3em;
-            li{
+            .form-group{
                 font-size: 1.6em;
                 input{
-                    width: 40%;
+                    width: 100%;
+                }
+                .form-control{
+                    padding: 3% 5px 0;
                 }
             }
         }

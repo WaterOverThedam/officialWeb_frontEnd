@@ -40,10 +40,11 @@ function exitFullscreen()
        }else{
         var docHtml  = document.documentElement;
         var docBody  = document.body;
-        var videobox  = document.getElementById('videobox');
+        // var videobox  = document.getElementById('videobox');
+        var videobox  = document.getElementById('video');
         docHtml.style.cssText = "";
         docBody.style.cssText = "";
-        videobox.style.cssText = "";
+        // videobox.style.cssText = "";
         document.IsFullScreen = false;
     }
 }

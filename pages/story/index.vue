@@ -168,27 +168,12 @@
    margin:0;
    padding:0;
    width:100%;
-   margin-top:3%;
+   margin-top:2%;
    padding-top:38%;
   padding-bottom:8em;
    /* height: 100%; */
 }
- 
-/* #banner p{
-   position:absolute;
-   color:white;
-   font-family: 'GD-HEI';
-   font-size: 7em;
-   color:white;
-   top:4em;
- 
-   left:-5em;
-   right:0;
-   margin:auto;
-   text-align:center;
-   
 
-} */
 
 .header{
   margin:30px auto;

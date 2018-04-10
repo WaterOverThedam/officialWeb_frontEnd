@@ -15,7 +15,8 @@
                     <div class="text-center"><img :src="item.top_img_url"/></div>
                     <p class="text-center title" v-text="item.title"></p>
                     <div class="text-center footer">
-                        <div class="more" :style="{'background':`url(${item.btn_url}) no-repeat`,'background-size': 'cover'}"><p class="text-center">{{item.btn_name}}</p></div>
+                        <!-- <div class="more" :style="{'background':`url(${item.btn_url}) no-repeat`,'background-size': 'cover'}"><p class="text-center">{{item.btn_name}}</p></div> -->
+                        <div class="more" ><p class="text-center">{{item.btn_name}}</p></div>
                     </div>
                 </div>
             </div>
@@ -45,6 +46,7 @@
   data () {
     return {
           top_title: "新闻中心",
+          hoverbg:"",
           top_url:[
             "/img/index/cloud-big.png",
             "/img/index/blog-clouds-bg.png"
@@ -133,8 +135,15 @@
         padding-bottom: 2%;
         width:42%;
         font-family: "J-YUAN";
+        cursor: pointer;
+        background-image: url(/img/components/readbg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
         P{
             padding: 5% 0 0;
+        }
+        &:hover{
+            background-image: url(/img/components/read-hoverbg.png);
         }
 
     }

@@ -1,6 +1,14 @@
 @font-face {
     font-family: "MA-JOR";
-    src:url("a.otf");
+    src: url("major.eot"); /* IE9 */
+    src: url("major.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    
+    url("major.woff") format("woff"), /* chrome、firefox */
+    url("major.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    
+    url("major.svg#major") format("svg"); /* iOS 4.1- */
     font-style: normal;
     font-weight: normal;
 }
+
+
