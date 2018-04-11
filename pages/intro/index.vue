@@ -179,16 +179,22 @@
            },
            saveResult(res){
              //alert(JSON.stringify(res));
-             var msg=""
-             if(!res.code){
-                 msg = {text:"预约成功",type:"success"}
-             }else{
-                 msg= {text:"预约失败",type:"error"}
-             }
-             this.$message({
-                message: msg.text,
-                type: msg.type
-             });
+              var msg=""
+              if(res.code==0){
+                 msg = {content:"预约成功",title:'提示',type:"success"}
+              }else{
+                 msg= {content:res.msg,title:'错误',type:"error"}
+              }
+            //  this.$message({
+            //     message: msg.content,
+            //     type: msg.type
+            //  });
+
+              this.$alert(msg.content, msg.title, {
+                    confirmButtonText: '确定',
+                    type: msg.type,
+                    //roundButton:true
+              })
            },
            saveIntro(){
             //    格式化日期

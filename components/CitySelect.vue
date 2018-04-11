@@ -51,7 +51,9 @@ export default {
                   })
                   c = [...new Set(c)];
                   initial = [...new Set(initial)];
-              
+                  initial = initial.sort(function(a, b) {
+                        return a.charCodeAt() - b.charCodeAt();
+                  });
                   return  initial.map(i=>{
                           var city=[];
                           c.map(c=>{

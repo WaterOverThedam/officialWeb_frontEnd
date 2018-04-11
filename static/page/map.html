@@ -27,7 +27,9 @@
   // 编写自定义函数,创建标注
   
 	function addMarker(point,label,isShow){
-		var marker = new BMap.Marker(point);
+    var marker = new BMap.Marker(point);
+    label.setStyle({display:"none"});
+    marker.setLabel(label);
     map.addOverlay(marker);
     if(isShow){
       var myIcon = new BMap.Icon("../img/search/markers.png", new BMap.Size(23, 25), {    
@@ -45,22 +47,9 @@
     }
     //其次，为标注添加hover事件，代码如下：
     marker.addEventListener("mouseover",function(e){
-      labelShow(label);
-      marker.setLabel(label);
-    });
-    marker.addEventListener("mouseout",function(e){
       var label = this.getLabel();
-      //label.setContent("");//设置标签内容为空
-      labelHide(label);
-    });
-  }
-  
-  function labelHide(label){
-     label.setStyle({display:"none",color:"transparent",border:"none",width:"0px",padding:"0px"});//设置标签边框宽度为0
-  }
-  function labelShow(label){
-    label.setStyle({
-        width: "120px",
+      label.setStyle({
+        display:"",
         color: '#fff',
         background: '#ff8355',
         border: '1px solid "#ff8355"',
@@ -69,7 +58,15 @@
         height: "26px",
         lineHeight: "26px"
       });
+      this.setLabel(label)
+    });
+    marker.addEventListener("mouseout",function(e){
+      var label = this.getLabel();
+      label.setStyle({display:"none"});
+    });
   }
+  
+ 
 	// 向地图添加gym标注
   var gyms = $.parseJSON(str_gym.gyms);
    
