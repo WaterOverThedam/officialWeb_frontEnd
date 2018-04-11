@@ -73,3 +73,24 @@ function GetRequest() {
   }
   return theRequest;
 }
+
+function toDate(input){
+  var oDate=new Date(input);
+  return oDate.getFullYear()+'-'+(f(oDate.getMonth()+1))+'-'+f(oDate.getDate())+' '+f(oDate.getHours())+':'+f(oDate.getMinutes());
+  function f(s) {
+      return ('00'+s).substr(-2);
+  }
+}
+
+function toDate_s(dt,hr=""){
+  var oDate=new Date(dt);
+  if (hr==""){
+     return oDate.getFullYear()+'-'+(f(oDate.getMonth()+1))+'-'+f(oDate.getDate());
+  }else{
+     return oDate.getFullYear()+'-'+(f(oDate.getMonth()+1))+'-'+f(oDate.getDate())+' '+hr;
+  }
+  function f(s) {
+      return ('00'+s).substr(-2);
+  }
+}
+

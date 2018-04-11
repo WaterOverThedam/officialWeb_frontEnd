@@ -1,7 +1,7 @@
 <template>
  <div  class="overhidden"> 
    <div @click="test()" class="" id="logo"></div>
-    <MyNav :bgColor="bgColor[counterNow]"></MyNav>
+    <MyNav></MyNav>
     <main>
       <div class="parent">
         <div class="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
@@ -20,7 +20,7 @@
       <!-- <CourseBrief></CourseBrief> -->
     </main>
     <GoTop></GoTop>
-    <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
+    <MyFooter></MyFooter>
 
  </div>
 </template>
@@ -50,10 +50,6 @@ export default {
     ] 
   },
   computed:{
-    ...mapState([
-      'gyms'
-    ]),
-
     bgColor(){
       return this.$store.state.bgColor;
     },
@@ -78,12 +74,6 @@ export default {
     GoTop
   },
   methods: {
-    ...mapMutations([
-      "getGyms"
-    ]),
-    test(){
-     console.log(JSON.stringify(this.gyms))
-    },
     open(i){
         this.btn_menu.map((item,index) => {
         if(index==i){
@@ -96,10 +86,7 @@ export default {
     }
   },
   mounted(){
-    this.getGyms();
-    if(!this.gyms||this.gyms.length==0){
-     // this.getGyms_jsonp();
-    }
+
   } 
  
 }

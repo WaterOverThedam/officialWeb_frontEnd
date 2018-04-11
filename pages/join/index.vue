@@ -1,7 +1,7 @@
 <template>
     <div class="join">
         <div id="logo"></div>
-        <MyNav :bgColor="bgColor[counterNow]"></MyNav>
+        <MyNav></MyNav>
         <main>
             <!-- 版心图 -->
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
@@ -65,13 +65,11 @@
                     </li>
                 </ul>
             </div>
-
-
             <common></common>
             <MyMedia></MyMedia>
         </main>
         <GoTop></GoTop>
-        <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
+        <MyFooter></MyFooter>
     </div>
  
 </template>
@@ -83,6 +81,7 @@
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
     import GoTop from '~/components/GoTop.vue'
+ 
 
     export default {
         head:{
@@ -105,12 +104,6 @@
             }
         },
         computed:{
-            bgColor(){
-                return this.$store.state.bgColor;
-            },
-            counterNow(){
-                return parseInt(this.$store.state.counter/600)%this.bgColor.length;
-            }
         },
         components:{
             Waves,

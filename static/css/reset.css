@@ -1,9 +1,28 @@
+/* bootstrap Validator插件 */
 .has-feedback label~.form-control-feedback{
     top:50px;
+}
+/* element组件 */
+.el-input__inner{
+    height:32px;
+    line-height: 32px;
+}
+.el-input__icon{
+    line-height: 32px;
 }
 @media (max-width:768px) {
     .has-feedback label~.form-control-feedback{
         top:30px;
+    }
+    /* element组件 */
+    .el-input__inner{
+        height:24px;
+        line-height: 24px;
+        font-size: 12px;
+    }
+    .el-input__icon{
+        line-height: 24px;
+        
     }
 }
 @media(max-width:767px){

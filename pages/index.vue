@@ -14,7 +14,7 @@
      </div>
 
    </div>
-    <MyNav :bgColor="bgColor[counterNow]"></MyNav>
+    <MyNav></MyNav>
     <main>
       <CarouselAll></CarouselAll>
       <BallMediaL :ballMediaAttr="ballMediaAttr[0]"></BallMediaL>
@@ -24,7 +24,7 @@
       <Common></Common>
       <MyMedia></MyMedia>
     </main>
-    <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
+    <MyFooter></MyFooter>
     <BespeakForm></BespeakForm>
   
  </div>
@@ -54,18 +54,14 @@ export default {
     ] 
   },
   computed:{
-    counterNow(){
-      return parseInt(this.$store.state.counter/600)%this.bgColor.length;
-    }
   },
   data () {
     return {
       isShow:false,
-      bgColor:['#33CCCC','#5160AC'],
       ballMediaAttr:[
         {
             bgImg:"/img/index/banner.jpg",
-             title:["Major fun ","Now in session"],
+            title:["Major fun ","Now in session"],
             ball:{
               position:"left",
               title:"我们的课程",

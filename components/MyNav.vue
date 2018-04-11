@@ -1,6 +1,6 @@
 <template>
  <header>
-  <nav class="navbar navbar-tlgc navbar-fixed-top" :style="{'background-color': bgColor}">
+  <nav class="navbar navbar-tlgc navbar-fixed-top" :style="{'background-color': bgColor_cur.color}">
         <div class="container-fluid">
             <div class="row">
               <div class="col-sm-1">
@@ -34,8 +34,7 @@
             <!-- <img src="/img/index/menu_icon.png" alt=""> -->
           </div>
     
-
-          <ul id="menu" class="dropdown-menu" :style="{'background-color': bgColor}">
+          <ul id="menu" class="dropdown-menu" :style="{'background-color': bgColor_cur.color}">
             <li class="visible-xs top">
              <!-- <img class="home" src="/img/index/tlg-logo-menu.png" alt=""> -->
              <nuxt-link to="/" ><img class="home" src="/img/index/tlg-logo-menu.png" alt=""></nuxt-link>
@@ -56,16 +55,17 @@
 <script>
 import { mapMutations } from 'vuex'
 import { mapActions } from 'vuex'
-
+import { mapGetters } from 'vuex'
 import MenuList from '~/components/MenuList.vue'
  
 export default {
-
-  props:['bgColor'],
   components: {
     MenuList
   },
   computed:{
+    ...mapGetters([
+        'bgColor_cur'
+    ]),
     menu(){
       return this.$store.state.menu;
     }

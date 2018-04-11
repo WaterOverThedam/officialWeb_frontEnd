@@ -1,12 +1,12 @@
 {
-    "banner":"/img/bespeak/banner.jpg",
-    "cloud":"/img/bespeak/clouds.png",
-    "cloud2":"/img/bespeak/cloud2.png",
-    "formbg":"/img/bespeak/formbg.jpg",
-    "button":"/img/bespeak/button.png",
-    "inputbg":"/img/bespeak/inputbg.png",
-    "selectbg":"/img/bespeak/selectbg.png",
-    "selectbg2":"/img/bespeak/selectbg2.png",
+    "banner":"/img/intro/banner.jpg",
+    "cloud":"/img/intro/clouds.png",
+    "cloud2":"/img/intro/cloud2.png",
+    "formbg":"/img/intro/formbg.jpg",
+    "button":"/img/intro/bespeakbg.png",
+    "inputbg":"/img/intro/inputbg.png",
+    "selectbg":"/img/intro/selectbg.png",
+    "selectbg2":"/img/intro/selectbg2.png",
     
     
     "btnword":"预约试听",
@@ -14,7 +14,6 @@
     "title":["预约","体验课"],
     "input":[
         {"id":"uname","title":"宝宝姓名: "},
-        {"id":"birthday","title":"宝宝生日: "},
         {"id":"phone","title":"家长手机: "}     
     ],
     "select":{
@@ -22,16 +21,16 @@
         "center":"预约中心: "
     },
     "pic1":[
-        {"pic":"/img/bespeak/pic1.png"},
-        {"pic":"/img/bespeak/pic2.png"},
-        {"pic":"/img/bespeak/pic3.png"}
+        {"pic":"/img/intro/pic1.png"},
+        {"pic":"/img/intro/pic2.png"},
+        {"pic":"/img/intro/pic3.png"}
     ],
     "blue": {
-        "cut":"/img/bespeak/cut.png",
-        "bluebg":"/img/bespeak/bluebg.jpg",
-        "three":"/img/bespeak/three.png",
-        "person":"/img/bespeak/person.png",
-        "wordsbg":"/img/bespeak/bgchange.png",
+        "cut":"/img/intro/cut.png",
+        "bluebg":"/img/intro/bluebg.jpg",
+        "three":"/img/intro/three.png",
+        "person":"/img/intro/person.png",
+        "wordsbg":"/img/intro/bgchange.png",
         "words":[
             {"p":"“ Fusing the Dimensions Into "},
             {"p":" a  Whole Child Approach ” "},
@@ -47,11 +46,11 @@
 
     },
     "pic2":[
-        {"pic":"/img/bespeak/pic4.png"},
-        {"pic":"/img/bespeak/pic5.png"}
+        {"pic":"/img/intro/pic4.png"},
+        {"pic":"/img/intro/pic5.png"}
     ],
     "bto":{
-        "pic":"/img/bespeak/activity.jpg",
+        "pic":"/img/intro/activity.jpg",
         "p1":"朋友推荐月",
         "p2":"美好的事物要和好朋友一起分享",
         "ruletitle":"活动规则",
