@@ -77,8 +77,12 @@
             <MyMedia></MyMedia>
         </main>
         <GoTop></GoTop>
+<<<<<<< HEAD
+        <MyFooter></MyFooter>
+=======
         <!-- <MyFooter :bgColor="bgColor_cur"></MyFooter> -->
         <MyFooter ></MyFooter>
+>>>>>>> b30316f05005623314651ecc45c9e7bc520f4d41
 
 	</div>
 	
