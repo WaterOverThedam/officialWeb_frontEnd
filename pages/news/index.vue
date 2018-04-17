@@ -90,7 +90,7 @@
             <MyMedia></MyMedia>
         </main>
         <GoTop></GoTop>
-        <MyFooter :bgColor="bgColor_cur"></MyFooter>
+        <MyFooter></MyFooter>
 
 	</div>
 	

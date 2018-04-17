@@ -62,7 +62,7 @@
       </div>
       <MyMedia></MyMedia>
       </main>
-      <MyFooter :bgColor="bgColor_cur"></MyFooter>
+      <MyFooter></MyFooter>
   </div>
 </template>
 <script>
@@ -71,7 +71,7 @@
     import Waves from '~/components/Waves.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
-    import { mapGetters } from 'vuex'
+     
     export default{
         head:{
                 title:"招聘职位",             
@@ -82,11 +82,6 @@
                  ...recruit,
                  list:[]
             }
-        },
-        computed:{
-           ...mapGetters([
-                'bgColor_cur'
-            ]),
         },
         mounted(){
             // this.list=rt.body
