@@ -137,7 +137,7 @@ export default {
    
    width:100%;
    height:100%;
-   z-index: 9999;
+   z-index: 999999;
    /* display: none; */
   
  }
@@ -159,7 +159,7 @@ export default {
    background-color: #fff;
    padding: 5% 5% 10%;
    font-size: 16px;
-   font-family: "J-YUAN"
+   /* font-family: "J-YUAN" */
    
  }
  .warn .p a{

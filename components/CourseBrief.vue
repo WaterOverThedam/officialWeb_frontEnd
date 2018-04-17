@@ -95,7 +95,7 @@
         font-size: 36px;
         color: #B5D615;
         padding-top: 0px;
-        margin-top: -1%;
+        margin-top: -5%;
        font-family: "J-YUAN";
     }
     .bg-top p{
@@ -197,6 +197,9 @@
 }
 @media screen  and (max-width:"768px"){
     .read{
+         .bg-top h1 {
+            margin-top: 3%;
+        }
         .border{
             height:500px;
         }
