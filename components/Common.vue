@@ -33,7 +33,7 @@
         },
         methods:{
             change(){
-                console.log(111);
+                //console.log(111);
                 // this.content= this.content[0]
                 this.content= this.content[Math.floor(Math.random()*3)]
                 // console.log(this.content)

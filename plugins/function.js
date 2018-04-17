@@ -2,6 +2,10 @@ import Vue from 'vue';
 import axios from 'axios';
 import conf_ from './Conf';
 
+if (process.client) {
+    window.history.replaceState = window.history.replaceState || function () {}
+}
+  
 Vue.prototype.$conf=conf_;
 Vue.prototype.$getData=function(url,target,data={}){
         if (data && typeof(data)!='object'){
