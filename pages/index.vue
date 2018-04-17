@@ -25,7 +25,7 @@
       <MyMedia></MyMedia>
     </main>
     <MyFooter></MyFooter>
-    <BespeakForm></BespeakForm>
+    <IntroForm></IntroForm>
   
  </div>
 </template>
@@ -41,7 +41,7 @@ import MyMedia from '~/components/MyMedia.vue'
 import Common from '~/components/Common.vue'
 import CourseBrief from '~/components/CourseBrief.vue'
 import MyFooter from '~/components/MyFooter.vue'
-import BespeakForm from '~/components/BespeakForm.vue'
+import IntroForm from '~/components/IntroForm.vue'
 
 import { mapActions } from 'vuex'
 
@@ -104,7 +104,7 @@ export default {
     MyMedia,
     CourseBrief,
     MyFooter,
-    BespeakForm
+    IntroForm
     
   },
   methods: {

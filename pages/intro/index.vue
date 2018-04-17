@@ -12,25 +12,30 @@
                     <div class="form">
                         <h1 v-text="title[0]"></h1>
                         <h1 v-text="title[1]"></h1>
-                        <form>
+                        <form id="IntroForm">
                             <ul>
                                 <li>
-                                    <span>宝宝姓名: </span>
-                                    <input v-model="intro.BabyName" placeholder="填写宝宝姓名" type="text" name="uname" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
+                                    <div class="form-group">
+                                        <span>宝宝姓名: </span>
+                                        <input class="form-control" v-model="intro.BabyName" placeholder="填写宝宝姓名" type="text" name="username" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
+                                    </div>                                   
                                 </li>
                                 <li>
                                     <div class="block">
                                         <span name="birthday">宝宝生日: </span>
-                                        <el-date-picker name="birthday" editable
+                                        <el-date-picker name="birthday" editable=""
                                         v-model="birthday"
                                         type="date"
+                                        format="yyyy-MM-dd"
                                         placeholder="选择日期">
                                         </el-date-picker>
                                     </div>
                                 </li>
                                 <li>
-                                    <span >家长手机: </span>
-                                    <input v-model="intro.ParentPhone" placeholder="填写联系方式" type="text" name="phone" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
+                                    <div class="form-group">
+                                        <span >家长手机: </span>
+                                        <input maxlength="11" class="form-control" v-model="intro.ParentPhone" placeholder="填写联系方式" type="text" name="tel" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
+                                    </div>
                                 </li>
 
                                 <li>
@@ -38,12 +43,12 @@
                                     <select v-model='intro.Province' @change="getIntroCities(intro.Province)" 
                                        name="province" id="province" class="m_right" :style="{'background':`url(${selectbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
                                         <option disabled value="">选择省份</option>
-                                        <option v-for="p in provs" :value="p.id">{{p.cH_Name}}</option>
+                                        <option v-for="p in provs" :value="p.id" :key="p.id">{{p.cH_Name}}</option>
                                     </select>
                                     <select v-model='intro.City' @change="getIntroGyms(intro.City)" 
                                         name="city" id="city" :style="{'background':`url(${selectbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
                                         <option disabled value="">选择城市</option>
-                                        <option v-for="c in cities" :value="c.id">{{c.cH_Name}}</option>
+                                        <option v-for="c in cities" :value="c.id" :key="c.id">{{c.cH_Name}}</option>
                                         <option disabled v-show="cities.length==0" value="">无</option>
                                     </select>
                                 </li>
@@ -51,12 +56,14 @@
                                     <span v-text="select.center"></span>
                                     <select v-model='intro.gymCode' class="select2" name="" id="" :style="{'background':`url(${selectbg2}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
                                         <option disabled value="">选择中心</option>
-                                        <option v-for="g in gyms" :value="g.id">{{g.cH_Name}}</option>
+                                        <option v-for="g in gyms" :value="g.id" :key="g.id">{{g.cH_Name}}</option>
                                         <option disabled v-show="gyms.length==0" value="">无</option>
                                     </select>
                                 </li>
                                 <li>
-                                    <button v-text="btnword" @click.prevent="saveIntro()" class="text-center" :style="{'background':`url(${button}) no-repeat`,'background-size':'contain','-webkit-background-size':'100%'}"></button>
+                                    <div class="form-group">
+                                        <button  :disabled="isDisabled" type="submit" v-text="btnword" @click.prevent="saveIntro()" class="text-center btn" :style="{'background':`url(${button}) no-repeat`,'background-size':'contain','-webkit-background-size':'100%'}"></button>
+                                    </div>
                                 </li>
                             </ul>
                             
@@ -102,7 +109,7 @@
                     <img :src="cloud2" alt="">
                     <h3 v-text="bto.ruletitle"></h3>
                     <p v-for="item in bto.rule" v-text="item.p"></p>
-                    <span v-for="item in bto.prize" v-text="item"></span>
+                    <span v-for="item in bto.prize" v-text="item" ></span>
                 </div>
             </div>
             <Common></Common>
@@ -124,8 +131,6 @@
         head:{
             "title":"预约中心",
             link:[
-              
-               
                 { rel:'stylesheet',type:'text/css',href:'/css/reset.css'}
             ],
 
@@ -148,7 +153,8 @@
                     BabyName :"",
                     BabyBrithday :"",
                     ParentPhone  :""
-                }
+                },
+                isDisabled:false,
             }
         },
         computed: {
@@ -197,9 +203,45 @@
               })
            },
            saveIntro(){
-            //    格式化日期
+            //    进行判断
+            this.isDisabled = true;
+            if(this.intro.BabyName==''||this.birthday==''||this.intro.ParentPhone==''||this.intro.Province==''||this.intro.City==''||this.intro.gymCode==''){
+                var msg = "";
+                if(this.intro.BabyName==''){
+                    msg= {content:"宝宝姓名不能为空",title:'提示',type:"warning"}
+                }
+          
+                if(this.birthday==''){
+                     msg= {content:"宝宝生日不能为空",title:'提示',type:"warning"}
+                }
+
+                if(this.intro.ParentPhone==''){
+                    msg= {content:"您的手机不能为空",title:'提示',type:"warning"}
+                }
+                if(this.intro.Province==''){
+                    msg= {content:"请选择想要预约的省份",title:'提示',type:"warning"}
+                }
+                if(this.intro.City==''){
+                    msg= {content:"请选择想要预约的城市",title:'提示',type:"warning"}
+                }
+                if(this.intro.gymCode==''){
+                    msg= {content:"请选择想要预约的中心",title:'提示',type:"warning"}
+                }
+                this.$alert(msg.content, msg.title, {
+                    confirmButtonText: '确定',
+                    type: msg.type,
+                        //roundButton:true
+                    callback:()=>{
+                        this.isDisabled = false;
+                    }
+                })
+            }else{
+                //格式化日期
                 this.intro.BabyBrithday=toDate_s(this.birthday);
-                this.$getDataAsync(this.baseUrl+"/api/saveIntro/",this.intro,this.saveResult);
+                // this.$getDataAsync(this.baseUrl+"/api/saveIntro/",this.intro,this.saveResult);
+            }
+
+
            }
   
         },
@@ -222,7 +264,13 @@
     // font-size: 0.9em;
     width:54%!important;
 }
-
+.form-group{
+    margin: 0;
+    position: relative;
+}
+.form-control-feedback{
+    right:5%;
+}
 .bespeak{
     overflow: hidden;
     font-family: "J-YUAN";
@@ -267,7 +315,10 @@
                     width: 54%;
                     font-size: 16px;
                     padding:1%;
+
+                    // ::-ms-clear,::-ms-reveal{display:none;}
                 }
+                input::-ms-clear{display:none;}
                 span{
                     margin-right: 2%;
                 }
@@ -295,10 +346,12 @@
                 .select2{
                     width: 54%;
                 }
-                button{
+                .btn{
                     padding: 2% 8%;
                     border: none;
                     outline: none;
+                    font-size: 1em;
+                    color:#fff;
                 }
 
 

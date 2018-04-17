@@ -1,5 +1,27 @@
 $(function(){
-
+    function exitFullscreen()
+    {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if(document.oRequestFullscreen){
+             document.oCancelFullScreen();
+         }else if (document.webkitExitFullscreen){
+          document.webkitExitFullscreen();
+        }else{
+         var docHtml  = document.documentElement;
+         var docBody  = document.body;
+         // var videobox  = document.getElementById('videobox');
+         var videobox  = document.getElementById('video');
+         docHtml.style.cssText = "";
+         docBody.style.cssText = "";
+         // videobox.style.cssText = "";
+         document.IsFullScreen = false;
+     }
+ }
   $('video').bind('contextmenu',function() { return false; });
 
   //videoPlay
@@ -12,8 +34,9 @@ $(function(){
       //console.log($(this).parent());
     //   $('.parent .image').show();
     //   $('.parent video').hide();
-
+    
 // 让每个视频都暂停回到开始状态
+
 $('video').each(function(i,e){
     console.log(e)
     e.pause();
@@ -23,6 +46,7 @@ $('video').each(function(i,e){
 })
 //  隐藏所有视频 显示所有背景图
 $('.img').show();
+$('.play').show();
 $('video').hide();
 // 点击的视频开始播放
       $(this).parent().find('.img').hide();

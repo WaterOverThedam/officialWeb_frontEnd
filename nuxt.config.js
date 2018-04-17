@@ -23,7 +23,10 @@ module.exports = {
         {src: '/ui/bootstrap/js/bootstrap.min.js'},
         {src:"/ui/bootstrapValidator.min.js"},
         {src: '/ui/swiper-4.1.6.min.js'},
-        {src: '/js/tlgc.js'}
+        {src: '/js/tlgc.js'},
+        {src: '/ui/highmaps.js'},
+        {src: '/ui/us-all.js'},
+
 
     ]
   },

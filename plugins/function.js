@@ -25,9 +25,11 @@ Vue.prototype.$getData=function(url,target,data={}){
                     console.log(error);
                 })
         }else{
+            // 如果数据是个对象
             if(!data||data=={}){
                 this.$jsonp(url).then(json => {
                     // 返回数据 json， 返回的数据就是json格式
+                    console.log(json);
                     if(json[0]){
                         this.$store.commit('set'+target,  json[0].data);
                     }else{

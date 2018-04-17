@@ -1,13 +1,9 @@
 <template>
   <div class="container-fluid world">
-      <!-- <div class="row up" :style="{'background-image':`url(${global.pic})`}">
-         
-      </div> -->
       <div class="row" :class="{'left':leftShow,'center':centerShow,'right':rightShow}">
         <img :src="global.bg" alt="">
         
       </div>
-    
         <span class="prev" v-show="!leftShow" @click="prve">
           <img :src="global.prve" alt="">
         </span>
@@ -33,7 +29,6 @@
          if(this.centerShow){
           this.rightShow=true;
           this.centerShow=false;
-
           return;
         }
         // 到达两边最右边

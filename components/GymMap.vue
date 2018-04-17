@@ -155,7 +155,7 @@ import CitySelect from '~/components/CitySelect.vue'
    },
    mounted() {
         if(!this.Gyms||this.Gyms.length==0){
-            this.$getData(this.baseUrl+"/api/getGymByCity/-1");
+            this.$getData(this.baseUrl+"/api/getGymByCity/-1",'Gyms');
         }
 
         $('.shade').hover(function () {

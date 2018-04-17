@@ -1,13 +1,13 @@
 <template>
     <div class="outer" >
-        <div class="title hidden-xs" v-for="(item,index) in bottom.title"  :class="{'myFadein':index===counterNow}" >
+        <div class="title hidden-xs" v-for="(item,index) in bottom.title" :key="index" :class="{'myFadein':index===counterNow}" >
             <p v-text="item.p1"></p>
             <p v-text="item.p2"></p>
         </div>
 
           <!-- <a href="/search"> -->
             <!-- <span class="find" :style="{'background':`url(${bottom.pic[0]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">{{bottom.title2}}</span> -->
-            <nuxt-link to=""><span class="find" id="center">{{bottom.title2}}</span></nuxt-link>
+            <nuxt-link to="/search"><span class="find" id="center">{{bottom.title2}}</span></nuxt-link>
 
           <!-- </a> -->
         <p class="loop">

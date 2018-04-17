@@ -8,45 +8,31 @@
             </div>
             <!-- <Waves></Waves> -->
             <!-- 导航栏 -->
-            <div :class="{'hidden-xs':true,'sticky':true,'fixed':isfixed}">
+            <div :class="{'sticky':true,'fixed':isfixed}">
                <ul>
                    <li class="text-center">
                        <a v-for="(item,index) in nav" @click="switchType(index+1)" v-text="item.title" :style="{'background':`url(${item.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"></a>
                    </li>
                </ul>
             </div>
-            <div id="alert" class="alert" >
-                <div class="main" id="main" :style="{'background':`url(${alertyellow}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                    <img :src="close" alt="" class="close_x" id="close">
+            <div v-show="isShow" id="alert" class="alert" >
+                <div class="main" id="main" :style="{'background-image':`url(${alertyellow})`}">
+                    <img :src="close" alt="" class="close_x" id="close" @click="closeDetail">
                     <img :src="border" alt="" class="border">
                     <div class="center">
                         
                         <div class="desc">
-                            <img :src="pic" alt="">
+                            <img :src="alertPic" alt="">
                         </div>
-                        <h3 v-text="temptitle"></h3>
+                        <h3 v-text="alertTitle"></h3>
                         <div class="line">
                             <img :src="line" alt="" class="line_img">
                         </div> 
                         <!-- 测试数据 -->
-                        <p>
-                            <span>活动时间: </span>
-                            <span>2018年1月11日-2018年2月22日</span>
-                        </p>
-                        <p>活动规则:</p>
-                        <p>小小运动馆已经签约的会员每成功推荐1个家庭报名【50课时及以上】,推荐人将会获得:</p>
-                        <p>1) 当地现有同城优惠和新年机会卡1张(同城推荐)</p>
-                        <p>2) 新年机会卡1张(异地推荐)</p>
-                        <p>被推荐人将会获得: 当地现有同城优惠.</p>
-                        <p>奖品设置:</p>
-                        <div>
-                            <span>Tada拉杆箱</span>
-                            <span>京东购物卡(100-500)</span>
-                            <span>Hape TLG联名工具箱</span>
-                            <span>随机红包</span>
-                        </div>
-                        <p>活动流程</p>
-                        <p>第一步: 会员登录页面,输入报名时登记的手机号,创建个人推荐主页;非会员是无法生成个人推荐页面的.</p>
+                       <div class="detail" v-html="alertContent">
+
+                       </div>
+                       
                     </div>
                 </div>
             </div>
@@ -54,38 +40,39 @@
            
             <!-- 中心内容 -->
             <div class="container">
-                <ul>
-                    <li v-for="(item,index)  in News.list"  class="col-sm-4">
+                <ul class="uls">
+                    <li v-for="(item,index)  in News.list"  class="col-sm-4 lis" @click="showNews(item)">
                         <div class="list"  :num="index">
                             <img :src="item.headPic" alt="">
                             <div class="words">
-                                 <h3 v-text="item.title"></h3>
+                                <h3  v-text="item.title"></h3>
+                                <!-- <h3 v-if="item.type==2" v-text="item.title"></h3> -->
+                                <!-- <h3 v-else v-text="str(item.title)"></h3> -->
+                               
                                 <img :src="line" alt="">
-                                <p v-html="item.summary"></p>
+                                <div class="title2" v-html="item.summary"></div>
+                                <!-- <p v-text="item.summary"></p> -->
                             </div>
                         </div>
                     </li>
-                    <li class="page">
-                        <div class="block">
-                        <el-pagination
-                            @current-change="handleCurrentChange"
-                            :current-page.sync="pageNum"
-                            layout="prev, pager, next"
-                            :total="News.total">
-                        </el-pagination>
-                        </div>
-                            <!-- <span>                          
-                                <img :src="pre" alt="">
-                            </span>
-                            <span>1</span>
-                            <span>2</span>
-                            <span>3</span>
-                            <span>
-                                <img :src="next" alt="">
-                            </span> -->
+                   
+                    <li>
+                       
                     </li>
                 </ul>
+         
+               
             </div>
+               <div class="container block">
+                    <el-pagination
+                        @current-change="handleCurrentChange"
+                        :current-page.sync="pageNum"
+                        layout="prev, pager, next"
+                        :total="News.total">
+                    </el-pagination>
+                </div>  
+             
+        
             <Common></Common>
             <MyMedia></MyMedia>
         </main>
@@ -109,6 +96,9 @@
     export default {
          head:{
             title:"新闻中心",
+             link:[ 
+                { rel:'stylesheet',type:'text/css',href:'/css/reset.css'}
+            ],
             script:[
                 {src:"/js/news.js"}
             ]
@@ -122,6 +112,7 @@
             originY(){
                 return document.querySelector('.sticky').offsetTop
             },
+            // 公共地址
             baseUrl(){
                 return this.$conf.evnData[this.$conf.env_cur].baseUrl;
             }
@@ -133,6 +124,11 @@
                  type:1,
                  isfixed:false,
                 ...news,
+                isShow:false,
+                alertPic:'',
+                alertTitle:'',
+                alertContent:'',
+
             }
         },
         components: {
@@ -143,15 +139,35 @@
             GoTop
         },
         methods: {
+            // 过滤字符串
+            // str(str){
+            //     return str = str.substr(4)
+            // },
+            // 新闻详情
+            showNews(item){
+                // console.log(item);
+                this.alertPic= item.headPic;
+                this.alertTitle= item.title;
+                this.alertContent= item.content;
+                this.isShow = true;
+                
+
+            },
+            closeDetail(){
+                this.isShow = false;
+            },
             handleCurrentChange(val) {
                 this.pageNum=val;
                 this.getNews();
                 console.log(`当前页: ${val}`);
             },
+            //替换新闻类型
             switchType(val){
                 this.type=val;
                 this.getNews();
+                console.log(this.News)
             },
+            // 获取新闻
             getNews(){
                 var param ={
                     pageNum:this.pageNum,
@@ -159,7 +175,9 @@
                     LanguageType:this.LanguageType
                 }
                 this.$getData(this.baseUrl+"/api/getNews",'News',param);
+               
             },
+            // 导航固定
             stickyHeader(){
                     var point = window.scrollY||pageYOffset;
                     if(point> this.originY){
@@ -173,18 +191,22 @@
             ])
         },
         mounted(){
+            // 如果News为空调用获取新闻
             if(!this.News||this.News.length==0){
                this.getNews();
+              
             }
-            window.addEventListener('scroll',this.stickyHeader);
+            // window.addEventListener('scroll',this.stickyHeader);
         },
         destroyed(){
-            window.removeEventListener('scroll',this.stickyHeader);
+            // window.removeEventListener('scroll',this.stickyHeader);
         }
     }
 
 </script>
 <style lang="scss" scoped>
+
+// 本页面样式
 .news{
      overflow: hidden;
      font-family: "J-YUAN";
@@ -210,8 +232,7 @@
          img{
             position: absolute;
             width: 50%;
-            bottom:-5px;
-            // height: 10%;    
+            bottom:-5px;  
         }
     }
         /* * 吸顶效果 */ 
@@ -255,10 +276,18 @@
             top:5%;
             width: 60%;
             padding: 6.5% 6% 5%;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            // background-clip: content-box;
+            background-position: center;
+            .detail{
+                height:500px;
+                overflow: auto;
+            }
         }
         
        
-        display: none;
+        // display: none;
         
         font-size: 1em;
         .close_x{
@@ -316,28 +345,30 @@
             cursor: pointer;
             margin: 4% 3%;
             .words{
+                text-align: center;
                 border: 2px solid #DADADA;
                 border-top: 2px solid transparent;
                 border-radius:0 0 5px 5px;
-                padding: 0 6%;
-                margin-bottom: 3%;
+                padding: 0 5%;
+                height:270px;
                 border-bottom: 5px solid #F58026;
-                text-align: center;
+                overflow:auto;
               
                 h3{
-                    text-align: left;
-                    line-height: 1.2em;
-                    width: 80%;
+                    font-size: 1.6em;
                     color:#4D5EA0;
                 }
-                p{
-                    text-align: left;
-                    margin:0 0 4%;
+                .title2{
                     color: #909090;
+                    text-align: left;
+                    margin-bottom: 4%;
+                    font-size: 1.2em;
+                     
+                    
                 }
             }
         }
-         li:nth-child(2),li:nth-child(5){
+         li:nth-child(2),li:nth-child(5),li:nth-child(8),li:nth-child(11){
              .words{
                   border-bottom: 5px solid #C2D72F;
              }
@@ -349,40 +380,31 @@
              }
            
         }
-        .page {
-            span {
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                border: 1px solid #909090;
-                display: inline-block;
-                text-align: center;
-                line-height: 20px;
-                cursor: pointer;
-
-
-            }
-            span:first-child,span:last-child{
-                border: none;
-            }
-        }
-        
     }
 }
-
-
 @media screen and(min-width:"1200px") {
     .news{
         .alert {
             .main{
                 .close_x{
-                    top:4%;
+                    top:2%;
                     right:3%;
                 }
                 
             }
            
         }
+    }
+}
+@media (max-width:768px){
+    .news .container .list .words{
+        height: 200px;
+    }
+    .news .alert .main .detail{
+        height:300px;
+    }
+    .news .alert .close_x{
+        top:0;
     }
 }
 @media screen and(max-width:"767px") {

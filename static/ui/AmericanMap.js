@@ -1,6 +1,6 @@
 $(function () {
-    $.getJSON('https://data.jianshukeji.com/jsonp?filename=json/us-population-density.json&callback=?', function (data) {
-    // $.getJSON("./american.json", function (data) {
+    // $.getJSON('https://data.jianshukeji.com/jsonp?filename=json/us-population-density.json&callback=?', function (data) {
+    $.getJSON("/json/american.json", function (data) {
         // Make codes uppercase to match the map data
         console.log(data);
         $.each(data, function () {
@@ -12,8 +12,12 @@ $(function () {
             chart : {
                 // 外边框
                 // borderWidth : 1
-                // spacing:[0,0,0,0],
+                spacing:[0,0,0,0],
                 // height:"500px",
+                // borderWidth:2,
+                spacingBottom:0,
+                spacingTop:0,
+                height:"600px",
                 backgroundColor:"transparent",
             },
             credits: { 

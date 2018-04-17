@@ -1,32 +1,68 @@
 /* bootstrap Validator插件 */
-.has-feedback label~.form-control-feedback{
+#JoinForm .form-control-feedback{
     top:50px;
 }
-/* element组件 */
-.el-input__inner{
+.form-control{
+    display: inline-block;
+}
+
+.bv-form .help-block{
+    font-size: 60%;
+}
+/* 预约页面 */
+#IntroForm .form-control-feedback{
+    right:5%;
+}
+
+.el-date-editor .el-input__inner{
     height:32px;
     line-height: 32px;
 }
-.el-input__icon{
+.el-date-editor .el-input__icon{
     line-height: 32px;
 }
+
+
+/* element组件  新闻页面分页组件*/
+/* .el-pagination{
+    white-space: normal;
+} */
+.el-pager li {
+    font-size: 20px;
+}
+@media (min-width:1200px){
+    /* 预约页面 */
+    #IntroForm .form-control-feedback{
+        right:10%;
+    }
+}
 @media (max-width:768px) {
-    .has-feedback label~.form-control-feedback{
+    /* bootstrap Validator插件 */
+    #JoinForm .form-control-feedback{
         top:30px;
     }
-    /* element组件 */
-    .el-input__inner{
-        height:24px;
-        line-height: 24px;
-        font-size: 12px;
+   /* element组件  预约页面的日期组件*/
+    .el-date-editor .el-input__inner{
+        height:25px;
+        line-height: 25px;
+        font-size: 11px;
     }
-    .el-input__icon{
-        line-height: 24px;
+    .el-date-editor .el-input__icon{
+        line-height: 25px;
         
     }
 }
 @media(max-width:767px){
-    .has-feedback label~.form-control-feedback{
+    /* bootstrap Validator插件 */
+    #JoinForm .form-control-feedback{
         top:14px;
+    }
+     /* 预约页面 */
+     #IntroForm .form-control-feedback{
+        right:0;
+    }
+    /* 弹出框 */
+    .el-message-box{
+        width: 300px;
     }
 }

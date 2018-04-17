@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="container-fluid main" :style="{'background':`url(${bgColor_cur.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+    <div class="container-fluid main" :style="{'background':`url(${bgColor_cur.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100% 100%'}">
         <div class="logo">
           <a href=""></a>
           <a href=""></a>
@@ -20,7 +20,7 @@
                            <div class="text-center">
                              <h4 class="menu">
                                    <ul>
-                                      <li v-for="(item, index) of footer.footerMenu" :class="'item'+index">
+                                      <li v-for="(item, index) of footer.footerMenu" :class="'item'+index" :key="index">
                                         <a  :href="item.id" v-text="item.title"></a> 
                                       </li>
                                    </ul>
@@ -57,7 +57,7 @@
           {"id":"/story","title":"我们的故事"},
           {"id":"/contact","title":"联系我们"},
           // {"id":"/recruit","title":"招聘"},
-          {"id":"/","title":"中心页面"},
+          {"id":"/","title":"首页"},
           {"id":"/intro","title":"预约体验"},
         ],
         copyright:"版权所有：上海小小乐杰健身休闲有限公司 沪ICP备17040660号-2"
@@ -189,23 +189,18 @@
         width: 50px;
         height: 50px;
         margin-top: 50px;
-        //border:2px solid white;
       }
   }  
 
   .menu{
     margin:0 auto;
-/*    margin-left: -2%;
-    margin-right: 2%;*/
     padding-top: 3%;
     text-align: center;
   }
   .copyright{
-    /* letter-spacing: 3px; */
     padding-top: 10px;
     padding-bottom: 20px;
     font-size:1.2em;
-    /* //rder:2px solid blue; */
     margin-top:5%;
   }
 
@@ -217,13 +212,13 @@
     }
     .copyright{
       padding-top: 10px;
-      font-size:0.5em;
+      font-size:1.2em;
 
     }
     .menu ul li a {
       border-left:1px solid white;
       padding:0 8px;
-      font-size: 0.5em;
+      font-size: 0.6em;
 
     }
   }  

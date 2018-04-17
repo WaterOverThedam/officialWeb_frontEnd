@@ -16,7 +16,7 @@
                     <p class="text-center title" v-text="item.title"></p>
                     <div class="text-center footer">
                         <!-- <div class="more" :style="{'background':`url(${item.btn_url}) no-repeat`,'background-size': 'cover'}"><p class="text-center">{{item.btn_name}}</p></div> -->
-                        <div class="more" ><p class="text-center">{{item.btn_name}}</p></div>
+                        <nuxt-link to="/news"><div class="more" ><p class="text-center">{{item.btn_name}}</p></div></nuxt-link>
                     </div>
                 </div>
             </div>
@@ -126,6 +126,9 @@
         font-size: 44px;
         color: #515E9A;
         font-family: "J-YUAN";
+    }
+    a{
+        text-decoration: none;
     }
     .more{
         padding-top:3%;
