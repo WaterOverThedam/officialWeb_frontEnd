@@ -60,7 +60,7 @@
             <MyMedia></MyMedia>
         </main>
         <GoTop></GoTop>
-        <MyFooter :bgColor="bgColor[counterNow]"></MyFooter>
+        <MyFooter></MyFooter>
 
 	</div>
 	

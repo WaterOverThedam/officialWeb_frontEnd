@@ -4,7 +4,7 @@
     <MyNav></MyNav>
     <main>
       <div class="parent">
-        <div class="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
+        <div class="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100% 100%'}">  
         </div>
       </div>
       <Waves></Waves>
@@ -15,7 +15,6 @@
       <!-- <div class="banner" :style="{'background':`url(${banner[1]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"> </div>  -->
        
       <component :is="map" :global="global" :american="american"></component>
- 
  
       <!-- <CourseBrief></CourseBrief> -->
     </main>
@@ -32,10 +31,11 @@ import Waves from '~/components/Waves.vue'
 import GymMap from '~/components/GymMap.vue'
 import AmericanMap from '~/components/AmericanMap.vue'
 import GlobalMap from '~/components/GlobalMap.vue'
-import CourseBrief from '~/components/CourseBrief.vue'
+// import CourseBrief from '~/components/CourseBrief.vue'
 import MyFooter from '~/components/MyFooter.vue'
 import GoTop from '~/components/GoTop.vue'
 import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 import { mapMutations } from 'vuex'
 import { mapActions } from 'vuex'
 
@@ -45,7 +45,7 @@ export default {
     title:"查找中心",
     script: [
         {src: '/js/search.js'},
-      {src: '/ui/highmaps.js'},
+        
       
     ] 
   },
@@ -66,7 +66,7 @@ export default {
   components: {
     Waves,
     MyNav,
-    CourseBrief,
+    // CourseBrief,
     GymMap,
     AmericanMap,
     GlobalMap,
@@ -97,11 +97,7 @@ export default {
   overflow: hidden;
   
 }
-main {
-  font-size: 40px;
-  
-  
-} 
+
 .banner{
    margin:0;
    padding:0;
@@ -109,7 +105,7 @@ main {
 }
 .parent{
    position:relative;  
-   margin-top:3%;
+   /* margin-top:3%; */
 } 
 .parent .title1{
    width: 100%;

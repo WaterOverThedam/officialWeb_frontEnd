@@ -1,6 +1,28 @@
 $(function(){
 // 视频播放
-
+function exitFullscreen()
+{
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if(document.oRequestFullscreen){
+         document.oCancelFullScreen();
+     }else if (document.webkitExitFullscreen){
+      document.webkitExitFullscreen();
+    }else{
+     var docHtml  = document.documentElement;
+     var docBody  = document.body;
+     // var videobox  = document.getElementById('videobox');
+     var videobox  = document.getElementById('video');
+     docHtml.style.cssText = "";
+     docBody.style.cssText = "";
+     // videobox.style.cssText = "";
+     document.IsFullScreen = false;
+ }
+}
 $('video').bind('contextmenu',function() { return false; });
   //videoPlay
 $('.play').on('click',function(){
@@ -13,6 +35,7 @@ $('.play').on('click',function(){
     exitFullscreen();
 })
 //  隐藏所有视频 显示所有背景图
+$('.play').show();
 $('.img').show();
 $('video').hide();
 // 点击的视频开始播放

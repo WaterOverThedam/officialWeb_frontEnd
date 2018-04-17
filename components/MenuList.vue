@@ -1,10 +1,11 @@
 <template>
       <div class="row menu">
-        <div class="col-sm-2 text-left item" id="logo" @click="goHome">
-            <img :src="logo" alt="">
+        <!-- <div class="col-sm-2 text-left item" id="logo" @click="goHome"> -->
+        <div class="col-sm-2 text-left item" id="logo">
+            <nuxt-link to="/"><img :src="logo" alt=""></nuxt-link>
         </div>
        
-        <div class="col-sm-2 hidden-xs text-left xs-hidden item text-shade" v-for="item in menu.content">
+        <div class="col-sm-2 hidden-xs text-left xs-hidden item text-shade" v-for="(item,index) in menu.content" :key="index">
             <img class="asterisk" :src="icon" alt="">
             <nuxt-link class="link" :to="item.value" v-text="item.name">
             </nuxt-link>
@@ -22,9 +23,9 @@ export default {
     }
   },
   methods:{
-      goHome(){
-         location.href="/"
-      }
+    //   goHome(){
+    //      location.href="/"
+    //   }
   },
   computed:{
     menu(){

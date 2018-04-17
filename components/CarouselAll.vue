@@ -1,6 +1,6 @@
 <template>
     <div class="outer">
-       <div v-for="(bgImg,index) in bgImgs" :id="'a'+index" :data-id="index" class="parent row-wrapper chevron-btm" :class="{'myFadein':index===counterNow}" :style="{'background-image':`url(${bgImg})`}">
+       <div v-for="(bgImg,index) in bgImgs" :key="index" :id="'a'+index" :data-id="index" class="parent row-wrapper chevron-btm" :class="{'myFadein':index===counterNow}" :style="{'background-image':`url(${bgImg})`}">
          <component :is="which"></component> 
          <!-- 播放按钮 -->
          <!-- <div class="btn" :style="{'background':`url(${btPlay}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"></div> -->

@@ -25,12 +25,16 @@
                     {id:"girl",pic:"/img/components/girl.png",p:"今天带孩子上课，在窗外看得又激动了，小小的他在老师的指导下努力尝试、一遍遍的挑战自己、开心的做游戏、哈哈大笑、快乐的奔跑！感谢有你们，感谢所有的老师！"},
                     {id:"boy",pic:"/img/components/boy.png",p:"阳阳现在非常主动的参与到课程当中，胆量也越来越大了，看到他的进步我们都非常的高兴。"},
                     {id:"girl-ball",pic:"/img/components/girl-ball.png",p:"感谢你们的耐心教导。现在每晚睡前萱萱都在床上前滚翻20个，热情高涨。我们一定会坚持下去！谢谢！"}
-                ]
+                ],
+                // content:{id:"girl",pic:"/img/components/girl.png",p:"今天带孩子上课，在窗外看得又激动了，小小的他在老师的指导下努力尝试、一遍遍的挑战自己、开心的做游戏、哈哈大笑、快乐的奔跑！感谢有你们，感谢所有的老师！"}
+
             }
           
         },
         methods:{
             change(){
+                console.log(111);
+                // this.content= this.content[0]
                 this.content= this.content[Math.floor(Math.random()*3)]
                 // console.log(this.content)
             }
@@ -71,12 +75,6 @@
             position: absolute;
             right:8%;
             top: 21%;
-            // over0flow: hidden;
-            // transform: scale(0.8);
-           
-
-            
-            // z-index: -2;
         }
     }
 @media screen and (max-width:1200px){

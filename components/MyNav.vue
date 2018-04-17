@@ -23,7 +23,7 @@
                          </li>
                        <li class="dot"></li>
                        <!-- <li id="own"><nuxt-link :to="'/service/detail'" class="link" href="#">加盟中心</nuxt-link></li> -->
-                       <li id="own"><nuxt-link to="/join" class="link" href="#">加盟中心</nuxt-link></li>
+                       <li id="own"><nuxt-link to="/join" class="link">加盟中心</nuxt-link></li>
                     </ul>
               </div>
             </div>
@@ -40,7 +40,7 @@
              <nuxt-link to="/" ><img class="home" src="/img/index/tlg-logo-menu.png" alt=""></nuxt-link>
              <img class="close-img" src="/img/index/menu-close-icon.png" alt="">
             </li>
-            <li class="item" v-for="item in menu.content">
+            <li class="item" v-for="(item,index) in menu.content" :key="index">
             <nuxt-link class="link" :to="item.value" v-text="item.name">
             </nuxt-link>
             </li>
@@ -131,7 +131,7 @@ export default {
      right:0;
      margin:0;
      padding:0;
-     height:100%;
+    //  height:100%;
      //border:3px solid blue;
    }
 
@@ -141,7 +141,9 @@ export default {
     cursor: pointer;
     display: block;
     position: absolute;
-    top: -100%;
+    // top: -100%;
+    top:-50px;
+  
     left:1%;
     z-index: 113;
     margin: 4px 0 0 8px;

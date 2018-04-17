@@ -36,7 +36,7 @@ $(function(){
 
     }
     // 表单验证
-    $('#ValidatorForm').bootstrapValidator({
+    $('#JoinForm').bootstrapValidator({
         message: 'This value is not valid',
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
@@ -47,9 +47,9 @@ $(function(){
             username: {
                 message: 'The username is not valid',
                 validators: {
-                    notEmpty: {
-                        message: '姓名不为空'
-                    },
+                    // notEmpty: {
+                    //     message: '姓名不为空'
+                    // },
                     // stringLength: {
                     //     min: 6,
                     //     max: 30,
@@ -84,9 +84,9 @@ $(function(){
             },
             city: {
                 validators: {
-                    notEmpty: {
-                        message: '请说明您要加盟的城市'
-                    },
+                    // notEmpty: {
+                    //     message: '请说明您要加盟的城市'
+                    // },
                    
                 }
             },

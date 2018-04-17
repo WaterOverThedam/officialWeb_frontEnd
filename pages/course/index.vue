@@ -679,7 +679,18 @@ export default {
   font-size: 0.6em;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  text-overflow:ellipsis;
+  /* display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+
+  display:-moz-box;
+  -moz-box-orient: vertical;
+  -moz-line-clamp: 2;
+
+    display:-ms-box;
+  -ms-box-orient: vertical;
+  -ms-line-clamp: 2; */
   
 }
 .bottom li .btn-more{
@@ -911,9 +922,19 @@ export default {
     background-color: transparent;
     overflow: visible;
   }
+  
   .bottom li .show {
     left:-25%;
   }
+
+  .bottom li .bgc{
+     width:100%;
+
+
+  }
+.bottom li .bgc:hover .CourseName p{
+  color:transparent;
+}
 
 }
 

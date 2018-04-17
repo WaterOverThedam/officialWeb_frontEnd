@@ -31,7 +31,7 @@
           </form>  
     </div> -->
     <div class="bespeak hidden-xs" v-show="isShow">
-        <nuxt-link to="/bespeak"><img :src="bg" alt="" title="预约体验"></nuxt-link> 
+        <nuxt-link to="/intro"><img :src="bg" alt="" title="预约体验"></nuxt-link> 
         <span class="closes" @click="closes"><img :src="close" alt="关闭" title="关闭"></span>
     </div>
 </template>

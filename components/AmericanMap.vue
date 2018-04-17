@@ -4,8 +4,6 @@
       <div id="container">
         
       </div>
-      <!-- 遮盖标签 -->
-       <!-- <div class="shade"></div> -->
      
   </div>
 </template>
@@ -20,7 +18,7 @@
             //   {src: '/ui/us-all.js'},
             //   {src: '/ui/AmericanMap.js'}
               
-              {src: '/ui/us-all.js'},
+             
               {src: '/ui/AmericanMap.js'}
               // {src: '/ui/data.js'},
           ] 
@@ -38,20 +36,12 @@
     width: 80%;
     min-width:310px;
     margin:  0 auto;
-
   }
   .wrap{
-    padding: 5% 0;
+    padding: 0 0 5%;
     position: relative;
   }
-  /* .shade{
-    background-color: white;
-    height:5%;
-    position: absolute;
-    width:20%;
-    bottom:5%;
-    right:10%;
-  } */
+
 @media screen and (min-width:1200px){
    .shade{
        bottom:10%;

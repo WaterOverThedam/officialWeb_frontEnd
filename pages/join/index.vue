@@ -1,10 +1,10 @@
 <template>
     <div class="join">
-        <!-- <div id="logo"></div> -->
+        <div id="logo"></div>
         <MyNav></MyNav>
         <main>
             <!-- 版心图 -->
-            <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
+            <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100% 100%'}">  
             </div>
             <Waves></Waves>
             <div class="title text-center">
@@ -13,25 +13,30 @@
                 <h3 v-text="title[2]"></h3>
             </div>
             <div class="form" :style="{'background':`url(${form_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                <form action="javascript:0"  id="ValidatorForm">
-                    <div class="form-group" v-for="item in form">
-                       <label v-text="item.title"></label>
-                        <input class="form-control" :type="item.type" :id="item.id" :name="item.id" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                <form action="javascript:0"  id="JoinForm">
+                    <!-- 姓名 -->
+                    <div class="form-group">
+                       <label>姓名</label>
+                        <input  v-model="Join.UserName" class="form-control" type="text" id="username" name="usesrname" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                    </div>
+                    <!-- 联系方式 -->
+                    <div class="form-group">
+                       <label>手机号</label>
+                        <input  v-model="Join.UserPhone" class="form-control" maxlength="11" type="text" id="tel" name="tel" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                    </div>
+                    <!-- 电子邮箱 -->
+                    <div class="form-group">
+                       <label>电子邮箱</label>
+                        <input v-model="Join.UserEmail" class="form-control" type="email" id="email" name="email" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                    </div>
+                    <!-- 加盟城市 -->
+                    <div class="form-group">
+                       <label>加盟城市</label>
+                        <input v-model="Join.City" class="form-control" type="text" id="city" name="city" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn" v-text="submit"></button>
-                    </div>
-                        <!-- <ul>
-                            <li v-for="item in form">
-                                <label v-text="item.title"></label>
-                                <input :type="item.type" :id="item.id" :name="item.id" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                            </li>
-                            <li>
-                                <button type="submit" v-text="submit"></button>
-                            </li>
-                        </ul> -->
-                        
-                   
+                        <button :disabled="isDisabled" type="submit" @click.prevent="saveJoin()" class="btn" v-text="submit"></button>
+                    </div> 
                 </form>
             </div>
             <!-- 主题内容 -->
@@ -58,7 +63,7 @@
                                 <span class="more">more</span>
                         </span>
                         <!-- 图片 -->
-                        <div :class="index%2==0?'right':'left'" class="pic" :style="{'background':`url(${item.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                        <div :class="index%2==0?'right':'left'" class="pic" :style="{'background':`url(${item.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100% 100%'}">
                            
                         </div>
                         
@@ -87,20 +92,77 @@
         head:{
             "title":"加盟中心",
             link:[
-               { rel:'stylesheet',type:'text/css',href:'/css/bootstrapValidator.min.css'}
+                { rel:'stylesheet',type:'text/css',href:'/css/reset.css'}
             ],
             script:[
                 {"src":"/js/join.js"},
-                {"src":"/ui/bootstrapValidator.min.js"}
-              
             ]
         },
         data(){
             return{
-                ...join
+                ...join,
+                Join:{
+                    UserName:'',
+                    UserPhone:'',
+                    UserEmail:'',
+                    City:'',
+                },
+                isDisabled:false,  
+            }
+        },
+        methods:{
+             saveResult(res){
+              var msg=""
+              if(res.code==0){
+                 msg = {content:"提交成功",title:'提示',type:"success"}
+              }else{
+                 msg= {content:res.msg,title:'错误',type:"error"}
+              }
+              this.$alert(msg.content, msg.title, {
+                    confirmButtonText: '确定',
+                    type: msg.type,
+                    //roundButton:true
+              })
+           },
+            // 提交表单信息
+
+            saveJoin(){
+                this.isDisabled = true;
+                // 判断
+                if(this.Join.UserName==''||this.Join.UserPhone==''||this.Join.UserEmail==''||this.Join.City==''){
+                var msg = "";
+                if(this.Join.UserName==''){
+                    msg= {content:"请填写您的姓名",title:'提示',type:"warning"}
+                }
+                if(this.Join.UserPhone==''){
+                    msg= {content:"请填写您的手机号",title:'提示',type:"warning"}
+                }
+                if(this.Join.UserEmail==''){
+                    msg= {content:"请填写您的邮箱地址",title:'提示',type:"warning"}
+                }
+                if(this.Join.City==''){
+                    msg= {content:"请填写您想要加盟的城市",title:'提示',type:"warning"}
+                }
+                this.$alert(msg.content, msg.title, {
+                    confirmButtonText: '确定',
+                    type: msg.type,
+                    callback:()=>{
+                        this.isDisabled = false;
+                    }
+                })
+                }else{
+                  
+                    // this.$getDataAsync(this.baseUrl+"/api/saveJoin/",this.Join,this.saveResult);
+                }
+
+
+
             }
         },
         computed:{
+            baseUrl(){
+                return this.$conf.evnData[this.$conf.env_cur].baseUrl;
+            }
         },
         components:{
             Waves,
@@ -151,6 +213,7 @@
             font-size: 2.2em;
             margin: 2% auto;
             width: 36%;
+            position: relative;
             label{
                 color: #4F62A2;
                 margin: 0;
@@ -164,16 +227,12 @@
                  text-indent: 1%;
             }
             .form-control{
-                padding: 5% 5px;
-                display: inline;
+                padding: 3% 5px;
                 font-size: 0.8em;
-                height:auto;
-                max-height: 34px;
+                height:40px;
+                max-height: 40px;
             }
-            // 提示符号
-            .form-control-feedback {
-                top:50px !important;
-            }
+              
             .btn{
                 margin-top:2%;
                 color: #fff;
@@ -188,9 +247,6 @@
                 background-repeat: no-repeat;
                 background-size: cover;
                 -webkit-background-size:100%;
-                // &:hover{
-                //     background-image: url(/img/join/sure-hoverbg.png)
-                // }
                 }
 
         }
@@ -262,10 +318,8 @@
                 position: absolute;
                 
                 // 隐藏的文字
-                .desc{
-                   
+                .desc{    
                     p{  
-                        // text-align: center;
                         font-size: 1.4em;
                         color:#5160AC;
                     }
@@ -282,12 +336,15 @@
 
 
 }
-// @font-face { 
-// font-family: 'GD-HEI'; 
-// src: url('/font/bak/hei.ttf') format('truetype'); 
-// } 
 @media screen and (max-width:"768px") {
     .join{
+         .form {
+            .form-group{
+                .form-control{
+                    height: auto;
+                }
+            }
+        }
         .container{
             li{
                 span{
@@ -329,6 +386,8 @@
                 }
                 .form-control{
                     padding: 3% 5px 0;
+                    // max-height;
+                    height: auto;
                 }
             }
         }
