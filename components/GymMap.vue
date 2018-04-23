@@ -11,7 +11,9 @@
                         <p :class="['add01','add_'+city.provId]" v-text="city.prov"></p>
                         
                         <dl style="display: none;" :class="['add01_con','add_'+city.provId+'_con']">
-                            <dd v-if="city.city==''"><span href="">敬请期待</span></dd>
+                            <dd v-if="city.city==''">
+                                <span>敬请期待</span>
+                            </dd>
                             <!-- <dd v-else v-for="c in city.city"><a @click.prevent="switchCity(city.city)" v-text="'· '+city.city"></a></dd> -->
                             <dd v-else v-for="c in city.city">
                                 <!-- <a v-if="city.city.length>1" @click.prevent="switchCity(c)" v-text="'· '+c"></a>

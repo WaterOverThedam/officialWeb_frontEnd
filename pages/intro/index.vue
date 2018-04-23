@@ -15,10 +15,10 @@
                         <form id="IntroForm">
                             <ul>
                                 <li>
-                                    <div class="form-group">
+                                   
                                         <span>宝宝姓名: </span>
-                                        <input class="form-control" v-model="intro.BabyName" placeholder="填写宝宝姓名" type="text" name="username" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
-                                    </div>                                   
+                                        <input  v-model="intro.BabyName" placeholder="填写宝宝姓名" type="text" name="username" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
+                                                               
                                 </li>
                                 <li>
                                     <div class="block">
@@ -32,10 +32,10 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="form-group">
+                                   
                                         <span >家长手机: </span>
-                                        <input maxlength="11" class="form-control" v-model="intro.ParentPhone" placeholder="填写联系方式" type="text" name="tel" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
-                                    </div>
+                                        <input maxlength="11" @change="checkPhone" v-model="intro.ParentPhone" placeholder="填写联系方式" type="text" name="tel" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
+                                        <p class="tip">{{msg}}</p>
                                 </li>
 
                                 <li>
@@ -155,6 +155,7 @@
                     ParentPhone  :""
                 },
                 isDisabled:false,
+                msg:"",
             }
         },
         computed: {
@@ -163,6 +164,20 @@
             }
         },
        methods: {
+        //    手机号验证
+            checkPhone(){
+                var result = this.intro.ParentPhone.match(/^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/)
+                // console.log(this.intro.ParentPhone)
+                // console.log(result)
+                if(result==null){
+                    this.msg = "请输入正确的手机号"
+                }
+                else{
+                    this.msg=""
+                }
+            },
+
+
             setProvs(res){
                this.provs=res.data;
             },
@@ -264,13 +279,7 @@
     // font-size: 0.9em;
     width:54%!important;
 }
-.form-group{
-    margin: 0;
-    position: relative;
-}
-.form-control-feedback{
-    right:5%;
-}
+
 .bespeak{
     overflow: hidden;
     font-family: "J-YUAN";
@@ -317,6 +326,13 @@
                     padding:1%;
 
                     // ::-ms-clear,::-ms-reveal{display:none;}
+                }
+                .tip{
+                   color: red;
+                   font-size: 16px;
+                   margin: 0;
+                   padding: 0;
+
                 }
                 input::-ms-clear{display:none;}
                 span{
@@ -529,6 +545,9 @@
     .el-date-editor.el-input, .el-date-editor.el-input__inner {
         font-size: 12px;
     width:70% !important;
+}
+.bespeak .formbg .form li .tip{
+    font-size: 12px;
 }
     .bespeak{
         font-size: 6px;

@@ -21,6 +21,8 @@ const createStore = () => {
               {name:"加盟中心",value:"/join"},
            ]
         },
+        language_type: 0,
+
         counter: parseInt(Math.random()*10000),
     },
     getters:{
@@ -28,6 +30,9 @@ const createStore = () => {
       bgColor_cur(state){
         let index = parseInt(state.counter/600)%state.bg.length;
         return state.bg[index];
+      },
+      Language(state){
+        return state.language_type
       },
       cities(state){
         let c = state.Gyms.map(gym => {
@@ -47,11 +52,16 @@ const createStore = () => {
       
     },
     mutations: {
+      
       increment (state) {
         if(state.counter++>10000){
             state.counter=0;
             //console.log(state.counter);
         }
+      },
+      changeLanguage(state,c){
+        state.language_type =c
+        console.log(state.language)
       },
       switchCity(state,c){
         state.city = c;

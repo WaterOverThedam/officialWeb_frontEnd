@@ -299,7 +299,7 @@
         }
         .border {
              
-                transform: rotateZ(180deg);
+                // transform: rotateZ(180deg);
               
        
             }

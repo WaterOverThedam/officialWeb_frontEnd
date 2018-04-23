@@ -101,7 +101,7 @@ export default {
 .banner{
    margin:0;
    padding:0;
-   padding-top:45%;
+   padding-top:50%;
 }
 .parent{
    position:relative;  

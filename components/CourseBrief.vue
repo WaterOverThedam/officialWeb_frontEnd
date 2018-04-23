@@ -8,14 +8,13 @@
         
     </div>
     
-    <div class="swiper-container">
+    <!-- <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="(item,index) in triD_info" :class="item.class" :key="index">
                 <div class="row border">
                     <div class="text-center"><img :src="item.top_img_url"/></div>
                     <p class="text-center title" v-text="item.title"></p>
                     <div class="text-center footer">
-                        <!-- <div class="more" :style="{'background':`url(${item.btn_url}) no-repeat`,'background-size': 'cover'}"><p class="text-center">{{item.btn_name}}</p></div> -->
                         <nuxt-link to="/news"><div class="more" ><p class="text-center">{{item.btn_name}}</p></div></nuxt-link>
                     </div>
                 </div>
@@ -26,7 +25,75 @@
         
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
+    </div> -->
+
+   
+    <div class="row news">
+        <div class="gym-news">
+            <div v-for="(item,index) in triD_info" :class="item.class" class="gym-box col-xs-12" :key="index">
+                <div class="row border">
+                    <div class="text-center"><img :src="item.top_img_url"/></div>
+                    <p class="text-center title" v-text="item.title"></p>
+                    <div class="text-center footer">
+                        <nuxt-link to="/news"><div class="more" ><p class="text-center">{{item.btn_name}}</p></div></nuxt-link>
+                    </div>
+                </div>
+            </div>
+            <div v-for="(item,index) in triD_info" :class="item.class" class="gym-box col-xs-12" >
+                <div class="row border">
+                    <div class="text-center"><img :src="item.top_img_url"/></div>
+                    <p class="text-center title" v-text="item.title"></p>
+                    <div class="text-center footer">
+                        <nuxt-link to="/news"><div class="more" ><p class="text-center">{{item.btn_name}}</p></div></nuxt-link>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="arrow">
+            <img :src="arr_prev" alt="" class="arrow-prev">           
+            <img :src="arr_next" class="arrow-next" alt="">           
+        </div>
+        <ul class="uls">
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
+    
+
+
+
+    <!-- <div class="row news">
+        <el-carousel :autoplay="false" trigger="click" indicator-position="outside" class="hidden-xs">
+            <el-carousel-item  v-for="(item,index) in triD_info" :class="item.class" :key="index">
+                <div v-for="(item,index) in triD_info" :class="item.class" :key="index">
+                    <div class="row border">
+                        <div class="text-center"><img :src="item.top_img_url"/></div>
+                        <p class="text-center title" v-text="item.title"></p>
+                        <div class="text-center footer">
+                            <nuxt-link to="/news"><div class="more" ><p class="text-center">{{item.btn_name}}</p></div></nuxt-link>
+                        </div>
+                    </div>
+                </div>
+            </el-carousel-item>
+        </el-carousel>
+
+        <el-carousel :autoplay="false" indicator-position="outside" class="visible-xs-block">
+            <el-carousel-item  v-for="(item,index) in triD_info" :class="item.class" :key="index">
+                    <div class="row border">
+                        <div class="text-center"><img :src="item.top_img_url"/></div>
+                        <p class="text-center title" v-text="item.title"></p>
+                        <div class="text-center footer">
+                            <nuxt-link to="/news"><div class="more" ><p class="text-center">{{item.btn_name}}</p></div></nuxt-link>
+                        </div>
+                    </div>
+            </el-carousel-item>
+        </el-carousel>
+        
+    </div> -->
+
+        
+
 </div>
     
 
@@ -36,8 +103,13 @@
  import ImgButton from '~/components/ImgButton.vue'
  export default {
     head:{
+        link:[
+            { rel:'stylesheet',type:'text/css',href:'/css/reset.css'}
+        ],
+
          script: [
-             {src: '/js/swiper.js'},
+            
+            {src: '/js/swiper.js'},
         ]  
     },
   components: {
@@ -46,25 +118,26 @@
   data () {
     return {
           top_title: "新闻中心",
-          hoverbg:"",
+          arr_prev:"/img/search/prve.png",
+          arr_next:"/img/search/next.png",
           top_url:[
             "/img/index/cloud-big.png",
             "/img/index/blog-clouds-bg.png"
           ],
          'triD_info': [{
-           class:"col-sm-3",
+           class:"col-sm-2",
            title:"荣获《Brentwood》杂志读者推荐大奖",
            btn_name:"阅读更多",
            top_img_url:"/img/index/3D-1.png",
            btn_url:"/img/index/btn_blue.png" 
         },{
-           class:"col-sm-3",
+           class:"col-sm-2",
            title:"入围FranchiseTimes全美特许经营500强",
            btn_name:"阅读更多",
            top_img_url:"/img/index/3D-2.png",
            btn_url:"/img/index/btn_blue.png" 
         },{
-           class:"col-sm-3",
+           class:"col-sm-2",
            title:"春季购课赢好礼 带您亲临俄罗斯世界杯现场",
            btn_name:"阅读更多",
            top_img_url:"/img/index/3D-3.png",
@@ -80,7 +153,12 @@
 
 .read{
     // border:1px solid red;
-    // margin-bottom: 10%;
+    
+ 
+
+
+
+
     img{
         width:auto;
         height:auto;
@@ -111,10 +189,74 @@
         height: 200px;
         margin: 0px;
     }
+    .news{
+        // padding: 0  2%;
+
+        // 新增
+        height:500px;
+
+        position: relative;
+        // overflow: hidden;
+ 
+        .gym-news{
+            position: absolute;
+            width: 200%;
+            height:100%;
+            .gym-box{
+                background-color: #fff;
+            }
+        }
+        .arrow{
+            img{
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                left:25px;
+                top:50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+               
+            }
+            .arrow-next{
+                left:auto;
+                right:25px;
+            }
+
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            bottom: 0;
+            position: absolute;
+            bottom:-6%;
+            left:50%;
+            transform: translateX(-50%);
+             z-index: 10;
+            li{
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background-color: #CCCCCC;
+                margin: 0 3px;
+                cursor: pointer;
+               
+            }
+            .current{
+                background-color:#42CCCC;
+            }
+        
+        
+        }
+       
+
+    }
     .border{
         border:1px solid #EBEBEB;
-        height:600px;
-     
+        // height:500px;
+        height:100%;
+        margin: 0 2%;
+        cursor:pointer;
         img{
             width:100%;
           
@@ -132,7 +274,7 @@
     }
     .more{
         padding-top:3%;
-        margin: 20% auto 0;
+        margin: 20% auto 4%;
         color:white;
         font-size: 22px;
         padding-bottom: 2%;
@@ -150,33 +292,12 @@
         }
 
     }
-    .swiper-slide{
-         
-
-      /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-    }
-    .swiper-pagination-bullet{
-        width: 15px;
-        height: 15px;
-    }
 
 }
 @media screen  and (min-width:"1200px"){
     .read{
-       .border{
-            width:400px;
+       .news{
+            height:600px;
          img{
             
              height:150px;
@@ -200,14 +321,24 @@
          .bg-top h1 {
             margin-top: 3%;
         }
-        .border{
-            height:500px;
+        .news{
+            height:350px;
+            .arrow{
+                img{
+                    width: 30px;
+                    height:30px;
+                    
+                }
+                
+            }   
         }
+        
         .more{
             font-size: 18px;
         }
         .title {
             font-size: 25px;
+             height:160px;
         }
     }
 }
@@ -215,16 +346,28 @@
     .read{
         .bg-top h1 {
             font-size: 24px;
-            margin-top: 20%;
+            margin-top: 15%;
+        }
+        .news{
+            height: 450px;
+            .gym-news{
+                 width: 600%;
+                 .gym-box{
+                     width: 16.6667%;
+                 }
+            }
+            
         }
         .border{
             width: 85%;
-        }
+            margin: 0 auto;
+            height:450px;        }
         .bg-top img{
             width: 40%;
         }
         .title {
             font-size: 33px;
+             height:250px;
        
         }
         .more{

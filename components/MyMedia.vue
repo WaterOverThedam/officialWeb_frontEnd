@@ -30,7 +30,12 @@
  import ImgButton from '~/components/ImgButton.vue'
  import CitySelect from '~/components/CitySelect.vue'
  export default {
-  data () {
+    head:{
+        link:[
+            { rel:'stylesheet',type:'text/css',href:'/css/reset.css'}
+        ],
+    },
+  data() {
         return {
             citySelected:"",
             btn_comment: {
@@ -94,7 +99,7 @@
 </script>
 
 <style scoped>  
- 
+
  img{
     width:auto;
     height:auto;

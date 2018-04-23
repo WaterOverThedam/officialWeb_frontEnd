@@ -17,18 +17,20 @@
                     <!-- 姓名 -->
                     <div class="form-group">
                        <label>姓名</label>
-                        <input  v-model="Join.UserName" class="form-control" type="text" id="username" name="usesrname" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                        <input v-model="Join.UserName" class="form-control" type="text" id="username" name="usesrname" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
                     </div>
                     <!-- 联系方式 -->
                     <div class="form-group">
                        <label>手机号</label>
-                        <input  v-model="Join.UserPhone" class="form-control" maxlength="11" type="text" id="tel" name="tel" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                        <input @change="checkPhone"  v-model="Join.UserPhone" class="form-control" maxlength="11" type="text" id="tel" name="tel" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
                     </div>
+                    <p class="tip">{{msg}}</p>
                     <!-- 电子邮箱 -->
                     <div class="form-group">
                        <label>电子邮箱</label>
-                        <input v-model="Join.UserEmail" class="form-control" type="email" id="email" name="email" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+                        <input @change="checkEmail" v-model="Join.UserEmail" class="form-control" type="email" id="email" name="email" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
                     </div>
+                    <p class="tip">{{emailTip}}</p>
                     <!-- 加盟城市 -->
                     <div class="form-group">
                        <label>加盟城市</label>
@@ -60,7 +62,7 @@
                         <span  class="button" :title="item.id" :class="index%2==0?'l':'r'">
                                 
                                 <img :src="button" alt="">
-                                <span class="more">more</span>
+                                <!-- <span class="more">more</span> -->
                         </span>
                         <!-- 图片 -->
                         <div :class="index%2==0?'right':'left'" class="pic" :style="{'background':`url(${item.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100% 100%'}">
@@ -107,10 +109,34 @@
                     UserEmail:'',
                     City:'',
                 },
-                isDisabled:false,  
+                isDisabled:false,
+                msg:"",
+                emailTip:""  
             }
         },
         methods:{
+            
+            checkPhone(){
+                var result = this.Join.UserPhone.match(/^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/)
+                // console.log(this.Join.UserPhone)
+                console.log(result)
+                if(result!==null||this.Join.UserPhone==""){
+                     this.msg=""
+                }
+                else{
+                    this.msg = "请输入正确的手机号"
+                }
+            },
+            // 验证邮箱
+            checkEmail(){
+                var result = this.Join.UserEmail.match(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/)
+                if(result!==null||this.Join.UserEmail==""){
+                     this.emailTip=""
+                }
+                else{
+                    this.emailTip = "请输入正确的邮箱地址"
+                }
+            },
              saveResult(res){
               var msg=""
               if(res.code==0){
@@ -209,9 +235,16 @@
         padding-top:5%;
         padding-bottom:5em;
         text-align: center;
+        .tip{
+            color: red;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+
+        }
         .form-group{
             font-size: 2.2em;
-            margin: 2% auto;
+            margin: 1% auto;
             width: 36%;
             position: relative;
             label{
@@ -226,6 +259,7 @@
                  border: none;
                  text-indent: 1%;
             }
+        
             .form-control{
                 padding: 3% 5px;
                 font-size: 0.8em;
@@ -280,16 +314,16 @@
                     bottom:10%;
                     cursor: pointer;
                     z-index:103;
-                    .more{
-                        color:#B6D713;
-                        position: absolute;
-                        bottom: -32%;
-                        left:-9%;
-                        font-size: 1.5em;
-                        font-weight: 600;
-                    }
+                    // .more{
+                    //     color:#B6D713;
+                    //     position: absolute;
+                    //     bottom: -32%;
+                    //     left:-9%;
+                    //     font-size: 1.5em;
+                    //     font-weight: 600;
+                    // }
                     img{
-                        transform: scale(2)
+                        transform: scale(1.5)
                     }
                 }
                 //  左右两边
@@ -354,7 +388,7 @@
                             font-size: 2em;
                     }
                     img{
-                            transform: scale(1.5)
+                            transform: scale(1)
                     }
                 }
             }
@@ -367,6 +401,9 @@
 
 }
 @media screen and (max-width:"767px") {
+    .join .form .tip{
+        font-size: 12px
+    }
     .join{
         .title{
             h3 {

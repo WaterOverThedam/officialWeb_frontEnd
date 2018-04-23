@@ -1,19 +1,9 @@
-/* bootstrap Validator插件 */
-#JoinForm .form-control-feedback{
-    top:50px;
-}
 .form-control{
     display: inline-block;
 }
-
 .bv-form .help-block{
     font-size: 60%;
 }
-/* 预约页面 */
-#IntroForm .form-control-feedback{
-    right:5%;
-}
-
 .el-date-editor .el-input__inner{
     height:32px;
     line-height: 32px;
@@ -21,25 +11,47 @@
 .el-date-editor .el-input__icon{
     line-height: 32px;
 }
-
-
+/* 顶部语言选择 */
+.el-dropdown{
+    font-size: 16px;
+    color:#fff;
+    margin: 0 5px 0 8px;
+    outline: none;
+}
+/* 底部搜索框宽度 */
+.cover .el-input__inner{
+    width: 70%;
+}
+/* element组件  底部新闻页面分页组件*/
+.el-carousel__container{
+    height:500px;
+}
+.el-carousel__button{
+    height:15px;
+    width:15px;
+    border-radius: 50%;
+}
+.el-carousel__indicators--outside button{
+    background-color: #42CCCC;
+}
 /* element组件  新闻页面分页组件*/
-/* .el-pagination{
-    white-space: normal;
-} */
 .el-pager li {
     font-size: 20px;
 }
 @media (min-width:1200px){
-    /* 预约页面 */
-    #IntroForm .form-control-feedback{
-        right:10%;
+    /* element组件  底部新闻页面分页组件*/
+    .el-carousel__container{
+        height:600px;
     }
 }
 @media (max-width:768px) {
-    /* bootstrap Validator插件 */
-    #JoinForm .form-control-feedback{
-        top:30px;
+    /* 顶部语言选择 */
+    .el-dropdown{
+        font-size: 14px;
+    }
+    /* element组件  底部新闻页面分页组件*/
+    .el-carousel__container{
+        height:350px;
     }
    /* element组件  预约页面的日期组件*/
     .el-date-editor .el-input__inner{
@@ -53,16 +65,24 @@
     }
 }
 @media(max-width:767px){
-    /* bootstrap Validator插件 */
-    #JoinForm .form-control-feedback{
-        top:14px;
+    /* element组件  底部新闻页面分页组件*/
+    .el-carousel__container{
+        height:450px;
     }
-     /* 预约页面 */
-     #IntroForm .form-control-feedback{
-        right:0;
+    .el-carousel__button{
+        height:10px;
+        width:10px;
     }
+
     /* 弹出框 */
     .el-message-box{
         width: 300px;
     }
+    /* 底部搜索框宽度 */
+    .cover .el-input__inner{
+        width: 100%;
+    }
+
+
+
 }

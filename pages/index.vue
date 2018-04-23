@@ -42,7 +42,6 @@ import Common from '~/components/Common.vue'
 import CourseBrief from '~/components/CourseBrief.vue'
 import MyFooter from '~/components/MyFooter.vue'
 import IntroForm from '~/components/IntroForm.vue'
-
 import { mapActions } from 'vuex'
 
 

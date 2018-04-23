@@ -3,14 +3,35 @@
     "cloud":"/img/contact/clouds.png",
     "title":"中国总部",
     "address":[
-        "上海市徐汇区云锦路600号航汇大厦1103室",
-        "400-180-1906",
-        "(021) 54102299",
-        "上海小小乐杰健身休闲有限公司是美国The Little Gym小小运动馆中国运营商。"
+        [
+            "上海市徐汇区云锦路600号航汇大厦1103室",
+            "400-180-1906",
+            "(021) 54102299",
+            "上海小小乐杰健身休闲有限公司是美国The Little Gym小小运动馆中国运营商。"
+        ],
+        [
+            "Room 1103, hanghui building, no.600 yunjin road, xuhui district, Shanghai.",
+            "400-180-1906",
+            "(021) 54102299",
+            "Shanghai xiaolaijie fitness and leisure co., LTD. Is The Chinese operator of The Little Gym."
+        ]
     ],
     "body":[
-        {"title":"特许经营","p":"franchise@thelittlegym.com.cn"},
-        {"title":"人才招聘","p":"hr@thelittlegym.com.cn"},
-        {"title":"市场合作","p":"marketing@thelittlegym.com.cn"}
+        [
+            {"title":"特许经营","p":"franchise@thelittlegym.com.cn"},
+            {"title":"人才招聘","p":"hr@thelittlegym.com.cn"},
+            {"title":"市场合作","p":"marketing@thelittlegym.com.cn"}
+        ],
+        [
+            {"title":"franchise","p":"franchise@thelittlegym.com.cn"},
+            {"title":"personnel recruitment","p":"hr@thelittlegym.com.cn"},
+            {"title":"Marketing Cooperation","p":"marketing@thelittlegym.com.cn"}
+        ]
     ]
 }
+
+
+
+
+
+

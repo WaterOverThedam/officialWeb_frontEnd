@@ -21,7 +21,8 @@
                              <h4 class="menu">
                                    <ul>
                                       <li v-for="(item, index) of footer.footerMenu" :class="'item'+index" :key="index">
-                                        <a  :href="item.id" v-text="item.title"></a> 
+                                        <!-- <a  :href="item.id" v-text="item.title"></a>  -->
+                                        <nuxt-link :to="item.id" v-text="item.title"></nuxt-link>
                                       </li>
                                    </ul>
                              </h4>

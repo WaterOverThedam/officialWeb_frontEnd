@@ -1,11 +1,11 @@
 <template>
  <header>
   <nav class="navbar navbar-tlgc navbar-fixed-top" :style="{'background-color': bgColor_cur.color}">
-        <div class="container-fluid">
+        <div class="container-fluid p-r0">
             <div class="row">
               <div class="col-sm-1">
               </div>
-              <div class="col-sm-7">
+              <div class="col-sm-6">
                   <div class="logo" style="display:none">
                     <!-- <a href="/"><img src="/img/index/littlegym-logo-desktop.png"></a> -->
                     <img src="/img/index/littlegym-logo-desktop.png">
@@ -14,7 +14,7 @@
                   <span class="telNumber hidden-xs">4001801976</span>
                   
               </div>
-              <div class="col-sm-4 text-right">
+              <div class="col-sm-5 text-right">
                     <ul class="gym" >
                        <!-- <li id="find"><nuxt-link :to="'/service/detail'" class="link" href="#">全国中心</nuxt-link></li> -->
                        <li id="find">
@@ -24,6 +24,17 @@
                        <li class="dot"></li>
                        <!-- <li id="own"><nuxt-link :to="'/service/detail'" class="link" href="#">加盟中心</nuxt-link></li> -->
                        <li id="own"><nuxt-link to="/join" class="link">加盟中心</nuxt-link></li>
+                       <li>
+                          <el-dropdown @command="handleCommand" trigger="click">
+                            <span>
+                               {{tip[Language]}}<i class="el-icon-arrow-down el-icon--right"></i>
+                            </span>
+                            <el-dropdown-menu slot="dropdown">
+                              <el-dropdown-item command="0">中文</el-dropdown-item>
+                              <el-dropdown-item command="1">English</el-dropdown-item>
+                            </el-dropdown-menu>
+                          </el-dropdown>
+                       </li>
                     </ul>
               </div>
             </div>
@@ -59,34 +70,51 @@ import { mapGetters } from 'vuex'
 import MenuList from '~/components/MenuList.vue'
  
 export default {
+  head:{
+      link:[
+        { rel:'stylesheet',type:'text/css',href:'/css/reset.css'}
+      ],
+  },
   components: {
     MenuList
   },
   computed:{
+    
     ...mapGetters([
-        'bgColor_cur'
+        'bgColor_cur',
+         'Language'
     ]),
+  
     menu(){
       return this.$store.state.menu;
     }
   },
   data(){
     return{
-     viewNow: 'CarouselAll',
-     which: 'MenuList'
-   
+      viewNow: 'CarouselAll',
+      which: 'MenuList',
+      tip:["中文","English"],
     }
   },
   methods: {
- 
+      ...mapMutations([
+           "changeLanguage"
+      ]),
+      handleCommand(command) {
+        this.changeLanguage(command)
+      }
   },
+  
   mounted () {
- 
+
   }
  }
 </script>
 
 <style lang="scss" scoped>
+    .p-r0{
+      padding-right: 0;
+    }
    $logoH:35px;
    .menuList{
      top:15%;
@@ -182,8 +210,9 @@ export default {
      padding: 0;
      margin:0;
      margin-top: 8px;
-     font-family: 'jian';
+     font-family: 'J-YUAN';
     //  width: 65px;
+   
      list-style-type:disc;
      display: inline-block;
      text-align: center;
@@ -201,7 +230,7 @@ export default {
     //border:3px solid blue;
   }
   .gym{
-    margin:auto 6%;
+    margin:auto 1% auto 6%;
     
   }
  
@@ -298,7 +327,7 @@ export default {
         float:right;
       }    
   .gym{
-    margin-right:2%;
+    margin-right:1%;
   }
   .gym li{
     margin-top: 11px;
