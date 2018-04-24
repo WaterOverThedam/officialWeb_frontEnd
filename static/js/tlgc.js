@@ -6,6 +6,9 @@ $(document).ready(function () {
 
    function show_scroll(){
        var point = window.scrollY||pageYOffset;
+       if(!$('#logo')){
+          return false;
+       }
        var offset = $("#logo").offset().top+$("#logo").width()||220
        if(point>offset){
          $(".navbar .logo").show();

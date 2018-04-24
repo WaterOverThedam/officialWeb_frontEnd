@@ -47,7 +47,7 @@ export default {
       width: auto;
    }
    .menu  .text-shade a{
-       text-shadow: 3px 3px 2px rgba(0,0,0,0.8)
+       text-shadow: 3px 3px 12px rgba(0,0,0,0.8)
    }
    .menu .item{
       margin-left:20px;

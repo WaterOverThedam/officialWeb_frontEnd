@@ -216,7 +216,7 @@
         margin:0;
         padding:0;
         width:100%;
-        padding-top:45%;
+        padding-top:42%;
         padding-bottom:8em;
     }
  

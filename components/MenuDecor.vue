@@ -100,7 +100,7 @@ export default {
 }
 .title p {
     margin: 0;
-     text-shadow: 3px 3px 2px rgba(0,0,0,0.8)
+     text-shadow: 3px 3px 12px rgba(0,0,0,0.8)
 }
 
 /* 显示 */

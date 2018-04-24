@@ -5,8 +5,9 @@
         <main>
             <!-- 版心图 -->
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
-                <img :src="cloud" alt="">
+                <!-- <img :src="cloud" alt=""> -->
             </div>
+            <Waves></Waves>
             <!-- 表单样式 -->
             <div class="formbg" :style="{'background-image':`url(${formbg})`}">
                     <div class="form">
@@ -122,6 +123,7 @@
 <script>
     import intro from './intro'
     import MyNav from '~/components/MyNav.vue'
+    import Waves from '~/components/Waves.vue'
     import Common from '~/components/Common.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
@@ -265,7 +267,8 @@
             Common,
             MyMedia,
             MyFooter,
-            GoTop
+            GoTop,
+            Waves
         },       
         mounted(){
             this.getIntroProv();
@@ -292,7 +295,7 @@
         margin:0;
         padding:0;
         width:100%;
-        padding-top:50%;
+        padding-top:48%;
         position: relative;
 
         img{

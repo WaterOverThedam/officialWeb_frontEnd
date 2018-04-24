@@ -11,6 +11,25 @@
 .el-date-editor .el-input__icon{
     line-height: 32px;
 }
+/* 地图模块搜索框 */
+#maps .el-input--suffix .el-input__inner{
+    background-image: url(/img/components/el-search-citybg.png);
+
+    background-size:100% 100%;
+    -ms-background-size:100% 100%;
+    -moz-background-size:100% 100%;
+    --background-size:100% 100%;
+ 
+}
+#maps .el-input__inner::-webkit-input-placeholder{
+    color:#63BEBF;
+}
+#maps .el-input__inner::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    color:#63BEBF;
+}
+#maps .el-input__inner:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+    color:#63BEBF;
+}
 /* 顶部语言选择 */
 .el-dropdown{
     font-size: 16px;

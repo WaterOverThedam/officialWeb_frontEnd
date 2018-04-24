@@ -10,12 +10,12 @@
       <div :class="{'hidden-xs':true,'sticky':true,'fixed':isfixed}" class="container">
         
             <div class="container  move">
-              <img id="move" :src="imgs.move" alt="" v-show="isMoveShow">
+              <img id="move" :src="imgs.move" alt="" v-show="isMoveShow" alt="移动按钮" title="点击移动" draggable="false">
             </div>
             <div class="height" v-show="isSmallShow"></div>
             <div class="container age" title="选择您的孩子所在年龄段">
-              <img class="smallmove" v-show="isSmallShow" :src="imgs.move" alt="">
-              <img class="during" :src="imgs.ageduring" alt="">
+              <img class="smallmove" v-show="isSmallShow" :src="imgs.move" alt="移动按钮" title="点击移动" draggable="false">
+              <img class="during" :src="imgs.ageduring" alt="年龄轴" title="选择孩子所在年龄段" draggable="false">
             </div>
         
       </div>
@@ -70,7 +70,10 @@
               <div class="img" :style="{'background-image':`url(${imgs.course1.course_1_0})`}"></div>
               <!-- <img :src="imgs.course1.course_1_0" alt=""> -->
               <span class="play">
-              <img :src="imgs.play" alt="">
+                <img :src="imgs.play" alt="播放按钮" title="点击播放">
+              </span>
+              <span class="play playhover">
+                <img :src="imgs.playhover" alt="播放按钮" title="点击播放" draggable="false">
               </span>
               <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/parenting.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
             </div>
@@ -84,13 +87,13 @@
              <li v-for="(item,index) in imgs.course1.course_1">
                <div  class="bg" :class="index%2==0?'l0':'r0'" :style="{'background-image':`url(${item.pic})`}"></div>
                <!-- 蒙层 -->
-               <div  class="bgc" :class="index%2==0?'l0':'r0'">
+               <!-- <div  class="bgc" :class="index%2==0?'l0':'r0'">
                   <div class="CourseName" >
                       <p class="name" v-text="item.names[0]"></p>
                       <p class="name" v-text="item.names[1]"></p>
                       <p class="age" v-text="item.age"></p>
                   </div>
-               </div>
+               </div> -->
                <div class="words" :class="index%2==1?'left':'right'">
                   <div class="CourseName" >
                       <img :src="imgs.course1.show" :class="index==2?'show':'hidden'" alt="">
@@ -134,7 +137,10 @@
                 <div class="img" :style="{'background-image':`url(${imgs.course2.course_2_0})`}"></div>
                 <!-- <img :src="imgs.course1.course_1_0" alt=""> -->
                 <span class="play">
-                  <img :src="imgs.play" alt="">
+                  <img :src="imgs.play" alt="播放按钮" title="点击播放">
+                </span>
+                <span class="play playhover">
+                  <img :src="imgs.playhover" alt="播放按钮" title="点击播放" draggable="false">
                 </span>
                 <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/preschool.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
               </div>
@@ -170,13 +176,13 @@
               <ul>
                 <li v-for="(item,index) in imgs.course2.course_2"  >
                  <div  class="bg" :class="index%2==0?'r0':'l0'" :style="{'background-image':`url(${item.pic})`}"></div>
-                 <div class="bgc" :class="index%2==0?'r0':'l0'" >
+                 <!-- <div class="bgc" :class="index%2==0?'r0':'l0'" >
                    <div class="CourseName" >
                         <p class="name" v-text="item.names[0]"></p>
                         <p class="name" v-text="item.names[1]"></p>
                         <p class="age" v-text="item.age"></p>
                     </div>
-                 </div>
+                 </div> -->
                  <div class="words" :class="index%2==1?'right':'left'">
                     <div class="CourseName" >
                         <p class="name" v-text="item.names[0]"></p>
@@ -240,7 +246,10 @@
                 <div class="img" :style="{'background-image':`url(${imgs.course3.course_3_0})`}"></div>
                 <!-- <img :src="imgs.course1.course_1_0" alt=""> -->
                 <span class="play">
-                  <img :src="imgs.play" alt="">
+                  <img :src="imgs.play" alt="播放按钮" title="点击播放">
+                </span>
+                <span class="play playhover">
+                  <img :src="imgs.playhover" alt="播放按钮" title="点击播放" draggable="false">
                 </span>
                 <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/schoolage.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
               </div>
@@ -250,12 +259,13 @@
               <ul>
                 <li v-for="(item,index) in imgs.course3.course_3" >
                   <div  class="bg" :class="index%2==0?'l0':'r0'" :style="{'background-image':`url(${item.pic})`,}"></div>
-                  <div class="bgc" :class="index%2==0?'l0':'r0'">
+                  <!-- 遮罩层 -->
+                  <!-- <div class="bgc" :class="index%2==0?'l0':'r0'">
                     <div class="CourseName" >
                         <p class="name" v-text="item.names"></p>
                         <p class="age" v-text="item.age"></p>
                     </div>
-                 </div>
+                 </div> -->
                 <div class="words" :class="index%2==1?'left':'right'">
                       <div class="CourseName" >
                         <p class="name" v-text="item.names"></p>
@@ -386,7 +396,7 @@ export default {
    padding:0;
    width:100%;
    margin-top:2%;
-   padding-top:38%;
+   padding-top:40%;
   padding-bottom:8em;
    /* height: 100%; */
 }
@@ -423,18 +433,19 @@ export default {
   margin-left: 5%;
 }
 .sticky .height{
-  height:75px;
+  height:72px;
 }
 .sticky .age {
     cursor: pointer;
   position: relative;
+  padding-bottom: 2px;
   z-index:9999;
 }
 .sticky .age .smallmove{
   position: absolute;
-  top: -45%;
+  top: -60%;
   left:5%;
-  transform: scale(0.4)
+  transform: scale(0.6)
 }
 .sticky .age .during{
   width: 100%;
@@ -558,11 +569,21 @@ export default {
   transform: translate(-50%);
   object-fit: cover;
   cursor: pointer;
- 
+
 }
+
 .middle .play img{
-  transform: scale(1.5)
+  transform: scale(1.5);
+   /* opacity: 0; */
 }
+.middle .playhover img{
+  opacity: 0;
+  /* transform: scale(1); */
+}
+.middle .playhover img:hover{
+    opacity: 1;
+}
+
 /* 视频样式 */
 .middle video {
   position: absolute;
@@ -613,33 +634,28 @@ export default {
 }
 
 /* --------------------------------------------------蒙层------------------------------------------------------ */
-.bottom li .bgc{
+/* .bottom li .bgc{
   width:58%;
   height:100%;
   position: absolute;
-  /* background-color: #000000; */
-  /* opacity: 0; */
   transition: background-color 0.3s linear 0s,color 0.3s linear 0s;
-  -moz-transition: background-color 0.3s linear 0s,color 0.3s linear 0s;	/* Firefox 4 */
-  -webkit-transition: background-color 0.3s linear 0s,color 0.3s linear 0s;	/* Safari 和 Chrome */
-  -o-transition: background-color 0.3s linear 0s,color 0.3s linear 0s;	/* Opera */
-
+  -moz-transition: background-color 0.3s linear 0s,color 0.3s linear 0s;	
+  -webkit-transition: background-color 0.3s linear 0s,color 0.3s linear 0s;
+  -o-transition: background-color 0.3s linear 0s,color 0.3s linear 0s;	 
 
 }
-.bottom li .bgc .CourseName {
-  /* top:40%; */
+ .bottom li .bgc .CourseName {
 }
 .bottom li .bgc .CourseName p{
   color: transparent;
 }
 .bottom li .bgc:hover{
-  /* opacity: 0.6; */
   background-color: rgba(0, 0, 0, 0.7);
   
 }
 .bottom li .bgc:hover .CourseName p{
   color:#fff;
-}
+} */
 /* ---------------------------------------------------蒙层结束--------------------------------------------- */
 
 .bottom li .CourseName {
@@ -856,7 +872,7 @@ export default {
     width: 80%;
   }
   .sticky .age .smallmove{
-    top: -48%;
+
   }
   .middle p{
     font-size: 3.5em;
@@ -871,7 +887,7 @@ export default {
     font-size:15px;
   }
   .parent{
-    padding-bottom:45%;
+    padding-bottom:50%;
     /* //border:3px solid red; */
   }
   #banner p{

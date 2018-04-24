@@ -301,24 +301,27 @@ import CitySelect from '~/components/CitySelect.vue'
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-        width: 80%;
-        padding-bottom: 70%;
+        width: 52%;
+        padding-bottom: 45.5%;
         margin: auto ;
         position: relative;
        
     }
     .add01{
         color:#fff;
-        font-size: 20px;
+        font-size: 18px;
+        /* border:1px solid blue; */
     }
     .add01_con a,.add01_con span{
-        font-size: 18px;
+        font-size: 16px;
     }
     .add01_con a:hover{
         color:orange;
     }
 
-
+    .shade{
+        /* border: 1px solid red; */
+    }
 
     /* 新疆 */
     .add_xinjiang { left:20%; top:34%}
@@ -450,6 +453,17 @@ import CitySelect from '~/components/CitySelect.vue'
             padding-top: 2%;
 
         }
+        .map_con{
+            width:65%;
+            padding-bottom: 57.5%;
+        }
+}
+@media screen and (max-width:768px){
+        .map_con{
+            width:70%;
+            padding-bottom: 61.5%;
+        }
+
 }
 @media screen and (max-width:767px){
     .add01{

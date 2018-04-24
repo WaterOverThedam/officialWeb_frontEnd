@@ -215,7 +215,9 @@ div.word {
   font-family: "J-YUAN";
 }
 /* 我们的历史 */
-
+.his_banner{
+  margin-top: 2%;
+}
 .his_banner img {
   width: 100%;
 }
@@ -469,8 +471,8 @@ a:hover{
     clear: both;
     display: block;
     margin: 0;
-    padding-top: 3%; 
-    padding-bottom: 2%; 
+    padding-top: 1%; 
+    padding-bottom: 5px; 
     overflow: visible;
     width: 100%;
     font-weight: 500;
@@ -487,7 +489,6 @@ a:hover{
     padding:0;
     margin:0;
     margin-right:4%;
-    margin-bottom:1%;
     color: #5160AC;
     font-size: 28px;
     display: inline-block;
@@ -495,10 +496,10 @@ a:hover{
     text-decoration: none;
     /* //border:1px solid red; */
  }
-
- @font-face { 
-font-family: 'GD-HEI'; 
-src: url('/font/bak/hei.ttf') format('truetype'); 
-} 
+ @media (max-width:768px){
+    .secondary-navigation-menu li{
+      font-size: 22px;
+    }
+ }
 </style>
 

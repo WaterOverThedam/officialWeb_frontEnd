@@ -25,7 +25,7 @@ $(function(){
   $('video').bind('contextmenu',function() { return false; });
 
   //videoPlay
-  $('.play').on('click',function(){
+  $('.playhover').on('click',function(){
     //   $('.parent').each(function(){
     //    $(this).find('video')[0].pause();
     //    $(this).find('video')[0].currentTime=0;
@@ -38,7 +38,7 @@ $(function(){
 // 让每个视频都暂停回到开始状态
 
 $('video').each(function(i,e){
-    console.log(e)
+    // console.log(e)
     e.pause();
     // e.currentTime = 0; IE存在问题
     exitFullscreen();

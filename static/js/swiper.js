@@ -4,12 +4,14 @@ swiper();
 
 window.onresize = function(){
     swiper();
+    // console.log(111)
 }
 function swiper(){
     var userAgentInfo = navigator.userAgent;
-    console.log(userAgentInfo);
+    // console.log(userAgentInfo);
       // 声明父盒子
       var dom = $('.news');
+     
      //找到存放滑动内容的父类
       var box = dom.find('.gym-news');
       var lis = $('.uls li');
@@ -44,6 +46,9 @@ function swiper(){
             move()
 
         })
+        if(!box[0]){
+            return false;
+        }
       box[0].addEventListener("touchstart", function (e) {
         if(e.targetTouches.length>1){
             return

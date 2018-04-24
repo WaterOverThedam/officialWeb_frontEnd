@@ -3,10 +3,10 @@
 		<MyNav></MyNav>
         <main>
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
-                  <img class="left"   :src="cloud" alt="">
-                  <img class="right" :src="cloud" alt="">
+                  <!-- <img class="left"   :src="cloud" alt="">
+                  <img class="right" :src="cloud" alt=""> -->
             </div>
-            <!-- <Waves></Waves> -->
+            <Waves></Waves>
             <!-- 导航栏 -->
             <div :class="{'sticky':true,'fixed':isfixed}">
                <ul>
@@ -86,6 +86,7 @@
 <script>
     import news from './news'
     import MyNav from '~/components/MyNav.vue'
+    import Waves from '~/components/Waves.vue'
     import Common from '~/components/Common.vue'
     import MyMedia from '~/components/MyMedia.vue'
     import MyFooter from '~/components/MyFooter.vue'
@@ -136,7 +137,8 @@
             Common,
             MyMedia,
             MyFooter,
-            GoTop
+            GoTop,
+            Waves
         },
         methods: {
             // 过滤字符串
@@ -226,7 +228,7 @@
         padding:0;
         width:100%;
         margin-top:3%;
-        padding-top:35%;
+        padding-top:32%;
         padding-bottom:15em;  
         position: relative;
          img{

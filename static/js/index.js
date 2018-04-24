@@ -7,7 +7,7 @@ window.onload=function(){
       reIE.test(userAgent);
       var fIEVersion = Number(parseFloat(RegExp["$1"]));
       if(fIEVersion<=8){
-        // warn.style.display="block";
+        warn.style.display="block";
       }
       // console.log(111)
     };

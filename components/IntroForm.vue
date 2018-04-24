@@ -30,10 +30,17 @@
                 </button>
           </form>  
     </div> -->
-    <div class="bespeak hidden-xs" v-show="isShow">
-        <nuxt-link to="/intro"><img :src="bg" alt="" title="预约体验"></nuxt-link> 
-        <span class="closes" @click="closes"><img :src="close" alt="关闭" title="关闭"></span>
-    </div>
+    <section>
+        <div class="bespeak hidden-xs" v-show="isShow">
+            <img :src="bg" alt="" title="预约体验">
+            <span class="closes"><img :src="close" alt="关闭" title="关闭"></span>
+        </div>
+        <div class="bespeak hidden-xs hover-show" v-show="isShow">
+            <nuxt-link to="/intro"><img :src="bghover" alt="" title="预约体验"></nuxt-link> 
+            <span class="closes" @click="closes"><img :src="close" alt="关闭" title="关闭"></span>
+        </div>
+    </section>
+    
 </template>
 <script>
     export default {
@@ -41,6 +48,7 @@
             return{
                 isShow:true,
                 bg:"/img/components/bespeak.png",
+                bghover:"/img/components/bespeak_hover.png",
                 // bg:"/img/index/prompt-alert-bg2.png",
                 // btn:"/img/index/btn.png",
                 close:"/img/news/close.png",
@@ -68,6 +76,12 @@
     right: 0;
     cursor: pointer;
     z-index: 99999;
+}
+.hover-show{
+     opacity: 0;
+}
+.bespeak:hover{
+    opacity: 1;
 }
 .closes{
     position: absolute;

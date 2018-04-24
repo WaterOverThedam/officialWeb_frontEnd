@@ -15,7 +15,7 @@ html { overflow-x:hidden; -webkit-text-size-adjust:none; }
 
 .map_con dl{ z-index:9;}
 /* .add01{ color:red;position:absolute;width:3%; height:3%; cursor:pointer;} */
-.add01{position:absolute; cursor:pointer;padding: 0.3%;display: none}
+.add01{position:absolute; cursor:pointer;padding: 0.3%;display:none}
 .shade{position:absolute; cursor:pointer;padding: 1.5%;}
 
 .add01_con{ width:176px; background:url(../img/search/say.png) 0 0 no-repeat; padding-top:6px; position:absolute;}

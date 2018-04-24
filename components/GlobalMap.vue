@@ -4,13 +4,16 @@
         <img :src="global.bg" alt="">
         
       </div>
-        <span class="prev" v-show="!leftShow" @click="prve">
-          <img :src="global.prve" alt="">
-        </span>
-        <span class="next" @click="next" v-show="!rightShow">
-          <img :src="global.next" alt="">
-        </span>
+      <span class="prev" v-show="!leftShow" @click="prve">
+        <img :src="global.prve" alt="">
+      </span>
+      <span class="next" @click="next" v-show="!rightShow">
+        <img :src="global.next" alt="">
+      </span>
+      <div class="red">
+        
       </div>
+  </div>
 
 </template>
 <script>
@@ -83,9 +86,14 @@
   .world .next{
     left:auto;
     right:5%;
-
-
   }
+  .red{
+    border: 2px solid red;
+    width: 10%;
+    height: 10%;
+    position: absolute;
+    top:20%;
+  } 
 @media (max-width:767px) {
   .world .next,.world .prev{
     width:8%;

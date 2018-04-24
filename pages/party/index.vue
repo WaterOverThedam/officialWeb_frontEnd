@@ -3,10 +3,10 @@
 		<MyNav></MyNav>
         <main>
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
-                  <img class="left"   :src="cloud" alt="">
-                  <img class="right" :src="cloud" alt="">
+                  <!-- <img class="left"   :src="cloud" alt="">
+                  <img class="right" :src="cloud" alt=""> -->
             </div>
-            <!-- <Waves></Waves> -->
+            <Waves></Waves>
             <!-- 导航栏 -->
             <div :class="{'hidden-xs':true,'sticky':true,'fixed':isfixed}">
                <ul>
@@ -26,8 +26,11 @@
                     <div class="col-sm-7 videobg">
                         <div class="img" :style="{'background-image':`url(${party})`}"></div>
                         <!-- <img :src="imgs.course1.course_1_0" alt=""> -->
-                         <span class="play">
-                            <img :src="play" alt="">
+                        <span class="play">
+                            <img :src="play" alt="播放按钮" title="点击播放">
+                        </span>
+                        <span class="play playhover">
+                            <img :src="playhover" alt="播放按钮" title="点击播放" draggable="false">
                         </span>
                         <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/birthday.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
                         
@@ -47,8 +50,11 @@
                     <div class="col-sm-7 videobg">
                         <div class="img" :style="{'background-image':`url(${camp})`}"></div>
                         <!-- <img :src="imgs.course1.course_1_0" alt=""> -->
-                         <span class="play">
-                            <img :src="play" alt="">
+                        <span class="play">
+                            <img :src="play" alt="播放按钮" title="点击播放">
+                        </span>
+                        <span class="play playhover">
+                            <img :src="playhover" alt="播放按钮" title="点击播放" draggable="false">
                         </span>
                         <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/camp.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
                         
@@ -149,7 +155,8 @@
     }
     ul,li{
         padding: 0;
-        margin: 0;
+        // margin: 0;
+         margin: 0 0 -1%;
         list-style: none;
     }
     #banner{
@@ -157,7 +164,7 @@
         padding:0;
         width:100%;
         margin-top:2%;
-        padding-top:40%;
+        padding-top:34%;
         padding-bottom:15em;  
         position: relative;
          img{
@@ -177,14 +184,15 @@
     }  
     .sticky {  
         width: 100%;
-        padding-top: 2em;
+        padding-top: 1em;
         li{
             text-align: center;
             width: 50%;
             display: inline-block;
            
+           
             a{
-                font-size: 2.6em;
+                font-size: 2.4em;
                 margin: 0;
                 color: #5662A3;
                 cursor: pointer;
@@ -193,6 +201,7 @@
             }
             img{
                 transform: scaleX(1.5);
+                margin-top: -6%;
                 // visibility: hidden;
                 // display: none;
             }
@@ -268,6 +277,12 @@
                     cursor: pointer;
                     img{
                         transform: scale(1.5);
+                    }
+                }
+                .playhover{
+                    opacity: 0;
+                    &:hover{
+                        opacity: 1;
                     }
                 }
             }
@@ -355,6 +370,9 @@
 }
 @media screen and (max-width: 767px){
     .party{
+        #banner{
+           padding-top: 30%;
+        }
         .container{
             .contents {
                 // 文字内容

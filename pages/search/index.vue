@@ -122,7 +122,7 @@ export default {
  
 
 .menu{
-    margin-bottom:12%;
+    margin-bottom:10%;
     margin-left:13%;
 }
 .menu img{
