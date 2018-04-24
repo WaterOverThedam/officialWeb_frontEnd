@@ -140,45 +140,47 @@
              saveResult(res){
               var msg=""
               if(res.code==0){
-                 msg = {content:"提交成功",title:'提示',type:"success"}
+                 msg = {content:"申请提交成功",title:'提示',type:"success"}
               }else{
                  msg= {content:res.msg,title:'错误',type:"error"}
               }
               this.$alert(msg.content, msg.title, {
                     confirmButtonText: '确定',
                     type: msg.type,
+                    callback:()=>{
+                        this.isDisabled = res.code?false:true;
+                    }
                     //roundButton:true
               })
            },
             // 提交表单信息
 
             saveJoin(){
-                this.isDisabled = true;
+                //this.isDisabled = true;
                 // 判断
                 if(this.Join.UserName==''||this.Join.UserPhone==''||this.Join.UserEmail==''||this.Join.City==''){
-                var msg = "";
-                if(this.Join.UserName==''){
-                    msg= {content:"请填写您的姓名",title:'提示',type:"warning"}
-                }
-                if(this.Join.UserPhone==''){
-                    msg= {content:"请填写您的手机号",title:'提示',type:"warning"}
-                }
-                if(this.Join.UserEmail==''){
-                    msg= {content:"请填写您的邮箱地址",title:'提示',type:"warning"}
-                }
-                if(this.Join.City==''){
-                    msg= {content:"请填写您想要加盟的城市",title:'提示',type:"warning"}
-                }
-                this.$alert(msg.content, msg.title, {
-                    confirmButtonText: '确定',
-                    type: msg.type,
-                    callback:()=>{
-                        this.isDisabled = false;
+                    var msg = "";
+                    if(this.Join.UserName==''){
+                        msg= {content:"请填写您的姓名",title:'提示',type:"warning"}
                     }
-                })
+                    if(this.Join.UserPhone==''){
+                        msg= {content:"请填写您的手机号",title:'提示',type:"warning"}
+                    }
+                    if(this.Join.UserEmail==''){
+                        msg= {content:"请填写您的邮箱地址",title:'提示',type:"warning"}
+                    }
+                    if(this.Join.City==''){
+                        msg= {content:"请填写您想要加盟的城市",title:'提示',type:"warning"}
+                    }
+                    this.$alert(msg.content, msg.title, {
+                        confirmButtonText: '确定',
+                        type: msg.type,
+                        callback:()=>{
+                            this.isDisabled = false;
+                        }
+                    })
                 }else{
-                  
-                    // this.$getDataAsync(this.baseUrl+"/api/saveJoin/",this.Join,this.saveResult);
+                    this.$getDataAsync(this.baseUrl+"/api/saveAppli/",this.Join,this.saveResult);
                 }
 
 
