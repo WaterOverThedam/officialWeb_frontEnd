@@ -10,12 +10,12 @@
       <div :class="{'hidden-xs':true,'sticky':true,'fixed':isfixed}" class="container">
         
             <div class="container  move">
-              <img id="move" :src="imgs.move" alt="" v-show="isMoveShow" alt="移动按钮" title="点击移动" draggable="false">
+              <img id="move" :src="imgs.move" v-show="isMoveShow" alt="移动按钮" title="点击移动" draggable="false">
             </div>
             <div class="height" v-show="isSmallShow"></div>
             <div class="container age" title="选择您的孩子所在年龄段">
               <img class="smallmove" v-show="isSmallShow" :src="imgs.move" alt="移动按钮" title="点击移动" draggable="false">
-              <img class="during" :src="imgs.ageduring" alt="年龄轴" title="选择孩子所在年龄段" draggable="false">
+              <img class="during" :src="imgs.ageduring" alt="年龄轴"  draggable="false">
             </div>
         
       </div>
@@ -95,6 +95,8 @@
                   </div>
                </div> -->
                <div class="words" :class="index%2==1?'left':'right'">
+
+                  <!-- <span class="sprite"></span> -->
                   <div class="CourseName" >
                       <img :src="imgs.course1.show" :class="index==2?'show':'hidden'" alt="">
                       <p class="name" v-text="item.names[0]"></p>
@@ -623,6 +625,12 @@ export default {
   overflow: auto;
 
 }
+.bottom li .words .sprite{
+  width: 86%;
+  height: 28%;
+  display: inline-block;
+  background:url(/img/index/sprite-accents-white.png) no-repeat 0% 75%;
+}
 .bottom li .bg{
   width:58%;
   height:100%;
@@ -696,6 +704,7 @@ export default {
   overflow: hidden;
   white-space: nowrap;
   text-overflow:ellipsis;
+  
   /* display:-webkit-box;
   -webkit-box-orient:vertical;
   -webkit-line-clamp:2; 
@@ -919,7 +928,10 @@ export default {
     font-size: 2.4em;
     top:35%;
   }
- 
+ .bottom li .CourseName .name,.bottom li .CourseName .age{
+    color:#fff;
+    text-shadow: 3px 3px 12px rgba(0,0,0,0.8);
+ }
   .right {
     left:50%;
   

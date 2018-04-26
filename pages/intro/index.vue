@@ -552,6 +552,9 @@
 .bespeak .formbg .form li .tip{
     font-size: 12px;
 }
+.bespeak #banner {
+    padding-top: 62%;
+}
     .bespeak{
         font-size: 6px;
         .formbg{

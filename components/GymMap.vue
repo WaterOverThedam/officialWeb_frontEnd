@@ -1,6 +1,6 @@
 <template>
 <div  class="wrap" style="margin-top: 50px;" oncontextmenu="self.event.returnvalue=false">
-    <div class="container-fluid">
+    <div class="container-fluid ">
 
         <!-- 修改 -->
 
@@ -36,16 +36,18 @@
              </div>
              <div class="col-md-4 col-sm-4 item">
                   <CitySelect></CitySelect>
+                
              </div>
         </div>
-        <div class="row addr ">
+        <div class="row addr" v-show="isShow">
           <div class="col-md-12 col-sm-12 center" >
-              <div class="row">
+              <div class="row " v-show="isShow">
                     <div v-for="(gym,index) in filterGyms" v-show="index<24"class="col-lg-3 col-md-3 col-sm-4 col-xs-12 result text-left gymitem">
                         <span class="marker" @click="showGym(gym)"  v-text="String.fromCharCode(65 + parseInt(index))"></span>
                         <div class="summery">
                             <dl>
-                                <dt @click="showGym(gym)" class="gymName" v-text="gym.name"  :title="'地址：'+gym.addr"> 
+                                <dt @click="showGym(gym),go()" class="gymName" v-text="gym.name"  :title="'地址：'+gym.addr" > 
+                            
                                 </dt>
                             </dl>
                         </div>
@@ -54,11 +56,8 @@
           </div>
         </div>
         <!-- <div @click="test()" class="row searches"> -->
-        <div  class="row searches">
-            <div class="col-md-7 col-sm-8  mapItem">
-                <iframe id="map" class="map" :src="position" frameborder="0" ></iframe>
-                <div class="block"></div>
-            </div>
+        <div  class="row searches " v-show="isShow">
+            
             <div id="addrItem" class="col-md-5 col-sm-4  text-left addrItem">
                 <address>
                     <h1 class="text-center" v-text="gym.name"></h1>
@@ -71,8 +70,14 @@
                       </dl>
                     </div>
                 </address>
+            </div>
+            <div class="col-md-7 col-sm-8  mapItem ">
+                <iframe id="map" class="map" :src="position" frameborder="0" ></iframe>
+                <div class="block"></div>
             </div>   
         </div> 
+        <div class="occupy visible-xs-blcok" v-show="!isShow">
+         </div>
     </div>
 </div>
 
@@ -100,7 +105,8 @@ import CitySelect from '~/components/CitySelect.vue'
    data() {
      return {
        citySelected:"",
-       gymChoose:""
+       gymChoose:"",
+       isShow:false,
      }
    },
    computed: {
@@ -117,8 +123,32 @@ import CitySelect from '~/components/CitySelect.vue'
           var gymfilter = this.Gyms.filter(g =>{
               return g.city==c;
           })
-          return gymfilter;
+          var arr=[];
+          var arr2=[];
+          gymfilter.map(c=>{
+              if(c.dtOpen>0){
+                arr.push(c.dtOpen)
+              }else{
+                  arr2.push(c.dtOpen)
+              }    
+          })
+          var centers=[];
+          arr = arr.sort(function(a,b){
+              return a-b;
+          }).concat(arr2);
+          arr.map(d=>{
+              gymfilter.map(g=>{
+                  if(g.dtOpen==d){
+                      
+                      centers.push(g)
+                  }
+              })
+          })
+          return centers;
+        //   return gymfilter;
+        
      },
+
     //  一个中心得内容
      gym(){
           return this.gymChoose || 
@@ -139,7 +169,25 @@ import CitySelect from '~/components/CitySelect.vue'
         return this.$conf.evnData[this.$conf.env_cur].baseUrl;
      }
    },
+   watch:{
+       city:function(){
+                this.isShow=true;
+       }
+   },
    methods: {
+    ifShowCenter(){
+        if(this.city!=''){
+             this.isShow=true;
+        }
+       
+    },
+    go(){
+        location.href="#addrItem"
+    },
+ 
+    // log(){
+    //     console.log(this.filterGyms);
+    // },
      ...mapMutations([
         "switchCity"
      ]),
@@ -159,13 +207,15 @@ import CitySelect from '~/components/CitySelect.vue'
         if(!this.Gyms||this.Gyms.length==0){
             this.$getData(this.baseUrl+"/api/getGymByCity/-1",'Gyms');
         }
-
+        
         $('.shade').hover(function () {
             for(var i = 0,len=$('.add01').length;i<len;i++){
                 $('.shade').eq(i).next('.add01').hide().next('.add01_con').hide()
             }
             $(this).next('.add01').show().next('.add01_con').show();
         })
+        // console.log(this.city+'1111')
+        this.ifShowCenter();
    },
  }
 </script>
@@ -294,7 +344,9 @@ import CitySelect from '~/components/CitySelect.vue'
       width: 100%;
       height: 450px;
     }
- 
+    .occupy{
+        height: 100px;
+    }
     .map_con{ 
         background:url(/img/search/map-china.png) 0 0 no-repeat; 
         -webkit-background-size: cover;
@@ -470,8 +522,12 @@ import CitySelect from '~/components/CitySelect.vue'
         font-size: 9px;
     }
     .addrItem {
-        height: 350px;
+        height: auto;
+        padding: 0 0 10px;
 
+    }
+    .mapItem{
+        padding: 0;
     }
 }
 

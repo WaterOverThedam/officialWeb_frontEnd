@@ -19,6 +19,8 @@
     -ms-background-size:100% 100%;
     -moz-background-size:100% 100%;
     --background-size:100% 100%;
+    /* outline: none; */
+    border: none;
  
 }
 #maps .el-input__inner::-webkit-input-placeholder{

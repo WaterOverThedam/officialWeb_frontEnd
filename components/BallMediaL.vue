@@ -181,7 +181,9 @@ img  {
       padding:168px 150px;
       margin-left: 3%;
     }
-  
+    .balltext {
+      padding-top:24%;
+    }
     .balltext h2 {
       padding: 0;
     }

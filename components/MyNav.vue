@@ -23,8 +23,9 @@
                          </li>
                        <li class="dot"></li>
                        <!-- <li id="own"><nuxt-link :to="'/service/detail'" class="link" href="#">加盟中心</nuxt-link></li> -->
-                       <li id="own"><nuxt-link to="/join" class="link">加盟中心</nuxt-link></li>
-                       <li>
+                       <li id="own"><nuxt-link to="/join" class="link">加盟</nuxt-link></li>
+                       <!-- 中英文切换 -->
+                       <!-- <li>
                           <el-dropdown @command="handleCommand" trigger="click">
                             <span>
                                {{tip[Language]}}<i class="el-icon-arrow-down el-icon--right"></i>
@@ -34,7 +35,7 @@
                               <el-dropdown-item command="1">English</el-dropdown-item>
                             </el-dropdown-menu>
                           </el-dropdown>
-                       </li>
+                       </li> -->
                     </ul>
               </div>
             </div>

@@ -186,10 +186,7 @@ a {
         padding: 175px 150px;
     }
     .balltext{
-      /* position: absolute;
-      width: 100%;
-      right:40%;
-      top:26px; */
+      padding-top: 22%;
 
     }
     .balltext h2 {

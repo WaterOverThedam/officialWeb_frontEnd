@@ -9,7 +9,7 @@ const createStore = () => {
         ...provs,
         LanguageType:1,
         bg:[{color:'#33CCCC',pic:'/img/index/bottom2.jpg'},{color:'#5160AC',pic:'/img/index/bottom.png'}],
-        city:"上海市",
+        city:"",
         Gyms:[],
         News:[],
         menu: {

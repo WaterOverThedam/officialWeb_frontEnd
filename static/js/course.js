@@ -83,22 +83,27 @@ $('.during').click(function(e){
     // console.log(x);
 
     // 规定图片移动区域并移动
-    if(x<=95&x>=0){
+    if(x<=96&&x>=-2){
 
         $('#move').animate({marginLeft:x+'%'});
-        var x2 = x
-        if(x2>40){x2-=1};
-        if(x2>80){x2-=2.6};
-        $('.smallmove').animate({left:x2+'%'});
+        var x2=x+2;
+        if(x>=23){
+            x2=x+1;
+        }
+        if(x>=64){
+            x2=x;
+        }
+        // console.log(x2)
+        $('.smallmove').stop().animate({left:x2+'%'});
     }
    
 //     // 判断导航
     if(x<=24){
-        $('html').animate({'scrollTop':course1}); 
+        $('html,body').stop().animate({'scrollTop':course1}); 
     }else if(x<=48){
-        $('html').animate({'scrollTop':course2});
+        $('html,body').stop().animate({'scrollTop':course2});
     }else{
-        $('html').animate({'scrollTop':course3});
+        $('html,body').stop().animate({'scrollTop':course3});
     }
       
 })

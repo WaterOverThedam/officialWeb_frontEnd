@@ -1,6 +1,6 @@
 <template>
     <div class="outer" >
-        <div class="title hidden-xs" v-for="(item,index) in bottom.title" :key="index" :class="{'myFadein':index===counterNow}" >
+        <div class="title" v-for="(item,index) in bottom.title" :key="index" :class="{'myFadein':index===counterNow}" >
             <p v-text="item.p1"></p>
             <p v-text="item.p2"></p>
         </div>
@@ -193,6 +193,7 @@ export default {
     }
     .title{
         left:14%;
+        font-size: 28px;
 
     }
 

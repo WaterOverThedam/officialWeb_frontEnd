@@ -10,9 +10,9 @@
       <span class="next" @click="next" v-show="!rightShow">
         <img :src="global.next" alt="">
       </span>
-      <div class="red">
+      <!-- <div class="red">
         
-      </div>
+      </div> -->
   </div>
 
 </template>

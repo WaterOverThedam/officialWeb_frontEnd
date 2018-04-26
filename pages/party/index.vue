@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="row contents" id="camp" >
-                     <div class="col-sm-5 words second">
+                     <div class="col-sm-5 words second hidden-xs">
                         <h3 v-text="words[1].title" class="h3_camp"></h3>
                         <img :src="camphz" alt="">
                         <p v-text="words[1].content"></p>
@@ -58,6 +58,11 @@
                         </span>
                         <video dataSrc="https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/video/officialWeb/camp.mp4"  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" ></video>
                         
+                    </div>
+                    <div class="col-sm-5 words second visible-xs-block">
+                        <h3 v-text="words[1].title" class="h3_camp"></h3>
+                        <img :src="camphz" alt="">
+                        <p v-text="words[1].content"></p>
                     </div>
                 </div>
 

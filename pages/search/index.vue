@@ -19,6 +19,8 @@
       <!-- <CourseBrief></CourseBrief> -->
     </main>
     <GoTop></GoTop>
+   
+
     <MyFooter></MyFooter>
 
  </div>
@@ -33,6 +35,7 @@ import AmericanMap from '~/components/AmericanMap.vue'
 import GlobalMap from '~/components/GlobalMap.vue'
 // import CourseBrief from '~/components/CourseBrief.vue'
 import MyFooter from '~/components/MyFooter.vue'
+
 import GoTop from '~/components/GoTop.vue'
 import { mapState } from 'vuex'
 import { mapGetters } from 'vuex'
@@ -71,7 +74,8 @@ export default {
     AmericanMap,
     GlobalMap,
     MyFooter,
-    GoTop
+    GoTop,
+
   },
   methods: {
     open(i){
@@ -118,9 +122,6 @@ export default {
    padding-left:10%;
    color:white ;
 }
-
- 
-
 .menu{
     margin-bottom:10%;
     margin-left:13%;

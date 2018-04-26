@@ -390,7 +390,7 @@
                             font-size: 2em;
                     }
                     img{
-                            transform: scale(1)
+                            transform: scale(1.5)
                     }
                 }
             }
@@ -443,7 +443,7 @@
                 }
                 // 按钮样式
                     span {
-                        bottom:68%;
+                        bottom:64%;
                         transform: scale(0.6);
                         .more{
                             position: absolute;

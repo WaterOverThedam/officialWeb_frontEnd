@@ -30,7 +30,7 @@ export default {
         },
         data () {
           return {
-            citySelected:""
+            citySelected:"",
           }
         },
         computed: {
@@ -67,6 +67,7 @@ export default {
               }
         },
         methods: {
+       
           ...mapMutations([
               "switchCity",
               "setGyms"
