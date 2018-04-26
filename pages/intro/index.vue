@@ -16,10 +16,8 @@
                         <form id="IntroForm">
                             <ul>
                                 <li>
-                                   
-                                        <span>宝宝姓名: </span>
-                                        <input  v-model="intro.BabyName" placeholder="填写宝宝姓名" type="text" name="username" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">     
-                                                               
+                                    <span>宝宝姓名: </span>
+                                    <input  v-model="intro.BabyName" placeholder="填写宝宝姓名" type="text" name="username" :style="{'background':`url(${inputbg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">                      
                                 </li>
                                 <li>
                                     <div class="block">
@@ -208,10 +206,10 @@
               }else{
                  msg= {content:res.msg,title:'错误',type:"error"}
               }
-            //  this.$message({
+            //   this.$message({
             //     message: msg.content,
             //     type: msg.type
-            //  });
+            //   });
 
               this.$alert(msg.content, msg.title, {
                     confirmButtonText: '确定',
@@ -255,9 +253,8 @@
             }else{
                 //格式化日期
                 this.intro.BabyBrithday=toDate_s(this.birthday);
-                // this.$getDataAsync(this.baseUrl+"/api/saveIntro/",this.intro,this.saveResult);
+                this.$getDataAsync(this.baseUrl+"/api/saveIntro/",this.intro,this.saveResult);
             }
-
 
            }
   
