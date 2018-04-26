@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="container-fluid main" :style="{'background':`url(${bgColor_cur.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100% 100%'}">
+    <div class="container-fluid main bgc" :style="{'background':`url(${bgColor_cur.pic})`,'background-size':'cover','-webkit-background-size':'100% 100%'}">
         <div class="logo">
           <a href=""></a>
           <a href=""></a>
@@ -192,7 +192,9 @@
         margin-top: 50px;
       }
   }  
-
+  .bgc{
+    background-color:#01CFCD
+  }
   .menu{
     margin:0 auto;
     padding-top: 3%;
