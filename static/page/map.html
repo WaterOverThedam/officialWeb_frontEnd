@@ -6,6 +6,7 @@
 	<style type="text/css">
 		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
 		#allmap{width:100%;height:450px;}
+    .anchorBL{display:none;}
 	</style>
   <script type="text/javascript"  src="../ui/jquery-3.2.1.min.js"></script>
   <script type="text/javascript"  src="../js/tlgc.js"></script>
@@ -35,9 +36,13 @@
 	//var point = new BMap.Point(116.404, 39.915);
 	map.centerAndZoom(str_gym.city, 11);
 	map.disableDoubleClickZoom(true);
-  map.enableScrollWheelZoom(); //启用滚轮放大缩小，默认禁用
+  //map.enableScrollWheelZoom(); //启用滚轮放大缩小，默认禁用
+  // 添加到地图当中 
+  //var myZoomCtrl = new ZoomControl();
+  //map.addControl(myZoomCtrl);  
+  map.addControl(new BMap.OverviewMapControl());    
+  map.addControl(new BMap.NavigationControl());
   // 编写自定义函数,创建标注
-  
 	function addMarker(point,label,isShow){
     var marker = new BMap.Marker(point);
     label.setStyle({display:"none"});
