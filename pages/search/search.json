@@ -5,23 +5,23 @@
         {"id":"gras","name":"学龄运动"},
         {"id":"km","name":"音乐课"},{"id":"pk","name":"球类运动"},
         {"id":"dance","name":"舞蹈"},{"id":"kara","name":"空手道"}],
-      "banner":"/img/search/banner.jpg",
+      "banner":"http://localhost:3000/img/search/banner.jpg",
       "btn_menu":[
-        {"link":"/img/search/china1.png","defaultPic":"/img/search/china2.png","linked":"/img/search/china2.png","id":"gym-map"},
-        {"link":"/img/search/northAmerican1.png","defaultPic":"/img/search/northAmerican1.png","linked":"/img/search/northAmerican2.png","id":"american-map"},
-        {"link":"/img/search/global1.png","defaultPic":"/img/search/global1.png","linked":"/img/search/global2.png","id":"global-map"}
+        {"link":"http://localhost:3000/img/search/china1.png","defaultPic":"http://localhost:3000/img/search/china2.png","linked":"http://localhost:3000/img/search/china2.png","id":"gym-map"},
+        {"link":"http://localhost:3000/img/search/northAmerican1.png","defaultPic":"http://localhost:3000/img/search/northAmerican1.png","linked":"http://localhost:3000/img/search/northAmerican2.png","id":"american-map"},
+        {"link":"http://localhost:3000/img/search/global1.png","defaultPic":"http://localhost:3000/img/search/global1.png","linked":"http://localhost:3000/img/search/global2.png","id":"global-map"}
       ],
       "header":{
         "title":"什么让小小运动馆如此与众不同?",
         "content":["40年来小小运动馆始终专注于儿童早期教育课程的研发，科学、独特的课程体系和教学方法，让孩子在快乐中迅速提高运动能力，孩子更加自信、更加乐于尝试新事物和接受挑战。课程历经数千万家庭和孩子的亲身体验和教学实践的验证。连续６年入选《Entrepreneur》杂志美国国际化特许经营品牌，并被权威杂志《Entrepreneur》评为儿童早期教育优选品牌。","先进的在线教案系统确保每个中心实时享有美国总部不断研发的教案。每2~4 周课程组成一个学习单元，学习某个方面的认知或情感社交―包括字母和单词、颜色、数字和算术、节奏韵律、人体部位、创意表达、分享、纪律、关爱、协作以及情绪控制等。每年两次表演周, 孩子自信地展示在运动、认知和情感社交上的进步，享受成功的快乐。","小小运动馆教授的所有体操技能及其保护方法，以及所有与体操相关的活动，均严格遵循美国体操协会（USAG）的标准，并且同步更新。原创的美式音乐让孩子在丰富而独特的原创音乐中运动、跳舞，自然而然地提高孩子的节奏感和创意表达能力，简单而幽默的英文歌词和指令培养孩子的聆听能力。"]
       },
       "global":{
-        "bg":"/img/search/world.png",
-        "next":"/img/search/next.png",
-        "prve":"/img/search/prve.png"
+        "bg":"http://localhost:3000/img/search/world.png",
+        "next":"http://localhost:3000/img/search/next.png",
+        "prve":"http://localhost:3000/img/search/prve.png"
       },
       "american":{
-        "pic":"/img/search/mapbg.png"
+        "pic":"http://localhost:3000/img/search/mapbg.png"
       }
        
       
