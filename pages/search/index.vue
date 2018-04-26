@@ -47,7 +47,7 @@ export default {
   head:{
     title:"查找中心",
     script: [
-        {src: '/js/search.js'},
+        {src: 'js/search.js'},
         
       
     ] 

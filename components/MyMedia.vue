@@ -44,15 +44,6 @@
             height:60,
             width:250
             },
-            comment:{
-            title:"家长的话",
-            content:`整个运动过程，非常欢乐，宝宝第一次体验就很放得开。全程配合老师，听指令。老师的保护措施很到位。专业的单杠，平衡木，侧手翻，翻跟头，很欢乐。`,
-            picUrl:"/img/index/marquee-franchise.png" 
-            },
-            quotes:[
-            "/img/index/left-quote.png",
-            "/img/index/right-quote.png"
-            ],
             media_Bottom:{
                 title:"找到离您最近的小小运动馆",
                 url:"/img/index/clouds-teal.png",
