@@ -35,7 +35,7 @@ module.exports = {
        '~assets/font/major.css',
        '~assets/font/hei-embed.css',
        '~assets/font/hei-embed.css',
-       '~assets/font/major-embed.css',
+       '~assets/font/major-embed.css'
       
   ],
   /*
