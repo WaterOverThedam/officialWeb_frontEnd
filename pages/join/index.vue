@@ -390,7 +390,7 @@
                             font-size: 2em;
                     }
                     img{
-                            transform: scale(1.5)
+                            transform: scale(1.8)
                     }
                 }
             }
@@ -456,10 +456,10 @@
                     }
                     //  左右两边
                     .l{
-                        left:0;
+                        left:1%;
                     }
                     .r{
-                        right:0
+                        right:1%
                     }
 
 

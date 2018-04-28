@@ -46,9 +46,10 @@
                         <span class="marker" @click="showGym(gym)"  v-text="String.fromCharCode(65 + parseInt(index))"></span>
                         <div class="summery">
                             <dl>
-                                <dt @click="showGym(gym),go()" class="gymName" v-text="gym.name"  :title="'地址：'+gym.addr" > 
-                            
+                                <dt @click="showGym(gym),go()" class="gymName"   :title="'地址：'+gym.addr" > 
+                                        {{gym.name}}<span class="el-icon-search searchmap hidden-md hidden-sm hidden-lg"></span>
                                 </dt>
+                                
                             </dl>
                         </div>
                     </div>
@@ -250,6 +251,11 @@ import CitySelect from '~/components/CitySelect.vue'
         padding-top:1px; 
         *margin-right: 0px;
         display: inline;
+    }
+    .gymitem .searchmap{
+        margin-left: 5px;
+        font-weight: 700;
+        color:#33CCCC;
     }
     .gymitem .gymName{
         font-size: 1.6em;
@@ -518,6 +524,15 @@ import CitySelect from '~/components/CitySelect.vue'
 
 }
 @media screen and (max-width:767px){
+    .wrap{
+        overflow: hidden;
+    }
+    .subcaption{
+        padding-left: 14px;
+    }
+    .searches{
+        padding: 0 4%; 
+    }
     .add01{
         font-size: 9px;
     }
@@ -526,9 +541,18 @@ import CitySelect from '~/components/CitySelect.vue'
         padding: 0 0 10px;
 
     }
+    .addrItem h1{
+        font-size: 24px;
+        margin: 1% auto;
+    }
     .mapItem{
         padding: 0;
     }
+    .gym_detail {
+        margin: auto 5%;
+        font-size: 16px;
+    }
+
 }
 
 </style>

@@ -102,6 +102,7 @@
                       <p class="name" v-text="item.names[0]"></p>
                       <p class="name" v-text="item.names[1]"></p>
                       <p class="age" v-text="item.age"></p>
+                      <nuxt-link to="/search" class="visible-xs-block"><span  class="find">{{find}}</span></nuxt-link>
                       <p class="w-first hidden-xs" v-text="item.first"></p>
                       <!-- 隐藏的文字内容 -->
                       <div class="desc hidden hidden-xs">
@@ -190,6 +191,7 @@
                         <p class="name" v-text="item.names[0]"></p>
                         <p class="name" v-text="item.names[1]"></p>
                         <p class="age" v-text="item.age"></p>
+                        <nuxt-link to="/search" class="visible-xs-block"><span class="find">{{find}}</span></nuxt-link>
                         <p class="w-first hidden-xs" v-text="item.first"></p>
                         <!-- 隐藏的文字内容 -->
                         <div class="desc hidden hidden-xs">
@@ -272,6 +274,7 @@
                       <div class="CourseName" >
                         <p class="name" v-text="item.names"></p>
                         <p class="age" v-text="item.age"></p>
+                        <nuxt-link to="/search" class="visible-xs-block"><span  class="find">{{find}}</span></nuxt-link>
                         <p class="w-first hidden-xs" v-text="item.first"></p>
                         <!-- 隐藏的文字内容 -->
                         <div class="desc hidden hidden-xs">
@@ -699,6 +702,15 @@ export default {
   /* height:10%; */
   
 }
+/* 查找离您最近的中心 */
+.bottom li .CourseName .find{
+  color:#fff;
+  background-image: url(/img/index/btn_long_blue.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 3% 5% 2%;
+  font-size: 0.8em;
+}
 .bottom li .CourseName .w-first {
   font-size: 0.6em;
   overflow: hidden;
@@ -926,7 +938,13 @@ export default {
   }
   .bottom li .CourseName {
     font-size: 2.4em;
-    top:35%;
+    top:28%;
+  }
+  .bottom li .words{
+    width: 90%;
+  }
+  .bottom li .CourseName .age{
+    margin-bottom: 10px;
   }
  .bottom li .CourseName .name,.bottom li .CourseName .age{
     color:#fff;
@@ -952,7 +970,7 @@ export default {
   }
   
   .bottom li .show {
-    left:-25%;
+    left:12%;
   }
 
   .bottom li .bgc{

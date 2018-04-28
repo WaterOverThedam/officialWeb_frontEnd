@@ -98,7 +98,7 @@ export default {
 
   @media(max-width: 768px){
       .menu #logo img {
-          width:70px;
+          width:80px;
       }
    
   }

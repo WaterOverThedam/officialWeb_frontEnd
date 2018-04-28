@@ -8,7 +8,7 @@
             </div>
             <Waves></Waves>
             <!-- 导航栏 -->
-            <div :class="{'sticky':true,'fixed':isfixed}">
+            <div :class="{'sticky':true,'fixed':isfixed}" class="hidden-xs">
                <ul>
                    <li class="text-center">
                        <a v-for="(item,index) in nav" @click="switchType(index+1)" v-text="item.title" :style="{'background':`url(${item.pic}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"></a>

@@ -208,12 +208,12 @@ a {
         /* font-size:3.6em; */
         color:white;
         /* margin-top: 14%; */
-        margin-bottom: 30px;
+        /* margin-bottom: 30px; */
         /* //border:3px solid red; */
     }
     .balltext .view{
       /* font-size:10px; */
-      padding:10px 8px 5px 6px;
+      padding:10px 12px 5px 12px;
 
     }
 

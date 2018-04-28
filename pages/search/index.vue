@@ -155,6 +155,9 @@ export default {
   /* .menu{
     margin-left: 3%;
   }*/
+  .banner{
+   padding-top:56%;
+}
   .menu img {
     width: 25%;
     margin:auto 2%;

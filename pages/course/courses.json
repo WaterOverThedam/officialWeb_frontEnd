@@ -1,5 +1,6 @@
 {    
       "title":"我们的课程",
+      "find":"查找离您最近的中心",
       "courses":[{"id":"pk","name":"亲子运动"},{"id":"dance","name":"亲子舞蹈"},
         {"id":"ball","name":"亲子球类"},{"id":"prek","name":"学前运动"},
         {"id":"gras","name":"学龄运动"},

@@ -100,7 +100,7 @@
                 </span>
             </div>
             <!-- 底部内容 -->
-            <div class="row bto">
+            <div class="row bto hidden-xs">
                 <div class="col-sm-6 activity">
                     <h3 v-text="bto.p1"></h3>
                     <h3 v-text="bto.p2"></h3>
