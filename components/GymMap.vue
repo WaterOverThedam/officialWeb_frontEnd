@@ -94,10 +94,10 @@ import CitySelect from '~/components/CitySelect.vue'
  export default {
    head: {
     link: [
-        { rel:'stylesheet',type:'text/css',href:'css/map.css'},
+        { rel:'stylesheet',type:'text/css',href:'/css/map.css'},
     ], 
     script: [
-        {src: 'js/search.js'},
+        {src: '/js/search.js'},
     ]    
    },
    components: {
@@ -164,7 +164,7 @@ import CitySelect from '~/components/CitySelect.vue'
            gyms.push({name:g.name,coordinate:g.coordinate});
          }
        })
-       return encodeURI("page/map.html?gyms="+JSON.stringify(gyms))+'&city='+this.city+'&gym='+this.gym.name;
+       return encodeURI("/page/map.html?gyms="+JSON.stringify(gyms))+'&city='+this.city+'&gym='+this.gym.name;
      },
      baseUrl(){
         return this.$conf.evnData[this.$conf.env_cur].baseUrl;
