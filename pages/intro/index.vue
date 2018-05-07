@@ -253,6 +253,7 @@
                     }
                 })
             }else{
+                this.intro.BabyName=this.intro.BabyName.trim();
                 //格式化日期
                 this.intro.BabyBrithday=toDate_s(this.birthday);
                 this.$getDataAsync(this.baseUrl+"/api/saveIntro/",this.intro,this.saveResult);

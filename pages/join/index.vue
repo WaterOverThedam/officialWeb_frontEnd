@@ -182,6 +182,7 @@
                         }
                     })
                 }else{
+                    this.Join.UserName=this.Join.UserName.trim();
                     this.$getDataAsync(this.baseUrl+"/api/saveAppli/",this.Join,this.saveResult);
                 }
 

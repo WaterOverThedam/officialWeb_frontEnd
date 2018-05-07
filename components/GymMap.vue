@@ -126,6 +126,7 @@ import CitySelect from '~/components/CitySelect.vue'
           })
           var arr=[];
           var arr2=[];
+        //   将未开业和开业分开
           gymfilter.map(c=>{
               if(c.dtOpen>0){
                 arr.push(c.dtOpen)
@@ -134,17 +135,19 @@ import CitySelect from '~/components/CitySelect.vue'
               }    
           })
           var centers=[];
+        //   对开业的进行时间排序在合并未开业的
           arr = arr.sort(function(a,b){
               return a-b;
           }).concat(arr2);
           arr.map(d=>{
               gymfilter.map(g=>{
                   if(g.dtOpen==d){
-                      
                       centers.push(g)
                   }
               })
           })
+        //   因为未开业的时间相同 需要去重
+          centers = [...new Set(centers)]
           return centers;
         //   return gymfilter;
         
@@ -186,9 +189,9 @@ import CitySelect from '~/components/CitySelect.vue'
         location.href="#addrItem"
     },
  
-    // log(){
-    //     console.log(this.filterGyms);
-    // },
+    log(){
+        console.log(this.filterGyms);
+    },
      ...mapMutations([
         "switchCity"
      ]),
