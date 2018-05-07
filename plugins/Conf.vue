@@ -1,5 +1,5 @@
 <script>
-        const env_cur="prod";
+        const env_cur="test";
         const evnData={
                 //test:{baseUrl:"http://localhost:8888"},
                 test:{baseUrl:"http://interface.thelittlegym.com.cn"},

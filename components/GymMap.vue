@@ -41,7 +41,7 @@
         </div>
         <div class="row addr" v-show="isShow">
           <div class="col-md-12 col-sm-12 center" >
-              <div class="row " v-show="isShow">
+              <div class="row more-center" v-show="isShow">
                     <div v-for="(gym,index) in filterGyms" v-show="index<24"class="col-lg-3 col-md-3 col-sm-4 col-xs-12 result text-left gymitem">
                         <span class="marker" @click="showGym(gym)"  v-text="String.fromCharCode(65 + parseInt(index))"></span>
                         <div class="summery">
@@ -232,6 +232,8 @@ import CitySelect from '~/components/CitySelect.vue'
        overflow: hidden;
        
     }
+   
+
     .gymitem .marker {
         /* background: url(https://api.map.baidu.com/images/markers.png) -23px -275px no-repeat; */
         background-image: url(/img/search/marker.png) ;

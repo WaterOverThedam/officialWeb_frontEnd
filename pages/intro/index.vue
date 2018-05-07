@@ -13,7 +13,7 @@
                     <div class="form">
                         <h1 v-text="title[0]"></h1>
                         <h1 v-text="title[1]"></h1>
-                        <form id="IntroForm">
+                        <div id="IntroForm">
                             <ul>
                                 <li>
                                     <span>宝宝姓名: </span>
@@ -60,13 +60,11 @@
                                     </select>
                                 </li>
                                 <li>
-                                    <div class="form-group">
-                                        <button  :disabled="isDisabled" type="submit" v-text="btnword" @click.prevent="saveIntro()" class="text-center btn" :style="{'background':`url(${button}) no-repeat`,'background-size':'contain','-webkit-background-size':'100%'}"></button>
-                                    </div>
+                                     <button  :disabled="isDisabled"  v-text="btnword" @click.prevent="saveIntro()" class="text-center btn" :style="{'background':`url(${button}) no-repeat`,'background-size':'contain','-webkit-background-size':'100%'}"></button>
                                 </li>
                             </ul>
                             
-                        </form>
+                        </div>
                     </div>
                     
             </div>
@@ -210,10 +208,14 @@
             //     message: msg.content,
             //     type: msg.type
             //   });
-
+            
               this.$alert(msg.content, msg.title, {
                     confirmButtonText: '确定',
                     type: msg.type,
+                    callback:()=>{
+                        // this.isDisabled == res.code?false:true;
+                        this.isDisabled = false;
+                    }
                     //roundButton:true
               })
            },

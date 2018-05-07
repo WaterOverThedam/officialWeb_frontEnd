@@ -13,7 +13,7 @@
                 <h3 v-text="title[2]"></h3>
             </div>
             <div class="form" :style="{'background':`url(${form_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
-                <form action="javascript:0"  id="JoinForm">
+                <div id="JoinForm">
                     <!-- 姓名 -->
                     <div class="form-group">
                        <label>姓名</label>
@@ -37,9 +37,11 @@
                         <input v-model="Join.City" class="form-control" type="text" id="city" name="city" :style="{'background':`url(${input_bg}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
                     </div>
                     <div class="form-group">
-                        <button :disabled="isDisabled" type="submit" @click.prevent="saveJoin()" class="btn" v-text="submit"></button>
+                        <button :disabled="isDisabled"  @click.prevent="saveJoin()" class="btn" v-text="submit"></button>
                     </div> 
-                </form>
+
+                    
+                </div>
             </div>
             <!-- 主题内容 -->
             <div class="container">
@@ -148,7 +150,7 @@
                     confirmButtonText: '确定',
                     type: msg.type,
                     callback:()=>{
-                        this.isDisabled = res.code?false:true;
+                        this.isDisabled =false;
                     }
                     //roundButton:true
               })
@@ -156,7 +158,7 @@
             // 提交表单信息
 
             saveJoin(){
-                //this.isDisabled = true;
+                this.isDisabled = true;
                 // 判断
                 if(this.Join.UserName==''||this.Join.UserPhone==''||this.Join.UserEmail==''||this.Join.City==''){
                     var msg = "";
