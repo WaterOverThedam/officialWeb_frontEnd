@@ -39,12 +39,15 @@ $(function(){
 
 $('video').each(function(i,e){
     // console.log(e)
+
     e.pause();
+
     // e.currentTime = 0; IE存在问题
     exitFullscreen();
    
 })
 //  隐藏所有视频 显示所有背景图
+$('.loading').hide();
 $('.img').show();
 $('.play').show();
 $('video').hide();
@@ -56,6 +59,19 @@ $('video').hide();
       $(this).parent().find('video')[0].play();
   })
 
+//   视频缓冲放指定图片
+  $('video').on('waiting',function(){
+    //   console.log('正在缓冲');
+    $(this).parent().find('.loading').show();
+
+  })
+  $('video').on('playing',function(){
+    //   console.log('缓冲结束')
+  })
+
+
+
+
 //  视频结束自动回到最开始的状态
   $('video').on('ended',function(){
       $(this).parent().find('video')[0].currentTime=0;
@@ -63,6 +79,7 @@ $('video').hide();
       $(this).hide();
       $(this).parent().find('.img').show();
       $(this).parent().find('.play').show();
+      $(this).parent().find('.loading').hide();
       exitFullscreen() 
   });
 

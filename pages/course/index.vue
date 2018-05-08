@@ -72,6 +72,11 @@
               <span class="play">
                 <img :src="imgs.play" alt="播放按钮" title="点击播放">
               </span>
+              <!-- 缓冲加载图 -->
+              <span class="loading">
+                <img :src="imgs.loading" alt="加载" title="努力加载中">
+              </span>
+
               <span class="play playhover">
                 <img :src="imgs.playhover" alt="播放按钮" title="点击播放" draggable="false">
               </span>
@@ -142,6 +147,11 @@
                 <span class="play">
                   <img :src="imgs.play" alt="播放按钮" title="点击播放">
                 </span>
+                <!-- 缓冲加载图 -->
+                <span class="loading">
+                  <img :src="imgs.loading" alt="加载" title="努力加载中">
+                </span>
+
                 <span class="play playhover">
                   <img :src="imgs.playhover" alt="播放按钮" title="点击播放" draggable="false">
                 </span>
@@ -252,6 +262,11 @@
                 <span class="play">
                   <img :src="imgs.play" alt="播放按钮" title="点击播放">
                 </span>
+                 <!-- 缓冲加载图 -->
+                <span class="loading">
+                  <img :src="imgs.loading" alt="加载" title="努力加载中">
+                </span>
+
                 <span class="play playhover">
                   <img :src="imgs.playhover" alt="播放按钮" title="点击播放" draggable="false">
                 </span>
@@ -576,6 +591,16 @@ export default {
   cursor: pointer;
 
 }
+
+.middle .loading{
+  position:absolute;
+  left:50%;
+  top:40%;
+  transform: translate(-50%);
+  object-fit: cover;
+  display: none;
+}
+
 
 .middle .play img{
   transform: scale(1.5);

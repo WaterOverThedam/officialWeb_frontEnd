@@ -85,7 +85,8 @@ function toDate(input){
   }
 }
 
-function toDate_s(dt,hr=""){
+function toDate_s(dt){
+  hr=hr||"";
   var oDate=new Date(dt);
   if (hr==""){
      return oDate.getFullYear()+'-'+(f(oDate.getMonth()+1))+'-'+f(oDate.getDate());

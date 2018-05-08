@@ -35,6 +35,7 @@ $('.play').on('click',function(){
     exitFullscreen();
 })
 //  隐藏所有视频 显示所有背景图
+$('.loading').hide();
 $('.play').show();
 $('.img').show();
 $('video').hide();
@@ -47,6 +48,12 @@ $('video').hide();
   // })
 
 })
+//   视频缓冲放指定图片
+$('video').on('waiting',function(){
+  //   console.log('正在缓冲');
+  $(this).parent().find('.loading').show();
+
+})
 
 //  视频结束自动回到最开始的状态
   $('video').on('ended',function(){
@@ -55,6 +62,7 @@ $('video').hide();
       $(this).hide();
       $(this).parent().find('.img').show();
       $(this).parent().find('.play').show();
+      $(this).parent().find('.loading').hide();
       exitFullscreen() 
   });
 

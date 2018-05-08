@@ -29,6 +29,11 @@
                         <span class="play">
                             <img :src="play" alt="播放按钮" title="点击播放">
                         </span>
+                        <!-- 缓冲加载图 -->
+                        <span class="loading">
+                            <img :src="loading" alt="加载" title="努力加载中">
+                        </span>
+
                         <span class="play playhover">
                             <img :src="playhover" alt="播放按钮" title="点击播放" draggable="false">
                         </span>
@@ -53,6 +58,11 @@
                         <span class="play">
                             <img :src="play" alt="播放按钮" title="点击播放">
                         </span>
+                         <!-- 缓冲加载图 -->
+                        <span class="loading">
+                            <img :src="loading" alt="加载" title="努力加载中">
+                        </span>
+
                         <span class="play playhover">
                             <img :src="playhover" alt="播放按钮" title="点击播放" draggable="false">
                         </span>
@@ -283,6 +293,14 @@
                     img{
                         transform: scale(1.5);
                     }
+                }
+               .loading{
+                    position:absolute;
+                    left:50%;
+                    top:40%;
+                    transform: translate(-50%);
+                    object-fit: cover;
+                    display: none;
                 }
                 .playhover{
                     opacity: 0;

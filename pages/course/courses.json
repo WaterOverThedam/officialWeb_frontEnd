@@ -53,6 +53,7 @@
       "button":"/img/course/button.png",
       "play":"/img/index/play01.png",
       "playhover":"/img/index/play01-hover.png",
+      "loading":"/img/news/loading.gif",
       "sprite":"/img/index/sprite-accents-white.png",
       "course1":{
           "hz_03":"/img/course/0-3.png",
