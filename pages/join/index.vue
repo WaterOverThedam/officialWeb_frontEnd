@@ -61,7 +61,7 @@
                             </div> -->
                         </div>
                          <!-- 按钮 -->
-                        <span  class="button" :title="item.id" :class="index%2==0?'l':'r'">
+                        <span  class="button" title="点击了解更多" :dataId="item.id" :class="index%2==0?'l':'r'">
                                 
                                 <img :src="button" alt="">
                                 <!-- <span class="more">more</span> -->
@@ -121,7 +121,7 @@
             checkPhone(){
                 var result = this.Join.UserPhone.match(/^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/)
                 // console.log(this.Join.UserPhone)
-                console.log(result)
+                // console.log(result)
                 if(result!==null||this.Join.UserPhone==""){
                      this.msg=""
                 }

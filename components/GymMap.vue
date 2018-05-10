@@ -40,10 +40,11 @@
              </div>
         </div>
         <div class="row addr" v-show="isShow">
-          <div class="col-md-12 col-sm-12 center" >
-              <div class="row more-center" v-show="isShow">
+            <div class="col-md-12 col-sm-12 center hidden-xs" >
+              <div class="row more-center show1" v-show="isShow">
+                  
                     <div v-for="(gym,index) in filterGyms" v-show="index<24"class="col-lg-3 col-md-3 col-sm-4 col-xs-12 result text-left gymitem">
-                        <span class="marker" @click="showGym(gym)"  v-text="String.fromCharCode(65 + parseInt(index))"></span>
+                        <span class="marker" @click="showGym(gym),go()"  v-text="String.fromCharCode(65 + parseInt(index))"></span>
                         <div class="summery">
                             <dl>
                                 <dt @click="showGym(gym),go()" class="gymName"   :title="'地址：'+gym.addr" > 
@@ -52,13 +53,29 @@
                                 
                             </dl>
                         </div>
-
-
-
-                        
                     </div>
               </div>
-          </div>
+            </div>
+            <!-- 移动端使用 -->
+            <div class="col-md-12 col-sm-12 center visible-xs-block" >
+                <div class="row more-center show1" v-show="isShow">
+                  
+                    <div v-for="(gym,index) in filterGyms" v-show="min<=index&&index<max"class="col-lg-3 col-md-3 col-sm-4 col-xs-12 result text-left gymitem">
+                        <span class="marker" @click="showGym(gym),go()"  v-text="String.fromCharCode(65 + parseInt(index))"></span>
+                        <div class="summery">
+                            <dl>
+                                <dt @click="showGym(gym),go()" class="gymName"   :title="'地址：'+gym.addr" > 
+                                        {{gym.name}}<span class="el-icon-search searchmap hidden-md hidden-sm hidden-lg"></span>
+                                </dt>
+                                
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul v-show="page>1" class="centerPage hidden-md hidden-sm hidden-lg" >
+                <li v-for="(item,index) in page" v-text="item" @click="changePage(index)"></li>
+            </ul>
         </div>
         <!-- <div @click="test()" class="row searches"> -->
         <div  class="row searches " v-show="isShow">
@@ -112,6 +129,9 @@ import CitySelect from '~/components/CitySelect.vue'
        citySelected:"",
        gymChoose:"",
        isShow:false,
+       page:'',
+       min:0,
+       max:6,
      }
    },
    computed: {
@@ -180,14 +200,42 @@ import CitySelect from '~/components/CitySelect.vue'
    watch:{
        city:function(){
                 this.isShow=true;
+                var test=this.filterGyms.map(c=>{
+                    return c.name;
+                })
+                this.page = Math.ceil(test.length/6);
+                this.min = 0;
+                this.max =6;
+            //    console.log(this.page);
+
        }
    },
    methods: {
     ifShowCenter(){
         if(this.city!=''){
              this.isShow=true;
+                var test=this.filterGyms.map(c=>{
+                    return c.name;
+                })
+                this.page = Math.ceil(test.length/6);
+                // this.totles = test.length.toString()
         }
        
+    },
+    changePage(index){
+        if(index==0){
+            this.min=0;
+            this.max=6;
+        }else if(index==1){
+            this.min =6;
+            this.max = 12;
+        }else if(index==2){
+            this.min =12;
+            this.max = 18;
+        }else{
+            this.min =18;
+            this.max = 24;
+        }
     },
     go(){
         location.href="#addrItem"
@@ -206,6 +254,7 @@ import CitySelect from '~/components/CitySelect.vue'
      showGym(g){
         this.gymChoose = g;
         //this.$router.push("#map");
+       
      },
      test() {
         alert(JSON.stringify(this.city))
@@ -216,6 +265,9 @@ import CitySelect from '~/components/CitySelect.vue'
             this.$getData(this.baseUrl+"/api/getGymByCity/-1",'Gyms');
         }
         
+      
+
+
         $('.shade').hover(function () {
             for(var i = 0,len=$('.add01').length;i<len;i++){
                 $('.shade').eq(i).next('.add01').hide().next('.add01_con').hide()
@@ -303,12 +355,20 @@ import CitySelect from '~/components/CitySelect.vue'
     .addr .center{
         /* position: absolute */
     }
-    /* .addrItem {
-        height: 430px;
-        color: white;
-        background-color:#0FB1D8;
-
-    } */
+    /* 中心分页 */
+    .centerPage {
+        padding: 0;
+    }
+    .centerPage li{
+       display: inline-block;
+       margin: 12px 8px 0;
+       background-color: #33CCCC;
+       color: #fff;
+       width: 22px;
+       height:22px;
+       line-height: 22px;
+       vertical-align: middle;
+    }
     .addrItem h1{
         padding-top: 5%!important;
         margin:5% auto;
@@ -549,6 +609,9 @@ import CitySelect from '~/components/CitySelect.vue'
         height: auto;
         padding: 0 0 10px;
 
+    }
+    .addr{
+        margin: 20px auto 5px;
     }
     .addrItem h1{
         font-size: 24px;
