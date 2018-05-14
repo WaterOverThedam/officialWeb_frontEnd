@@ -21,7 +21,7 @@
                     <div class="center">
                         
                         <div class="desc">
-                            <img :src="alertPic" alt="">
+                            <img :src="alertPic" alt="" class="news_top">
                         </div>
                         <h3 v-text="alertTitle"></h3>
                         <div class="line">
@@ -128,6 +128,7 @@
                 alertPic:'',
                 alertTitle:'',
                 alertContent:'',
+                
 
             }
         },
@@ -139,6 +140,7 @@
             GoTop,
             Waves
         },
+  
         methods: {
             // 过滤字符串
             // str(str){
@@ -147,6 +149,8 @@
             // 新闻详情
             showNews(item){
                 // console.log(item);
+                // console.log(this.News.list);
+            
                 this.alertPic= item.headPic;
                 this.alertTitle= item.title;
                 this.alertContent= item.content;
@@ -176,6 +180,7 @@
                     LanguageType:this.LanguageType
                 }
                 this.$getData(this.baseUrl+"/api/getNews",'News',param);
+                
                
             },
             // 导航固定
@@ -197,6 +202,8 @@
                this.getNews();
               
             }
+          
+
             // window.addEventListener('scroll',this.stickyHeader);
         },
         destroyed(){
@@ -281,6 +288,9 @@
             background-size: 100% 100%;
             // background-clip: content-box;
             background-position: center;
+            .border,.news_top{
+                width: 100%;
+            }
             .detail{
                 height:500px;
                 overflow: auto;
