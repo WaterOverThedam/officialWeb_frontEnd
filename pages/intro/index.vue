@@ -471,6 +471,26 @@
         }
     }
 }
+@media screen and (min-width:1600px) {
+    .bespeak{
+        .formbg{
+            .form{
+                h1{
+                   font-size: 6em;
+                }
+                li{
+                   font-size: 1.6em;
+                   input{
+                       font-size: 21px;
+                   }
+                   select{
+                       font-size: 21px;
+                   }
+                }
+            }
+        }
+    }
+}
 @media screen and (min-width:1440px) {
     .bespeak{
         .formbg{

@@ -59,6 +59,13 @@
 .el-pager li {
     font-size: 20px;
 }
+@media (min-width:1600px){
+    .el-date-editor .el-input__inner{
+        height:40px;
+        line-height: 40px;
+        font-size: 18px;
+    }
+}
 @media (min-width:1200px){
     /* element组件  底部新闻页面分页组件*/
     .el-carousel__container{

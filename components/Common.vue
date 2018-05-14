@@ -82,7 +82,7 @@
     .common{
         .rigth_pic{
         
-            top: 25%;
+            top: 34%;
         }
     }
 
