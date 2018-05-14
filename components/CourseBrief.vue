@@ -298,6 +298,7 @@
 
 }
 
+
 @media screen  and (min-width:"1200px"){
     .read{
         .bg-top .image{
@@ -308,13 +309,22 @@
             height:600px;
             ul{
         
-                bottom:-14%;
+                bottom:-10%;
 
             }
         
         }
         
        
+    }
+}
+@media screen  and (min-width:"1600px"){
+    .read{
+        .news{
+            ul{
+                bottom:-22%;
+            }
+        }  
     }
 }
 @media screen and (max-width:1200px){
