@@ -77,6 +77,17 @@
             top: 21%;
         }
     }
+// 处理超大屏不隐藏人物
+@media (min-width: 1600px) { 
+    .common{
+        .rigth_pic{
+        
+            top: 25%;
+        }
+    }
+
+    
+ }
 @media screen and (max-width:1200px){
     .common{
         padding-bottom: 60%;

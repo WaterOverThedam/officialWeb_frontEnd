@@ -59,12 +59,13 @@ $('video').hide();
       $(this).parent().find('video')[0].play();
   })
 
-//   视频缓冲放指定图片
+//   视频缓冲放指定图片  缓冲中
   $('video').on('waiting',function(){
     //   console.log('正在缓冲');
     $(this).parent().find('.loading').show();
 
   })
+//   缓冲结束执行
   $('video').on('playing',function(){
     //   console.log('缓冲结束')
   })
@@ -128,11 +129,9 @@ $('.during').click(function(e){
 // 文字显示
 $('.btn-more').click(function(e){
     e.preventDefault();
-    var i = Number($(this).attr('title'));
+    var i = Number($(this).attr('dataId'));
     if($('.desc').eq(i).hasClass('hidden')){
-        console.log($('.desc'))
-        console.log($('.w-first'))
-        console.log($('.btn-more'))
+       
         $('.w-first').removeClass('hidden').eq(i).addClass('hidden');
         // console.log($('.first').eq(i));
         $('.desc').addClass('hidden').eq(i).removeClass('hidden');

@@ -294,16 +294,19 @@
     }
 
 }
+
 @media screen  and (min-width:"1200px"){
     .read{
        .news{
             height:600px;
-         img{
-            
-             height:150px;
-          
+            ul{
+        
+                bottom:-14%;
+
+            }
+        
         }
-    }
+        
        
     }
 }
@@ -313,6 +316,7 @@
             padding:30px 5%;;
             font-size: 36px;
         }
+       
     }
       
 }

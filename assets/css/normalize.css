@@ -148,12 +148,12 @@ video::-webkit-media-controls-panel {
 
 
 .page-enter-active, .page-leave-active {
-  transition: opacity 0.28s;
+  transition: opacity 0.5s;
   
 
 }
 
-.page-enter, .page-leave-active {
-  opacity:0.6;
+.page-enter, .page-leave-to {
+  opacity:0.4;
 
 }

@@ -15,8 +15,6 @@
       <!-- <div class="banner" :style="{'background':`url(${banner[1]}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"> </div>  -->
        
       <component :is="map" :global="global" :american="american"></component>
- 
-      <!-- <CourseBrief></CourseBrief> -->
     </main>
     <GoTop></GoTop>
    
@@ -33,7 +31,6 @@ import Waves from '~/components/Waves.vue'
 import GymMap from '~/components/GymMap.vue'
 import AmericanMap from '~/components/AmericanMap.vue'
 import GlobalMap from '~/components/GlobalMap.vue'
-// import CourseBrief from '~/components/CourseBrief.vue'
 import MyFooter from '~/components/MyFooter.vue'
 
 import GoTop from '~/components/GoTop.vue'
@@ -45,7 +42,7 @@ import { mapActions } from 'vuex'
 
 export default {
   head:{
-    title:"查找中心",
+    title:"小小运动馆中国_全国更多小小运动馆即将开业",
     script: [
         {src: '/js/search.js'},
         
@@ -69,7 +66,6 @@ export default {
   components: {
     Waves,
     MyNav,
-    // CourseBrief,
     GymMap,
     AmericanMap,
     GlobalMap,

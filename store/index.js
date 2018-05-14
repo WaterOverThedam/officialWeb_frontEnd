@@ -56,7 +56,6 @@ const createStore = () => {
       increment (state) {
         if(state.counter++>10000){
             state.counter=0;
-            //console.log(state.counter);
         }
       },
       changeLanguage(state,c){

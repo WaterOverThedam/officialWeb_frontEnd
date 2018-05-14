@@ -28,7 +28,7 @@
           <div class="title">
             <span class="h" v-text="txt.p1.title"></span>
             <span class="hz">
-              <img :src="imgs.course1.hz_03" alt="">
+              <img :src="imgs.course1.hz_03" alt="0-3岁" title="0-3岁">
             </span>
           </div>
           <!-- 文字介绍 -->
@@ -116,7 +116,7 @@
                       
                   </div>
                   <!-- 按钮 -->
-                  <span  class="btn-more hidden-xs" :title="index" :class="index%2==0?'l':'r'">
+                  <span  class="btn-more hidden-xs" title="点击了解更多" :dataId="index" :class="index%2==0?'l':'r'">
                       <img :src="imgs.button" alt="">    
                   </span>
                   
@@ -132,7 +132,7 @@
            <div class="title">
               <span class="h" v-text="txt.p2.title"></span>
               <span class="hz">
-                <img :src="imgs.course2.hz_36" alt="">
+                <img :src="imgs.course2.hz_36" alt="3-6岁" title="3-6岁">
               </span>
            </div>
           <div class="text">
@@ -209,7 +209,7 @@
                         </div>
                     </div>
                     <!-- 按钮 -->
-                    <span  class="btn-more hidden-xs" :title="index+3" :class="index%2==0?'l':'r'">
+                    <span  class="btn-more hidden-xs" title="点击了解更多" :dataId="index+3" :class="index%2==0?'l':'r'">
                       <img :src="imgs.button" alt="">    
                     </span>
                     
@@ -226,7 +226,7 @@
            <div class="title">
               <span class="h" v-text="txt.p3.title"></span>
               <span class="hz">
-                <img :src="imgs.course3.hz_612" alt="">
+                <img :src="imgs.course3.hz_612" alt="6-12岁" title="6-12岁">
               </span>
            </div>
           <div class="text">
@@ -298,7 +298,7 @@
                       
                       </div>
                       <!-- 按钮 -->
-                    <span  class="btn-more hidden-xs" :title="index+7" :class="index%2==0?'l':'r'">
+                    <span  class="btn-more hidden-xs" title="点击了解更多" :dataId="index+7" :class="index%2==0?'l':'r'">
                       <img :src="imgs.button" alt="">    
                     </span>
                       
@@ -335,7 +335,7 @@ import GoTop from '~/components/GoTop.vue'
 
 export default {
   head:{
-    title:"我们的课程",
+    title:"小小运动馆早教课程-婴儿_幼儿_宝宝_儿童早教课程大全",
     script: [
       {src: '/js/course.js'}
     ]

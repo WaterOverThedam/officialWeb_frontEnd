@@ -94,7 +94,7 @@
 
     export default {
         head:{
-            "title":"加盟中心",
+            "title":"一个大胆的想法-一个蓬勃发展的事业-早教加盟机会-小小运动馆",
             link:[
                 { rel:'stylesheet',type:'text/css',href:'/css/reset.css'}
             ],

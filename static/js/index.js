@@ -9,7 +9,6 @@ window.onload=function(){
       if(fIEVersion<=8){
         warn.style.display="block";
       }
-      // console.log(111)
     };
     // $("#center").click(function(){
     //   alert(1111)

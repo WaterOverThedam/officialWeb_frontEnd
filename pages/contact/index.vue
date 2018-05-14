@@ -33,7 +33,7 @@
 
     export default {
         head:{
-            title:"联系我们", 
+            title:"中国总部-The Little Gym小小运动馆中国", 
         },
         computed:{
              ...mapState([

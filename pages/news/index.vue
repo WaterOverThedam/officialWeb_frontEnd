@@ -3,8 +3,7 @@
 		<MyNav></MyNav>
         <main>
             <div  id="banner" :style="{'background':`url(${banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">  
-                  <!-- <img class="left"   :src="cloud" alt="">
-                  <img class="right" :src="cloud" alt=""> -->
+            
             </div>
             <Waves></Waves>
             <!-- 导航栏 -->
@@ -96,7 +95,7 @@
     import GoTop from '~/components/GoTop.vue'
     export default {
          head:{
-            title:"新闻中心",
+            title:"第1页 The Little Gym小小运动馆-新闻中心_最新新闻_早教新闻报道",
              link:[ 
                 { rel:'stylesheet',type:'text/css',href:'/css/reset.css'}
             ],

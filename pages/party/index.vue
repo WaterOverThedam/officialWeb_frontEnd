@@ -99,7 +99,7 @@
 
     export default {
         head:{
-            title:"派对和夏令营",
+            title:"派对和活动-儿童_宝宝_亲子生日派对和活动-The Little Gym小小运动馆中国",
             script:[
                  {src: '/js/party.js'},
             ]

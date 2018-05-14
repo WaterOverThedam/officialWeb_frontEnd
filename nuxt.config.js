@@ -43,6 +43,8 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   plugins: ['~plugins/vue-jsonp','~/plugins/element-ui','~/plugins/function' ,{ src: '~/plugins/localStorage.js', ssr: false }],
+
+ 
   /*
   ** Build configuration
   */

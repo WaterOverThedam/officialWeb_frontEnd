@@ -4,11 +4,9 @@ swiper();
 
 window.onresize = function(){
     swiper();
-    // console.log(111)
 }
 function swiper(){
     var userAgentInfo = navigator.userAgent;
-    // console.log(userAgentInfo);
       // 声明父盒子
       var dom = $('.news');
      
@@ -32,15 +30,13 @@ function swiper(){
         var next = $('.arrow-next');
 
         prev.click(function(){
-            console.log(1111)
             prevImg();
         })
         next.click(function(){
             nextImg();
         })
         lis.click(function(){
-            // console.log(1111)
-            console.log($(this).index())
+            // console.log($(this).index())
             
             index=$(this).index();
             move()
@@ -95,7 +91,7 @@ function swiper(){
   
       // 上一张
       function prevImg(){
-          console.log(index)
+        //   console.log(index)
           if(index==0){
               box.css({left:3*-speed});
               index=3;
@@ -115,7 +111,7 @@ function swiper(){
           }
           index++;
           move()
-          console.log(index)
+        //   console.log(index)
       }
 
       dom.mousedown(function(e){
@@ -146,11 +142,6 @@ function swiper(){
          
       })
   
-  
-  
-  
-  
-
 }
 
 

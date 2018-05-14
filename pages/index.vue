@@ -47,7 +47,7 @@ import { mapActions } from 'vuex'
 
 export default {
   head:{
-    title:"小小运动馆官网",
+    title:"小小运动馆-给孩子一生的自信和成功|亲子早教_儿童运动早教中心_早教机构",
     script: [
         {src: '/js/index.js'}
     ] 
