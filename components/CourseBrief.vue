@@ -1,7 +1,7 @@
 <template>
 <div class="container-fluid read">
     <div class="row bg-top">
-        <div :style="{'background':`url(${top_url[1]}) no-repeat`,'background-size':'100% 100%'}"  class="col-sm-12 text-center image" >
+        <div   class="col-sm-12 text-center image" >
             <p><img :src="top_url[0]" height="191" width="351"/></p>
              <h1 class="media-heading text-center">{{top_title}}</h1>
         </div>
@@ -168,6 +168,7 @@
     .image{
         height: 300px;
         padding: 0px;
+        
     }
     .bg-top h1 {
         font-size: 36px;
@@ -188,6 +189,8 @@
     .bg-top .image{
         height: 200px;
         margin: 0px;
+        background-image: url(/img/index/blog-clouds-bg.png);
+        background-repeat: no-repeat;
     }
     .news{
         // padding: 0  2%;
@@ -297,7 +300,11 @@
 
 @media screen  and (min-width:"1200px"){
     .read{
-       .news{
+        .bg-top .image{
+            background-size: 100% 100%;
+   
+        }
+        .news{
             height:600px;
             ul{
         
