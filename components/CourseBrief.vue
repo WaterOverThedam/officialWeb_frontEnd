@@ -205,6 +205,7 @@
             position: absolute;
             width: 200%;
             height:100%;
+            z-index: 10;
             .gym-box{
                 background-color: #fff;
             }
