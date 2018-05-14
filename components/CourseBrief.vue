@@ -1,7 +1,7 @@
 <template>
 <div class="container-fluid read">
     <div class="row bg-top">
-        <div :style="{'background':`url(${top_url[1]}) no-repeat`}"  class="col-sm-12 text-center image" >
+        <div :style="{'background':`url(${top_url[1]}) no-repeat`,'background-size':'100% 100%'}"  class="col-sm-12 text-center image" >
             <p><img :src="top_url[0]" height="191" width="351"/></p>
              <h1 class="media-heading text-center">{{top_title}}</h1>
         </div>
