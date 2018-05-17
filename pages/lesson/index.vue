@@ -35,7 +35,7 @@ export default {
 <style>
 /*使用资源符~*/
 	.bgpic{
-		background-image:url(~/assets/img/Hydrangeas.jpg);
+		/* background-image:url(~/assets/img/Hydrangeas.jpg); */
 		height: 500px;
 		width: 500px;
 
