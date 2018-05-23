@@ -2,7 +2,8 @@
  <div class="course"> 
     <MyNav></MyNav>
     <main>
-      <div @click="goToCourse" id="banner" :style="{'background':`url(${imgs.banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
+      <!-- <div @click="goToCourse" id="banner" :style="{'background':`url(${imgs.banner}) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}"> -->
+      <div @click="goToCourse" id="banner" :style="{'background':`url(https://tlgc.oss-cn-shanghai.aliyuncs.com/assert/img/banner.jpg) no-repeat`,'background-size':'cover','-webkit-background-size':'100%'}">
           <!-- <p v-text="title"></p> -->
       </div>
       <Waves></Waves>

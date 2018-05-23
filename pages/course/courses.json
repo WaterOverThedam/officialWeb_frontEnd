@@ -41,7 +41,6 @@
         }
     },
     "imgs":{
-      "banner":"/img/course/banner.jpg",
       "move":"/img/course/move.png",
       "ageduring":"/img/course/age.png",
       "level1":"/img/course/lv1.png",
